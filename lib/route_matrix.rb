@@ -47,8 +47,7 @@ response = get_route_matrix(key, places)
 results = {}
 
 places.each_with_index do |origin_id, origin_index|
-  place = mapping_place_id_to_name(key, origin_id)
-  results[place] = reorganize_response(response, origin_index)
+  results[origin_id] = reorganize_response(response, origin_index)
 end
 
 File.write('spec/fixtures/routes_matrix_results.yml', results.to_yaml)
