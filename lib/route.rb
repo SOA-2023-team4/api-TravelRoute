@@ -30,8 +30,5 @@ origin_dest_pair = [
   %w[ImAIdthatdoesntexist ChIJl78Wnt01aDQRz1shOsBVUGU]
 ]
 results = {}
-origin_dest_pair.each { |origin, dest|
-  results["#{origin}|#{dest}"] = get_route(key, origin, dest)
-}
-
+origin_dest_pair.each { |origin, dest| results["#{origin}|#{dest}"] = get_route(key, origin, dest) }
 File.write('spec/fixtures/routes_results.yml', results.to_yaml)
