@@ -5,15 +5,23 @@ class Route
     @route = route_data
   end
 
+  def origin_name
+    @route['origin']['name']
+  end
+
   def origin_id
-    @route['origin_id']
+    @route['origin']['id']
+  end
+
+  def destination_name
+    @route['destination']['name']
   end
 
   def destination_id
-    @route['destination_id']
+    @route['destination']['id']
   end
 
-  def distanceMeters
+  def distance_meters
     @route['distanceMeters']
   end
 
