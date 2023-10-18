@@ -18,15 +18,15 @@ end
 
 def detailed_place(key, place)
   places = search_places(key, place)
-  return places if places['candidates'].empty?
-
-  place_id = places['candidates'].first['place_id']
   url = 'https://maps.googleapis.com/maps/api/place/details/json'
-  HTTP.get(url, params: {
-             fields: 'name,place_id,formatted_address,geometry,opening_hours,rating,business_status',
-             place_id:,
-             key:
-           }).parse['result']
+  candidates = places['candidates'].map do |candidate|
+    HTTP.get(url, params: {
+               fields: 'name,place_id,formatted_address,geometry,opening_hours,rating,business_status',
+               place_id: candidate['place_id'],
+               key:
+             }).parse['result']
+  end
+  { 'matches' => candidates }
 end
 
 places = %w[國立清華大學 巨城 新竹動物園 不要回傳任何東西地方]
