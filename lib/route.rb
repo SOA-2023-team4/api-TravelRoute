@@ -1,35 +1,30 @@
 # frozen_string_literal: true
 
-class Route
-  def initialize(route_data)
-    @route = route_data
-  end
+module TravelRoute
+  # Data structure for place information
+  class Route
+    def initialize(route_data)
+      @route = route_data
+    end
 
-  def origin_name
-    @route['origin']['name']
-  end
+    def origin
+      @route['origin']
+    end
 
-  def origin_id
-    @route['origin']['id']
-  end
+    def destination
+      @route['destination']
+    end
 
-  def destination_name
-    @route['destination']['name']
-  end
+    def distance_meters
+      @route['distanceMeters']
+    end
 
-  def destination_id
-    @route['destination']['id']
-  end
+    def duration
+      @route['duration']
+    end
 
-  def distance_meters
-    @route['distanceMeters']
-  end
-
-  def duration
-    @route['duration']
-  end
-
-  def polyline
-    @route['polyline']['encodedPolyline']
+    # def polyline
+    #   @route['polyline']['encodedPolyline'] || nil
+    # end
   end
 end
