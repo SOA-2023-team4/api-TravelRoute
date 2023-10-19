@@ -1,53 +1,46 @@
 # frozen_string_literal: true
 
-require 'http'
-require 'yaml'
+module TravelRoute
+  # Data structure for Route Matrix
+  class RouteMatrix
+    def initialize(matrix_data, places)
+      @matrix_data = matrix_data
+      @places = places
+    end
 
-config = YAML.safe_load_file('config/secrets.yml')
-key = config['MAPS_API_KEY']
+    def nearest_from(place, except = [])
+      nearest = possible_routes(place, except).min_by { |m| m['duration'].delete('s').to_i }
+      destination = places_at(nearest['destinationIndex'])
+      route_data = nearest.merge('origin' => place, 'destination' => destination)
+      Route.new(route_data)
+    end
 
-def headers(key)
-  HTTP.headers(
-    'Content-Type': 'application/json',
-    'X-Goog-Api-Key': key,
-    'X-Goog-FieldMask': 'originIndex,destinationIndex,duration,distanceMeters,status'
-  )
+    def construct_route_from(origin)
+      route = []
+      except = []
+      (@places.size - 1).times do
+        route << nearest_from(origin, except)
+        except << origin
+        origin = route.last.destination
+      end
+      route
+    end
+
+    private
+
+    def index_of(place)
+      @places.index(place)
+    end
+
+    def places_at(index)
+      @places[index]
+    end
+
+    def possible_routes(origin, except = [])
+      except_index = ([origin] + except).map { |exp| index_of(exp) }
+      @matrix_data.select do |m|
+        m['originIndex'] == except_index.first && !except_index.include?(m['destinationIndex'])
+      end
+    end
+  end
 end
-
-def get_route_matrix(key, places)
-  url = 'https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix'
-  headers(key).post(url, 'json': {
-                      'origins': waypoints(places),
-                      'destinations': waypoints(places),
-                      'travelMode': 'DRIVE'
-                    }).parse
-end
-
-def waypoints(places)
-  places.map { |p| { 'waypoint': { 'place_id': p } } }
-end
-
-def mapping_place_id_to_name(key, place_id)
-  url = 'https://maps.googleapis.com/maps/api/place/details/json'
-  response = HTTP.get(url, params: {
-                        fields: 'name',
-                        place_id:,
-                        key:
-                      }).parse['result']
-  response.nil? ? 'InvalidPlace' : response['name']
-end
-
-def reorganize_response(response, index)
-  response.select { |r| r['originIndex'] == index && r['destinationIndex'] != index }
-end
-
-places = %w[ChIJB7ZNzXI2aDQREwR22ltdKxE ChIJQyv318Q1aDQRYz_krC4mdb4 ChIJl78Wnt01aDQRz1shOsBVUGU ImAIdthatdoesntexist]
-
-response = get_route_matrix(key, places)
-results = {}
-
-places.each_with_index do |origin_id, origin_index|
-  results[origin_id] = reorganize_response(response, origin_index)
-end
-
-File.write('spec/fixtures/routes_matrix_results.yml', results.to_yaml)
