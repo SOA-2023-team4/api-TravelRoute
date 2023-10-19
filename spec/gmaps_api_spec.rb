@@ -70,4 +70,40 @@ describe 'Tests Google Maps API library' do
       end).must_raise TravelRoute::ApiResponse::Errors::Unauthorized
     end
   end
+
+  describe 'Route Matrix information' do
+    before do
+      @nthu = TravelRoute::Place.new(PLACE_RESULT[PLACES[0]]['matches'][0])
+      @zoo = TravelRoute::Place.new(PLACE_RESULT[PLACES[2]]['matches'][0])
+      @big_city = TravelRoute::Place.new(PLACE_RESULT[PLACES[1]]['matches'][0])
+
+      @places = [@nthu, @zoo, @big_city]
+    end
+
+    it 'HAPPY: should return nearest destination' do
+      matrix = TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).get_route_matrix(@places)
+      _(matrix.nearest_from(@nthu).origin.name).must_equal @nthu.name
+      _(matrix.nearest_from(@nthu).origin.id).must_equal @nthu.id
+      _(matrix.nearest_from(@nthu).destination.name).must_equal @zoo.name
+      _(matrix.nearest_from(@nthu).destination.id).must_equal @zoo.id
+    end
+
+    it 'HAPPY: should return correct route' do
+      matrix = TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).get_route_matrix(@places)
+      route = matrix.construct_route_from(@nthu)
+      _(route.size).must_equal @places.size - 1
+      route.each_with_index do |r, i|
+        _(r.origin.name).must_equal @places[i].name
+        _(r.origin.id).must_equal @places[i].id
+        _(r.destination.name).must_equal @places[i + 1].name
+        _(r.destination.id).must_equal @places[i + 1].id
+      end
+    end
+
+    it 'BAD: should raise exception when unauthorized' do
+      _(proc do
+        TravelRoute::GoogleMapsApi.new('bad_token').get_route_matrix(@places)
+      end).must_raise TravelRoute::ApiResponse::Errors::Unauthorized
+    end
+  end
 end
