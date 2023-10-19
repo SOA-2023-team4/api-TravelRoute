@@ -69,7 +69,6 @@ module TravelRoute
                             origins: places.map { |p| { waypoint: { place_id: p.id } } },
                             destinations: places.map { |p| { waypoint: { place_id: p.id } } }
                           })
-
       response = call_post_api(url, json:).body
 
       RouteMatrix.new(response, places)
