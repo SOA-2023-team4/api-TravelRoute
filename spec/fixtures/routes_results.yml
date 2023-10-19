@@ -1,0 +1,18 @@
+---
+ChIJB7ZNzXI2aDQREwR22ltdKxE|ChIJQyv318Q1aDQRYz_krC4mdb4:
+  routes:
+  - distanceMeters: 3195
+    duration: 492s
+    polyline:
+      encodedPolyline: y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLm@pCcFjTk@zCO`A_@|EuAtNK|@c@fBaAbAeEzCQFa@VaAz@yDfCiDuGQe@[qAm@f@cBhA
+ChIJB7ZNzXI2aDQREwR22ltdKxE|ChIJl78Wnt01aDQRz1shOsBVUGU:
+  routes:
+  - distanceMeters: 2283
+    duration: 427s
+    polyline:
+      encodedPolyline: y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@\FtGjBVNp@`B@TtCxGdB`Di@JE@]o@IUOOGH@HQNCF
+ImAIdthatdoesntexist|ChIJl78Wnt01aDQRz1shOsBVUGU:
+  error:
+    code: 400
+    message: Place ID "ImAIdthatdoesntexist" is invalid.
+    status: INVALID_ARGUMENT
