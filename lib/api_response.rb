@@ -48,7 +48,6 @@ module TravelRoute
 
     def body
       raise HTTP_ERROR[status_code] unless ok?
-      # raise RETURN_STATUS[status_message] unless successful?
 
       @body
     end
