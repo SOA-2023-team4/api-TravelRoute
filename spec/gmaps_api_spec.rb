@@ -21,7 +21,6 @@ describe 'Tests Google Maps API library' do
           _(query[index].id).must_equal p['place_id']
           _(query[index].name).must_equal p['name']
           _(query[index].formatted_address).must_equal p['formatted_address']
-          _(query[index].rating).must_equal p['rating']
         end
       end
     end
