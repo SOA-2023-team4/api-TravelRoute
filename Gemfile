@@ -4,3 +4,7 @@ source 'https://rubygems.org'
 
 gem 'http'
 gem 'yaml'
+
+gem 'minitest'
+gem 'minitest-rg'
+gem 'rubocop'
