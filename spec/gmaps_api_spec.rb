@@ -4,6 +4,9 @@ require 'minitest/autorun'
 require 'minitest/unit'
 require 'minitest/rg'
 require 'yaml'
+require 'vcr'
+require 'webmock'
+
 require_relative '../lib/gmaps_api'
 
 CONFIG = YAML.safe_load_file('config/secrets.yml')
@@ -11,8 +14,28 @@ GMAP_TOKEN = CONFIG['MAPS_API_KEY']
 PLACE_RESULT = YAML.safe_load_file('spec/fixtures/places_results.yml')
 PLACES = %w[國立清華大學 巨城 新竹動物園].freeze
 ROUTE_RESULT = YAML.safe_load_file('spec/fixtures/routes_results.yml')
+CASSETTES_FOLDER = 'spec/fixtures/cassettes'
+CASSETTE_FILE = 'gmaps_api'
 
 describe 'Tests Google Maps API library' do
+  VCR.configure do |c|
+    c.cassette_library_dir = CASSETTES_FOLDER
+    c.hook_into :webmock
+
+    c.filter_sensitive_data('<GMAP_TOKEN>') { GMAP_TOKEN }
+    c.filter_sensitive_data('<GMAP_TOKEN_ESC>') { CGI.escape(GMAP_TOKEN) }
+  end
+
+  before do
+    VCR.insert_cassette CASSETTE_FILE,
+                        record: :new_episodes,
+                        match_requests_on: %i[method path headers query body]
+  end
+
+  after do
+    VCR.eject_cassette
+  end
+
   describe 'Place information' do
     it 'HAPPY: should provide correct place information' do
       PLACES.each do |place|
