@@ -1,0 +1,7 @@
+---
+  detectors:
+    IrresponsibleModule:
+      enabled: false
+  exclude_paths:
+    - _snippets
+    - lib/maps_info.rb # one-time test fixture creator
