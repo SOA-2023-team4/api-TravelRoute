@@ -4,9 +4,6 @@ module TravelRoute
   # Data structure for response from api
   class ApiResponse
     module Errors
-      # Error for place not found
-      class PlaceNotFound < StandardError; end
-
       # Error for route not found
       class RouteNotFound < StandardError; end
 

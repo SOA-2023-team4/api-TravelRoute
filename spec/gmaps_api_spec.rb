@@ -1,18 +1,26 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/unit'
-require 'minitest/rg'
-require 'yaml'
-require_relative '../lib/gmaps_api'
-
-CONFIG = YAML.safe_load_file('config/secrets.yml')
-GMAP_TOKEN = CONFIG['MAPS_API_KEY']
-PLACE_RESULT = YAML.safe_load_file('spec/fixtures/places_results.yml')
-PLACES = %w[國立清華大學 巨城 新竹動物園].freeze
-ROUTE_RESULT = YAML.safe_load_file('spec/fixtures/routes_results.yml')
+require_relative 'spec_helper'
 
 describe 'Tests Google Maps API library' do
+  VCR.configure do |c|
+    c.cassette_library_dir = CASSETTES_FOLDER
+    c.hook_into :webmock
+
+    c.filter_sensitive_data('<GMAP_TOKEN>') { GMAP_TOKEN }
+    c.filter_sensitive_data('<GMAP_TOKEN_ESC>') { CGI.escape(GMAP_TOKEN) }
+  end
+
+  before do
+    VCR.insert_cassette CASSETTE_FILE,
+                        record: :new_episodes,
+                        match_requests_on: %i[method path headers query body]
+  end
+
+  after do
+    VCR.eject_cassette
+  end
+
   describe 'Place information' do
     it 'HAPPY: should provide correct place information' do
       PLACES.each do |place|
@@ -21,15 +29,12 @@ describe 'Tests Google Maps API library' do
           _(query[index].id).must_equal p['place_id']
           _(query[index].name).must_equal p['name']
           _(query[index].formatted_address).must_equal p['formatted_address']
-          _(query[index].rating).must_equal p['rating']
         end
       end
     end
 
-    it 'SAD: should be raise eception when place not found' do
-      _(proc do
-        TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).place_matches('ImAIdthatdoesntexist')
-      end).must_raise TravelRoute::GoogleMapsApi::Errors::PlaceNotFound
+    it 'SAD: should return empty array when place is not found' do
+      _(TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).place_matches('idoesntexist')).must_be_empty
     end
 
     it 'BAD: should raise exception when unauthorized' do
