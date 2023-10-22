@@ -48,10 +48,8 @@ describe 'Tests Google Maps API library' do
       end
     end
 
-    it 'SAD: should be raise eception when place not found' do
-      _(proc do
-        TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).place_matches('ImAIdthatdoesntexist')
-      end).must_raise TravelRoute::GoogleMapsApi::Errors::PlaceNotFound
+    it 'SAD: should return empty array when place is not found' do
+      _(TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).place_matches('idoesntexist')).must_be_empty
     end
 
     it 'BAD: should raise exception when unauthorized' do
