@@ -7,6 +7,7 @@ GEM
     base64 (0.1.1)
     crack (0.4.5)
       rexml
+    docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.16.3)
@@ -68,6 +69,12 @@ GEM
     ruby_parser (3.20.3)
       sexp_processor (~> 4.16)
     sexp_processor (4.17.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -85,14 +92,15 @@ PLATFORMS
 
 DEPENDENCIES
   flog
-  http
-  minitest
-  minitest-rg
+  http (~> 5.1)
+  minitest (~> 5)
+  minitest-rg (~> 5)
   rake
   reek
   rubocop
-  vcr
-  webmock
+  simplecov (~> 0)
+  vcr (~> 6)
+  webmock (~> 3)
   yaml
 
 BUNDLED WITH
