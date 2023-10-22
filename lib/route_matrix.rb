@@ -9,21 +9,20 @@ module TravelRoute
     end
 
     def nearest_from(place, except = [])
-      nearest = possible_routes(place, except).min_by { |m| m['duration'].delete('s').to_i }
+      nearest = possible_routes(place, except).min_by { |rt| rt['duration'].delete('s').to_i }
       destination = places_at(nearest['destinationIndex'])
       route_data = nearest.merge('origin' => place, 'destination' => destination)
       Route.new(route_data)
     end
 
     def construct_route_from(origin)
-      route = []
-      except = []
-      (@places.size - 1).times do
-        route << nearest_from(origin, except)
+      (@places.size - 1).times.map do
+        except ||= [origin]
+        route = nearest_from(origin, except)
+        origin = route.destination
         except << origin
-        origin = route.last.destination
+        route
       end
-      route
     end
 
     private
@@ -38,8 +37,8 @@ module TravelRoute
 
     def possible_routes(origin, except = [])
       except_index = ([origin] + except).map { |exp| index_of(exp) }
-      @matrix_data.select do |m|
-        m['originIndex'] == except_index.first && !except_index.include?(m['destinationIndex'])
+      @matrix_data.select do |rt|
+        rt['originIndex'] == except_index.first && !except_index.include?(rt['destinationIndex'])
       end
     end
   end
