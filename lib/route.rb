@@ -26,5 +26,14 @@ module TravelRoute
     # def polyline
     #   @route['polyline']['encodedPolyline'] || nil
     # end
+
+    def self.parse_route(response, origin, destination)
+      routes_data = response['routes']
+      routes_data.map do |route_data|
+        route_data['origin'] = origin
+        route_data['destination'] = destination
+        Route.new(route_data)
+      end
+    end
   end
 end
