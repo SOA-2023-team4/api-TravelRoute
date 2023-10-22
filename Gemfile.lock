@@ -5,12 +5,15 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.1.1)
+    crack (0.4.5)
+      rexml
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.16.3)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    hashdiff (1.0.1)
     http (5.1.1)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -56,6 +59,11 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.5.0)
+    vcr (6.2.0)
+    webmock (3.19.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     yaml (0.2.1)
 
 PLATFORMS
@@ -67,6 +75,8 @@ DEPENDENCIES
   minitest
   minitest-rg
   rubocop
+  vcr
+  webmock
   yaml
 
 BUNDLED WITH
