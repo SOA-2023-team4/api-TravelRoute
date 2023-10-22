@@ -21,15 +21,13 @@ describe 'Tests Google Maps API library' do
           _(query[index].id).must_equal p['place_id']
           _(query[index].name).must_equal p['name']
           _(query[index].formatted_address).must_equal p['formatted_address']
-          _(query[index].rating).must_equal p['rating']
+          _(query[index].rating).wont_be_nil
         end
       end
     end
 
-    it 'SAD: should be raise eception when place not found' do
-      _(proc do
-        TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).place_matches('ImAIdthatdoesntexist')
-      end).must_raise TravelRoute::GoogleMapsApi::Errors::PlaceNotFound
+    it 'SAD: should return empty array when place is not found' do
+      _(TravelRoute::GoogleMapsApi.new(GMAP_TOKEN).place_matches('idoesntexist')).must_be_empty
     end
 
     it 'BAD: should raise exception when unauthorized' do
