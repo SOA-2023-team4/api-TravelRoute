@@ -35,7 +35,6 @@ module TravelRoute
       raise ApiResponse::Errors::RequestDenied unless response.successful?
 
       places = response.body['candidates']
-      raise Errors::PlaceNotFound if places.empty?
 
       places_detail(places.map { |place| place['place_id'] })
     end
