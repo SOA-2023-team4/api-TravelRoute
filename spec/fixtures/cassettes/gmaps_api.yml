@@ -1,172 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id&input=Rio%20de%20Janeiro&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:17 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:17 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '120'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=326
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"place_id\" : \"ChIJW6AIkVXemwARTtIvZ2xC3FA\"\n
-        \     }\n   ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:16 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,formatted_address,rating&key=<GMAP_TOKEN>&place_id=ChIJW6AIkVXemwARTtIvZ2xC3FA
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:17 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:17 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '238'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=75
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"Rio de Janeiro, State of Rio de Janeiro, Brazil\",\n      \"name\" : \"Rio
-        de Janeiro\",\n      \"place_id\" : \"ChIJW6AIkVXemwARTtIvZ2xC3FA\"\n   },\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:16 GMT
-- request:
     method: post
     uri: https://routes.googleapis.com/directions/v2:computeRoutes
     body:
       encoding: ASCII-8BIT
-      string: '{"routingPreference":"TRAFFIC_AWARE","travelMode":"DRIVE","origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJW6AIkVXemwARTtIvZ2xC3FA"}}'
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"invaliddestinationId"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/directions/v2:computeRoutes
-    body:
-      encoding: ASCII-8BIT
-      string: '{"routingPreference":"TRAFFIC_AWARE","travelMode":"DRIVE","origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJQyv318Q1aDQRYz_krC4mdb4"}}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
       X-Goog-Fieldmask:
       - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
       Connection:
@@ -187,7 +31,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
+      - Fri, 27 Oct 2023 08:10:56 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -212,27 +56,17 @@ http_interactions:
         {
           "error": {
             "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
-              {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "routes.googleapis.com"
-                }
-              }
-            ]
+            "message": "Place ID \"invaliddestinationId\" is invalid.",
+            "status": "INVALID_ARGUMENT"
           }
         }
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
+  recorded_at: Fri, 27 Oct 2023 08:10:56 GMT
 - request:
     method: post
     uri: https://routes.googleapis.com/directions/v2:computeRoutes
     body:
       encoding: ASCII-8BIT
-      string: '{"routingPreference":"TRAFFIC_AWARE","travelMode":"DRIVE","origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJQyv318Q1aDQRYz_krC4mdb4"}}'
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
       Content-Type:
       - application/json
@@ -258,7 +92,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
+      - Fri, 27 Oct 2023 08:10:56 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -283,508 +117,28 @@ http_interactions:
         {
           "routes": [
             {
-              "distanceMeters": 3195,
-              "duration": "390s",
+              "distanceMeters": 3855,
+              "duration": "700s",
               "polyline": {
-                "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLm@pCcFjTk@zCO`A_@|EuAtNK|@c@fBaAbAeEzCQFa@VaAz@yDfCiDuGQe@[qAm@f@cBhA"
+                "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@_B|GaAnEi@lBI^?\\YxDd@F\\VvAbCfEbInBlD~@jBfEpHvEzIxEpJ`B`D~B`EhEjIdCtE^l@HGb@Ft@@"
               }
             }
           ]
         }
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id&input=idoesntexist&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:18 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '54'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=127
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-           "candidates" : [],
-           "status" : "ZERO_RESULTS"
-        }
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id&input=%E5%9C%8B%E7%AB%8B%E6%B8%85%E8%8F%AF%E5%A4%A7%E5%AD%B8&inputtype=textquery&key=bad_token
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
-      Pragma:
-      - no-cache
-      Expires:
-      - Fri, 01 Jan 1990 00:00:00 GMT
-      Cache-Control:
-      - no-cache, must-revalidate
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '113'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=11
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-           "candidates" : [],
-           "error_message" : "The provided API key is invalid.",
-           "status" : "REQUEST_DENIED"
-        }
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id&input=%E5%9C%8B%E7%AB%8B%E6%B8%85%E8%8F%AF%E5%A4%A7%E5%AD%B8&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:18 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '120'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=237
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"place_id\" : \"ChIJB7ZNzXI2aDQREwR22ltdKxE\"\n
-        \     }\n   ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,formatted_address,rating&key=<GMAP_TOKEN>&place_id=ChIJB7ZNzXI2aDQREwR22ltdKxE
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:18 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:18 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '302'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=68
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300\",\n
-        \     \"name\" : \"National Tsing Hua University\",\n      \"place_id\" :
-        \"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\n      \"rating\" : 4.6\n   },\n   \"status\"
-        : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:17 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id&input=%E5%B7%A8%E5%9F%8E&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:19 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:19 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '120'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=245
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"place_id\" : \"ChIJQyv318Q1aDQRYz_krC4mdb4\"\n
-        \     }\n   ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:18 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,formatted_address,rating&key=<GMAP_TOKEN>&place_id=ChIJQyv318Q1aDQRYz_krC4mdb4
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:19 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:19 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '274'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=75
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041\",\n
-        \     \"name\" : \"Big City\",\n      \"place_id\" : \"ChIJQyv318Q1aDQRYz_krC4mdb4\",\n
-        \     \"rating\" : 4.4\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:18 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id&input=%E6%96%B0%E7%AB%B9%E5%8B%95%E7%89%A9%E5%9C%92&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:19 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:19 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '120'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=312
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\"\n
-        \     }\n   ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:18 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,formatted_address,rating&key=<GMAP_TOKEN>&place_id=ChIJl78Wnt01aDQRz1shOsBVUGU
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 22 Oct 2023 16:04:19 GMT
-      Expires:
-      - Sun, 22 Oct 2023 16:09:19 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '270'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=62
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\n      \"name\"
-        : \"Hsinchu Zoo\",\n      \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\",\n
-        \     \"rating\" : 4\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 22 Oct 2023 16:04:18 GMT
+  recorded_at: Fri, 27 Oct 2023 08:10:56 GMT
 - request:
     method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    uri: https://routes.googleapis.com/directions/v2:computeRoutes
     body:
       encoding: ASCII-8BIT
-      string: '{"routingPreference":"TRAFFIC_AWARE","travelMode":"DRIVE","origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJQyv318Q1aDQRYz_krC4mdb4"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJQyv318Q1aDQRYz_krC4mdb4"}}]}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sun, 22 Oct 2023 16:04:19 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        3979,\n  \"duration\": \"413s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 1999,\n  \"duration\": \"277s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
-        3195,\n  \"duration\": \"392s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 1831,\n  \"duration\": \"293s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        2283,\n  \"duration\": \"332s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"306s\"\n}\n]"
-  recorded_at: Sun, 22 Oct 2023 16:04:18 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"routingPreference":"TRAFFIC_AWARE","travelMode":"DRIVE","origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJQyv318Q1aDQRYz_krC4mdb4"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJQyv318Q1aDQRYz_krC4mdb4"}}]}'
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - bad_token
       X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
+      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
       Connection:
       - close
       Host:
@@ -803,7 +157,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sun, 22 Oct 2023 16:04:19 GMT
+      - Fri, 27 Oct 2023 08:10:56 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -824,8 +178,8 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: |-
-        [{
+      string: |
+        {
           "error": {
             "code": 400,
             "message": "API key not valid. Please pass a valid API key.",
@@ -842,6 +196,154 @@ http_interactions:
             ]
           }
         }
-        ]
-  recorded_at: Sun, 22 Oct 2023 16:04:18 GMT
+  recorded_at: Fri, 27 Oct 2023 08:10:56 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=notexistentplace&inputtype=textquery&key=<GMAP_TOKEN>
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - maps.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '54'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Date:
+      - Fri, 27 Oct 2023 08:07:41 GMT
+      Expires:
+      - Fri, 27 Oct 2023 08:12:41 GMT
+      Cache-Control:
+      - public, max-age=300
+      Content-Type:
+      - application/json; charset=UTF-8
+      Age:
+      - '195'
+      Server-Timing:
+      - gfet4t7; dur=0
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "candidates" : [],
+           "status" : "ZERO_RESULTS"
+        }
+  recorded_at: Fri, 27 Oct 2023 08:10:56 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%B8%85%E5%A4%A7&inputtype=textquery&key=<GMAP_TOKEN>
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - maps.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '160'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Date:
+      - Fri, 27 Oct 2023 08:07:42 GMT
+      Expires:
+      - Fri, 27 Oct 2023 08:12:42 GMT
+      Cache-Control:
+      - public, max-age=300
+      Content-Type:
+      - application/json; charset=UTF-8
+      Age:
+      - '194'
+      Server-Timing:
+      - gfet4t7; dur=1
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"國立清華大學\",\n
+        \        \"place_id\" : \"ChIJB7ZNzXI2aDQREwR22ltdKxE\"\n      }\n   ],\n
+        \  \"status\" : \"OK\"\n}"
+  recorded_at: Fri, 27 Oct 2023 08:10:56 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%B8%85%E5%A4%A7&inputtype=textquery&key=bad_token
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - maps.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 27 Oct 2023 08:10:56 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '113'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=4
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "candidates" : [],
+           "error_message" : "The provided API key is invalid.",
+           "status" : "REQUEST_DENIED"
+        }
+  recorded_at: Fri, 27 Oct 2023 08:10:56 GMT
 recorded_with: VCR 6.2.0
