@@ -6,7 +6,7 @@ module TravelRoute
     def initialize(api_key, gateway_class = GoogleMaps::Places::Api)
       @key = api_key
       @gateway_class = gateway_class
-      @gateway = gateway_class.new(@key)
+      @gateway = @gateway_class.new(@key)
     end
 
     def find(place_name)
