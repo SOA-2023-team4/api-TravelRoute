@@ -23,46 +23,86 @@ describe 'Tests Google Maps API library' do
 
   describe 'Place information' do
     it 'HAPPY: should provide correct place information' do
-      response = TravelRoute::GoogleMaps::Places::Api.new(GMAP_TOKEN).places_from_text_data(PLACE)
-      PLACE_RESULT['candidates'].zip(response['candidates']).each do |expected, generated|
-        _(expected['place_id']).must_equal generated['place_id']
-        _(expected['name']).must_equal generated['name']
+      expected = PLACE_DETAIL_RESULT['result']
+      response = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find(PLACE)
+      response.each do |generated|
+        _(generated.id).must_equal expected['place_id']
+        _(generated.name).must_equal expected['name']
       end
     end
 
     it 'SAD: should return empty array when place is not found' do
-      response = TravelRoute::GoogleMaps::Places::Api.new(GMAP_TOKEN).places_from_text_data('notexistentplace')
-      _(response['candidates']).must_be_empty
+      response = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('notexistentplace')
+      _(response).must_be_empty
     end
 
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
-        TravelRoute::GoogleMaps::Places::Api.new('bad_token').places_from_text_data(PLACE)
+        TravelRoute::PlaceMapper.new('bad_token').find(PLACE)
       end).must_raise TravelRoute::Response::Unauthorized
     end
   end
 
   describe 'Route information' do
     before do
-      @origin = 'ChIJB7ZNzXI2aDQREwR22ltdKxE'
-      @valid_destination = 'ChIJmecsSO01aDQRGT_QzrFSwfA'
-      @invalid_destination = 'invaliddestinationId'
+      @origin = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('清大').first
+      @valid_destination = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Nanda Campus').first
+      @invalid_destination = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('invaliddestinationId').first
     end
 
     it 'HAPPY: should provide correct route information' do
-      response = TravelRoute::GoogleMaps::Routes::Api.new(GMAP_TOKEN).route_data(@origin, @valid_destination)
-      _(response['routes']).wont_be_empty
+      response = TravelRoute::RouteMapper.new(GMAP_TOKEN).calculate_route(@origin, @valid_destination)
+      _(response).wont_be_nil
+      _(response.origin.id).must_equal @origin.id
+      _(response.destination.id).must_equal @valid_destination.id
     end
 
     it 'SAD: should raise exception when route not found' do
       _(proc do
-        TravelRoute::GoogleMaps::Routes::Api.new(GMAP_TOKEN).route_data(@origin, @invalid_destination)
+        TravelRoute::RouteMapper.new(GMAP_TOKEN).calculate_route(@origin, @invalid_destination)
       end).must_raise TravelRoute::Response::BadRequest
     end
 
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
-        TravelRoute::GoogleMaps::Routes::Api.new('bad_token').route_data(@origin, @valid_destination)
+        TravelRoute::RouteMapper.new('bad_token').calculate_route(@origin, @valid_destination)
+      end).must_raise TravelRoute::Response::BadRequest
+    end
+  end
+
+  describe 'Route Matrix information' do
+    before do
+      @nthu = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('清大').first
+      @zoo = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Hsinchu zoo').first
+      @big_city = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Big City').first
+
+      @places = [@nthu, @zoo, @big_city].shuffle
+      @correct_order = [@nthu, @zoo, @big_city]
+      @waypoints = TravelRoute::WaypointMapper.new(GMAP_TOKEN).waypoints(@places)
+    end
+
+    it 'HAPPY: should return nearest destination' do
+      nearest = @waypoints.nearest_from(@nthu)
+      _(nearest.origin.name).must_equal @nthu.name
+      _(nearest.origin.id).must_equal @nthu.id
+      _(nearest.destination.name).must_equal @zoo.name
+      _(nearest.destination.id).must_equal @zoo.id
+    end
+
+    it 'HAPPY: should return correct route' do
+      travel_place = @waypoints.travel_plan_from(@nthu)
+      _(travel_place.size).must_equal @places.size - 1
+      travel_place.each_with_index do |r, i|
+        _(r.origin.name).must_equal @correct_order[i].name
+        _(r.origin.id).must_equal @correct_order[i].id
+        _(r.destination.name).must_equal @correct_order[i + 1].name
+        _(r.destination.id).must_equal @correct_order[i + 1].id
+      end
+    end
+
+    it 'BAD: should raise exception when unauthorized' do
+      _(proc do
+        TravelRoute::WaypointMapper.new('bad_token').waypoints(@places)
       end).must_raise TravelRoute::Response::BadRequest
     end
   end
