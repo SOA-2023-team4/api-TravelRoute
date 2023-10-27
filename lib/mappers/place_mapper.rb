@@ -6,7 +6,7 @@ module TravelRoute
     def initialize(api_key, gateway_class = GoogleMaps::Places::Api)
       @key = api_key
       @gateway_class = gateway_class
-      @gateway = @gateway_class.new(@key)
+      @gateway = gateway_class.new(@key)
     end
 
     def find(place_name)
@@ -15,10 +15,16 @@ module TravelRoute
     end
 
     def build_entity(data)
+      results = get_place_detail(data)
+      results.map { |entry| DataMapper.new(entry).build_entity }
+    end
+
+    private
+
+    def get_place_detail(data)
       candidates = data['candidates']
       place_ids = candidates.map { |entry| entry['place_id'] }
-      results = place_ids.map { |place_id| @gateway.place_detail_data(place_id)['result'] }
-      results.map { |entry| DataMapper.new(entry).build_entity }
+      place_ids.map { |place_id| @gateway.place_detail_data(place_id)['result'] }
     end
 
     # extract entity specific data

@@ -41,7 +41,7 @@ module TravelRoute
           Request.post(ROUTE_PATH, headers, body).parse
         end
 
-        def create_route_matrix_body(places)
+        def self.create_route_matrix_body(places)
           waypoints = places.map { |pid| { waypoint: { placeId: pid } } }
           {
             origins: waypoints,
