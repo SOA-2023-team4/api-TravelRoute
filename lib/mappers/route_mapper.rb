@@ -12,6 +12,8 @@ module TravelRoute
     def calculate_route(origin, destination)
       data = @gateway.route_data(origin.id, destination.id)
       DataMapper.new(data, origin, destination).build_entity
+    rescue NoMethodError
+      raise Response::BadRequest
     end
 
     # extract entity specific data
@@ -34,11 +36,13 @@ module TravelRoute
       end
 
       def distance_meters
-        @data['routes'].first['distanceMeters'].to_i
+        data = @data.keys.include?('routes') ? @data['routes'].first : @data
+        data['distanceMeters'].to_i
       end
 
       def duration
-        @data['routes'].first['duration'].scan(/\d+/).first.to_i
+        data = @data.keys.include?('routes') ? @data['routes'].first : @data
+        data['duration'].scan(/\d+/).first.to_i
       end
     end
   end
