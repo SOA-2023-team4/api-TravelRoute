@@ -19,7 +19,8 @@ module TravelRoute
 
         def places_from_text_data(search_text)
           fields = %w[place_id name]
-          url = "#{PLACE_SEARCH_PATH}?fields=#{fields.join(',')}&input=#{search_text}&inputtype=textquery&key=#{@key}"
+          esscpaed_text = CGI.escape(search_text)
+          url = "#{PLACE_SEARCH_PATH}?fields=#{fields.join(',')}&input=#{esscpaed_text}&inputtype=textquery&key=#{@key}"
           Request.get(url).parse
         end
 
