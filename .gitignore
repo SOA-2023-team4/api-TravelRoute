@@ -1,4 +1,5 @@
 _snippets/
+.vscode/
 config/secrets.yml
 coverage/*
 !coverage/.resultset.json
