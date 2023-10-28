@@ -8,12 +8,92 @@
           null,
           1,
           1,
-          10,
+          12,
           null,
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/entities/place.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/config/environment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/soa2023/TravelRoute/app/controllers/app.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/soa2023/TravelRoute/app/models/entities/place.rb": {
         "lines": [
           null,
           null,
@@ -35,7 +115,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/entities/route.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/entities/route.rb": {
         "lines": [
           null,
           null,
@@ -59,7 +139,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/entities/waypoint.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/entities/waypoint.rb": {
         "lines": [
           null,
           null,
@@ -108,7 +188,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/gateways/places_api.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/gateways/places_api.rb": {
         "lines": [
           null,
           null,
@@ -147,7 +227,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/gateways/request.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/gateways/request.rb": {
         "lines": [
           null,
           null,
@@ -171,7 +251,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/gateways/response.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/gateways/response.rb": {
         "lines": [
           null,
           null,
@@ -207,7 +287,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/gateways/routes_api.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/gateways/routes_api.rb": {
         "lines": [
           null,
           null,
@@ -286,7 +366,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/mappers/place_mapper.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/mappers/place_mapper.rb": {
         "lines": [
           null,
           null,
@@ -354,7 +434,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/mappers/route_mapper.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/mappers/route_mapper.rb": {
         "lines": [
           null,
           null,
@@ -407,7 +487,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/lib/mappers/waypoint_mapper.rb": {
+      "/home/ubuntu/soa2023/TravelRoute/app/models/mappers/waypoint_mapper.rb": {
         "lines": [
           null,
           null,
@@ -454,6 +534,6 @@
         ]
       }
     },
-    "timestamp": 1698431266
+    "timestamp": 1698511278
   }
 }
