@@ -41,21 +41,33 @@ module TravelRoute
           Request.post(ROUTE_PATH, headers, body).parse
         end
 
-        def self.create_route_matrix_body(places)
-          waypoints = places.map { |pid| { waypoint: { placeId: pid } } }
-          {
-            origins: waypoints,
-            destinations: waypoints,
-            routingPreference: DEFAULT_ROUTING_OPTION,
-            travelMode: DEFAULT_TRAVEL_MODE
-          }
-        end
-
         def route_matrix_data(places)
           fields = %w[originIndex destinationIndex duration distanceMeters status]
           headers = create_headers(fields)
-          body = create_route_matrix_body(places)
-          Request.post(ROUTE_PATH, headers, body).parse
+          body = RouteMatrix.new(places).create_route_matrix_body
+          Request.post(ROUTE_MATRIX_PATH, headers, body).parse
+        end
+
+        # Prepare route matrix request body
+        class RouteMatrix
+          def initialize(places)
+            @places = places
+          end
+
+          def create_route_matrix_body
+            {
+              origins: waypoints,
+              destinations: waypoints,
+              routingPreference: DEFAULT_ROUTING_OPTION,
+              travelMode: DEFAULT_TRAVEL_MODE
+            }
+          end
+
+          private
+
+          def waypoints
+            @places.map { |place| { waypoint: { placeId: place.id } } }
+          end
         end
       end
     end

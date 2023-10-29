@@ -10,8 +10,8 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
-require_relative '../lib/gateways/places_api'
-require_relative '../lib/gateways/routes_api'
+require_relative '../require_app'
+require_app
 
 CONFIG = YAML.safe_load_file('config/secrets.yml')
 GMAP_TOKEN = CONFIG['MAPS_API_KEY']
