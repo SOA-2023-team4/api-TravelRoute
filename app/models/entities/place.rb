@@ -9,10 +9,14 @@ module TravelRoute
     class Place < Dry::Struct
       include Dry.Types
 
-      attribute :id,      Strict::String
-      attribute :name,    Strict::String
-      attribute :address, Strict::String
-      attribute :rating,  Coercible::Float
+      attribute :place_id,  Strict::String
+      attribute :name,      Strict::String
+      attribute :address,   Strict::String
+      attribute :rating,    Coercible::Float
+
+      def to_attr_hash
+        to_hash
+      end
     end
   end
 end
