@@ -66,7 +66,7 @@ module TravelRoute
           private
 
           def waypoints
-            @places.map { |place| { waypoint: { placeId: place.id } } }
+            @places.map { |place| { waypoint: { placeId: place.place_id } } }
           end
         end
       end
