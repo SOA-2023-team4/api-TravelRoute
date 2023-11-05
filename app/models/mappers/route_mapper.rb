@@ -10,7 +10,7 @@ module TravelRoute
     end
 
     def calculate_route(origin, destination)
-      data = @gateway.route_data(origin.id, destination.id)
+      data = @gateway.route_data(origin.place_id, destination.place_id)
       DataMapper.new(data, origin, destination).build_entity
     rescue NoMethodError
       raise Response::BadRequest

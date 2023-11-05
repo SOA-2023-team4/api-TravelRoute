@@ -1,24 +1,16 @@
 # frozen_string_literal: true
 
 require_relative 'spec_helper'
+require_relative 'helpers/vcr_helper'
 
 describe 'Tests Google Maps API library' do
-  VCR.configure do |c|
-    c.cassette_library_dir = CASSETTES_FOLDER
-    c.hook_into :webmock
-
-    c.filter_sensitive_data('<GMAP_TOKEN>') { GMAP_TOKEN }
-    c.filter_sensitive_data('<GMAP_TOKEN_ESC>') { CGI.escape(GMAP_TOKEN) }
-  end
-
   before do
-    VCR.insert_cassette CASSETTE_FILE,
-                        record: :new_episodes,
-                        match_requests_on: %i[method path headers query body]
+    VcrHelper.setup_vcr
+    VcrHelper.configure_vcr_for_gmap
   end
 
   after do
-    VCR.eject_cassette
+    VcrHelper.eject_vcr
   end
 
   describe 'Place information' do
@@ -26,7 +18,7 @@ describe 'Tests Google Maps API library' do
       expected = PLACE_DETAIL_RESULT['result']
       response = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find(PLACE)
       response.each do |generated|
-        _(generated.id).must_equal expected['place_id']
+        _(generated.place_id).must_equal expected['place_id']
         _(generated.name).must_equal expected['name']
       end
     end
@@ -53,8 +45,8 @@ describe 'Tests Google Maps API library' do
     it 'HAPPY: should provide correct route information' do
       response = TravelRoute::RouteMapper.new(GMAP_TOKEN).calculate_route(@origin, @valid_destination)
       _(response).wont_be_nil
-      _(response.origin.id).must_equal @origin.id
-      _(response.destination.id).must_equal @valid_destination.id
+      _(response.origin.place_id).must_equal @origin.place_id
+      _(response.destination.place_id).must_equal @valid_destination.place_id
     end
 
     it 'SAD: should raise exception when route not found' do
@@ -74,19 +66,19 @@ describe 'Tests Google Maps API library' do
     before do
       @nthu = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('清大').first
       @zoo = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Hsinchu zoo').first
-      @big_city = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Big City').first
+      @taipei_main = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Taipei Main Station').first
 
-      @places = [@nthu, @zoo, @big_city].shuffle
-      @correct_order = [@nthu, @zoo, @big_city]
+      @places = [@nthu, @taipei_main, @zoo]
+      @correct_order = [@nthu, @zoo, @taipei_main]
       @waypoints = TravelRoute::WaypointMapper.new(GMAP_TOKEN).waypoints(@places)
     end
 
     it 'HAPPY: should return nearest destination' do
-      nearest = @waypoints.nearest_from(@nthu)
+      nearest = @waypoints.nearest_destination_from(@nthu)
       _(nearest.origin.name).must_equal @nthu.name
-      _(nearest.origin.id).must_equal @nthu.id
+      _(nearest.origin.place_id).must_equal @nthu.place_id
       _(nearest.destination.name).must_equal @zoo.name
-      _(nearest.destination.id).must_equal @zoo.id
+      _(nearest.destination.place_id).must_equal @zoo.place_id
     end
 
     it 'HAPPY: should return correct route' do
@@ -94,9 +86,9 @@ describe 'Tests Google Maps API library' do
       _(travel_place.size).must_equal @places.size - 1
       travel_place.each_with_index do |r, i|
         _(r.origin.name).must_equal @correct_order[i].name
-        _(r.origin.id).must_equal @correct_order[i].id
+        _(r.origin.place_id).must_equal @correct_order[i].place_id
         _(r.destination.name).must_equal @correct_order[i + 1].name
-        _(r.destination.id).must_equal @correct_order[i + 1].id
+        _(r.destination.place_id).must_equal @correct_order[i + 1].place_id
       end
     end
 

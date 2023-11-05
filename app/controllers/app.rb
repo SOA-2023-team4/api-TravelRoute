@@ -42,7 +42,7 @@ module TravelRoute
             routing.redirect '/' if routing.params.empty?
 
             places = routing.params['places'].split(',')
-                            .map { |place| PlaceMapper.new(GMAP_TOKEN).find(place).first }
+              .map { |place| PlaceMapper.new(GMAP_TOKEN).find(place).first }
             routing.halt 400, 'at least two valid places are required' if places.nil? || places.size < 2
 
             origin = places.first

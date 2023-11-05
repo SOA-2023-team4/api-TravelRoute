@@ -35,7 +35,7 @@ module TravelRoute
 
       def build_entity
         Entity::Place.new(
-          id:,
+          place_id:,
           name:,
           address:,
           rating:
@@ -44,7 +44,7 @@ module TravelRoute
 
       private
 
-      def id
+      def place_id
         @data['place_id']
       end
 

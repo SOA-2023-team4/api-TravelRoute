@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 SimpleCov.start
 
@@ -13,13 +15,9 @@ require 'webmock'
 require_relative '../require_app'
 require_app
 
-CONFIG = YAML.safe_load_file('config/secrets.yml')
-GMAP_TOKEN = CONFIG['MAPS_API_KEY']
+GMAP_TOKEN = TravelRoute::App.config.GMAP_TOKEN
 
 PLACE = '清大'
 PLACE_RESULT = YAML.safe_load_file('spec/fixtures/places_from_text.yml')
 PLACE_DETAIL_RESULT = YAML.safe_load_file('spec/fixtures/place_detail.yml')
 ROUTE_RESULT = YAML.safe_load_file('spec/fixtures/route_data.yml')
-
-CASSETTES_FOLDER = 'spec/fixtures/cassettes'
-CASSETTE_FILE = 'gmaps_api'

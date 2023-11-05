@@ -15,6 +15,10 @@ module TravelRoute
       attribute :destination,     Place
       attribute :distance_meters, Strict::Integer
       attribute :duration,        Strict::Integer
+
+      def to_attr_hash
+        to_hash.except(:origin, :destination)
+      end
     end
   end
 end

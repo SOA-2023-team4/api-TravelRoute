@@ -12,33 +12,30 @@ module TravelRoute
       include Dry.Types
 
       attribute :waypoints, Array.of(Route)
+      attribute :places, Array.of(Place)
 
-      def nearest_from(place, except = [])
-        exclude = except.empty? ? [place] : except
-        possible_places_from(place, exclude).min_by(&:distance_meters)
+      def nearest_destination_from(origin, except = [])
+        possible_destination_from(origin, except).min_by(&:distance_meters)
       end
 
-      def travel_plan_from(place, except = [])
-        (possible_routes_from(place).size - 1).times.map do
-          except << place
-          route = nearest_from(place, except)
-          place = route.destination
-          route
+      def travel_plan_from(origin)
+        exclude = []
+        (places.size - 1).times.map do |_|
+          nearest = nearest_destination_from(origin, exclude << origin)
+          origin = nearest.destination
+          nearest
         end
       end
 
-      def possible_routes_from(place)
-        waypoints.select { |point| point.origin == place }
+      def possible_destination_from(origin, except = [])
+        exclude = except.empty? ? [origin] : except
+        filter(origin).reject { |point| exclude.include?(point.destination) }
       end
 
       private
 
-      def filter(place)
-        waypoints.select { |point| point.origin == place }
-      end
-
-      def possible_places_from(place, except = [])
-        filter(place).reject { |point| except.include?(point.destination) }
+      def filter(origin)
+        waypoints.select { |point| point.origin == origin }
       end
     end
   end
