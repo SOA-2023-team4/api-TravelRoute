@@ -3,7 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
-require_relative 'place'
+require_relative 'attraction'
 
 module TravelRoute
   module Entity
@@ -12,7 +12,7 @@ module TravelRoute
       include Dry.Types
 
       attribute :waypoints, Array.of(Route)
-      attribute :places, Array.of(Place)
+      attribute :attractions, Array.of(Attraction)
 
       def nearest_destination_from(origin, except = [])
         possible_destination_from(origin, except).min_by(&:distance_meters)
@@ -20,7 +20,7 @@ module TravelRoute
 
       def travel_plan_from(origin)
         exclude = []
-        (places.size - 1).times.map do |_|
+        (attractions.size - 1).times.map do |_|
           nearest = nearest_destination_from(origin, exclude << origin)
           origin = nearest.destination
           nearest

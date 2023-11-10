@@ -37,7 +37,7 @@ module TravelRoute
       def self.rebuild_entity(db_record)
         return nil unless db_record
 
-        Entity::Place.new(
+        Entity::Attraction.new(
           db_record.to_hash
         )
       end

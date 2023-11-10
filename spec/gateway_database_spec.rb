@@ -21,7 +21,7 @@ describe 'Integration Tests of Google Maps API and Database' do
     end
 
     it 'HAPPY: should be able to save places from Google Maps to database' do
-      places = TravelRoute::PlaceMapper
+      places = TravelRoute::AttractionMapper
         .new(GMAP_TOKEN)
         .find(PLACE)
       place = places[0]

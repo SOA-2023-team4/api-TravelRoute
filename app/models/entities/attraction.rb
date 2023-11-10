@@ -6,7 +6,7 @@ require 'dry-struct'
 module TravelRoute
   module Entity
     # Data structure for place information
-    class Place < Dry::Struct
+    class Attraction < Dry::Struct
       include Dry.Types
 
       attribute :place_id,  Strict::String

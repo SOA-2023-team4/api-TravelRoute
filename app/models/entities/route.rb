@@ -3,7 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
-require_relative 'place'
+require_relative 'attraction'
 
 module TravelRoute
   module Entity
@@ -11,8 +11,8 @@ module TravelRoute
     class Route < Dry::Struct
       include Dry.Types
 
-      attribute :origin,          Place
-      attribute :destination,     Place
+      attribute :origin,          Attraction
+      attribute :destination,     Attraction
       attribute :distance_meters, Strict::Integer
       attribute :duration,        Strict::Integer
 

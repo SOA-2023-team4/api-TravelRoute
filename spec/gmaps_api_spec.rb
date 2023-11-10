@@ -16,7 +16,7 @@ describe 'Tests Google Maps API library' do
   describe 'Place information' do
     it 'HAPPY: should provide correct place information' do
       expected = PLACE_DETAIL_RESULT['result']
-      response = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find(PLACE)
+      response = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find(PLACE)
       response.each do |generated|
         _(generated.place_id).must_equal expected['place_id']
         _(generated.name).must_equal expected['name']
@@ -24,22 +24,22 @@ describe 'Tests Google Maps API library' do
     end
 
     it 'SAD: should return empty array when place is not found' do
-      response = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('notexistentplace')
+      response = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('notexistentplace')
       _(response).must_be_empty
     end
 
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
-        TravelRoute::PlaceMapper.new('bad_token').find(PLACE)
+        TravelRoute::AttractionMapper.new('bad_token').find(PLACE)
       end).must_raise TravelRoute::Response::Unauthorized
     end
   end
 
   describe 'Route information' do
     before do
-      @origin = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('清大').first
-      @valid_destination = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Nanda Campus').first
-      @invalid_destination = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('invaliddestinationId').first
+      @origin = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('清大').first
+      @valid_destination = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('Nanda Campus').first
+      @invalid_destination = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('invaliddestinationId').first
     end
 
     it 'HAPPY: should provide correct route information' do
@@ -64,9 +64,9 @@ describe 'Tests Google Maps API library' do
 
   describe 'Route Matrix information' do
     before do
-      @nthu = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('清大').first
-      @zoo = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Hsinchu zoo').first
-      @taipei_main = TravelRoute::PlaceMapper.new(GMAP_TOKEN).find('Taipei Main Station').first
+      @nthu = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('清大').first
+      @zoo = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('Hsinchu zoo').first
+      @taipei_main = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('Taipei Main Station').first
 
       @places = [@nthu, @taipei_main, @zoo]
       @correct_order = [@nthu, @zoo, @taipei_main]

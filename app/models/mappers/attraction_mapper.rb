@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module TravelRoute
-  # Data Mapper: Google Maps Place -> Place entity
-  class PlaceMapper
+  # Data Mapper: Google Maps Attraction -> Attraction entity
+  class AttractionMapper
     def initialize(api_key, gateway_class = GoogleMaps::Places::Api)
       @key = api_key
       @gateway_class = gateway_class
@@ -34,7 +34,7 @@ module TravelRoute
       end
 
       def build_entity
-        Entity::Place.new(
+        Entity::Attraction.new(
           place_id:,
           name:,
           address:,

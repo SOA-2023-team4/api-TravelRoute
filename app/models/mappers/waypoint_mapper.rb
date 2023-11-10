@@ -29,7 +29,7 @@ module TravelRoute
           destination = place_at(entry['destinationIndex'])
           RouteMapper::DataMapper.new(entry, origin, destination).build_entity
         end
-        Entity::Waypoint.new(waypoints:, places: @places)
+        Entity::Waypoint.new(waypoints:, attractions: @places)
       end
 
       private
