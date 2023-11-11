@@ -62,40 +62,19 @@ describe 'Tests Google Maps API library' do
     end
   end
 
-  describe 'Route Matrix information' do
+  describe 'Guidebook information' do
     before do
       @nthu = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('清大').first
       @zoo = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('Hsinchu zoo').first
       @taipei_main = TravelRoute::AttractionMapper.new(GMAP_TOKEN).find('Taipei Main Station').first
 
-      @places = [@nthu, @taipei_main, @zoo]
+      @attractions = [@nthu, @taipei_main, @zoo]
       @correct_order = [@nthu, @zoo, @taipei_main]
-      @waypoints = TravelRoute::WaypointMapper.new(GMAP_TOKEN).waypoints(@places)
     end
 
-    it 'HAPPY: should return nearest destination' do
-      nearest = @waypoints.nearest_destination_from(@nthu)
-      _(nearest.origin.name).must_equal @nthu.name
-      _(nearest.origin.place_id).must_equal @nthu.place_id
-      _(nearest.destination.name).must_equal @zoo.name
-      _(nearest.destination.place_id).must_equal @zoo.place_id
-    end
-
-    it 'HAPPY: should return correct route' do
-      travel_place = @waypoints.travel_plan_from(@nthu)
-      _(travel_place.size).must_equal @places.size - 1
-      travel_place.each_with_index do |r, i|
-        _(r.origin.name).must_equal @correct_order[i].name
-        _(r.origin.place_id).must_equal @correct_order[i].place_id
-        _(r.destination.name).must_equal @correct_order[i + 1].name
-        _(r.destination.place_id).must_equal @correct_order[i + 1].place_id
-      end
-    end
-
-    it 'BAD: should raise exception when unauthorized' do
-      _(proc do
-        TravelRoute::WaypointMapper.new('bad_token').waypoints(@places)
-      end).must_raise TravelRoute::Response::BadRequest
+    it 'HAPPY: should return correct guidebook' do
+      guidebook = TravelRoute::GuidebookMapper.new(GMAP_TOKEN).construct_from(@attractions)
+      _(guidebook.attractions.count).must_equal(guidebook.matrix.count)
     end
   end
 end
