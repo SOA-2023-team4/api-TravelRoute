@@ -4,8 +4,8 @@ require 'sequel'
 
 module TravelRoute
   module Database
-    # Object-Relational Mapper for Places
-    class PlaceOrm < Sequel::Model(:places)
+    # Object-Relational Mapper for attraction
+    class PlaceOrm < Sequel::Model(:attraction)
       one_to_many :from,
                   class: :'TravelRoute::Database::RouteOrm',
                   key: :origin_id

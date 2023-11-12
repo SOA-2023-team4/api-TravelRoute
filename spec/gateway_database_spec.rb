@@ -1,6 +1,6 @@
 # frozen_string_literal: false
 
-require_relative 'spec_helper'
+require_relative 'helpers/spec_helper'
 require_relative 'helpers/vcr_helper'
 require_relative 'helpers/database_helper'
 
@@ -21,7 +21,7 @@ describe 'Integration Tests of Google Maps API and Database' do
     end
 
     it 'HAPPY: should be able to save places from Google Maps to database' do
-      places = TravelRoute::AttractionMapper
+      places = TravelRoute::Mapper::AttractionMapper
         .new(GMAP_TOKEN)
         .find(PLACE)
       place = places[0]

@@ -4,7 +4,7 @@ require 'sequel'
 
 Sequel.migration do
   change do
-    create_table(:places) do
+    create_table(:attraction) do
       primary_key :id
 
       String      :place_id, unique: true, null: false
