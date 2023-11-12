@@ -12,7 +12,7 @@ require 'yaml'
 require 'vcr'
 require 'webmock'
 
-require_relative '../require_app'
+require_relative '../../require_app'
 require_app
 
 GMAP_TOKEN = TravelRoute::App.config.GMAP_TOKEN
