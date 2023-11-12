@@ -42,14 +42,14 @@ module TravelRoute
             routing.redirect '/' if routing.params.empty?
 
             places = routing.params['places'].split(',')
-              .map { |place| PlaceMapper.new(App.config.GMAP_TOKEN).find(place).first }
+              .map { |place| Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find(place).first }
             routing.halt 400, 'at least two valid places are required' if places.nil? || places.size < 2
 
             origin = places.first
-            waypoints = WaypointMapper.new(App.config.GMAP_TOKEN).waypoints(places)
-            routes = waypoints.travel_plan_from(origin)
+            guidebook = Mapper::GuidebookMapper.new(App.config.GMAP_TOKEN).generate_guidebook(places)
+            plan = Entity::Plan.create_plan_from(origin, guidebook)
 
-            view 'plan', locals: { routes:, origin: }
+            view 'plan', locals: { routes: plan.routes, attractions: plan.attractions, origin: }
           end
         end
       end
