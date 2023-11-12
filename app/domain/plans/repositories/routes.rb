@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-# attribute :origin,          Place
-# attribute :destination,     Place
-# attribute :distance_meters, Strict::Integer
-# attribute :duration,        Strict::Integer
-
 module TravelRoute
   module Repository
     # Repository for Route Entities
