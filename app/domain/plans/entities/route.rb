@@ -22,12 +22,12 @@ module TravelRoute
         to_hash.except(:origin, :destination)
       end
 
-      def duration
-        TravelRoute::Value::Duration.new(duration).estimate_time
+      def journey_time
+        TravelRoute::Value::Duration.new(duration).estimate_time.join
       end
 
       def distance
-        TravelRoute::Value::Distance.new(distance_meters).estimate_distance
+        TravelRoute::Value::Distance.new(distance_meters).estimate_distance.join
       end
     end
   end

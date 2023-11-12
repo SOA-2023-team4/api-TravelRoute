@@ -22,11 +22,11 @@ module TravelRoute
 
       def estimate_time
         case @duration
-        when @duration < 60
+        when 0..59
           to_sec
-        when @duration >= 60 && @duration < 3600
+        when 59..3599
           to_min
-        when @duration >= 3600
+        else
           to_hour
         end
       end
