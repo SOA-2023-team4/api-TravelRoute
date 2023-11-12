@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'attraction'
+require_relative '../values/distance'
 
 module TravelRoute
   module Entity
@@ -15,7 +15,7 @@ module TravelRoute
 
       def to_matrix
         @matrix.map do |row|
-          row.map(&distance)
+          row.map(&:distance_meters)
         end
       end
 

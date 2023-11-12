@@ -4,6 +4,8 @@ require 'dry-types'
 require 'dry-struct'
 
 require_relative 'attraction'
+require_relative '../values/duration'
+require_relative '../values/distance'
 
 module TravelRoute
   module Entity
@@ -18,6 +20,14 @@ module TravelRoute
 
       def to_attr_hash
         to_hash.except(:origin, :destination)
+      end
+
+      def duration
+        TravelRoute::Value::Duration.new(duration).estimate_time
+      end
+
+      def distance
+        TravelRoute::Value::Distance.new(distance_meters).estimate_distance
       end
     end
   end
