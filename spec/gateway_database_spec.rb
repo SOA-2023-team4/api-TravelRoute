@@ -25,7 +25,7 @@ describe 'Integration Tests of Google Maps API and Database' do
         .new(GMAP_TOKEN)
         .find(PLACE)
       place = places[0]
-      rebuilt = TravelRoute::Repository::Places.create(place)
+      rebuilt = TravelRoute::Repository::Attractions.create(place)
 
       _(rebuilt.place_id).must_equal(place.place_id)
       _(rebuilt.name).must_equal(place.name)
