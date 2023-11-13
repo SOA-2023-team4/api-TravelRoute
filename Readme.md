@@ -19,6 +19,7 @@ TravelRoute gets data from GoogleMap's API,
 ## Setup
 * Create a Google API access key
 * Add the required thingy into config/secrets.yml
+* Run `bundle config set without 'production'`
 * Run `bundle install`
 * Run `bundle exec rake db:migrate`
 * Run `RACK_ENV=test bundle exec rake db:migrate`
