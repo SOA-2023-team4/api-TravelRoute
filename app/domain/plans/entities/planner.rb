@@ -2,30 +2,23 @@
 
 module TravelRoute
   module Entity
-    # Find the route with backtracking travel salesman problem
+    # dedicated to make plans using the information provided by the guidebook
     class Planner
-      INFINITY_COST = Float::INFINITY
-
       def initialize(guidebook)
         @guidebook = guidebook
-        @places = @guidebook.attractions
-        @graph = @guidebook.to_matrix
       end
 
       def generate_plan(origin)
-        places = @places
-        places.delete(origin)
-        places.insert(0, origin)
-        routes = find_routes(places)
-        Plan.new(places, routes)
-      end
-
-      def find_routes(places)
-        places.each_cons(2).map do |origin, destination|
-          origin_index = index_of(origin)
-          destination_index = index_of(destination)
-          @guidebook.matrix[origin_index][destination_index]
+        unvisited = @guidebook.attractions
+        unvisited.delete(origin)
+        visit_order = [origin]
+        while unvisited.count.positive?
+          next_attraction = @guidebook.nearest(visit_order.last, unvisited)
+          visit_order.append(next_attraction)
+          unvisited.delete(next_attraction)
         end
+        routes_for_attractions = @guidebook.routes_in_order(visit_order)
+        Plan.new(visit_order, routes_for_attractions)
       end
     end
   end
