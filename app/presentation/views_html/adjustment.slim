@@ -1,0 +1,11 @@
+.container
+  form role="form" action="/plan" method="GET"
+    ul class="list-group" 
+      - cart.each do |attraction|
+        li class="list-group-item"
+          .card
+            .card-body
+              h5.card-title #{attraction.name} (#{attraction.rating})
+              p.card-text #{attraction.address}
+              input type="radio" name="origin" value="#{attraction.place_id}" Select as Origin
+    input type="submit" value="Generate Plan"

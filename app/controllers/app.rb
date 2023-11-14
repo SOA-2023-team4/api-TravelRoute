@@ -7,15 +7,14 @@ require 'slim'
 module TravelRoute
   # Web App
   class App < Roda
-    plugin :render, engine: 'slim', views: 'app/views'
-    plugin :assets, css: 'style.css', path: 'app/views/assets'
-    plugin :assets, path: 'app/views/assets', group_subdirs: false,
+    plugin :render, engine: 'slim', views: 'app/presentation/views_html'
+    plugin :assets, css: 'style.css', path: 'app/presentation/assets'
+    plugin :assets, path: 'app/presentation/assets', group_subdirs: false,
                     js: {
                       home: ['home.js'],
                       plan: ['plan.js']
                     }
     plugin :common_logger, $stderr
-    plugin :halt
 
     route do |routing|
       routing.assets
@@ -23,33 +22,59 @@ module TravelRoute
 
       # GET /
       routing.root do
-        view 'home'
+        session[:cart] ||= []
+        search_term = routing.params.key?('search-term') ? routing.params['search-term'] : ''
+        attractions = search_term.empty? ? [] : Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find(search_term)
+        cart = session[:cart].map do |place_id|
+          Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(place_id)
+        end
+        view 'home', locals: { attractions: , cart: }
+      end
+
+      routing.on 'select-attraction' do
+        routing.is do
+          routing.post do
+            selected = routing.params.key?('selected') ? routing.params['selected'] : ''
+            session[:cart].append(selected)
+            routing.redirect '/'
+          end
+        end
+      end
+
+      routing.on 'remove-attraction' do
+        routing.is do
+          routing.post do
+            selected = routing.params.key?('selected') ? routing.params['selected'] : ''
+            session[:cart].delete(selected)
+            routing.redirect '/'
+          end
+        end
+      end
+
+      routing.on 'adjustment' do
+        routing.is do
+          routing.get do
+            cart = session[:cart].map do |place_id|
+              Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(place_id)
+            end
+            view 'adjustment', locals: { cart: }
+          end
+        end
       end
 
       routing.on 'plan' do
         routing.is do
-          # POST /plan
-          routing.post do
-            places = routing.params['places']
-            routing.halt 400, 'destinations is required' if places.nil? || places.empty?
-
-            destinations = CGI.escape(places.join(','))
-            routing.redirect "/plan?places=#{destinations}"
-          end
-
-          # GET /plan?places=<destinations>
           routing.get do
-            routing.redirect '/' if routing.params.empty?
+            origin_id = routing.params['origin']
+            place_ids = session[:cart]
 
-            places = routing.params['places'].split(',')
-              .map { |place| Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find(place).first }
-            routing.halt 400, 'at least two valid places are required' if places.nil? || places.size < 2
-
-            origin = places.first
+            places = place_ids.map do |place_id|
+              Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(place_id)
+            end
             guidebook = Mapper::GuidebookMapper.new(App.config.GMAP_TOKEN).generate_guidebook(places)
+            origin = Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(origin_id)
             plan = Entity::Planner.new(guidebook).generate_plan(origin)
-
-            view 'plan', locals: { routes: plan.routes, attractions: plan.attractions, origin: }
+            view 'plan', locals: {plan: Views::Plan.new(plan)}
           end
         end
       end

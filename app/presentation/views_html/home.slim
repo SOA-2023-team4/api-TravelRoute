@@ -1,0 +1,28 @@
+.container
+  .row 
+    .col-8
+      form role="form" action="/" method="GET"
+        input type="text" name="search-term" id="search-term" placeholder="國立清華大學"
+        button type="submit" id="search-submit" Search
+      ul class="list-group"
+        - attractions.each do |attraction|
+          li class="list-group-item"
+            form.card role="form" action="/select-attraction" method="POST"
+              .card-body
+                h5.card-title #{attraction.name} (#{attraction.rating})
+                p.card-text #{attraction.address}
+                input type="hidden" name="selected" value="#{attraction.place_id}"
+                button type="submit" +
+    .col-4
+      ul class="list-group"
+        - cart.each do |attraction|
+          li class="list-group-item"
+            form.card role="form" action="/remove-attraction" method="POST"
+              .card-body
+                h5.card-title #{attraction.name} (#{attraction.rating})
+                p.card-text #{attraction.address}
+                input type="hidden" name="selected" value="#{attraction.place_id}"
+                button type="submit" -
+  .row 
+    form role="form" action="/adjustment" method="GET"
+        button type="submit" Next

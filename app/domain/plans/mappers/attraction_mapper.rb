@@ -15,6 +15,11 @@ module TravelRoute
         build_entity(data)
       end
 
+      def find_by_id(place_id)
+        entry = @gateway.place_detail_data(place_id)['result']
+        DataMapper.new(entry).build_entity
+      end
+
       def build_entity(data)
         results = get_place_detail(data)
         results.map { |entry| DataMapper.new(entry).build_entity }

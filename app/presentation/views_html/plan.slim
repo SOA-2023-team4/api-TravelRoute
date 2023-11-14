@@ -1,0 +1,15 @@
+.container
+  ul class="list-group"
+    li class="list-group-item"
+      .card
+        .card-body
+          h5.card-title #{plan.origin.name} (#{plan.origin.rating})
+          p.card-text #{plan.origin.address}
+    - plan.route_to_attractions.each do |route_attraction|
+      li class="list-group-item"
+        .badge.bg-secondary #{route_attraction.distance} meters
+        .card role="form" action="/select-attraction" method="POST"
+          .card-body
+            h5.card-title #{route_attraction.name} (#{route_attraction.rating})
+            p.card-text #{route_attraction.address}
+  
