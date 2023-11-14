@@ -47,7 +47,7 @@ module TravelRoute
 
             origin = places.first
             guidebook = Mapper::GuidebookMapper.new(App.config.GMAP_TOKEN).generate_guidebook(places)
-            plan = Entity::Plan.create_plan_from(origin, guidebook)
+            plan = Entity::Planner.new(guidebook).generate_plan(origin)
 
             view 'plan', locals: { routes: plan.routes, attractions: plan.attractions, origin: }
           end

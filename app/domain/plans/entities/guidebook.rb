@@ -67,9 +67,11 @@ module TravelRoute
       def routes_in_order(attractions)
         raise 'one or more attraction(s) not in guidebook' unless all?(attractions)
 
-        attractions.each_cons(2) do |from, to|
-          route(from, to)
+        results = []
+        (1..(attractions.count - 1)).each do |i|
+          results.append(route(attractions[i - 1], attractions[i]))
         end
+        results
       end
     end
   end
