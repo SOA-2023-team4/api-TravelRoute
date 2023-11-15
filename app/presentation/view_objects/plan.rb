@@ -5,8 +5,16 @@ require_relative 'route_attraction'
 module Views
   # View object for plan
   class Plan
-    def initialize(plan)
+    attr_reader :plan
+    attr_accessor :name
+
+    def initialize(plan, name = 'Untitled')
       @plan = plan
+      @name = name
+    end
+
+    def all_attractions
+      @plan.attractions
     end
 
     def origin
