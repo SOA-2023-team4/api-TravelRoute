@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'figaro'
+require 'logger'
 require 'roda'
 require 'rack/session'
 require 'sequel'
@@ -30,5 +31,9 @@ module TravelRoute
       @db = Sequel.connect(ENV.fetch('DATABASE_URL'))
       def self.db = @db # rubocop:disable Style/TrivialAccessors
     end
+
+    # Logger
+    @logger = Logger.new($stderr)
+    def self.logger = @logger # rubocop:disable Style/TrivialAccessors
   end
 end
