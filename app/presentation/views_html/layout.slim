@@ -5,7 +5,7 @@ html
 
     / Bootstrap CSS and theme (United Theme)
     link{
-      href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.2/dist/litera/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.2/dist/minty/bootstrap.min.css"
       rel="stylesheet" 
       crossorigin="anonymous"
     }
@@ -29,15 +29,38 @@ html
     .container id='html_body'
       section
         .row style="vertical-align: middle;"
-          .col-12
+          .col-3
             h1 
-              a.text-underline-hover href="/" TravelRoute
+              a.text-underline-hover href="/" ShowDaPlan
+          .col-9
+            a.btn.btn-outline-primary.btn-lg href="#saved-plans" role="button" aria-controls="saved-plans" data-bs-toggle="offcanvas"  My Plan
+            .offcanvas.offcanvas-start tabindex="-1" id="saved-plans" aria-labelledby="saved-plans-label"
+              .offcanvas-header
+                h5 class="offcanvas-title" id="saved-plans-label" Saved Plan
+                button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
+              .offcanvas-body
+                ul class="list-group"
+                - session[:saved].each do |_, plan|
+                  li class="list-group-item mb-3"
+                    .row
+                      .col-6
+                        h5.card-title #{plan.name}
+                      .col-6
+                        .row
+                          .col-6
+                            form role="form" action="/plans" method="POST" 
+                              input type="hidden" name="_method" value="delete"
+                              input type="hidden" name="plan_name" value="#{plan.name}"
+                              button type="button" class="btn btn-danger" onclick="removeSavedPlan(this)" Delete
+                          .col-6
+                            a.btn.btn-primary href="/plans/#{plan.name}" View
 
       section
+        include :flash_bar
         == yield
 
       footer
-        = "TravelRoute is made for demonstration purposes. We cannot warrant full correctness of all content. TravelRoute may use cookies for sessions but does not track users."
+        = "ShowDaPlan is made for demonstration purposes. We cannot warrant full correctness of all content. ShowDaPlan may use cookies for sessions but does not track users."
 
       
       == assets([:js, :home])
