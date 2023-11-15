@@ -1,28 +1,27 @@
 .container
-  .row 
+  .row
     .col-8
-      form role="form" action="/" method="GET"
-        input type="text" name="search-term" id="search-term" placeholder="國立清華大學"
-        button type="submit" id="search-submit" Search
-      ul class="list-group"
-        - attractions.each do |attraction|
-          li class="list-group-item"
-            form.card role="form" action="/select-attraction" method="POST"
-              .card-body
-                h5.card-title #{attraction.name} (#{attraction.rating})
-                p.card-text #{attraction.address}
-                input type="hidden" name="selected" value="#{attraction.place_id}"
-                button type="submit" +
+      form role="form" action="/search" method="POST" id="attraction-search-form"
+        .input-group.mb-3
+          input type="text" class="form-control" aria-describedby="search-submit" name="search-term" id="attraction-search-term" placeholder="國立清華大學"
+          button type="button" class="btn btn-primary" id="attraction-search-button" Search
+      ul class="list-group" id="attraction-search-results"
     .col-4
       ul class="list-group"
-        - cart.each do |attraction|
-          li class="list-group-item"
-            form.card role="form" action="/remove-attraction" method="POST"
-              .card-body
-                h5.card-title #{attraction.name} (#{attraction.rating})
-                p.card-text #{attraction.address}
-                input type="hidden" name="selected" value="#{attraction.place_id}"
-                button type="submit" -
-  .row 
-    form role="form" action="/adjustment" method="GET"
-        button type="submit" Next
+        .card.border-light.mb-3 id="attraction-list"
+          .card-header
+            .row
+              .col-6
+                h4.card-title Attraction List
+              .col-2
+                a.btn.btn-danger href="#" id='clear-attraction-list-button' Clear
+              .col-1
+              .col-2
+                a.btn.btn-primary href="/adjustment" Next
+          - cart.each do |attraction|
+            li class="list-group-item"
+                .card-body
+                  h5.card-title #{attraction.name} (#{attraction.rating})
+                  p.card-text #{attraction.address}
+                  input type="hidden" name="attractions[]" value="#{attraction.place_id}"
+                  button type="button" class="btn btn-danger" onclick="removeAttraction('#{attraction.place_id}', this)" -
