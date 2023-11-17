@@ -56,7 +56,7 @@ module TravelRoute
         return nil unless db_record
 
         Entity::Attraction.new(
-          db_record.to_hash
+          db_record.to_hash.merge({ opening_hours: nil })
         )
       end
 
