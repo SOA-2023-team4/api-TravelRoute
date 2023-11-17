@@ -1,9 +1,80 @@
 ---
-html_attributions: []
-result:
-  formatted_address: No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City,
-    Taiwan 300
-  name: National Tsing Hua University
-  place_id: ChIJB7ZNzXI2aDQREwR22ltdKxE
+nthu:
+  id: ChIJB7ZNzXI2aDQREwR22ltdKxE
+  formattedAddress: No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300
   rating: 4.6
-status: OK
+  displayName:
+    text: National Tsing Hua University
+bigcity:
+  id: ChIJQyv318Q1aDQRYz_krC4mdb4
+  formattedAddress: No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041
+  rating: 4.4
+  regularOpeningHours:
+    openNow: true
+    periods:
+    - open:
+        day: 0
+        hour: 11
+        minute: 0
+      close:
+        day: 0
+        hour: 21
+        minute: 30
+    - open:
+        day: 1
+        hour: 11
+        minute: 0
+      close:
+        day: 1
+        hour: 21
+        minute: 30
+    - open:
+        day: 2
+        hour: 11
+        minute: 0
+      close:
+        day: 2
+        hour: 21
+        minute: 30
+    - open:
+        day: 3
+        hour: 11
+        minute: 0
+      close:
+        day: 3
+        hour: 21
+        minute: 30
+    - open:
+        day: 4
+        hour: 11
+        minute: 0
+      close:
+        day: 4
+        hour: 21
+        minute: 30
+    - open:
+        day: 5
+        hour: 11
+        minute: 0
+      close:
+        day: 5
+        hour: 22
+        minute: 0
+    - open:
+        day: 6
+        hour: 11
+        minute: 0
+      close:
+        day: 6
+        hour: 22
+        minute: 0
+    weekdayDescriptions:
+    - 'Monday: 11:00 AM – 9:30 PM'
+    - 'Tuesday: 11:00 AM – 9:30 PM'
+    - 'Wednesday: 11:00 AM – 9:30 PM'
+    - 'Thursday: 11:00 AM – 9:30 PM'
+    - 'Friday: 11:00 AM – 10:00 PM'
+    - 'Saturday: 11:00 AM – 10:00 PM'
+    - 'Sunday: 11:00 AM – 9:30 PM'
+  displayName:
+    text: Big City
