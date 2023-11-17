@@ -11,8 +11,8 @@ module TravelRoute
       def initialize(attractions, matrix)
         @attractions = attractions
         @attraction_to_index = {}
-        @attractions.each_with_index do |attraction, i|
-          @attraction_to_index[attraction] = i
+        @attractions.each_with_index do |attraction, ind|
+          @attraction_to_index[attraction] = ind
         end
         @matrix = matrix
       end
@@ -67,11 +67,9 @@ module TravelRoute
       def routes_in_order(attractions)
         raise 'one or more attraction(s) not in guidebook' unless all?(attractions)
 
-        results = []
-        (1..(attractions.count - 1)).each do |i|
-          results.append(route(attractions[i - 1], attractions[i]))
+        attractions.each_cons(2).map do |from, to|
+          route(from, to)
         end
-        results
       end
     end
   end

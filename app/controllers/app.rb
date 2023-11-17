@@ -20,7 +20,7 @@ module TravelRoute
                     }
     plugin :common_logger, $stderr
 
-    use Rack::MethodOverride
+    # use Rack::MethodOverride
 
     route do |routing|
       routing.assets
@@ -130,9 +130,9 @@ module TravelRoute
 
           # POST /plans
           routing.post do
-            saved = session[:temp_plan]
+            plan = session[:temp_plan].plan
             plan_name = routing.params['plan_name']
-            saved.name = plan_name.empty? ? 'Untitled' : plan_name
+            saved = plan_name.empty? ? Views::Plan.new(plan) : Views::Plan.new(plan, plan_name)
             session[:saved].merge!(saved.name => saved)
             flash[:notice] = 'Plan saved'
             routing.redirect "/plans?origin=#{saved.origin.place_id}"

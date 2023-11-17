@@ -9,16 +9,33 @@ module TravelRoute
       end
 
       def generate_plan(origin)
-        unvisited = @guidebook.attractions
-        unvisited.delete(origin)
-        visit_order = [origin]
-        while unvisited.count.positive?
-          next_attraction = @guidebook.nearest(visit_order.last, unvisited)
-          visit_order.append(next_attraction)
-          unvisited.delete(next_attraction)
-        end
+        visit_order = VisitOrder.new(@guidebook).visited_from(origin)
         routes_for_attractions = @guidebook.routes_in_order(visit_order)
         Plan.new(visit_order, routes_for_attractions)
+      end
+
+      # sort the visit order by the nearest neighbor algorithm
+      class VisitOrder
+        def initialize(guidebook)
+          @guidebook = guidebook
+          @visited_order = []
+          @unvisited = @guidebook.attractions
+        end
+
+        def visited_from(origin)
+          @visited_order.append(origin)
+          @unvisited.delete(origin)
+          next_candidate(@visited_order.last, @unvisited) while @unvisited.count.positive?
+          @visited_order
+        end
+
+        private
+
+        def next_candidate(origin, attractions)
+          next_attraction = @guidebook.nearest(origin, attractions)
+          @visited_order.append(next_attraction)
+          @unvisited.delete(next_attraction)
+        end
       end
     end
   end

@@ -2,6 +2,9 @@
   detectors:
     IrresponsibleModule:
       enabled: false
+    UncommunicativeVariableName:
+      accept:
+        - e
   exclude_paths:
     - _snippets
     - spec/fixtures/project_info.rb # one-time test fixture creator
