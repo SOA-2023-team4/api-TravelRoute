@@ -17,16 +17,12 @@ module TravelRoute
       'REQUEST_DENIED' => Unauthorized
     }.freeze
 
-    def successful_get?
-      HTTP_ERROR.keys.none?(code) && STATUS_ERROR.keys.none?(parse['status'])
-    end
-
-    def successful_post?
+    def successful?
       HTTP_ERROR.keys.none?(code)
     end
 
     def error
-      HTTP_ERROR.keys.none?(code) ? STATUS_ERROR[parse['status']] : HTTP_ERROR[code]
+      HTTP_ERROR[code]
     end
   end
 end

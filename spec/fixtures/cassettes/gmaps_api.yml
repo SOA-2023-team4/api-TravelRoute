@@ -1,308 +1,22 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%B8%85%E5%A4%A7&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:47 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:47 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '160'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=278
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"國立清華大學\",\n
-        \        \"place_id\" : \"ChIJB7ZNzXI2aDQREwR22ltdKxE\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:47 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJB7ZNzXI2aDQREwR22ltdKxE
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:47 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:47 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '302'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=79
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300\",\n
-        \     \"name\" : \"National Tsing Hua University\",\n      \"place_id\" :
-        \"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\n      \"rating\" : 4.6\n   },\n   \"status\"
-        : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:47 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Hsinchu%20zoo&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:48 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:48 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '163'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=300
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"新竹市立動物園\",\n
-        \        \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:47 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJl78Wnt01aDQRz1shOsBVUGU
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:48 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:48 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '270'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=65
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\n      \"name\"
-        : \"Hsinchu Zoo\",\n      \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\",\n
-        \     \"rating\" : 4\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:47 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Taipei%20Main%20Station&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:48 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:48 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '154'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=260
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"台北車站\",\n
-        \        \"place_id\" : \"ChIJlWImqHKpQjQREk5-6lec4-w\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:48 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJlWImqHKpQjQREk5-6lec4-w
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:48 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:48 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '286'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=59
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100\",\n
-        \     \"name\" : \"Taipei Main Station\",\n      \"place_id\" : \"ChIJlWImqHKpQjQREk5-6lec4-w\",\n
-        \     \"rating\" : 4.3\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:48 GMT
-- request:
     method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    uri: https://places.googleapis.com/v1/places:searchText
     body:
       encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+      string: '{"textQuery":"notexistentplace"}'
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
       Connection:
       - close
       Host:
-      - routes.googleapis.com
+      - places.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
@@ -317,7 +31,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Wed, 01 Nov 2023 06:45:48 GMT
+      - Fri, 17 Nov 2023 07:43:06 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -338,52 +52,36 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"400s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        2229,\n  \"duration\": \"430s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        73197,\n  \"duration\": \"3466s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3800s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        72496,\n  \"duration\": \"3482s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3863s\"\n}\n]"
-  recorded_at: Wed, 01 Nov 2023 06:45:48 GMT
+      string: "{}\n"
+  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
 - request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
     body:
       encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+      string: ''
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
-      - bad_token
+      - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
+      - id,displayName,formattedAddress,rating,regularOpeningHours
       Connection:
       - close
       Host:
-      - routes.googleapis.com
+      - places.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 01 Nov 2023 06:45:48 GMT
+      - Fri, 17 Nov 2023 07:43:06 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -398,192 +96,140 @@ http_interactions:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Accept-Ranges:
       - none
+      Vary:
+      - "*,Accept-Encoding"
       Connection:
       - close
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: |-
-        [{
-          "error": {
-            "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
+      string: |
+        {
+          "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
+          "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
+          "rating": 4.4,
+          "regularOpeningHours": {
+            "openNow": true,
+            "periods": [
               {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "routes.googleapis.com"
+                "open": {
+                  "day": 0,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 0,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 1,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 2,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 3,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 4,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 5,
+                  "hour": 22,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 6,
+                  "hour": 22,
+                  "minute": 0
                 }
               }
+            ],
+            "weekdayDescriptions": [
+              "Monday: 11:00 AM – 9:30 PM",
+              "Tuesday: 11:00 AM – 9:30 PM",
+              "Wednesday: 11:00 AM – 9:30 PM",
+              "Thursday: 11:00 AM – 9:30 PM",
+              "Friday: 11:00 AM – 10:00 PM",
+              "Saturday: 11:00 AM – 10:00 PM",
+              "Sunday: 11:00 AM – 9:30 PM"
             ]
+          },
+          "displayName": {
+            "text": "Big City",
+            "languageCode": "en"
           }
         }
-        ]
-  recorded_at: Wed, 01 Nov 2023 06:45:48 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Nanda%20Campus&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:49 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '173'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=247
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"國立清華大學
-        南大校區\",\n         \"place_id\" : \"ChIJmecsSO01aDQRGT_QzrFSwfA\"\n      }\n
-        \  ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:48 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJmecsSO01aDQRGT_QzrFSwfA
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:49 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '302'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=70
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300\",\n      \"name\"
-        : \"National Tsing Hua University Nanda Campus\",\n      \"place_id\" : \"ChIJmecsSO01aDQRGT_QzrFSwfA\",\n
-        \     \"rating\" : 4.4\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 06:45:48 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=invaliddestinationId&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:49 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '54'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=141
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-           "candidates" : [],
-           "status" : "ZERO_RESULTS"
-        }
-  recorded_at: Wed, 01 Nov 2023 06:45:49 GMT
+  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
 - request:
     method: post
-    uri: https://routes.googleapis.com/directions/v2:computeRoutes
+    uri: https://places.googleapis.com/v1/places:searchText
     body:
-      encoding: ASCII-8BIT
-      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - bad_token
       X-Goog-Fieldmask:
-      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
       Connection:
       - close
       Host:
-      - routes.googleapis.com
+      - places.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
@@ -598,7 +244,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
+      - Fri, 17 Nov 2023 07:43:06 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -631,13 +277,201 @@ http_interactions:
                 "reason": "API_KEY_INVALID",
                 "domain": "googleapis.com",
                 "metadata": {
-                  "service": "routes.googleapis.com"
+                  "service": "places.googleapis.com"
                 }
               }
             ]
           }
         }
-  recorded_at: Wed, 01 Nov 2023 06:45:49 GMT
+  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 17 Nov 2023 07:43:06 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              }
+            }
+          ]
+        }
+  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Nanda Campus"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 17 Nov 2023 07:43:23 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
+              "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.4,
+              "displayName": {
+                "text": "National Tsing Hua University Nanda Campus",
+                "languageCode": "en"
+              }
+            }
+          ]
+        }
+  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"invaliddestinationId"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 17 Nov 2023 07:43:23 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
 - request:
     method: post
     uri: https://routes.googleapis.com/directions/v2:computeRoutes
@@ -669,7 +503,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
+      - Fri, 17 Nov 2023 07:43:23 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -695,76 +529,102 @@ http_interactions:
           "routes": [
             {
               "distanceMeters": 3855,
-              "duration": "710s",
+              "duration": "743s",
               "polyline": {
                 "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@_B|GaAnEi@lBI^?\\YxDd@F\\VvAbCfEbInBlD~@jBfEpHvEzIxEpJ`B`D~B`EhEjIdCtE^l@HGb@Ft@@"
               }
             }
           ]
         }
-  recorded_at: Wed, 01 Nov 2023 06:45:49 GMT
+  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%B8%85%E5%A4%A7&inputtype=textquery&key=bad_token
+    method: post
+    uri: https://routes.googleapis.com/directions/v2:computeRoutes
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - bad_token
+      X-Goog-Fieldmask:
+      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
       Connection:
       - close
       Host:
-      - maps.googleapis.com
+      - routes.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
     headers:
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
-      Pragma:
-      - no-cache
-      Expires:
-      - Fri, 01 Jan 1990 00:00:00 GMT
-      Cache-Control:
-      - no-cache, must-revalidate
+      - Fri, 17 Nov 2023 07:43:24 GMT
       Server:
       - scaffolding on HTTPServer2
-      Content-Length:
-      - '113'
+      Cache-Control:
+      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=7
+      X-Content-Type-Options:
+      - nosniff
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
       Connection:
       - close
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: |-
+      string: |
         {
-           "candidates" : [],
-           "error_message" : "The provided API key is invalid.",
-           "status" : "REQUEST_DENIED"
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "routes.googleapis.com"
+                }
+              }
+            ]
+          }
         }
-  recorded_at: Wed, 01 Nov 2023 06:45:49 GMT
+  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=notexistentplace&inputtype=textquery&key=<GMAP_TOKEN>
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"textQuery":"Hsinchu zoo"}'
     headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
       Connection:
       - close
       Host:
-      - maps.googleapis.com
+      - places.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
@@ -774,45 +634,150 @@ http_interactions:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
       Date:
-      - Wed, 01 Nov 2023 06:45:49 GMT
-      Expires:
-      - Wed, 01 Nov 2023 06:50:49 GMT
-      Cache-Control:
-      - public, max-age=300
+      - Fri, 17 Nov 2023 07:43:37 GMT
       Server:
       - scaffolding on HTTPServer2
-      Content-Length:
-      - '54'
+      Cache-Control:
+      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=136
+      X-Content-Type-Options:
+      - nosniff
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
       Connection:
       - close
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: |-
+      string: |
         {
-           "candidates" : [],
-           "status" : "ZERO_RESULTS"
+          "places": [
+            {
+              "id": "ChIJl78Wnt01aDQRz1shOsBVUGU",
+              "formattedAddress": "300034, Taiwan, Hsinchu City, East District, 食品路66號300",
+              "rating": 4,
+              "regularOpeningHours": {
+                "openNow": true,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: Closed",
+                  "Tuesday: 9:00 AM – 5:00 PM",
+                  "Wednesday: 9:00 AM – 5:00 PM",
+                  "Thursday: 9:00 AM – 5:00 PM",
+                  "Friday: 9:00 AM – 5:00 PM",
+                  "Saturday: 9:00 AM – 5:00 PM",
+                  "Sunday: 9:00 AM – 5:00 PM"
+                ]
+              },
+              "displayName": {
+                "text": "Hsinchu Zoo",
+                "languageCode": "en"
+              }
+            }
+          ]
         }
-  recorded_at: Wed, 01 Nov 2023 06:45:49 GMT
+  recorded_at: Fri, 17 Nov 2023 07:43:37 GMT
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%B8%85%E5%A4%A7&inputtype=textquery&key=<GMAP_TOKEN>
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"textQuery":"Taipei Main Station"}'
     headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
       Connection:
       - close
       Host:
-      - maps.googleapis.com
+      - places.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
@@ -822,93 +787,82 @@ http_interactions:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:14:33 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:33 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '160'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=273
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"國立清華大學\",\n
-        \        \"place_id\" : \"ChIJB7ZNzXI2aDQREwR22ltdKxE\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:14:33 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJB7ZNzXI2aDQREwR22ltdKxE
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:14:33 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:33 GMT
-      Cache-Control:
-      - public, max-age=300
       Vary:
-      - Accept-Language
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 17 Nov 2023 07:43:37 GMT
       Server:
       - scaffolding on HTTPServer2
-      Content-Length:
-      - '302'
+      Cache-Control:
+      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=66
+      X-Content-Type-Options:
+      - nosniff
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
       Connection:
       - close
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300\",\n
-        \     \"name\" : \"National Tsing Hua University\",\n      \"place_id\" :
-        \"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\n      \"rating\" : 4.6\n   },\n   \"status\"
-        : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:14:33 GMT
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJlWImqHKpQjQREk5-6lec4-w",
+              "formattedAddress": "No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100",
+              "rating": 4.3,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJneUTn3KpQjQRGGR7w7CKOQg",
+              "formattedAddress": "10041, Taiwan, Taipei City, Zhongzheng District, 忠孝西路1段49號",
+              "rating": 4.2,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJCZEzfnKpQjQRy75KOs4xSsM",
+              "formattedAddress": "100, Taiwan, Taipei City, Zhongzheng District, Beiping W Rd, 3號100臺灣",
+              "rating": 4.2,
+              "displayName": {
+                "text": "Taipei",
+                "languageCode": "en"
+              }
+            }
+          ]
+        }
+  recorded_at: Fri, 17 Nov 2023 07:43:37 GMT
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Hsinchu%20zoo&inputtype=textquery&key=<GMAP_TOKEN>
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
       Connection:
       - close
       Host:
-      - maps.googleapis.com
+      - routes.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
@@ -918,512 +872,45 @@ http_interactions:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:14:34 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:34 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '163'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=273
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"新竹市立動物園\",\n
-        \        \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:14:33 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJl78Wnt01aDQRz1shOsBVUGU
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:14:34 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:34 GMT
-      Cache-Control:
-      - public, max-age=300
       Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '270'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=65
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\n      \"name\"
-        : \"Hsinchu Zoo\",\n      \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\",\n
-        \     \"rating\" : 4\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:14:33 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Taipei%20Main%20Station&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
       Date:
-      - Wed, 01 Nov 2023 08:14:34 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:34 GMT
-      Cache-Control:
-      - public, max-age=300
+      - Fri, 17 Nov 2023 07:43:37 GMT
       Server:
       - scaffolding on HTTPServer2
-      Content-Length:
-      - '154'
+      Cache-Control:
+      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=246
+      X-Content-Type-Options:
+      - nosniff
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
       Connection:
       - close
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"台北車站\",\n
-        \        \"place_id\" : \"ChIJlWImqHKpQjQREk5-6lec4-w\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:14:34 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJlWImqHKpQjQREk5-6lec4-w
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:14:34 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:34 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '286'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=82
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100\",\n
-        \     \"name\" : \"Taipei Main Station\",\n      \"place_id\" : \"ChIJlWImqHKpQjQREk5-6lec4-w\",\n
-        \     \"rating\" : 4.3\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:14:34 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%B8%85%E5%A4%A7&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '160'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Date:
-      - Wed, 01 Nov 2023 08:14:33 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:33 GMT
-      Cache-Control:
-      - public, max-age=300
-      Content-Type:
-      - application/json; charset=UTF-8
-      Age:
-      - '156'
-      Server-Timing:
-      - gfet4t7; dur=4
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"國立清華大學\",\n
-        \        \"place_id\" : \"ChIJB7ZNzXI2aDQREwR22ltdKxE\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:17:09 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJB7ZNzXI2aDQREwR22ltdKxE
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:17:09 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:22:09 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '302'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=69
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300\",\n
-        \     \"name\" : \"National Tsing Hua University\",\n      \"place_id\" :
-        \"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\n      \"rating\" : 4.6\n   },\n   \"status\"
-        : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:17:09 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Hsinchu%20zoo&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '163'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Date:
-      - Wed, 01 Nov 2023 08:14:34 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:34 GMT
-      Cache-Control:
-      - public, max-age=300
-      Content-Type:
-      - application/json; charset=UTF-8
-      Age:
-      - '155'
-      Server-Timing:
-      - gfet4t7; dur=1
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"新竹市立動物園\",\n
-        \        \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:17:09 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJl78Wnt01aDQRz1shOsBVUGU
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:17:09 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:22:09 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '270'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=73
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\n      \"name\"
-        : \"Hsinchu Zoo\",\n      \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\",\n
-        \     \"rating\" : 4\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:17:09 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=Taipei%20Main%20Station&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '154'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Date:
-      - Wed, 01 Nov 2023 08:14:34 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:19:34 GMT
-      Cache-Control:
-      - public, max-age=300
-      Content-Type:
-      - application/json; charset=UTF-8
-      Age:
-      - '155'
-      Server-Timing:
-      - gfet4t7; dur=2
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"台北車站\",\n
-        \        \"place_id\" : \"ChIJlWImqHKpQjQREk5-6lec4-w\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:17:09 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?fields=name,place_id,rating,formatted_address&key=<GMAP_TOKEN>&place_id=ChIJlWImqHKpQjQREk5-6lec4-w
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 01 Nov 2023 08:17:09 GMT
-      Expires:
-      - Wed, 01 Nov 2023 08:22:09 GMT
-      Cache-Control:
-      - public, max-age=300
-      Vary:
-      - Accept-Language
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '286'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=65
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"result\" : \n   {\n      \"formatted_address\"
-        : \"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100\",\n
-        \     \"name\" : \"Taipei Main Station\",\n      \"place_id\" : \"ChIJlWImqHKpQjQREk5-6lec4-w\",\n
-        \     \"rating\" : 4.3\n   },\n   \"status\" : \"OK\"\n}"
-  recorded_at: Wed, 01 Nov 2023 08:17:09 GMT
-- request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,name&input=%E6%96%B0%E7%AB%B9%E5%8B%95%E7%89%A9%E5%9C%92&inputtype=textquery&key=<GMAP_TOKEN>
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Connection:
-      - close
-      Host:
-      - maps.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sun, 05 Nov 2023 16:22:47 GMT
-      Expires:
-      - Sun, 05 Nov 2023 16:27:47 GMT
-      Cache-Control:
-      - public, max-age=300
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '163'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=321
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: "{\n   \"candidates\" : \n   [\n      {\n         \"name\" : \"新竹市立動物園\",\n
-        \        \"place_id\" : \"ChIJl78Wnt01aDQRz1shOsBVUGU\"\n      }\n   ],\n
-        \  \"status\" : \"OK\"\n}"
-  recorded_at: Sun, 05 Nov 2023 16:22:43 GMT
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n
+        \ \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 72483,\n  \"duration\": \"3522s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"434s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n
+        \ \"duration\": \"440s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3808s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        74585,\n  \"duration\": \"3873s\"\n}\n]"
+  recorded_at: Fri, 17 Nov 2023 07:43:37 GMT
 recorded_with: VCR 6.2.0

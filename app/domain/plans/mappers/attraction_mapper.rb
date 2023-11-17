@@ -11,18 +11,15 @@ module TravelRoute
       end
 
       def find(place_name)
-        data = @gateway.places_from_text_data(place_name)
-        build_entity(data)
+        data = @gateway.places_from_text_data(place_name)['places']
+        return [] unless data
+
+        data.map { |entry| DataMapper.new(entry).build_entity }
       end
 
       def find_by_id(place_id)
-        entry = @gateway.place_detail_data(place_id)['result']
+        entry = @gateway.place_detail_data(place_id)
         DataMapper.new(entry).build_entity
-      end
-
-      def build_entity(data)
-        results = get_place_detail(data)
-        results.map { |entry| DataMapper.new(entry).build_entity }
       end
 
       private
@@ -44,26 +41,31 @@ module TravelRoute
             place_id:,
             name:,
             address:,
-            rating:
+            rating:,
+            opening_hours:
           )
         end
 
         private
 
         def place_id
-          @data['place_id']
+          @data['id']
         end
 
         def address
-          @data['formatted_address']
+          @data['formattedAddress']
         end
 
         def name
-          @data['name']
+          @data['displayName']['text']
         end
 
         def rating
           @data['rating']
+        end
+
+        def opening_hours
+          @data.keys.include?('regularOpeningHours') ? @data['regularOpeningHours'] : nil
         end
       end
     end

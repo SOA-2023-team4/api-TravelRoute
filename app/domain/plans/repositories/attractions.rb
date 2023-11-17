@@ -27,6 +27,24 @@ module TravelRoute
         rebuild_many(db_records)
       end
 
+      def self.update_or_create(entity)
+        return update(entity) if find(entity)
+
+        create(entity)
+      end
+
+      def self.update(entity)
+        db_row = find(entity)
+        return db_row if update?(entity)
+
+        db_row.update(entity.to_attr_hash)
+      end
+
+      def self.update?(entity)
+        db_row = find(entity)
+        !(db_row.name != entity.name || db_row.address != entity.address || db_row.rating != entity.rating)
+      end
+
       def self.create(entity)
         raise 'Place already exists' if find(entity)
 
@@ -38,7 +56,7 @@ module TravelRoute
         return nil unless db_record
 
         Entity::Attraction.new(
-          db_record.to_hash
+          db_record.to_hash.merge({ opening_hours: nil })
         )
       end
 
