@@ -86,7 +86,7 @@ searchButton.addEventListener("click", () => {
         attraction_card_text.setAttribute("class", "card-text");
         attraction_card_text.innerHTML = attraction["address"]; 
 
-        var add_button = document.createElement("button");
+        var add_button = document.createElement("a");
         add_button.setAttribute("class", "btn btn-success btn-small");
         add_button.setAttribute("onclick", "addAttraction('" + JSON.stringify(attraction) + "')");
         add_button.innerHTML = "+";

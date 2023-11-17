@@ -1,6 +1,7 @@
 .container
-  .row
+  .row.mt-4
     .col-8
+      h2 Search for Attractions
       form role="form" action="/search" method="POST" id="attraction-search-form"
         .input-group.mb-3
           input type="text" class="form-control" aria-describedby="search-submit" name="search-term" id="attraction-search-term" placeholder="國立清華大學"
@@ -24,4 +25,4 @@
                   h5.card-title #{attraction.name} (#{attraction.rating})
                   p.card-text #{attraction.address}
                   input type="hidden" name="attractions[]" value="#{attraction.place_id}"
-                  button type="button" class="btn btn-danger" onclick="removeAttraction('#{attraction.place_id}', this)" -
+                  a type="button" class="btn btn-danger" onclick="removeAttraction('#{attraction.place_id}', this)" -
