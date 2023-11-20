@@ -10,24 +10,43 @@ module TravelRoute
     module Places
       # Api calling the google maps places api
       class Api
-        PLACE_SEARCH_PATH = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
-        PLACE_DETAIL_PATH = 'https://maps.googleapis.com/maps/api/place/details/json'
+        PLACE_ROOT_PATH = 'https://places.googleapis.com/v1/places'
 
         def initialize(api_key)
           @key = api_key
         end
 
+        def create_headers(fields)
+          {
+            'Content-Type': 'application/json',
+            'X-Goog-Api-Key': @key,
+            'X-Goog-FieldMask': fields.join(',')
+          }
+        end
+
+        def place_enpoint(endpoint)
+          "#{PLACE_ROOT_PATH}#{endpoint}"
+        end
+
+        def text_query(search_text)
+          {
+            'textQuery' => search_text
+          }
+        end
+
         def places_from_text_data(search_text)
-          fields = %w[place_id name]
-          esscpaed_text = CGI.escape(search_text)
-          url = "#{PLACE_SEARCH_PATH}?fields=#{fields.join(',')}&input=#{esscpaed_text}&inputtype=textquery&key=#{@key}"
-          Request.get(url).parse
+          fields = %w[places.displayName places.id places.formattedAddress places.rating places.regularOpeningHours]
+          headers = create_headers(fields)
+          body = text_query(search_text)
+          url = place_enpoint(':searchText')
+          Request.post(url, headers, body).parse
         end
 
         def place_detail_data(place_id)
-          fields = %w[name place_id rating formatted_address]
-          url = "#{PLACE_DETAIL_PATH}?fields=#{fields.join(',')}&place_id=#{place_id}&key=#{@key}"
-          Request.get(url).parse
+          fields = %w[id displayName formattedAddress rating regularOpeningHours]
+          headers = create_headers(fields)
+          url = place_enpoint("/#{place_id}")
+          Request.get(url, headers).parse
         end
       end
     end
