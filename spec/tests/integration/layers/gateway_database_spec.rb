@@ -1,8 +1,8 @@
 # frozen_string_literal: false
 
-require_relative 'helpers/spec_helper'
-require_relative 'helpers/vcr_helper'
-require_relative 'helpers/database_helper'
+require_relative '../../../helpers/spec_helper'
+require_relative '../../../helpers/vcr_helper'
+require_relative '../../../helpers/database_helper'
 
 describe 'Integration Tests of Google Maps API and Database' do
   VcrHelper.setup_vcr
@@ -44,18 +44,23 @@ describe 'Integration Tests of Google Maps API and Database' do
         name: 'Big City (updated)',
         address: '(new) Big City, Big Country',
         rating: 100.0,
-        opening_hours: original.opening_hours
+        opening_hours: { 'a' => 1 },
+        type: 'test'
       )
       rebuilt = TravelRoute::Repository::Attractions.update_or_create(changed)
       _(rebuilt.place_id).must_equal(original.place_id)
       _(rebuilt.name).wont_equal(original.name)
       _(rebuilt.address).wont_equal(original.address)
       _(rebuilt.rating).wont_equal(original.rating)
+      _(rebuilt.opening_hours).wont_equal(original.opening_hours)
+      _(rebuilt.type).wont_equal(original.type)
 
       _(rebuilt.place_id).must_equal(changed.place_id)
       _(rebuilt.name).must_equal(changed.name)
       _(rebuilt.address).must_equal(changed.address)
       _(rebuilt.rating).must_equal(changed.rating)
+      _(rebuilt.opening_hours).must_equal(changed.opening_hours)
+      _(rebuilt.type).must_equal(changed.type)
     end
   end
 end

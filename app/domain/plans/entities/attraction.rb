@@ -12,11 +12,19 @@ module TravelRoute
       attribute :place_id,        Strict::String
       attribute :name,            Strict::String
       attribute :address,         Strict::String
+      attribute? :type,           Strict::String.optional
       attribute? :opening_hours,  Strict::Hash.optional
       attribute :rating,          Coercible::Float.optional
 
       def to_attr_hash
-        to_hash.except(:opening_hours)
+        {
+          place_id:,
+          name:,
+          address:,
+          rating:,
+          type:,
+          opening_hours: opening_hours.to_json
+        }
       end
     end
   end
