@@ -30,11 +30,17 @@ module TravelRoute
       routing.root do
         session[:cart] ||= []
         session[:saved] ||= {}
-        cart_map = session[:cart].map do |place_id|
-          Repository::Attractions.find_id(place_id)
+        list_result = Service::ListAttractions.new.call(session[:cart])
+
+        if list_result.failure?
+          flash[:error] = list_result.failure
+          cart_item = []
+        else
+          carted_attractions = list_result.value!
+          cart_item = Views::AttractionList.new(carted_attractions).attractions
         end
-        cart = Views::AttractionList.new(cart_map)
-        view 'home', locals: { cart: cart.attractions }
+
+        view 'home', locals: { cart: cart_item }
       end
 
       routing.on 'search' do
@@ -42,18 +48,23 @@ module TravelRoute
         routing.is do
           routing.post do
             req = JSON.parse(routing.body.read, symbolize_names: true)
-            raise Views::Attraction::InvalidSearchTerm if req[:search_term].empty?
+            val_req = Forms::SearchAttraction.new.call(req)
 
-            search_term = req[:search_term]
-            searched_attraction = Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find(search_term)
+            if val_req.failure?
+              flash[:error] = val_req.errors.messages.join('; ')
+              routing.halt 400
+            end
+
+            search_term = val_req[:search_term]
+            search_result = Service::SearchAttractions.new.call(search_term)
+
+            if search_result.failure?
+              flash[:error] = search_result.failure
+              routing.halt 500
+            end
+
+            searched_attraction = search_result.value!
             Views::AttractionList.new(searched_attraction).to_json
-          rescue Views::Attraction::InvalidSearchTerm
-            flash[:error] = 'Search term cannot be empty'
-            routing.halt 400
-          rescue StandardError => e
-            App.logger.error e.backtrace.join("\n")
-            flash[:error] = 'Something went wrong'
-            routing.halt 500
           end
         end
       end
@@ -63,10 +74,24 @@ module TravelRoute
           # POST /attractions
           routing.post do
             req = JSON.parse(routing.body.read)
-            selected = JSON.parse(req['selected'], symbolize_names: true)
-            selected_attraction = Entity::Attraction.new(selected)
-            Repository::Attractions.update_or_create(selected_attraction)
+            val_req = Forms::NewAttraction.new.call(req)
+
+            if val_req.failure?
+              flash[:error] = val_req.errors.messages.join('; ')
+              routing.halt 400
+            end
+
+            selected = JSON.parse(val_req['selected'], symbolize_names: true)
+            add_result = Service::AddAttraction.new.call(selected)
+
+            if add_result.failure?
+              flash[:error] = add_result.failure
+              routing.halt 500
+            end
+
+            selected_attraction = add_result.value!
             session[:cart].push(selected_attraction.place_id).uniq!
+
             Views::Attraction.new(selected_attraction).to_json
           end
 
@@ -77,10 +102,6 @@ module TravelRoute
             removed == 'all' ? session[:cart].clear : session[:cart].delete(removed)
             { removed: }.to_json
           end
-        rescue StandardError => e
-          App.logger.error e.backtrace.join("\n")
-          flash[:error] = 'Something went wrong'
-          routing.halt 500
         end
       end
 
@@ -88,16 +109,17 @@ module TravelRoute
         routing.is do
           # GET /adjustment
           routing.get do
-            cart = session[:cart].map do |place_id|
-              Repository::Attractions.find_id(place_id) ||
-                Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(place_id)
+            req = Service::ListAttractions.new.call(session[:cart])
+
+            if req.failure?
+              flash[:error] = req.failure
+              routing.redirect '/plans'
             end
-            view 'adjustment', locals: { cart: }
+
+            cart = req.value!
+            cart_item = Views::AttractionList.new(cart).attractions
+            view 'adjustment', locals: { cart: cart_item }
           end
-        rescue StandardError => e
-          App.logger.error e.backtrace.join("\n")
-          flash[:error] = 'Something went wrong'
-          routing.redirect '/plans'
         end
       end
 
@@ -115,15 +137,14 @@ module TravelRoute
           routing.get do
             origin_id = routing.params['origin']
             place_ids = session[:cart]
+            plan_req = Service::GeneratePlan.new.call(cart: place_ids, origin: origin_id)
 
-            places = place_ids.map do |place_id|
-              Repository::Attractions.find_id(place_id) ||
-                Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(place_id)
+            if plan_req.failure?
+              flash[:error] = plan_req.failure
+              routing.redirect "/plans?origin=#{origin_id}"
             end
-            guidebook = Mapper::GuidebookMapper.new(App.config.GMAP_TOKEN).generate_guidebook(places)
-            origin = Repository::Attractions.find_id(origin_id)
-            plan_entity = Entity::Planner.new(guidebook).generate_plan(origin)
-            plan = Views::Plan.new(plan_entity)
+
+            plan = Views::Plan.new(plan_req.value!)
             session[:temp_plan] = plan
             view 'plan', locals: { plan: }
           end
@@ -131,8 +152,15 @@ module TravelRoute
           # POST /plans
           routing.post do
             plan = session[:temp_plan].plan
-            plan_name = routing.params['plan_name']
-            saved = plan_name.empty? ? Views::Plan.new(plan) : Views::Plan.new(plan, plan_name)
+            save_req = Forms::SavePlan.new.call(routing.params)
+
+            if save_req.failure?
+              flash[:error] = save_req.errors.messages.join('; ')
+              routing.redirect '/plans'
+            end
+
+            plan_name = save_req[:plan_name]
+            saved = plan_name.nil? ? Views::Plan.new(plan) : Views::Plan.new(plan, plan_name)
             session[:saved].merge!(saved.name => saved)
             flash[:notice] = 'Plan saved'
             routing.redirect "/plans?origin=#{saved.origin.place_id}"
@@ -141,14 +169,17 @@ module TravelRoute
           # DELETE /plans
           routing.delete do
             req = JSON.parse(routing.body.read, symbolize_names: true)
-            deleted = req[:plan_name]
+            del_req = Forms::DeletePlan.new.call(req)
+
+            if del_req.failure?
+              flash[:error] = del_req.errors.messages.join('; ')
+              routing.redirect '/plans'
+            end
+
+            deleted = del_req[:plan_name]
             session[:saved].delete(deleted)
             { success: true }.to_json
           end
-        rescue StandardError => e
-          App.logger.error e.backtrace.join("\n")
-          flash[:error] = 'Something went wrong'
-          routing.redirect '/plans'
         end
       end
     end
