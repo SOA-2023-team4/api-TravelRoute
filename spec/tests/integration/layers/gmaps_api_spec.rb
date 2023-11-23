@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'helpers/spec_helper'
-require_relative 'helpers/vcr_helper'
+require_relative '../../../helpers/spec_helper'
+require_relative '../../../helpers/vcr_helper'
 
 describe 'Tests Google Maps API library' do
   before do
@@ -17,6 +17,7 @@ describe 'Tests Google Maps API library' do
     it 'HAPPY: should provide correct place when searching by text' do
       expected = PLACE_DETAIL_RESULT['nthu']
       response = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find(PLACE)
+
       response.each do |generated|
         _(generated.place_id).must_equal expected['id']
         _(generated.name).must_equal expected['displayName']['text']
