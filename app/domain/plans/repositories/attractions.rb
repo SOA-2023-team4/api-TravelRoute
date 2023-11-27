@@ -35,14 +35,19 @@ module TravelRoute
 
       def self.update(entity)
         db_row = Database::AttractionOrm.first(place_id: entity.place_id)
-        return db_row if update?(entity)
+        return find(entity) if update?(entity)
 
         db_row.update(entity.to_attr_hash)
+        rebuild_entity(db_row)
       end
 
       def self.update?(entity)
         db_row = find(entity)
-        !(db_row.name != entity.name || db_row.address != entity.address || db_row.rating != entity.rating)
+        !(db_row.name != entity.name ||
+          db_row.address != entity.address ||
+          db_row.rating != entity.rating ||
+          db_row.type != entity.type ||
+          db_row.opening_hours != entity.opening_hours)
       end
 
       def self.create(entity)
@@ -55,9 +60,9 @@ module TravelRoute
       def self.rebuild_entity(db_record)
         return nil unless db_record
 
-        Entity::Attraction.new(
-          db_record.to_hash
-        )
+        entry = db_record.to_hash
+        entry[:opening_hours] = JSON.parse(db_record.opening_hours)
+        Entity::Attraction.new(entry)
       end
 
       def self.rebuild_many(db_records)

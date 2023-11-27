@@ -42,6 +42,7 @@ module TravelRoute
             name:,
             address:,
             rating:,
+            type:,
             opening_hours:
           )
         end
@@ -66,6 +67,10 @@ module TravelRoute
 
         def opening_hours
           @data.keys.include?('regularOpeningHours') ? @data['regularOpeningHours'] : nil
+        end
+
+        def type
+          @data['primaryType']
         end
       end
     end

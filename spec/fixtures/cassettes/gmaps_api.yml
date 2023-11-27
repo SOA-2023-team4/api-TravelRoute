@@ -4,290 +4,6 @@ http_interactions:
     method: post
     uri: https://places.googleapis.com/v1/places:searchText
     body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"notexistentplace"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 17 Nov 2023 07:43:06 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 17 Nov 2023 07:43:06 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Vary:
-      - "*,Accept-Encoding"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
-          "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
-          "rating": 4.4,
-          "regularOpeningHours": {
-            "openNow": true,
-            "periods": [
-              {
-                "open": {
-                  "day": 0,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 0,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 1,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 1,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 2,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 2,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 3,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 3,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 4,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 4,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 5,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 5,
-                  "hour": 22,
-                  "minute": 0
-                }
-              },
-              {
-                "open": {
-                  "day": 6,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 6,
-                  "hour": 22,
-                  "minute": 0
-                }
-              }
-            ],
-            "weekdayDescriptions": [
-              "Monday: 11:00 AM – 9:30 PM",
-              "Tuesday: 11:00 AM – 9:30 PM",
-              "Wednesday: 11:00 AM – 9:30 PM",
-              "Thursday: 11:00 AM – 9:30 PM",
-              "Friday: 11:00 AM – 10:00 PM",
-              "Saturday: 11:00 AM – 10:00 PM",
-              "Sunday: 11:00 AM – 9:30 PM"
-            ]
-          },
-          "displayName": {
-            "text": "Big City",
-            "languageCode": "en"
-          }
-        }
-  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: UTF-8
-      string: '{"textQuery":"清大"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 17 Nov 2023 07:43:06 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "error": {
-            "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
-              {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "places.googleapis.com"
-                }
-              }
-            ]
-          }
-        }
-  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
       encoding: UTF-8
       string: '{"textQuery":"清大"}'
     headers:
@@ -296,7 +12,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
       Connection:
       - close
       Host:
@@ -315,7 +31,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 17 Nov 2023 07:43:06 GMT
+      - Thu, 23 Nov 2023 05:04:02 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -346,268 +62,12 @@ http_interactions:
               "displayName": {
                 "text": "National Tsing Hua University",
                 "languageCode": "en"
-              }
+              },
+              "primaryType": "university"
             }
           ]
         }
-  recorded_at: Fri, 17 Nov 2023 07:43:06 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"Nanda Campus"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 17 Nov 2023 07:43:23 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
-              "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
-              "rating": 4.4,
-              "displayName": {
-                "text": "National Tsing Hua University Nanda Campus",
-                "languageCode": "en"
-              }
-            }
-          ]
-        }
-  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"invaliddestinationId"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 17 Nov 2023 07:43:23 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/directions/v2:computeRoutes
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 17 Nov 2023 07:43:23 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "routes": [
-            {
-              "distanceMeters": 3855,
-              "duration": "743s",
-              "polyline": {
-                "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@_B|GaAnEi@lBI^?\\YxDd@F\\VvAbCfEbInBlD~@jBfEpHvEzIxEpJ`B`D~B`EhEjIdCtE^l@HGb@Ft@@"
-              }
-            }
-          ]
-        }
-  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/directions/v2:computeRoutes
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
-      X-Goog-Fieldmask:
-      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 17 Nov 2023 07:43:24 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "error": {
-            "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
-              {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "routes.googleapis.com"
-                }
-              }
-            ]
-          }
-        }
-  recorded_at: Fri, 17 Nov 2023 07:43:23 GMT
+  recorded_at: Thu, 23 Nov 2023 05:04:01 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchText
@@ -620,7 +80,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
       Connection:
       - close
       Host:
@@ -639,7 +99,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 17 Nov 2023 07:43:37 GMT
+      - Thu, 23 Nov 2023 05:04:02 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -756,11 +216,12 @@ http_interactions:
               "displayName": {
                 "text": "Hsinchu Zoo",
                 "languageCode": "en"
-              }
+              },
+              "primaryType": "zoo"
             }
           ]
         }
-  recorded_at: Fri, 17 Nov 2023 07:43:37 GMT
+  recorded_at: Thu, 23 Nov 2023 05:04:01 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchText
@@ -773,7 +234,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
       Connection:
       - close
       Host:
@@ -792,7 +253,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 17 Nov 2023 07:43:37 GMT
+      - Thu, 23 Nov 2023 05:04:03 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -823,7 +284,8 @@ http_interactions:
               "displayName": {
                 "text": "Taipei Main Station",
                 "languageCode": "en"
-              }
+              },
+              "primaryType": "subway_station"
             },
             {
               "id": "ChIJneUTn3KpQjQRGGR7w7CKOQg",
@@ -832,7 +294,8 @@ http_interactions:
               "displayName": {
                 "text": "Taipei Main Station",
                 "languageCode": "en"
-              }
+              },
+              "primaryType": "subway_station"
             },
             {
               "id": "ChIJCZEzfnKpQjQRy75KOs4xSsM",
@@ -841,11 +304,22 @@ http_interactions:
               "displayName": {
                 "text": "Taipei",
                 "languageCode": "en"
-              }
+              },
+              "primaryType": "train_station"
+            },
+            {
+              "id": "ChIJcYy0Y3KpQjQRXiW_s2lGln8",
+              "formattedAddress": "100, Taiwan, 台北市中正區黎明里",
+              "rating": 3.9,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              },
+              "primaryType": "transit_station"
             }
           ]
         }
-  recorded_at: Fri, 17 Nov 2023 07:43:37 GMT
+  recorded_at: Thu, 23 Nov 2023 05:04:01 GMT
 - request:
     method: post
     uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
@@ -877,7 +351,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 17 Nov 2023 07:43:37 GMT
+      - Thu, 23 Nov 2023 05:04:03 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -899,20 +373,142 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n
-        \ \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
+        \ \"duration\": \"434s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"440s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3873s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
         1,\n  \"status\": {},\n  \"distanceMeters\": 72483,\n  \"duration\": \"3522s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
-        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"434s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n
-        \ \"duration\": \"440s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3808s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        74585,\n  \"duration\": \"3873s\"\n}\n]"
-  recorded_at: Fri, 17 Nov 2023 07:43:37 GMT
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3808s\"\n}\n]"
+  recorded_at: Thu, 23 Nov 2023 05:04:02 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"invaliddestinationId"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 23 Nov 2023 05:04:03 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Thu, 23 Nov 2023 05:04:02 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"nthu"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 23 Nov 2023 05:04:04 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            }
+          ]
+        }
+  recorded_at: Thu, 23 Nov 2023 05:04:02 GMT
 - request:
     method: get
     uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
@@ -925,7 +521,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType
       Connection:
       - close
       Host:
@@ -940,7 +536,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Fri, 17 Nov 2023 08:54:15 GMT
+      - Thu, 23 Nov 2023 05:04:05 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -1069,7 +665,337 @@ http_interactions:
           "displayName": {
             "text": "Big City",
             "languageCode": "en"
+          },
+          "primaryType": "shopping_mall"
+        }
+  recorded_at: Thu, 23 Nov 2023 05:04:04 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Nanda Campus"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 23 Nov 2023 05:07:08 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
+              "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.4,
+              "displayName": {
+                "text": "National Tsing Hua University Nanda Campus",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            }
+          ]
+        }
+  recorded_at: Thu, 23 Nov 2023 05:07:07 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/directions/v2:computeRoutes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - bad_token
+      X-Goog-Fieldmask:
+      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 23 Nov 2023 05:07:08 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "routes.googleapis.com"
+                }
+              }
+            ]
           }
         }
-  recorded_at: Fri, 17 Nov 2023 08:54:15 GMT
+  recorded_at: Thu, 23 Nov 2023 05:07:07 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/directions/v2:computeRoutes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 23 Nov 2023 05:07:08 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "routes": [
+            {
+              "distanceMeters": 3855,
+              "duration": "743s",
+              "polyline": {
+                "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@_B|GaAnEi@lBI^?\\YxDd@F\\VvAbCfEbInBlD~@jBfEpHvEzIxEpJ`B`D~B`EhEjIdCtE^l@HGb@Ft@@"
+              }
+            }
+          ]
+        }
+  recorded_at: Thu, 23 Nov 2023 05:07:07 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"notexistentplace"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 23 Nov 2023 05:07:09 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Thu, 23 Nov 2023 05:07:08 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - bad_token
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 23 Nov 2023 05:07:09 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "places.googleapis.com"
+                }
+              }
+            ]
+          }
+        }
+  recorded_at: Thu, 23 Nov 2023 05:07:08 GMT
 recorded_with: VCR 6.2.0

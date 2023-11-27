@@ -35,7 +35,12 @@ module TravelRoute
         end
 
         def places_from_text_data(search_text)
-          fields = %w[places.displayName places.id places.formattedAddress places.rating places.regularOpeningHours]
+          fields = %w[places.displayName
+                      places.id
+                      places.formattedAddress
+                      places.rating
+                      places.regularOpeningHours
+                      places.primaryType]
           headers = create_headers(fields)
           body = text_query(search_text)
           url = place_enpoint(':searchText')
@@ -43,7 +48,7 @@ module TravelRoute
         end
 
         def place_detail_data(place_id)
-          fields = %w[id displayName formattedAddress rating regularOpeningHours]
+          fields = %w[id displayName formattedAddress rating regularOpeningHours primaryType]
           headers = create_headers(fields)
           url = place_enpoint("/#{place_id}")
           Request.get(url, headers).parse
