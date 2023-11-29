@@ -35,6 +35,7 @@ describe 'Integration Tests of Google Maps API and Database' do
     it 'HAPPY: should be able to update attraction information' do
       bigcity = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find_by_id(BIGCITY_PLACE_ID)
       original = TravelRoute::Repository::Attractions.update_or_create(bigcity)
+
       _(original.name).must_equal(bigcity.name)
       _(original.address).must_equal(bigcity.address)
       _(original.rating).must_equal(bigcity.rating)
@@ -47,7 +48,9 @@ describe 'Integration Tests of Google Maps API and Database' do
         opening_hours: { 'a' => 1 },
         type: 'test'
       )
+
       rebuilt = TravelRoute::Repository::Attractions.update_or_create(changed)
+
       _(rebuilt.place_id).must_equal(original.place_id)
       _(rebuilt.name).wont_equal(original.name)
       _(rebuilt.address).wont_equal(original.address)
