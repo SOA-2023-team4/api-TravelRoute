@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'roda'
-require 'slim'
-require 'slim/include'
 
 # The core class of the web app for TravelRoute
 module TravelRoute
@@ -11,99 +9,114 @@ module TravelRoute
     plugin :halt
     plugin :flash
     plugin :all_verbs
-    plugin :render, engine: 'slim', views: 'app/presentation/views_html'
-    plugin :assets, path: 'app/presentation/assets', group_subdirs: false,
-                    css: 'style.css',
-                    js: {
-                      home: ['home.js'],
-                      plan: ['plan.js']
-                    }
-    plugin :common_logger, $stderr
-
-    # use Rack::MethodOverride
 
     route do |routing|
-      routing.assets
-      response['Content-Type'] = 'text/html; charset=utf-8'
+      response['Content-Type'] = 'application/json'
 
       # GET /
       routing.root do
-        session[:cart] ||= []
-        session[:saved] ||= {}
-        list_result = Service::ListAttractions.new.call(session[:cart])
+        message = "ShowDaPlan API v1 is running at /api/v1 in #{App.environment} mode"
 
-        if list_result.failure?
-          flash[:error] = list_result.failure
-          cart_item = []
-        else
-          carted_attractions = list_result.value!
-          cart_item = Views::AttractionList.new(carted_attractions).attractions
-        end
+        result_response = Representer::HttpResponse.new(
+          Response::ApiResult.new(status: :ok, message:)
+        )
 
-        view 'home', locals: { cart: cart_item }
+        response.status = result_response.http_status_code
+        result_response.to_json
       end
 
-      routing.on 'search' do
-        # POST /search
-        routing.is do
-          routing.post do
-            req = JSON.parse(routing.body.read, symbolize_names: true)
-            val_req = Forms::SearchAttraction.new.call(req)
+      routing.on 'api/v1' do
+        routing.on 'attractions' do
+          # GET /attractions/:place_id
+          routing.on String do |place_id|
+            id_lookup = Request::AttractionLookup.new(place_id)
+            result = Service::LookupAttraction.new.call(place_id: id_lookup)
 
-            if val_req.failure?
-              flash[:error] = val_req.errors.messages.join('; ')
-              routing.halt 400
+            if result.failure?
+              failed = Representer::HttpResponse.new(result.failure)
+              routing.halt failed.http_status_code, failed.to_json
+            end
+            http_response = Representer::HttpResponse.new(result.value!)
+            response.status = http_response.http_status_code
+
+            Representer::Attraction.new(result.value!.message).to_json
+          end
+
+          routing.is do
+            # GET /attractions?search=
+            routing.get do
+              search = Request::AttractionSearch.new(routing.params)
+              result = Service::SearchAttractions.new.call(search)
+
+              if result.failure?
+                failed = Representer::HttpResponse.new(result.failure)
+                routing.halt failed.http_status_code, failed.to_json
+              end
+
+              http_response = Representer::HttpResponse.new(result.value!)
+              response.status = http_response.http_status_code
+              Representer::AttractionsList.new(result.value!.message).to_json
             end
 
-            search_term = val_req[:search_term]
-            search_result = Service::SearchAttractions.new.call(search_term)
+            # POST /attractions
+            routing.post do
+              req = JSON.parse(routing.body.read)
+              val_req = Forms::NewAttraction.new.call(req)
 
-            if search_result.failure?
-              flash[:error] = search_result.failure
-              routing.halt 500
+              if val_req.failure?
+                flash[:error] = val_req.errors.messages.join('; ')
+                routing.halt 400
+              end
+
+              selected = JSON.parse(val_req['selected'], symbolize_names: true)
+              add_result = Service::AddAttraction.new.call(selected)
+
+              if add_result.failure?
+                flash[:error] = add_result.failure
+                routing.halt 500
+              end
+
+              selected_attraction = add_result.value!
+              session[:cart].push(selected_attraction.place_id).uniq!
+
+              Views::Attraction.new(selected_attraction).to_json
             end
 
-            searched_attraction = search_result.value!
-            Views::AttractionList.new(searched_attraction).to_json
+            # DELETE /attractions
+            routing.delete do
+              req = JSON.parse(routing.body.read, symbolize_names: true)
+              removed = req[:removed]
+              removed == 'all' ? session[:cart].clear : session[:cart].delete(removed)
+              { removed: }.to_json
+            end
           end
         end
       end
+      # routing.on 'search' do
+      #   # POST /search
+      #   routing.is do
+      #     routing.post do
+      #       req = JSON.parse(routing.body.read, symbolize_names: true)
+      #       val_req = Forms::SearchAttraction.new.call(req)
 
-      routing.on 'attractions' do
-        routing.is do
-          # POST /attractions
-          routing.post do
-            req = JSON.parse(routing.body.read)
-            val_req = Forms::NewAttraction.new.call(req)
+      #       if val_req.failure?
+      #         flash[:error] = val_req.errors.messages.join('; ')
+      #         routing.halt 400
+      #       end
 
-            if val_req.failure?
-              flash[:error] = val_req.errors.messages.join('; ')
-              routing.halt 400
-            end
+      #       search_term = val_req[:search_term]
+      #       search_result = Service::SearchAttractions.new.call(search_term)
 
-            selected = JSON.parse(val_req['selected'], symbolize_names: true)
-            add_result = Service::AddAttraction.new.call(selected)
+      #       if search_result.failure?
+      #         flash[:error] = search_result.failure
+      #         routing.halt 500
+      #       end
 
-            if add_result.failure?
-              flash[:error] = add_result.failure
-              routing.halt 500
-            end
-
-            selected_attraction = add_result.value!
-            session[:cart].push(selected_attraction.place_id).uniq!
-
-            Views::Attraction.new(selected_attraction).to_json
-          end
-
-          # DELETE /attractions
-          routing.delete do
-            req = JSON.parse(routing.body.read, symbolize_names: true)
-            removed = req[:removed]
-            removed == 'all' ? session[:cart].clear : session[:cart].delete(removed)
-            { removed: }.to_json
-          end
-        end
-      end
+      #       searched_attraction = search_result.value!
+      #       Views::AttractionList.new(searched_attraction).to_json
+      #     end
+      #   end
+      # end
 
       routing.on 'adjustment' do
         routing.is do
