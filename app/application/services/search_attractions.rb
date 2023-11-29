@@ -6,14 +6,33 @@ module TravelRoute
   module Service
     # Retrieves array of all listed attraction entities
     class SearchAttractions
-      include Dry::Monads::Result::Mixin
+      include Dry::Transaction
 
-      def call(search_term)
-        candidates = Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find(search_term)
+      step :validate_search
+      step :retrieve_attractions
 
-        Success(candidates)
+      private
+
+      API_ERR = 'Cannot access Google Maps API'
+
+      def validate_search(input)
+        search = input.call
+        if search.success?
+          Success(search.value!)
+        else
+          Failure(seach.failure)
+        end
+      end
+
+      def retrieve_attractions(input)
+        Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find(input)
+          .then { |attractions| Response::AttractionsList.new(attractions) }
+          .then { |list| Response::ApiResult.new(status: :ok, message: list) }
+          .then { |result| Success(result) }
       rescue StandardError
-        Failure('Could not connect to Google Maps API')
+        Failure(
+          Response::ApiResult.new(status: :internal_error, message: API_ERR)
+        )
       end
     end
   end
