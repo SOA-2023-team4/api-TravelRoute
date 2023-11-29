@@ -20,7 +20,7 @@ module TravelRoute
         if search.success?
           Success(search.value!)
         else
-          Failure(seach.failure)
+          Failure(search.failure)
         end
       end
 
