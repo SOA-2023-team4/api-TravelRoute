@@ -19,6 +19,28 @@ module TravelRoute
       def self.find_or_create(place_info)
         first(name: place_info[:name], place_id: place_info[:place_id]) || create(place_info)
       end
+
+      def opening_hours
+        return nil unless opening_hours_json
+
+        JSON.parse(opening_hours_json)
+      end
+
+      def opening_hours=(value)
+        self.opening_hours_json = value&.to_json
+      end
+
+      def to_hash
+        {
+          id:,
+          place_id:,
+          name:,
+          address:,
+          type:,
+          rating:,
+          opening_hours:
+        }
+      end
     end
   end
 end

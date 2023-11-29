@@ -61,7 +61,6 @@ module TravelRoute
         return nil unless db_record
 
         entry = db_record.to_hash
-        entry[:opening_hours] = JSON.parse(db_record.opening_hours)
         Entity::Attraction.new(entry)
       end
 
