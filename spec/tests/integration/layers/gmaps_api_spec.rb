@@ -42,7 +42,7 @@ describe 'Tests Google Maps API library' do
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
         TravelRoute::Mapper::AttractionMapper.new('bad_token').find(PLACE)
-      end).must_raise TravelRoute::Response::BadRequest
+      end).must_raise TravelRoute::GoogleMaps::Response::BadRequest
     end
   end
 
@@ -63,13 +63,13 @@ describe 'Tests Google Maps API library' do
     it 'SAD: should raise exception when route not found' do
       _(proc do
         TravelRoute::Mapper::RouteMapper.new(GMAP_TOKEN).calculate_route(@origin, @invalid_destination)
-      end).must_raise TravelRoute::Response::BadRequest
+      end).must_raise TravelRoute::GoogleMaps::Response::BadRequest
     end
 
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
         TravelRoute::Mapper::RouteMapper.new('bad_token').calculate_route(@origin, @valid_destination)
-      end).must_raise TravelRoute::Response::BadRequest
+      end).must_raise TravelRoute::GoogleMaps::Response::BadRequest
     end
   end
 
