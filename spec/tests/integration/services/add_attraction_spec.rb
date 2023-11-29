@@ -22,13 +22,11 @@ describe 'Service integration testing' do
 
     it 'HAPPY: should be able to add an attraction and save to database' do
       nthu = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('清大').first
-      nthu_json = Views::Attraction.new(nthu).to_json
-      parsed = JSON.parse(nthu_json, symbolize_names: true)
-
+      parsed = TravelRoute::Request::Attraction.to_request(nthu.to_attr_hash)
       result = TravelRoute::Service::AddAttraction.new.call(parsed)
 
       _(result.success?).must_equal true
-      attraction = result.value!
+      attraction = result.value!.message
       _(attraction).must_be_kind_of TravelRoute::Entity::Attraction
       _(attraction.place_id).must_equal nthu.place_id
       _(attraction.name).must_equal nthu.name
@@ -37,17 +35,16 @@ describe 'Service integration testing' do
     end
 
     it 'HAPPY: should find and return existing attraction' do
-      nthu = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('清大').first
-      nthu_json = Views::Attraction.new(nthu).to_json
-      parsed = JSON.parse(nthu_json, symbolize_names: true)
+      bigcity = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('bigcity').first
+      parsed = TravelRoute::Request::Attraction.to_request(bigcity.to_attr_hash)
       new_rec = TravelRoute::Service::AddAttraction.new.call(parsed).value!
 
       dup_rec = TravelRoute::Service::AddAttraction.new.call(parsed)
 
       _(dup_rec.success?).must_equal true
-      attraction = dup_rec.value!
+      attraction = dup_rec.value!.message
       _(attraction).must_be_kind_of TravelRoute::Entity::Attraction
-      _(attraction).must_equal new_rec
+      _(attraction).must_equal new_rec.message
     end
   end
 end
