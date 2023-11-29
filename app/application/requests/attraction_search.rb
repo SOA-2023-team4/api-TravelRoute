@@ -28,6 +28,15 @@ module TravelRoute
       def decode(param)
         Base64.urlsafe_decode64(param)
       end
+
+      # for use in tests
+      def self.to_encoded(search_term)
+        Base64.urlsafe_encode64(search_term)
+      end
+
+      def self.to_request(search_term)
+        AttractionSearch.new('search' => to_encoded(search_term))
+      end
     end
   end
 end
