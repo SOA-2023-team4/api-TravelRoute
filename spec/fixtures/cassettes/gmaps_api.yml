@@ -998,4 +998,846 @@ http_interactions:
           }
         }
   recorded_at: Thu, 23 Nov 2023 05:07:08 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 29 Nov 2023 12:13:50 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            }
+          ]
+        }
+  recorded_at: Wed, 29 Nov 2023 12:13:49 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 29 Nov 2023 12:18:01 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            },
+            {
+              "id": "ChIJiespWw02aDQRH2bCOBf6RLw",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJcwwKNQ02aDQRMb_EhWwMJ_s",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "displayName": {
+                "text": "清華大學",
+                "languageCode": "zh-TW"
+              },
+              "primaryType": "transit_station"
+            },
+            {
+              "id": "ChIJ18j0Ius3aDQRKMPzlKlDqMI",
+              "formattedAddress": "300, Taiwan, Hsinchu City, East District, Section 2, Guangfu Rd, 101號清華大學名人堂",
+              "rating": 5,
+              "regularOpeningHours": {
+                "openNow": false,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 9:00 AM – 5:00 PM",
+                  "Tuesday: 9:00 AM – 5:00 PM",
+                  "Wednesday: 9:00 AM – 5:00 PM",
+                  "Thursday: 9:00 AM – 5:00 PM",
+                  "Friday: 9:00 AM – 5:00 PM",
+                  "Saturday: Closed",
+                  "Sunday: Closed"
+                ]
+              },
+              "displayName": {
+                "text": "NTHU Alumni Service Center",
+                "languageCode": "en"
+              },
+              "primaryType": "school"
+            },
+            {
+              "id": "ChIJJZFbDAk2aDQRM4fJiseDrWc",
+              "formattedAddress": "300, Taiwan, Hsinchu City, East District, Section 2, Guangfu Road, 101號號",
+              "rating": 4.5,
+              "regularOpeningHours": {
+                "openNow": false,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 8:00 AM – 6:00 PM",
+                  "Tuesday: 8:00 AM – 6:00 PM",
+                  "Wednesday: 8:00 AM – 6:00 PM",
+                  "Thursday: 8:00 AM – 6:00 PM",
+                  "Friday: 8:00 AM – 6:00 PM",
+                  "Saturday: Closed",
+                  "Sunday: Closed"
+                ]
+              },
+              "displayName": {
+                "text": "Dept. of Engineering and System Science, NTHU",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJCwHqkVY3aDQRImu0HIUgAXU",
+              "formattedAddress": "Chemical Engineering Building, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "displayName": {
+                "text": "清大醫輔大樓",
+                "languageCode": "zh-TW"
+              },
+              "primaryType": "university"
+            },
+            {
+              "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
+              "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
+              "rating": 4.4,
+              "displayName": {
+                "text": "National Tsing Hua University Nanda Campus",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            }
+          ]
+        }
+  recorded_at: Wed, 29 Nov 2023 12:18:00 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"invaliddestinationId"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 29 Nov 2023 12:18:58 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Wed, 29 Nov 2023 12:18:57 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"bigcity"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 29 Nov 2023 13:01:24 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
+              "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
+              "rating": 4.4,
+              "regularOpeningHours": {
+                "openNow": true,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 21,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 21,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 21,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 21,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 21,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 11,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 11:00 AM – 9:30 PM",
+                  "Tuesday: 11:00 AM – 9:30 PM",
+                  "Wednesday: 11:00 AM – 9:30 PM",
+                  "Thursday: 11:00 AM – 9:30 PM",
+                  "Friday: 11:00 AM – 10:00 PM",
+                  "Saturday: 11:00 AM – 10:00 PM",
+                  "Sunday: 11:00 AM – 9:30 PM"
+                ]
+              },
+              "displayName": {
+                "text": "Big City",
+                "languageCode": "en"
+              },
+              "primaryType": "shopping_mall"
+            }
+          ]
+        }
+  recorded_at: Wed, 29 Nov 2023 13:01:23 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 29 Nov 2023 13:56:59 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - "*,Accept-Encoding"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
+          "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
+          "rating": 4.4,
+          "regularOpeningHours": {
+            "openNow": false,
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 0,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 1,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 2,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 3,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 4,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 5,
+                  "hour": 22,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 6,
+                  "hour": 22,
+                  "minute": 0
+                }
+              }
+            ],
+            "weekdayDescriptions": [
+              "Monday: 11:00 AM – 9:30 PM",
+              "Tuesday: 11:00 AM – 9:30 PM",
+              "Wednesday: 11:00 AM – 9:30 PM",
+              "Thursday: 11:00 AM – 9:30 PM",
+              "Friday: 11:00 AM – 10:00 PM",
+              "Saturday: 11:00 AM – 10:00 PM",
+              "Sunday: 11:00 AM – 9:30 PM"
+            ]
+          },
+          "displayName": {
+            "text": "Big City",
+            "languageCode": "en"
+          },
+          "primaryType": "shopping_mall"
+        }
+  recorded_at: Wed, 29 Nov 2023 13:56:59 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJGf0Y2o8TaDQRQJF7dfYUWpM
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 29 Nov 2023 15:06:10 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - "*,Accept-Encoding"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "code": 404,
+            "message": "The provided Place ID is no longer valid. Please refresh cached Place IDs as per https://developers.google.com/maps/documentation/places/web-service/place-id#save-id.",
+            "status": "NOT_FOUND"
+          }
+        }
+  recorded_at: Wed, 29 Nov 2023 15:06:09 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJB7ZNzXI2aDQREwR22ltdKxE
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 29 Nov 2023 15:06:35 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - "*,Accept-Encoding"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+          "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+          "rating": 4.6,
+          "displayName": {
+            "text": "National Tsing Hua University",
+            "languageCode": "en"
+          },
+          "primaryType": "university"
+        }
+  recorded_at: Wed, 29 Nov 2023 15:06:34 GMT
 recorded_with: VCR 6.2.0
