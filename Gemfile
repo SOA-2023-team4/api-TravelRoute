@@ -9,7 +9,8 @@ gem 'pry'
 gem 'rake', '~> 13.0'
 
 # PRESENTATION LAYER
-gem 'slim', '~> 5.0'
+gem 'multi_json', '~> 1.15'
+gem 'roar', '~> 1.1'
 
 # APPLICATION LAYER
 # Web application related
