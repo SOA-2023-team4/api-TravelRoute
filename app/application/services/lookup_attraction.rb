@@ -20,7 +20,6 @@ module TravelRoute
       INT_ERR = 'Internal error'
 
       def database_lookup(input)
-        input[:place_id] = input[:place_id].place_id
         input[:attraction] = Repository::Attractions.find_id(input[:place_id])
         Success(input)
       rescue StandardError
