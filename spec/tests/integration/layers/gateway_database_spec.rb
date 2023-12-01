@@ -62,7 +62,7 @@ describe 'Integration Tests of Google Maps API and Database' do
       _(rebuilt.name).must_equal(changed.name)
       _(rebuilt.address).must_equal(changed.address)
       _(rebuilt.rating).must_equal(changed.rating)
-      _(rebuilt.opening_hours).must_equal(changed.opening_hours)
+      _(rebuilt.opening_hours).must_equal(changed.opening_hours.transform_keys(&:to_sym))
       _(rebuilt.type).must_equal(changed.type)
     end
   end
