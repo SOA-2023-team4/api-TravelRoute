@@ -29,47 +29,47 @@ module TravelRoute
         routing.on 'attractions' do
           # GET /attractions/:place_id
           routing.on String do |place_id|
-            result = Service::LookupAttraction.new.call(place_id:)
+            lookup_result = Service::LookupAttraction.new.call(place_id:)
 
-            if result.failure?
-              failed = Representer::HttpResponse.new(result.failure)
+            if lookup_result.failure?
+              failed = Representer::HttpResponse.new(lookup_result.failure)
               routing.halt failed.http_status_code, failed.to_json
             end
-            http_response = Representer::HttpResponse.new(result.value!)
-            response.status = http_response.http_status_code
 
-            Representer::Attraction.new(result.value!.message).to_json
+            http_response = Representer::HttpResponse.new(lookup_result.value!)
+            response.status = http_response.http_status_code
+            Representer::Attraction.new(lookup_result.value!.message).to_json
           end
 
           routing.is do
             # GET /attractions?search=
             routing.get do
               search = Request::AttractionSearch.new(routing.params)
-              result = Service::SearchAttractions.new.call(search)
+              search_result = Service::SearchAttractions.new.call(search)
 
-              if result.failure?
-                failed = Representer::HttpResponse.new(result.failure)
+              if search_result.failure?
+                failed = Representer::HttpResponse.new(search_result.failure)
                 routing.halt failed.http_status_code, failed.to_json
               end
 
-              http_response = Representer::HttpResponse.new(result.value!)
+              http_response = Representer::HttpResponse.new(search_result.value!)
               response.status = http_response.http_status_code
-              Representer::AttractionsList.new(result.value!.message).to_json
+              Representer::AttractionsList.new(search_result.value!.message).to_json
             end
 
             # POST /attractions
             routing.post do
               body = Request::Attraction.new(routing.body.read)
-              result = Service::AddAttraction.new.call(body)
+              add_result = Service::AddAttraction.new.call(body)
 
-              if result.failure?
+              if add_result.failure?
                 flash[:error] = val_req.errors.messages.join('; ')
                 routing.halt 400
               end
 
-              http_response = Representer::HttpResponse.new(result.value!)
+              http_response = Representer::HttpResponse.new(add_result.value!)
               response.status = http_response.http_status_code
-              Representer::Attraction.new(result.value!.message).to_json
+              Representer::Attraction.new(add_result.value!.message).to_json
             end
           end
         end
