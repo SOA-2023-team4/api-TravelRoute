@@ -16,7 +16,7 @@
           1,
           null,
           1,
-          33,
+          35,
           null,
           null
         ]
@@ -470,13 +470,29 @@
           null,
           null,
           1,
+          null,
+          1,
           1,
           null,
           1,
+          1,
+          null,
           1,
           0,
           null,
           null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/lib/distance_estimator.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
           1,
           0,
           null,
@@ -584,13 +600,29 @@
           null,
           null,
           1,
+          null,
+          1,
           1,
           null,
           1,
+          1,
+          null,
           1,
           0,
           null,
           null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/lib/duration_estimator.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
           1,
           0,
           null,
@@ -1121,9 +1153,9 @@
           0,
           0,
           null,
-          2,
-          2,
           null,
+          2,
+          2,
           2,
           null,
           null,
@@ -1544,8 +1576,8 @@
           null,
           1,
           23,
-          3862,
-          3862,
+          3649,
+          3649,
           null,
           null,
           23,
@@ -2021,6 +2053,6 @@
         ]
       }
     },
-    "timestamp": 1701404515
+    "timestamp": 1701409169
   }
 }
