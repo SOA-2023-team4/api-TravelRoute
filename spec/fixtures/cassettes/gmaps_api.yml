@@ -1628,4 +1628,71 @@ http_interactions:
           "primaryType": "university"
         }
   recorded_at: Fri, 01 Dec 2023 04:21:55 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJneUTn3KpQjQRGGR7w7CKOQg"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJneUTn3KpQjQRGGR7w7CKOQg"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 01 Dec 2023 06:37:32 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
+        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        74519,\n  \"duration\": \"3798s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 75409,\n  \"duration\": \"3786s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        73288,\n  \"duration\": \"3457s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 72430,\n  \"duration\": \"3428s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n]"
+  recorded_at: Fri, 01 Dec 2023 06:37:32 GMT
 recorded_with: VCR 6.2.0
