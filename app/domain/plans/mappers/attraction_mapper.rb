@@ -66,7 +66,7 @@ module TravelRoute
         end
 
         def opening_hours
-          @data.keys.include?('regularOpeningHours') ? @data['regularOpeningHours'] : nil
+          JSON.parse(JSON[@data['regularOpeningHours']], symbolize_names: true)
         end
 
         def type

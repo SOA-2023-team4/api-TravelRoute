@@ -26,7 +26,7 @@ module TravelRoute
       end
 
       def opening_hours
-        super.is_a?(String) ? JSON.parse(super) : super
+        super.is_a?(String) ? JSON.parse(super, symbolize_names: true) : super
       end
 
       def to_hash
