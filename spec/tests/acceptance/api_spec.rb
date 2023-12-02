@@ -37,7 +37,7 @@ describe 'Test API routes' do
 
   describe 'Attraction route' do
     it 'HAPPY: should be able to search for attraction' do
-      search_term = Base64.urlsafe_encode64('清大')
+      search_term = CGI.escape('清大')
       get "/api/v1/attractions?search=#{search_term}"
       _(last_response.status).must_equal 200
 
