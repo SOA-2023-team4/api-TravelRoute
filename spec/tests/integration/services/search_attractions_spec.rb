@@ -15,7 +15,7 @@ describe 'Service integration testing' do
     VcrHelper.eject_vcr
   end
 
-  describe 'List attractions' do
+  describe 'Search Attraction' do
     before do
       DatabaseHelper.wipe_database
     end
