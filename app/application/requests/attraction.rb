@@ -23,11 +23,6 @@ module TravelRoute
           )
         )
       end
-
-      # only for use in tests
-      def self.to_request(attraction_hash)
-        Attraction.new(attraction_hash.to_json)
-      end
     end
   end
 end
