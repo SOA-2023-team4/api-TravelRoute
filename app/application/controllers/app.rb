@@ -63,7 +63,7 @@ module TravelRoute
               add_result = Service::AddAttraction.new.call(body)
 
               if add_result.failure?
-                flash[:error] = val_req.errors.messages.join('; ')
+                flash[:error] = add_result.failure
                 routing.halt 400
               end
 
