@@ -21,9 +21,9 @@ module TravelRoute
           place_id:,
           name:,
           address:,
-          rating:,
           type:,
-          opening_hours: opening_hours.to_json
+          opening_hours:,
+          rating:
         }
       end
     end

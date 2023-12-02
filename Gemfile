@@ -16,6 +16,7 @@ gem 'roar', '~> 1.1'
 # Web application related
 gem 'puma', '~> 6.0'
 gem 'rack-session', '~> 0.3'
+gem 'rack-test'
 gem 'roda', '~> 3.0'
 
 # Controllers and services

@@ -31,7 +31,7 @@ describe 'Tests Google Maps API library' do
       _(response.place_id).must_equal expected['id']
       _(response.name).must_equal expected['displayName']['text']
       _(response.address).must_equal expected['formattedAddress']
-      _(response.opening_hours).must_equal expected['regularOpeningHours']
+      _(response.opening_hours).must_equal JSON.parse(JSON[expected['regularOpeningHours']], symbolize_names: true)
     end
 
     it 'SAD: should return empty array when place is not found' do

@@ -15,7 +15,7 @@ module TravelRoute
       end
 
       def call
-        Success(decode(@params['search']))
+        Success(unescape(@params['search']))
       rescue StandardError
         Failure(
           Response::ApiResult.new(
@@ -25,8 +25,17 @@ module TravelRoute
         )
       end
 
-      def decode(param)
-        Base64.urlsafe_decode64(param)
+      def unescape(param)
+        CGI.unescape(param)
+      end
+
+      # for use in tests
+      def self.to_escape(search_term)
+        CGI.escape(search_term)
+      end
+
+      def self.to_request(search_term)
+        AttractionSearch.new('search' => to_escape(search_term))
       end
     end
   end

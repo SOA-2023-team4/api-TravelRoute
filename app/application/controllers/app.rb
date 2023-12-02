@@ -5,7 +5,7 @@ require 'roda'
 # The core class of the web app for TravelRoute
 module TravelRoute
   # Web App
-  class App < Roda # rubocop:disable Metrics/ClassLength
+  class App < Roda
     plugin :halt
     plugin :flash
     plugin :all_verbs
@@ -29,109 +29,48 @@ module TravelRoute
         routing.on 'attractions' do
           # GET /attractions/:place_id
           routing.on String do |place_id|
-            id_lookup = Request::AttractionLookup.new(place_id)
-            result = Service::LookupAttraction.new.call(place_id: id_lookup)
+            lookup_result = Service::LookupAttraction.new.call(place_id:)
 
-            if result.failure?
-              failed = Representer::HttpResponse.new(result.failure)
+            if lookup_result.failure?
+              failed = Representer::HttpResponse.new(lookup_result.failure)
               routing.halt failed.http_status_code, failed.to_json
             end
-            http_response = Representer::HttpResponse.new(result.value!)
-            response.status = http_response.http_status_code
 
-            Representer::Attraction.new(result.value!.message).to_json
+            http_response = Representer::HttpResponse.new(lookup_result.value!)
+            response.status = http_response.http_status_code
+            Representer::Attraction.new(lookup_result.value!.message).to_json
           end
 
           routing.is do
             # GET /attractions?search=
             routing.get do
               search = Request::AttractionSearch.new(routing.params)
-              result = Service::SearchAttractions.new.call(search)
+              search_result = Service::SearchAttractions.new.call(search)
 
-              if result.failure?
-                failed = Representer::HttpResponse.new(result.failure)
+              if search_result.failure?
+                failed = Representer::HttpResponse.new(search_result.failure)
                 routing.halt failed.http_status_code, failed.to_json
               end
 
-              http_response = Representer::HttpResponse.new(result.value!)
+              http_response = Representer::HttpResponse.new(search_result.value!)
               response.status = http_response.http_status_code
-              Representer::AttractionsList.new(result.value!.message).to_json
+              Representer::AttractionsList.new(search_result.value!.message).to_json
             end
 
             # POST /attractions
             routing.post do
-              req = JSON.parse(routing.body.read)
-              val_req = Forms::NewAttraction.new.call(req)
+              body = Request::Attraction.new(routing.body.read)
+              add_result = Service::AddAttraction.new.call(body)
 
-              if val_req.failure?
+              if add_result.failure?
                 flash[:error] = val_req.errors.messages.join('; ')
                 routing.halt 400
               end
 
-              selected = JSON.parse(val_req['selected'], symbolize_names: true)
-              add_result = Service::AddAttraction.new.call(selected)
-
-              if add_result.failure?
-                flash[:error] = add_result.failure
-                routing.halt 500
-              end
-
-              selected_attraction = add_result.value!
-              session[:cart].push(selected_attraction.place_id).uniq!
-
-              Views::Attraction.new(selected_attraction).to_json
+              http_response = Representer::HttpResponse.new(add_result.value!)
+              response.status = http_response.http_status_code
+              Representer::Attraction.new(add_result.value!.message).to_json
             end
-
-            # DELETE /attractions
-            routing.delete do
-              req = JSON.parse(routing.body.read, symbolize_names: true)
-              removed = req[:removed]
-              removed == 'all' ? session[:cart].clear : session[:cart].delete(removed)
-              { removed: }.to_json
-            end
-          end
-        end
-      end
-      # routing.on 'search' do
-      #   # POST /search
-      #   routing.is do
-      #     routing.post do
-      #       req = JSON.parse(routing.body.read, symbolize_names: true)
-      #       val_req = Forms::SearchAttraction.new.call(req)
-
-      #       if val_req.failure?
-      #         flash[:error] = val_req.errors.messages.join('; ')
-      #         routing.halt 400
-      #       end
-
-      #       search_term = val_req[:search_term]
-      #       search_result = Service::SearchAttractions.new.call(search_term)
-
-      #       if search_result.failure?
-      #         flash[:error] = search_result.failure
-      #         routing.halt 500
-      #       end
-
-      #       searched_attraction = search_result.value!
-      #       Views::AttractionList.new(searched_attraction).to_json
-      #     end
-      #   end
-      # end
-
-      routing.on 'adjustment' do
-        routing.is do
-          # GET /adjustment
-          routing.get do
-            req = Service::ListAttractions.new.call(session[:cart])
-
-            if req.failure?
-              flash[:error] = req.failure
-              routing.redirect '/plans'
-            end
-
-            cart = req.value!
-            cart_item = Views::AttractionList.new(cart).attractions
-            view 'adjustment', locals: { cart: cart_item }
           end
         end
       end
@@ -163,36 +102,36 @@ module TravelRoute
           end
 
           # POST /plans
-          routing.post do
-            plan = session[:temp_plan].plan
-            save_req = Forms::SavePlan.new.call(routing.params)
+          # routing.post do
+          #   plan = session[:temp_plan].plan
+          #   save_req = Forms::SavePlan.new.call(routing.params)
 
-            if save_req.failure?
-              flash[:error] = save_req.errors.messages.join('; ')
-              routing.redirect '/plans'
-            end
+          #   if save_req.failure?
+          #     flash[:error] = save_req.errors.messages.join('; ')
+          #     routing.redirect '/plans'
+          #   end
 
-            plan_name = save_req[:plan_name]
-            saved = plan_name.nil? ? Views::Plan.new(plan) : Views::Plan.new(plan, plan_name)
-            session[:saved].merge!(saved.name => saved)
-            flash[:notice] = 'Plan saved'
-            routing.redirect "/plans?origin=#{saved.origin.place_id}"
-          end
+          #   plan_name = save_req[:plan_name]
+          #   saved = plan_name.nil? ? Views::Plan.new(plan) : Views::Plan.new(plan, plan_name)
+          #   session[:saved].merge!(saved.name => saved)
+          #   flash[:notice] = 'Plan saved'
+          #   routing.redirect "/plans?origin=#{saved.origin.place_id}"
+          # end
 
           # DELETE /plans
-          routing.delete do
-            req = JSON.parse(routing.body.read, symbolize_names: true)
-            del_req = Forms::DeletePlan.new.call(req)
+          # routing.delete do
+          #   req = JSON.parse(routing.body.read, symbolize_names: true)
+          #   del_req = Forms::DeletePlan.new.call(req)
 
-            if del_req.failure?
-              flash[:error] = del_req.errors.messages.join('; ')
-              routing.redirect '/plans'
-            end
+          #   if del_req.failure?
+          #     flash[:error] = del_req.errors.messages.join('; ')
+          #     routing.redirect '/plans'
+          #   end
 
-            deleted = del_req[:plan_name]
-            session[:saved].delete(deleted)
-            { success: true }.to_json
-          end
+          #   deleted = del_req[:plan_name]
+          #   session[:saved].delete(deleted)
+          #   { success: true }.to_json
+          # end
         end
       end
     end
