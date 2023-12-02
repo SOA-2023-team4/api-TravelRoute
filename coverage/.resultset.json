@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/require_app.rb": {
+      "/Users/hank/Code/api-TravelRoute/require_app.rb": {
         "lines": [
           null,
           null,
@@ -21,7 +21,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/config/environment.rb": {
+      "/Users/hank/Code/api-TravelRoute/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -62,7 +62,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/infrastructure/database/attraction_orm.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/infrastructure/database/attraction_orm.rb": {
         "lines": [
           null,
           null,
@@ -83,105 +83,140 @@
           1,
           null,
           1,
-          11,
+          9,
           null,
           null,
           1,
-          12,
-          12,
+          10,
+          10,
+          null,
+          null,
+          1,
+          27,
+          null,
+          null,
+          1,
+          17,
+          17,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hank/Code/api-TravelRoute/app/infrastructure/database/route_orm.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/places_api.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          33,
+          null,
+          null,
+          1,
+          null,
+          33,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          33,
+          null,
+          null,
+          1,
+          232,
+          29,
+          29,
+          29,
+          29,
+          null,
+          null,
+          1,
+          4,
+          4,
+          4,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/request.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          4,
+          4,
+          4,
+          null,
           null,
           null,
           1,
           34,
-          null,
-          null,
-          1,
-          22,
-          22,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/infrastructure/database/route_orm.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/infrastructure/gateways/places_api.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          35,
-          null,
-          null,
-          1,
-          null,
-          35,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          35,
-          null,
-          null,
-          1,
-          null,
-          31,
-          null,
-          null,
-          null,
-          1,
-          31,
-          null,
-          null,
-          null,
-          null,
-          null,
-          31,
-          31,
-          31,
-          31,
-          null,
-          null,
-          1,
-          4,
-          4,
-          4,
-          4,
+          34,
+          34,
           null,
           null,
           null,
@@ -189,33 +224,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/infrastructure/gateways/request.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          4,
-          4,
-          4,
-          null,
-          null,
-          null,
-          1,
-          36,
-          36,
-          36,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/infrastructure/gateways/response.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/response.rb": {
         "lines": [
           null,
           null,
@@ -238,7 +247,7 @@
           null,
           null,
           1,
-          40,
+          38,
           null,
           null,
           1,
@@ -249,7 +258,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/infrastructure/gateways/routes_api.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/routes_api.rb": {
         "lines": [
           null,
           null,
@@ -328,7 +337,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/init.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/init.rb": {
         "lines": [
           null,
           null,
@@ -338,7 +347,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/init.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/init.rb": {
         "lines": [
           null,
           null,
@@ -350,7 +359,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/entities/attraction.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/attraction.rb": {
         "lines": [
           null,
           null,
@@ -358,13 +367,16 @@
           1,
           null,
           1,
-          1,
           null,
           1,
           1,
           null,
           1,
           1,
+          null,
+          1,
+          1,
+          1,
           1,
           1,
           1,
@@ -372,7 +384,9 @@
           null,
           1,
           null,
-          14,
+          10,
+          null,
+          null,
           null,
           null,
           null,
@@ -385,7 +399,51 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/entities/guidebook.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/values/distance.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/lib/distance_estimator.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/guidebook.rb": {
         "lines": [
           null,
           null,
@@ -465,51 +523,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/values/distance.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/lib/distance_estimator.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/entities/plan.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/plan.rb": {
         "lines": [
           null,
           null,
@@ -557,7 +571,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/entities/route.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/route.rb": {
         "lines": [
           null,
           null,
@@ -595,7 +609,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/values/duration.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/values/duration.rb": {
         "lines": [
           null,
           null,
@@ -615,7 +629,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/lib/duration_estimator.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/lib/duration_estimator.rb": {
         "lines": [
           null,
           null,
@@ -650,7 +664,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/repositories/attractions.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/repositories/attractions.rb": {
         "lines": [
           null,
           null,
@@ -668,12 +682,12 @@
           null,
           null,
           1,
-          27,
+          20,
           null,
           null,
           1,
-          35,
-          35,
+          28,
+          28,
           null,
           null,
           1,
@@ -682,36 +696,39 @@
           null,
           null,
           1,
-          13,
+          10,
           null,
-          11,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          1,
-          1,
+          9,
           null,
           null,
           1,
-          2,
-          2,
+          1,
+          1,
+          null,
+          1,
+          1,
           null,
           null,
           1,
-          11,
-          null,
-          11,
-          11,
+          1,
+          1,
           null,
           null,
           1,
-          47,
+          9,
           null,
-          22,
-          22,
+          9,
+          9,
+          null,
+          null,
+          1,
+          38,
+          null,
+          17,
+          17,
+          17,
+          17,
+          17,
           null,
           null,
           1,
@@ -724,7 +741,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/repositories/routes.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/repositories/routes.rb": {
         "lines": [
           null,
           null,
@@ -771,7 +788,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/mappers/attraction_mapper.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/mappers/attraction_mapper.rb": {
         "lines": [
           null,
           null,
@@ -780,16 +797,16 @@
           null,
           1,
           1,
-          35,
-          35,
-          35,
+          33,
+          33,
+          33,
           null,
           null,
           1,
-          31,
-          30,
+          29,
+          28,
           null,
-          67,
+          73,
           null,
           null,
           1,
@@ -808,11 +825,11 @@
           null,
           1,
           1,
-          46,
+          54,
           null,
           null,
           1,
-          46,
+          54,
           null,
           null,
           null,
@@ -821,31 +838,36 @@
           null,
           null,
           null,
-          null,
-          1,
-          null,
-          1,
-          46,
           null,
           null,
           1,
-          46,
+          null,
+          1,
+          54,
           null,
           null,
           1,
-          46,
+          54,
           null,
           null,
           1,
-          46,
+          54,
           null,
           null,
           1,
-          46,
+          54,
           null,
           null,
           1,
-          46,
+          54,
+          null,
+          null,
+          1,
+          54,
+          null,
+          null,
+          1,
+          54,
           null,
           null,
           null,
@@ -853,7 +875,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/mappers/guidebook_mapper.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/mappers/guidebook_mapper.rb": {
         "lines": [
           null,
           null,
@@ -924,7 +946,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/domain/plans/mappers/route_mapper.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/domain/plans/mappers/route_mapper.rb": {
         "lines": [
           null,
           null,
@@ -979,7 +1001,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/presentation/representers/attraction.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/presentation/representers/attraction.rb": {
         "lines": [
           null,
           null,
@@ -1001,12 +1023,13 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/presentation/representers/attractions_list.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/presentation/representers/attractions_list.rb": {
         "lines": [
           null,
           null,
@@ -1026,7 +1049,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/presentation/representers/http_response.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/presentation/representers/http_response.rb": {
         "lines": [
           null,
           null,
@@ -1069,7 +1092,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/presentation/responses/api_result.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/presentation/responses/api_result.rb": {
         "lines": [
           null,
           null,
@@ -1089,16 +1112,16 @@
           null,
           1,
           1,
-          13,
+          10,
           null,
-          12,
+          9,
           null,
           null,
           null,
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/presentation/responses/attractions_list.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/presentation/responses/attractions_list.rb": {
         "lines": [
           null,
           null,
@@ -1110,7 +1133,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/controllers/app.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/controllers/app.rb": {
         "lines": [
           null,
           null,
@@ -1253,7 +1276,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/requests/attraction.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/requests/attraction.rb": {
         "lines": [
           null,
           null,
@@ -1267,11 +1290,11 @@
           1,
           null,
           1,
-          3,
+          1,
           null,
           null,
           1,
-          4,
+          1,
           null,
           0,
           null,
@@ -1282,15 +1305,10 @@
           null,
           null,
           null,
-          1,
-          2,
-          null,
-          null,
-          null,
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/requests/attraction_search.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/requests/attraction_search.rb": {
         "lines": [
           null,
           null,
@@ -1336,7 +1354,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/services/add_attraction.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/services/add_attraction.rb": {
         "lines": [
           null,
           null,
@@ -1355,26 +1373,26 @@
           1,
           null,
           1,
-          4,
-          4,
-          4,
+          1,
+          1,
+          1,
           null,
           0,
           null,
           null,
           null,
           1,
-          4,
+          1,
           null,
-          4,
+          1,
           null,
           0,
           null,
           null,
           1,
-          4,
-          4,
-          4,
+          1,
+          1,
+          1,
           null,
           0,
           null,
@@ -1383,7 +1401,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/services/generate_plan.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/services/generate_plan.rb": {
         "lines": [
           null,
           null,
@@ -1427,7 +1445,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/services/list_attractions.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/services/list_attractions.rb": {
         "lines": [
           null,
           null,
@@ -1453,7 +1471,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/services/lookup_attraction.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/services/lookup_attraction.rb": {
         "lines": [
           null,
           null,
@@ -1508,7 +1526,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/app/application/services/search_attractions.rb": {
+      "/Users/hank/Code/api-TravelRoute/app/application/services/search_attractions.rb": {
         "lines": [
           null,
           null,
@@ -1551,7 +1569,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/helpers/vcr_helper.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/helpers/vcr_helper.rb": {
         "lines": [
           null,
           null,
@@ -1564,19 +1582,19 @@
           1,
           null,
           1,
-          15,
-          15,
-          15,
+          14,
+          14,
+          14,
           null,
           null,
           null,
           1,
-          23,
-          5001,
-          5001,
+          21,
+          6805,
+          6805,
           null,
           null,
-          23,
+          21,
           null,
           null,
           null,
@@ -1584,12 +1602,12 @@
           null,
           null,
           1,
-          23,
+          21,
           null,
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/helpers/database_helper.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/helpers/database_helper.rb": {
         "lines": [
           null,
           null,
@@ -1597,15 +1615,15 @@
           1,
           1,
           null,
-          15,
-          15,
-          15,
-          15,
+          13,
+          13,
+          13,
+          13,
           null,
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/layers/domain_plan_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/layers/domain_plan_spec.rb": {
         "lines": [
           null,
           null,
@@ -1629,6 +1647,8 @@
           null,
           1,
           null,
+          1,
+          null,
           null,
           1,
           1,
@@ -1641,7 +1661,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/layers/gateway_database_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/layers/gateway_database_spec.rb": {
         "lines": [
           null,
           null,
@@ -1694,6 +1714,7 @@
           null,
           null,
           null,
+          null,
           1,
           null,
           1,
@@ -1714,7 +1735,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/layers/gmaps_api_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/layers/gmaps_api_spec.rb": {
         "lines": [
           null,
           null,
@@ -1735,15 +1756,9 @@
           1,
           1,
           1,
-          null,
-          1,
-          1,
-          1,
           1,
           null,
           null,
-          null,
-          1,
           1,
           1,
           1,
@@ -1808,61 +1823,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/services/add_attraction_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/services/generate_plan_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/services/generate_plan_spec.rb": {
         "lines": [
           null,
           null,
@@ -1906,7 +1867,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/services/list_attractions_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/services/list_attractions_spec.rb": {
         "lines": [
           null,
           null,
@@ -1972,7 +1933,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/integration/services/search_attractions_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/services/search_attractions_spec.rb": {
         "lines": [
           null,
           null,
@@ -2019,7 +1980,7 @@
           null
         ]
       },
-      "/home/ubuntu/soa2023/TravelRoute/api-travelroute/spec/tests/unit/result_spec.rb": {
+      "/Users/hank/Code/api-TravelRoute/spec/tests/unit/result_spec.rb": {
         "lines": [
           null,
           null,
@@ -2049,6 +2010,6 @@
         ]
       }
     },
-    "timestamp": 1701507577
+    "timestamp": 1701537713
   }
 }
