@@ -57,6 +57,9 @@ module TravelRoute
         return nil unless db_record
 
         entry = db_record.to_hash
+        entry[:location] = { latitude: entry[:latitude], longitude: entry[:longitude] }
+        entry.delete(:latitude)
+        entry.delete(:longitude)
         Entity::Attraction.new(entry)
       end
 

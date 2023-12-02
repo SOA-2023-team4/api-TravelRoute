@@ -11,6 +11,8 @@ Sequel.migration do
       String      :name, unique: true, null: false
       String      :address
       Float       :rating
+      Float      :latitude
+      Float      :longitude
 
       DateTime :created_at
       DateTime :updated_at

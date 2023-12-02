@@ -3,6 +3,8 @@
 require 'dry-types'
 require 'dry-struct'
 
+require_relative '../values/distance'
+
 module TravelRoute
   module Entity
     # Data structure for place information
@@ -15,6 +17,7 @@ module TravelRoute
       attribute? :type,           Strict::String.optional
       attribute? :opening_hours,  Strict::Hash.optional
       attribute :rating,          Coercible::Float.optional
+      attribute :location,        Hash.optional
 
       def to_attr_hash
         {
@@ -23,7 +26,9 @@ module TravelRoute
           address:,
           type:,
           opening_hours:,
-          rating:
+          rating:,
+          latitude: location[:latitude],
+          longitude: location[:longitude]
         }
       end
     end

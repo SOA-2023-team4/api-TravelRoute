@@ -43,7 +43,8 @@ module TravelRoute
             address:,
             rating:,
             type:,
-            opening_hours:
+            opening_hours:,
+            location:
           )
         end
 
@@ -71,6 +72,10 @@ module TravelRoute
 
         def type
           @data['primaryType']
+        end
+
+        def location
+          JSON.parse(JSON[@data['location']], symbolize_names: true)
         end
       end
     end
