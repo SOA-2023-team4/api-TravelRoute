@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/hank/Code/api-TravelRoute/require_app.rb": {
+      "/home/hank/code/api-TravelRoute/require_app.rb": {
         "lines": [
           null,
           null,
@@ -16,12 +16,12 @@
           1,
           null,
           1,
-          35,
+          36,
           null,
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/config/environment.rb": {
+      "/home/hank/code/api-TravelRoute/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -62,7 +62,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/infrastructure/database/attraction_orm.rb": {
+      "/home/hank/code/api-TravelRoute/app/infrastructure/database/attraction_orm.rb": {
         "lines": [
           null,
           null,
@@ -104,7 +104,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/infrastructure/database/route_orm.rb": {
+      "/home/hank/code/api-TravelRoute/app/infrastructure/database/route_orm.rb": {
         "lines": [
           null,
           null,
@@ -126,7 +126,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/places_api.rb": {
+      "/home/hank/code/api-TravelRoute/app/infrastructure/gateways/places_api.rb": {
         "lines": [
           null,
           null,
@@ -142,6 +142,13 @@
           1,
           1,
           1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
           null,
           1,
           33,
@@ -186,7 +193,10 @@
           null,
           null,
           null,
+          1,
+          0,
           null,
+          0,
           0,
           0,
           0,
@@ -198,7 +208,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/request.rb": {
+      "/home/hank/code/api-TravelRoute/app/infrastructure/gateways/request.rb": {
         "lines": [
           null,
           null,
@@ -224,7 +234,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/response.rb": {
+      "/home/hank/code/api-TravelRoute/app/infrastructure/gateways/response.rb": {
         "lines": [
           null,
           null,
@@ -254,11 +264,15 @@
           2,
           null,
           null,
+          1,
+          2,
+          null,
+          null,
           null,
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/infrastructure/gateways/routes_api.rb": {
+      "/home/hank/code/api-TravelRoute/app/infrastructure/gateways/routes_api.rb": {
         "lines": [
           null,
           null,
@@ -337,7 +351,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/init.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/init.rb": {
         "lines": [
           null,
           null,
@@ -347,7 +361,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/init.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/init.rb": {
         "lines": [
           null,
           null,
@@ -359,7 +373,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/attraction.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/entities/attraction.rb": {
         "lines": [
           null,
           null,
@@ -399,7 +413,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/values/distance.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/values/distance.rb": {
         "lines": [
           null,
           null,
@@ -419,7 +433,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/lib/distance_estimator.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/lib/distance_estimator.rb": {
         "lines": [
           null,
           null,
@@ -443,7 +457,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/guidebook.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/entities/guidebook.rb": {
         "lines": [
           null,
           null,
@@ -523,7 +537,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/plan.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/entities/plan.rb": {
         "lines": [
           null,
           null,
@@ -571,7 +585,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/entities/route.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/entities/route.rb": {
         "lines": [
           null,
           null,
@@ -609,7 +623,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/values/duration.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/values/duration.rb": {
         "lines": [
           null,
           null,
@@ -629,7 +643,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/lib/duration_estimator.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/lib/duration_estimator.rb": {
         "lines": [
           null,
           null,
@@ -664,7 +678,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/repositories/attractions.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/repositories/attractions.rb": {
         "lines": [
           null,
           null,
@@ -741,7 +755,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/repositories/routes.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/repositories/routes.rb": {
         "lines": [
           null,
           null,
@@ -788,7 +802,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/mappers/attraction_mapper.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/mappers/attraction_mapper.rb": {
         "lines": [
           null,
           null,
@@ -815,6 +829,11 @@
           null,
           null,
           1,
+          0,
+          0,
+          null,
+          null,
+          1,
           null,
           1,
           0,
@@ -875,7 +894,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/mappers/guidebook_mapper.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/mappers/guidebook_mapper.rb": {
         "lines": [
           null,
           null,
@@ -946,7 +965,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/domain/plans/mappers/route_mapper.rb": {
+      "/home/hank/code/api-TravelRoute/app/domain/plans/mappers/route_mapper.rb": {
         "lines": [
           null,
           null,
@@ -1001,7 +1020,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/presentation/representers/attraction.rb": {
+      "/home/hank/code/api-TravelRoute/app/presentation/representers/attraction.rb": {
         "lines": [
           null,
           null,
@@ -1029,7 +1048,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/presentation/representers/attractions_list.rb": {
+      "/home/hank/code/api-TravelRoute/app/presentation/representers/attractions_list.rb": {
         "lines": [
           null,
           null,
@@ -1049,7 +1068,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/presentation/representers/http_response.rb": {
+      "/home/hank/code/api-TravelRoute/app/presentation/representers/http_response.rb": {
         "lines": [
           null,
           null,
@@ -1092,7 +1111,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/presentation/responses/api_result.rb": {
+      "/home/hank/code/api-TravelRoute/app/presentation/responses/api_result.rb": {
         "lines": [
           null,
           null,
@@ -1121,7 +1140,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/presentation/responses/attractions_list.rb": {
+      "/home/hank/code/api-TravelRoute/app/presentation/responses/attractions_list.rb": {
         "lines": [
           null,
           null,
@@ -1133,7 +1152,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/controllers/app.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/controllers/app.rb": {
         "lines": [
           null,
           null,
@@ -1211,6 +1230,22 @@
           null,
           null,
           null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
           null,
           0,
           null,
@@ -1236,38 +1271,6 @@
           0,
           0,
           0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           null,
@@ -1276,7 +1279,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/requests/attraction.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/requests/attraction.rb": {
         "lines": [
           null,
           null,
@@ -1308,7 +1311,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/requests/attraction_search.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/requests/attraction_search.rb": {
         "lines": [
           null,
           null,
@@ -1354,7 +1357,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/services/add_attraction.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/services/add_attraction.rb": {
         "lines": [
           null,
           null,
@@ -1401,7 +1404,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/services/generate_plan.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/services/generate_plan.rb": {
         "lines": [
           null,
           null,
@@ -1445,7 +1448,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/services/list_attractions.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/services/list_attractions.rb": {
         "lines": [
           null,
           null,
@@ -1471,7 +1474,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/services/lookup_attraction.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/services/lookup_attraction.rb": {
         "lines": [
           null,
           null,
@@ -1526,7 +1529,65 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/app/application/services/search_attractions.rb": {
+      "/home/hank/code/api-TravelRoute/app/application/services/recommend_attractions.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/hank/code/api-TravelRoute/app/application/services/search_attractions.rb": {
         "lines": [
           null,
           null,
@@ -1569,7 +1630,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/helpers/vcr_helper.rb": {
+      "/home/hank/code/api-TravelRoute/spec/helpers/vcr_helper.rb": {
         "lines": [
           null,
           null,
@@ -1590,8 +1651,8 @@
           null,
           1,
           21,
-          6805,
-          6805,
+          6581,
+          6581,
           null,
           null,
           21,
@@ -1607,7 +1668,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/helpers/database_helper.rb": {
+      "/home/hank/code/api-TravelRoute/spec/helpers/database_helper.rb": {
         "lines": [
           null,
           null,
@@ -1623,7 +1684,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/layers/domain_plan_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/integration/layers/domain_plan_spec.rb": {
         "lines": [
           null,
           null,
@@ -1661,7 +1722,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/layers/gateway_database_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/integration/layers/gateway_database_spec.rb": {
         "lines": [
           null,
           null,
@@ -1735,7 +1796,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/layers/gmaps_api_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/integration/layers/gmaps_api_spec.rb": {
         "lines": [
           null,
           null,
@@ -1823,7 +1884,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/services/generate_plan_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/integration/services/generate_plan_spec.rb": {
         "lines": [
           null,
           null,
@@ -1867,7 +1928,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/services/list_attractions_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/integration/services/list_attractions_spec.rb": {
         "lines": [
           null,
           null,
@@ -1933,7 +1994,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/integration/services/search_attractions_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/integration/services/search_attractions_spec.rb": {
         "lines": [
           null,
           null,
@@ -1980,7 +2041,7 @@
           null
         ]
       },
-      "/Users/hank/Code/api-TravelRoute/spec/tests/unit/result_spec.rb": {
+      "/home/hank/code/api-TravelRoute/spec/tests/unit/result_spec.rb": {
         "lines": [
           null,
           null,
@@ -2010,6 +2071,6 @@
         ]
       }
     },
-    "timestamp": 1701537713
+    "timestamp": 1701629901
   }
 }
