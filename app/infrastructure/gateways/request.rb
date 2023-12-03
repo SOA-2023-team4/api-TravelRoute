@@ -14,7 +14,7 @@ module TravelRoute
       def self.post(url, headers, body)
         http_response = HTTP.headers(headers).post(url, json: body)
         Response.new(http_response).tap do |response|
-          raise(response.error) unless response.successful?
+          raise(response.error, response.error_message) unless response.successful?
         end
       end
     end
