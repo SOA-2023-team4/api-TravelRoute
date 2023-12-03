@@ -12,6 +12,13 @@ module TravelRoute
       class Api
         PLACE_ROOT_PATH = 'https://places.googleapis.com/v1/places'
         FIELDS = %w[id displayName formattedAddress rating regularOpeningHours primaryType location].freeze
+        MAX_RECOMMENDATION_RESULT = 10
+        RADIUS = 1000
+        VALID_TYPES = {
+          'restaurant' => %w[restaurant cafe],
+          'attraction' => %w[amusement_park aquarium art_gallery museum park shopping_mall zoo tourist_attraction],
+          'hotel'      => ['lodging']
+        }.freeze
 
         def initialize(api_key)
           @key = api_key
@@ -43,23 +50,26 @@ module TravelRoute
           Request.get(url, headers).parse
         end
 
-        def places_nearby(latitude, longitude, radius)
-          body = {
-            includedPrimaryTypes: ['restaurant'],
-            maxResultCount: 10,
+        def places_nearby_body(latitude, longitude, type)
+          {
+            includedPrimaryTypes: VALID_TYPES[type],
+            maxResultCount: MAX_RECOMMENDATION_RESULT,
             locationRestriction: {
               circle: {
-                center: {
-                  latitude:,
-                  longitude:
-                },
-                radius:
+                center: { latitude:, longitude: },
+                radius: RADIUS
               }
             }
           }
+        end
+
+        def places_nearby(latitude, longitude, type)
+          raise 'place type not supported' unless VALID_TYPES.keys.include?(type)
+
           url = place_endpoint(':searchNearby')
           fields = FIELDS.map { |field| "places.#{field}" }
           headers = create_headers(fields)
+          body = places_nearby_body(latitude, longitude, type)
           Request.post(url, headers, body).parse
         end
       end

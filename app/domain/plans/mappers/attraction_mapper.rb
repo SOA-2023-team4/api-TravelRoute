@@ -22,6 +22,11 @@ module TravelRoute
         DataMapper.new(entry).build_entity
       end
 
+      def places_nearby(longitude, latitude, type = 'attraction')
+        data = @gateway.places_nearby(longitude, latitude, type)['places']
+        data.map { |entry| DataMapper.new(entry).build_entity }
+      end
+
       private
 
       def get_place_detail(data)

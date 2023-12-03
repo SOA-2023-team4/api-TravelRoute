@@ -73,6 +73,22 @@ module TravelRoute
             end
           end
         end
+
+        routing.on 'recommendations' do
+          routing.get do
+            routing.on String do |place_id|
+              result = Service::RecommendAttractions.new.call(place_id:)
+
+              if result.failure?
+                flash[:error] = result.failure
+                routing.halt 400
+              end
+              http_response = Representer::HttpResponse.new(result.value!)
+              response.status = http_response.http_status_code
+              Representer::AttractionsList.new(result.value!.message).to_json
+            end
+          end
+        end
       end
 
       routing.on 'plans' do
@@ -100,38 +116,6 @@ module TravelRoute
             session[:temp_plan] = plan
             view 'plan', locals: { plan: }
           end
-
-          # POST /plans
-          # routing.post do
-          #   plan = session[:temp_plan].plan
-          #   save_req = Forms::SavePlan.new.call(routing.params)
-
-          #   if save_req.failure?
-          #     flash[:error] = save_req.errors.messages.join('; ')
-          #     routing.redirect '/plans'
-          #   end
-
-          #   plan_name = save_req[:plan_name]
-          #   saved = plan_name.nil? ? Views::Plan.new(plan) : Views::Plan.new(plan, plan_name)
-          #   session[:saved].merge!(saved.name => saved)
-          #   flash[:notice] = 'Plan saved'
-          #   routing.redirect "/plans?origin=#{saved.origin.place_id}"
-          # end
-
-          # DELETE /plans
-          # routing.delete do
-          #   req = JSON.parse(routing.body.read, symbolize_names: true)
-          #   del_req = Forms::DeletePlan.new.call(req)
-
-          #   if del_req.failure?
-          #     flash[:error] = del_req.errors.messages.join('; ')
-          #     routing.redirect '/plans'
-          #   end
-
-          #   deleted = del_req[:plan_name]
-          #   session[:saved].delete(deleted)
-          #   { success: true }.to_json
-          # end
         end
       end
     end
