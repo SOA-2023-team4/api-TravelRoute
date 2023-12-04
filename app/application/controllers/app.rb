@@ -89,34 +89,6 @@ module TravelRoute
           end
         end
       end
-
-      routing.on 'plans' do
-        # GET /plans/:plan_name
-        routing.on String do |plan_name|
-          routing.get do
-            plan = session[:saved][plan_name]
-            view 'plan', locals: { plan: }
-          end
-        end
-
-        routing.is do
-          # GET /plans
-          routing.get do
-            origin_id = routing.params['origin']
-            place_ids = session[:cart]
-            plan_req = Service::GeneratePlan.new.call(cart: place_ids, origin: origin_id)
-
-            if plan_req.failure?
-              flash[:error] = plan_req.failure
-              routing.redirect "/plans?origin=#{origin_id}"
-            end
-
-            plan = Views::Plan.new(plan_req.value!)
-            session[:temp_plan] = plan
-            view 'plan', locals: { plan: }
-          end
-        end
-      end
     end
   end
 end
