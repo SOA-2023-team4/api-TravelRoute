@@ -7,7 +7,6 @@ module TravelRoute
   # Web App
   class App < Roda
     plugin :halt
-    plugin :flash
     plugin :all_verbs
 
     route do |routing|
@@ -63,8 +62,8 @@ module TravelRoute
               add_result = Service::AddAttraction.new.call(body)
 
               if add_result.failure?
-                flash[:error] = add_result.failure
-                routing.halt 400
+                failed = Representer::HttpResponse.new(add_result.failure)
+                routing.halt failed.http_status_code, failed.to_json
               end
 
               http_response = Representer::HttpResponse.new(add_result.value!)
@@ -80,8 +79,8 @@ module TravelRoute
               result = Service::RecommendAttractions.new.call(place_id:)
 
               if result.failure?
-                flash[:error] = result.failure
-                routing.halt 400
+                failed = Representer::HttpResponse.new(result.failure)
+                routing.halt failed.http_status_code, failed.to_json
               end
               http_response = Representer::HttpResponse.new(result.value!)
               response.status = http_response.http_status_code
