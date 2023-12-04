@@ -1,16 +1,25 @@
 ---
 nthu:
   id: ChIJB7ZNzXI2aDQREwR22ltdKxE
-  formattedAddress: No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300
+  formattedAddress: No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City,
+    Taiwan 300
+  location:
+    latitude: 24.7961217
+    longitude: 120.9966699
   rating: 4.6
   displayName:
     text: National Tsing Hua University
+    languageCode: en
+  primaryType: university
 bigcity:
   id: ChIJQyv318Q1aDQRYz_krC4mdb4
   formattedAddress: No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041
+  location:
+    latitude: 24.8098161
+    longitude: 120.9751319
   rating: 4.4
   regularOpeningHours:
-    openNow: true
+    openNow: false
     periods:
     - open:
         day: 0
@@ -78,3 +87,5 @@ bigcity:
     - 'Sunday: 11:00 AM – 9:30 PM'
   displayName:
     text: Big City
+    languageCode: en
+  primaryType: shopping_mall

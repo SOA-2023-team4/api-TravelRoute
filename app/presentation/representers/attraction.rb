@@ -18,6 +18,7 @@ module TravelRoute
       property :type
       property :opening_hours
       property :rating
+      property :location
     end
   end
 end

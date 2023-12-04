@@ -22,6 +22,11 @@ module TravelRoute
         DataMapper.new(entry).build_entity
       end
 
+      def places_nearby(longitude, latitude, type = 'attraction')
+        data = @gateway.places_nearby(longitude, latitude, type)['places']
+        data.map { |entry| DataMapper.new(entry).build_entity }
+      end
+
       private
 
       def get_place_detail(data)
@@ -43,7 +48,8 @@ module TravelRoute
             address:,
             rating:,
             type:,
-            opening_hours:
+            opening_hours:,
+            location:
           )
         end
 
@@ -71,6 +77,10 @@ module TravelRoute
 
         def type
           @data['primaryType']
+        end
+
+        def location
+          JSON.parse(JSON[@data['location']], symbolize_names: true)
         end
       end
     end

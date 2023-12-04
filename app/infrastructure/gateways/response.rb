@@ -25,6 +25,10 @@ module TravelRoute
       def error
         HTTP_ERROR[code]
       end
+
+      def error_message
+        parse['error']
+      end
     end
   end
 end

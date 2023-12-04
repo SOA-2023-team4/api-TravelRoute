@@ -10,7 +10,7 @@ def app
   TravelRoute::App
 end
 
-describe 'Test API routes' do
+describe 'Acceptance testing' do
   include Rack::Test::Methods
 
   VcrHelper.setup_vcr
@@ -62,7 +62,6 @@ describe 'Test API routes' do
       place_id = 'ChIJQyv318Q1aDQRYz_krC4mdb4'
       get "/api/v1/attractions/#{place_id}"
       bigcity = JSON.parse(last_response.body)
-
       post '/api/v1/attractions', bigcity.to_json
       _(last_response.status).must_equal 201
 

@@ -46,7 +46,8 @@ describe 'Integration Tests of Google Maps API and Database' do
         address: '(new) Big City, Big Country',
         rating: 100.0,
         opening_hours: { 'a' => 1 },
-        type: 'test'
+        type: 'test',
+        location: { longitude: 0, latitude: 0 }
       )
 
       rebuilt = TravelRoute::Repository::Attractions.update_or_create(changed)
