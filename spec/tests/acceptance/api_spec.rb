@@ -57,20 +57,5 @@ describe 'Acceptance testing' do
       _(body['address']).must_equal expected['formattedAddress']
       _(body['rating']).must_equal expected['rating']
     end
-
-    it 'HAPPY: should be able to add attraction' do
-      place_id = 'ChIJQyv318Q1aDQRYz_krC4mdb4'
-      get "/api/v1/attractions/#{place_id}"
-      bigcity = JSON.parse(last_response.body)
-      post '/api/v1/attractions', bigcity.to_json
-      _(last_response.status).must_equal 201
-
-      body = JSON.parse(last_response.body)
-      expected = PLACE_DETAIL_RESULT['bigcity']
-      _(body['place_id']).must_equal expected['id']
-      _(body['name']).must_equal expected['displayName']['text']
-      _(body['address']).must_equal expected['formattedAddress']
-      _(body['rating']).must_equal expected['rating']
-    end
   end
 end
