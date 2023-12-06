@@ -31,7 +31,7 @@ describe 'Service integration testing' do
       correct_order = [nthu, zoo, taipei_main]
       cart = [nthu.place_id, taipei_main.place_id, zoo.place_id]
 
-      result = TravelRoute::Service::GeneratePlan.new.call(cart:, origin: nthu.place_id)
+      result = TravelRoute::Service::GeneratePlan.new.call(place_ids: cart, origin_index: '0')
 
       _(result.success?).must_equal true
       _(result.value!.attractions).must_equal correct_order

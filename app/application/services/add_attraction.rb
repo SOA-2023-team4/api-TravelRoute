@@ -35,7 +35,7 @@ module TravelRoute
           else
             input[:local_attraction]
           end
-        Success(Response::ApiResult.new(status: :created, message: attraction))
+        Success(Response::ApiResult.new(status: :ok, message: attraction))
       rescue StandardError => e
         App.logger.error("ERROR: #{e.inspect}")
         Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR_MSG))
@@ -45,7 +45,7 @@ module TravelRoute
       def attraction_from_api(input)
         Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(input[:place_id])
       rescue StandardError
-        raise NOT_FOUND_MSG
+        raise "#{NOT_FOUND_MSG}: #{input[:place_id]}"
       end
 
       def attraction_in_database(input)
