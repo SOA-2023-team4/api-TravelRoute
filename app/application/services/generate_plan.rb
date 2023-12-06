@@ -16,7 +16,7 @@ module TravelRoute
 
       # Expects input[:place_ids] and input[:origin_index]
       def make_entity(input)
-        place_ids = input[:place_ids]
+        place_ids = input[:place_ids].split(',')
         origin_index = input[:origin_index].to_i
         attractions = ListAttractions.new.call(place_ids:).value!
         input[:attractions] = attractions
@@ -37,7 +37,7 @@ module TravelRoute
         origin = input[:origin]
         plan = Entity::Plan.new(input[:guidebook]).generate_plan(origin)
 
-        Success(plan)
+        Success(Response::ApiResult.new(status: :ok, message: plan))
       rescue StandardError
         Failure('Could not create plan')
       end

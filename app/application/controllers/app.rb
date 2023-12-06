@@ -73,6 +73,20 @@ module TravelRoute
             end
           end
         end
+        routing.on 'plans' do
+          routing.get do
+            origin_index = routing.params['origin']
+            place_ids = routing.params['attractions']
+            result = Service::GeneratePlan.new.call(place_ids:, origin_index:)
+            if result.failure?
+              failed = Representer::HttpResponse.new(result.failure)
+              routing.halt failed.http_status_code, failed.to_json
+            end
+            http_response = Representer::HttpResponse.new(result.value!)
+            response.status = http_response.http_status_code
+            Representer::Plan.new(result.value!.message).to_json
+          end
+        end
       end
     end
   end
