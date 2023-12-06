@@ -43,8 +43,8 @@ module TravelRoute
           routing.is do
             # GET /attractions?search=
             routing.get do
-              search = Request::AttractionSearch.new(routing.params)
-              search_result = Service::SearchAttractions.new.call(search)
+              search_req = Request::AttractionSearch.new(routing.params)
+              search_result = Service::SearchAttractions.new.call(search_req:)
 
               if search_result.failure?
                 failed = Representer::HttpResponse.new(search_result.failure)

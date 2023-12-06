@@ -27,6 +27,10 @@ module TravelRoute
         rebuild_many(db_records)
       end
 
+      def self.find_or_create(entity)
+        Database::AttractionOrm.find_or_create(entity.to_attr_hash)
+      end
+
       def self.update_or_create(entity)
         return update(entity) if find(entity)
 
