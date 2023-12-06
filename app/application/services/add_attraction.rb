@@ -8,35 +8,48 @@ module TravelRoute
     class AddAttraction
       include Dry::Transaction
 
-      step :validate_body
-      step :make_entity
-      step :save_to_db
+      step :find_attraction
+      step :store_attraction
 
       private
 
-      def validate_body(input)
-        body = input.call
-        if body.success?
-          Success(body.value!)
+      DB_ERR_MSG = 'Having trouble accessing the database'
+      NOT_FOUND_MSG = 'Could not find that attraction_id on Google Api'
+
+      # Expects input[:place_id]
+      def find_attraction(input)
+        if (attraction = attraction_in_database(input))
+          input[:local_attraction] = attraction
         else
-          Failure(body.failure)
+          input[:remote_attraction] = attraction_from_api(input)
         end
+        Success(input)
+      rescue StandardError => e
+        Failure(Response::ApiResult.new(status: :not_found, message: e.to_s))
       end
 
-      def make_entity(input)
-        attraction = Entity::Attraction.new(input)
-
-        Success(attraction)
-      rescue StandardError
-        Failure('Could not create attraction')
+      def store_attraction(input)
+        attraction =
+          if (new_attraction = input[:remote_attraction])
+            Repository::Attractions.create(new_attraction)
+          else
+            input[:local_attraction]
+          end
+        Success(Response::ApiResult.new(status: :created, message: attraction))
+      rescue StandardError => e
+        App.logger.error("ERROR: #{e.inspect}")
+        Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR_MSG))
       end
 
-      def save_to_db(input)
-        Repository::Attractions.update_or_create(input)
-          .then { |attraction| Response::ApiResult.new(status: :created, message: attraction) }
-          .then { |result| Success(result) }
+      # Support methods for steps
+      def attraction_from_api(input)
+        Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(input[:place_id])
       rescue StandardError
-        Failure('Could not save attraction to database')
+        raise NOT_FOUND_MSG
+      end
+
+      def attraction_in_database(input)
+        Repository::Attractions.find_id(input[:place_id])
       end
     end
   end

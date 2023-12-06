@@ -28,16 +28,16 @@ module TravelRoute
         routing.on 'attractions' do
           # GET /attractions/:place_id
           routing.on String do |place_id|
-            lookup_result = Service::LookupAttraction.new.call(place_id:)
+            add_result = Service::AddAttraction.new.call(place_id:)
 
-            if lookup_result.failure?
-              failed = Representer::HttpResponse.new(lookup_result.failure)
+            if add_result.failure?
+              failed = Representer::HttpResponse.new(add_result.failure)
               routing.halt failed.http_status_code, failed.to_json
             end
 
-            http_response = Representer::HttpResponse.new(lookup_result.value!)
+            http_response = Representer::HttpResponse.new(add_result.value!)
             response.status = http_response.http_status_code
-            Representer::Attraction.new(lookup_result.value!.message).to_json
+            Representer::Attraction.new(add_result.value!.message).to_json
           end
 
           routing.is do
@@ -54,21 +54,6 @@ module TravelRoute
               http_response = Representer::HttpResponse.new(search_result.value!)
               response.status = http_response.http_status_code
               Representer::AttractionsList.new(search_result.value!.message).to_json
-            end
-
-            # POST /attractions
-            routing.post do
-              body = Request::Attraction.new(routing.body.read)
-              add_result = Service::AddAttraction.new.call(body)
-
-              if add_result.failure?
-                failed = Representer::HttpResponse.new(add_result.failure)
-                routing.halt failed.http_status_code, failed.to_json
-              end
-
-              http_response = Representer::HttpResponse.new(add_result.value!)
-              response.status = http_response.http_status_code
-              Representer::Attraction.new(add_result.value!.message).to_json
             end
           end
         end
