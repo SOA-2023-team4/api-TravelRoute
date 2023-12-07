@@ -3713,4 +3713,229 @@ http_interactions:
         73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
         2,\n  \"status\": {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n]"
   recorded_at: Thu, 07 Dec 2023 07:59:15 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/#%3CTravelRoute::Entity::Attraction:0x00007f82db7664d8%3E
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Date:
+      - Thu, 07 Dec 2023 08:18:21 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '0'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 07 Dec 2023 08:18:21 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/#%3CTravelRoute::Entity::Attraction:0x00007f818bc34588%3E
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Date:
+      - Thu, 07 Dec 2023 08:19:33 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '0'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 07 Dec 2023 08:19:33 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 08:23:23 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 08:23:23 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 08:23:31 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n
+        \ \"duration\": \"3882s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3810s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 08:23:31 GMT
 recorded_with: VCR 6.2.0

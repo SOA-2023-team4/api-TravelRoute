@@ -29,7 +29,8 @@ describe 'Service integration testing' do
       TravelRoute::Repository::Attractions.update_or_create(taipei_main)
 
       correct_order = [nthu, zoo, taipei_main]
-      cart = TravelRoute::Request::PlanGenerate.to_request(0, correct_order.map(&:place_id))
+      shuffle_order = correct_order.shuffle
+      cart = TravelRoute::Request::PlanGenerate.to_request(shuffle_order.index(nthu), shuffle_order.map(&:place_id))
 
       result = TravelRoute::Service::GeneratePlan.new.call(cart)
 
