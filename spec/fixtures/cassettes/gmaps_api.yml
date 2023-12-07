@@ -3647,4 +3647,779 @@ http_interactions:
       encoding: ASCII-8BIT
       string: ''
   recorded_at: Wed, 06 Dec 2023 18:41:25 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 07:59:15 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 07:59:15 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/#%3CTravelRoute::Entity::Attraction:0x00007f82db7664d8%3E
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Date:
+      - Thu, 07 Dec 2023 08:18:21 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '0'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 07 Dec 2023 08:18:21 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/#%3CTravelRoute::Entity::Attraction:0x00007f818bc34588%3E
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Date:
+      - Thu, 07 Dec 2023 08:19:33 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '0'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 07 Dec 2023 08:19:33 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 08:23:23 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 08:23:23 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 08:23:31 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n
+        \ \"duration\": \"3882s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3810s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 08:23:31 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 09:01:34 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 09:01:34 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 09:03:08 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
+        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n
+        \ \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        74585,\n  \"duration\": \"3882s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 09:03:08 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 09:04:00 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 09:04:00 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 07 Dec 2023 09:05:49 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
+        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        74585,\n  \"duration\": \"3882s\"\n}\n]"
+  recorded_at: Thu, 07 Dec 2023 09:05:49 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJlWImqHKpQjQREk5-6lec4-w
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 07 Dec 2023 09:12:41 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - "*,Accept-Encoding"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ChIJlWImqHKpQjQREk5-6lec4-w",
+          "formattedAddress": "No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100",
+          "location": {
+            "latitude": 25.04882,
+            "longitude": 121.51374999999999
+          },
+          "rating": 4.3,
+          "displayName": {
+            "text": "Taipei Main Station",
+            "languageCode": "en"
+          },
+          "primaryType": "subway_station"
+        }
+  recorded_at: Thu, 07 Dec 2023 09:12:41 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJl78Wnt01aDQRz1shOsBVUGU
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 07 Dec 2023 09:12:42 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - "*,Accept-Encoding"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ChIJl78Wnt01aDQRz1shOsBVUGU",
+          "formattedAddress": "300034, Taiwan, Hsinchu City, East District, 食品路66號300",
+          "location": {
+            "latitude": 24.800156100000002,
+            "longitude": 120.97992180000001
+          },
+          "rating": 4,
+          "regularOpeningHours": {
+            "openNow": false,
+            "periods": [
+              {
+                "open": {
+                  "day": 0,
+                  "hour": 9,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 0,
+                  "hour": 17,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "hour": 9,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 2,
+                  "hour": 17,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "hour": 9,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 3,
+                  "hour": 17,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "hour": 9,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 4,
+                  "hour": 17,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "hour": 9,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 5,
+                  "hour": 17,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "hour": 9,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 6,
+                  "hour": 17,
+                  "minute": 0
+                }
+              }
+            ],
+            "weekdayDescriptions": [
+              "Monday: Closed",
+              "Tuesday: 9:00 AM – 5:00 PM",
+              "Wednesday: 9:00 AM – 5:00 PM",
+              "Thursday: 9:00 AM – 5:00 PM",
+              "Friday: 9:00 AM – 5:00 PM",
+              "Saturday: 9:00 AM – 5:00 PM",
+              "Sunday: 9:00 AM – 5:00 PM"
+            ]
+          },
+          "displayName": {
+            "text": "Hsinchu Zoo",
+            "languageCode": "en"
+          },
+          "primaryType": "zoo"
+        }
+  recorded_at: Thu, 07 Dec 2023 09:12:42 GMT
 recorded_with: VCR 6.2.0

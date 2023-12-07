@@ -58,4 +58,18 @@ describe 'Acceptance testing' do
       _(body['rating']).must_equal expected['rating']
     end
   end
+
+  describe 'Plan route' do
+    it 'HAPPY: should be able to generate a plan' do
+      attractions_list = %w[ChIJlWImqHKpQjQREk5-6lec4-w ChIJl78Wnt01aDQRz1shOsBVUGU ChIJB7ZNzXI2aDQREwR22ltdKxE]
+      attractions = CGI.escape(attractions_list.join(','))
+      origin = 2
+      get "/api/v1/plans?origin=#{origin}&attractions=#{attractions}"
+      _(last_response.status).must_equal 200
+
+      body = JSON.parse(last_response.body)
+      _(body['attractions'].count).must_equal 3
+      _(body['routes'].count).must_equal 2
+    end
+  end
 end
