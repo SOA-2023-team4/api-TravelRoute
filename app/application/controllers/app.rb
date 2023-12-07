@@ -60,6 +60,7 @@ module TravelRoute
 
         routing.on 'recommendations' do
           routing.get do
+            # GET /recommendations/:place_id
             routing.on String do |place_id|
               result = Service::RecommendAttractions.new.call(place_id:)
 
@@ -73,11 +74,12 @@ module TravelRoute
             end
           end
         end
+
         routing.on 'plans' do
+          # GET /plans?origin=&attractions=
           routing.get do
-            origin_index = routing.params['origin']
-            place_ids = routing.params['attractions']
-            result = Service::GeneratePlan.new.call(place_ids:, origin_index:)
+            plan_req = Request::PlanGenerate.new(routing.params)
+            result = Service::GeneratePlan.new.call(plan_req)
             if result.failure?
               failed = Representer::HttpResponse.new(result.failure)
               routing.halt failed.http_status_code, failed.to_json

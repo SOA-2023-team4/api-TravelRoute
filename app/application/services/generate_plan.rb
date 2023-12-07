@@ -8,20 +8,27 @@ module TravelRoute
     class GeneratePlan
       include Dry::Transaction
 
+      step :validate_input
       step :make_entity
       step :generate_guidebook
       step :create_plan
 
       private
 
-      # Expects input[:place_ids] and input[:origin_index]
+      def validate_input(input)
+        plan_req = input.call
+        if plan_req.success?
+          Success(plan_req.value!)
+        else
+          Failure(plan_req.failure)
+        end
+      end
+
+      # Expects PlanGenerateRequest object
       def make_entity(input)
-        place_ids = input[:place_ids].split(',')
-        origin_index = input[:origin_index].to_i
-        attractions = ListAttractions.new.call(place_ids:).value!
-        input[:attractions] = attractions
-        input[:origin] = attractions[origin_index]
-        Success(input)
+        attractions = ListAttractions.new.call(place_ids: input.place_ids).value!
+        origin = attractions[input.origin_index]
+        Success(origin:, attractions:)
       end
 
       def generate_guidebook(input)

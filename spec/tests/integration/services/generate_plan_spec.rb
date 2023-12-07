@@ -29,12 +29,12 @@ describe 'Service integration testing' do
       TravelRoute::Repository::Attractions.update_or_create(taipei_main)
 
       correct_order = [nthu, zoo, taipei_main]
-      cart = [nthu.place_id, taipei_main.place_id, zoo.place_id]
+      cart = TravelRoute::Request::PlanGenerate.to_request(0, correct_order.map(&:place_id))
 
-      result = TravelRoute::Service::GeneratePlan.new.call(place_ids: cart, origin_index: '0')
+      result = TravelRoute::Service::GeneratePlan.new.call(cart)
 
       _(result.success?).must_equal true
-      _(result.value!.attractions).must_equal correct_order
+      _(result.value!.message.attractions).must_equal correct_order
     end
   end
 end
