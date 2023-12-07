@@ -8,9 +8,11 @@ module TravelRoute
     class ListAttractions
       include Dry::Monads::Result::Mixin
 
-      def call(places_id)
-        attractions = places_id.map do |place_id|
-          Repository::Attractions.find_id(place_id)
+      # Expects input[:place_ids]
+      def call(input)
+        place_ids = input[:place_ids]
+        attractions = place_ids.map do |place_id|
+          AddAttraction.new.call(place_id:).value!.message
         end
 
         Success(attractions)

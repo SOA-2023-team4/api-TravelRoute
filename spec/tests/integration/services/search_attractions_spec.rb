@@ -22,9 +22,8 @@ describe 'Service integration testing' do
 
     it 'HAPPY: should get the candidate attractions' do
       correct = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('nthu').first
-      search = TravelRoute::Request::AttractionSearch.to_request('清大')
-      result = TravelRoute::Service::SearchAttractions.new.call(search)
-
+      search_req = TravelRoute::Request::AttractionSearch.to_request('清大')
+      result = TravelRoute::Service::SearchAttractions.new.call(search_req:)
       _(result.success?).must_equal true
       candidates = result.value!.message
       _(candidates.count).must_equal 1
@@ -32,9 +31,8 @@ describe 'Service integration testing' do
     end
 
     it 'SAD: should report if no attractions are found' do
-      search = TravelRoute::Request::AttractionSearch.to_request('invaliddestinationId')
-      result = TravelRoute::Service::SearchAttractions.new.call(search)
-
+      search_req = TravelRoute::Request::AttractionSearch.to_request('invaliddestinationId')
+      result = TravelRoute::Service::SearchAttractions.new.call(search_req:)
       _(result.success?).must_equal true
       candidates = result.value!.message
       _(candidates['attractions']).must_be_empty

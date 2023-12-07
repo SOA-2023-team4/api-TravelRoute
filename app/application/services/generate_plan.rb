@@ -14,24 +14,30 @@ module TravelRoute
 
       private
 
+      # Expects input[:place_ids] and input[:origin_index]
       def make_entity(input)
-        cart = ListAttractions.new.call(input[:cart]).value!
-        origin = cart.find { |attraction| attraction.place_id == input[:origin] }
-        Success(cart:, origin:)
+        place_ids = input[:place_ids].split(',')
+        origin_index = input[:origin_index].to_i
+        attractions = ListAttractions.new.call(place_ids:).value!
+        input[:attractions] = attractions
+        input[:origin] = attractions[origin_index]
+        Success(input)
       end
 
       def generate_guidebook(input)
-        guidebook = Mapper::GuidebookMapper.new(App.config.GMAP_TOKEN).generate_guidebook(input[:cart])
-
-        Success(guidebook:, origin: input[:origin])
+        attractions = input[:attractions]
+        guidebook = Mapper::GuidebookMapper.new(App.config.GMAP_TOKEN).generate_guidebook(attractions)
+        input[:guidebook] = guidebook
+        Success(input)
       rescue StandardError
         Failure('Could not generate guidebook')
       end
 
       def create_plan(input)
-        plan = Entity::Plan.new(input[:guidebook]).generate_plan(input[:origin])
+        origin = input[:origin]
+        plan = Entity::Plan.new(input[:guidebook]).generate_plan(origin)
 
-        Success(plan)
+        Success(Response::ApiResult.new(status: :ok, message: plan))
       rescue StandardError
         Failure('Could not create plan')
       end
