@@ -32,7 +32,7 @@ describe 'Service integration testing' do
       shuffle_order = correct_order.shuffle
       cart = TravelRoute::Request::PlanGenerate.to_request(shuffle_order.index(nthu), shuffle_order.map(&:place_id))
 
-      result = TravelRoute::Service::GeneratePlan.new.call(cart)
+      result = TravelRoute::Service::GeneratePlan.new.call(plan_req: cart)
 
       _(result.success?).must_equal true
       _(result.value!.message.attractions).must_equal correct_order
