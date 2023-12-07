@@ -15,7 +15,7 @@ describe 'Service integration testing' do
     VcrHelper.eject_vcr
   end
 
-  describe 'List attractions' do
+  describe 'Generate Plan' do
     before do
       DatabaseHelper.wipe_database
     end
@@ -29,12 +29,13 @@ describe 'Service integration testing' do
       TravelRoute::Repository::Attractions.update_or_create(taipei_main)
 
       correct_order = [nthu, zoo, taipei_main]
-      cart = [nthu.place_id, taipei_main.place_id, zoo.place_id]
+      shuffle_order = correct_order.shuffle
+      cart = TravelRoute::Request::PlanGenerate.to_request(shuffle_order.index(nthu), shuffle_order.map(&:place_id))
 
-      result = TravelRoute::Service::GeneratePlan.new.call(cart:, origin: nthu.place_id)
+      result = TravelRoute::Service::GeneratePlan.new.call(plan_req: cart)
 
       _(result.success?).must_equal true
-      _(result.value!.attractions).must_equal correct_order
+      _(result.value!.message.attractions).must_equal correct_order
     end
   end
 end

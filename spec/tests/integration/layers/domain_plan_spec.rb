@@ -17,7 +17,8 @@ describe 'Test plan generation' do
 
     @attractions = [@nthu, @taipei_main, @zoo]
     @guidebook = TravelRoute::Mapper::GuidebookMapper.new(GMAP_TOKEN).generate_guidebook(@attractions)
-    @planner = TravelRoute::Entity::Planner.new(@guidebook)
+
+    @plan = TravelRoute::Entity::Plan.new(@guidebook)
 
     @correct_order = [@nthu, @zoo, @taipei_main]
   end
@@ -27,7 +28,7 @@ describe 'Test plan generation' do
   end
 
   it 'HAPPY: should be able to generate a correct plan' do
-    plan = @planner.generate_plan(@nthu)
-    _(plan.attractions).must_equal(@correct_order)
+    plan_obj = @plan.generate_plan(@nthu)
+    _(plan_obj.attractions).must_equal(@correct_order)
   end
 end

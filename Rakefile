@@ -8,27 +8,11 @@ task :default do
 end
 
 desc 'Run the unit and integration tests'
-task spec: ['spec:default']
-
-namespace :spec do
-  desc 'Run integration tests'
-  Rake::TestTask.new(:default) do |t|
-    t.pattern = 'spec/tests/{integration,unit}/**/*_spec.rb'
-    t.warning = false
-  end
-
-  # NOTE: make sure you have run `rake run:test` in another process
-  desc 'Run acceptance tests'
-  Rake::TestTask.new(:acceptance) do |t|
-    t.pattern = 'spec/tests/acceptance/*_spec.rb'
-    t.warning = false
-  end
-
-  desc 'Run unit, integration, and acceptance tests'
-  Rake::TestTask.new(:all) do |t|
-    t.pattern = 'spec/tests/**/*_spec.rb'
-    t.warning = false
-  end
+desc 'Run unit and integration tests'
+Rake::TestTask.new(:spec) do |t|
+  t.pattern = 'spec/tests/**/*_spec.rb'
+  t.warning = false
+  t.verbose = true
 end
 
 desc 'Keep rerunning tests upon changes'

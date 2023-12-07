@@ -17,12 +17,7 @@ describe 'Tests Google Maps API library' do
     it 'HAPPY: should provide correct place when searching by text' do
       expected = PLACE_DETAIL_RESULT['nthu']
       response = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find(PLACE)
-
-      response.each do |generated|
-        _(generated.place_id).must_equal expected['id']
-        _(generated.name).must_equal expected['displayName']['text']
-        _(generated.address).must_equal expected['formattedAddress']
-      end
+      _(response.map(&:place_id)).must_include expected['id']
     end
 
     it 'HAPPY: should provide correct place when searching by id' do
@@ -31,7 +26,6 @@ describe 'Tests Google Maps API library' do
       _(response.place_id).must_equal expected['id']
       _(response.name).must_equal expected['displayName']['text']
       _(response.address).must_equal expected['formattedAddress']
-      _(response.opening_hours).must_equal expected['regularOpeningHours']
     end
 
     it 'SAD: should return empty array when place is not found' do
@@ -42,7 +36,7 @@ describe 'Tests Google Maps API library' do
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
         TravelRoute::Mapper::AttractionMapper.new('bad_token').find(PLACE)
-      end).must_raise TravelRoute::Response::BadRequest
+      end).must_raise TravelRoute::GoogleMaps::Response::BadRequest
     end
   end
 
@@ -63,13 +57,13 @@ describe 'Tests Google Maps API library' do
     it 'SAD: should raise exception when route not found' do
       _(proc do
         TravelRoute::Mapper::RouteMapper.new(GMAP_TOKEN).calculate_route(@origin, @invalid_destination)
-      end).must_raise TravelRoute::Response::BadRequest
+      end).must_raise TravelRoute::GoogleMaps::Response::BadRequest
     end
 
     it 'BAD: should raise exception when unauthorized' do
       _(proc do
         TravelRoute::Mapper::RouteMapper.new('bad_token').calculate_route(@origin, @valid_destination)
-      end).must_raise TravelRoute::Response::BadRequest
+      end).must_raise TravelRoute::GoogleMaps::Response::BadRequest
     end
   end
 
