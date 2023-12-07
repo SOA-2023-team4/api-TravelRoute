@@ -79,7 +79,7 @@ module TravelRoute
           # GET /plans?origin=&attractions=
           routing.get do
             plan_req = Request::PlanGenerate.new(routing.params)
-            result = Service::GeneratePlan.new.call(plan_req)
+            result = Service::GeneratePlan.new.call(plan_req:)
             if result.failure?
               failed = Representer::HttpResponse.new(result.failure)
               routing.halt failed.http_status_code, failed.to_json

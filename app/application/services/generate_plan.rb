@@ -16,18 +16,19 @@ module TravelRoute
       private
 
       def validate_input(input)
-        plan_req = input.call
+        plan_req = input[:plan_req].call
         if plan_req.success?
-          Success(plan_req.value!)
+          req = plan_req.value!
+          Success(origin_index: req.origin_index, place_ids: req.place_ids)
         else
           Failure(plan_req.failure)
         end
       end
 
-      # Expects PlanGenerateRequest object
+      # Expects input[:origin_index], input[:place_ids]
       def make_entity(input)
-        attractions = ListAttractions.new.call(place_ids: input.place_ids).value!
-        origin = attractions[input.origin_index]
+        attractions = ListAttractions.new.call(place_ids: input[:place_ids]).value!
+        origin = attractions[input[:origin_index]]
         Success(origin:, attractions:)
       end
 
