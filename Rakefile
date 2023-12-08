@@ -20,14 +20,31 @@ task :respec do
   sh "rerun -c 'rake spec' --ignore 'coverage/*'"
 end
 
-desc 'Run web app'
-task :run do
-  sh 'bundle exec puma'
+desc 'Run web app in default (dev) mode'
+task run: ['run:dev']
+
+namespace :run do
+  desc 'Run API in dev mode'
+  task :dev do
+    sh "rerun -c --ignore 'coverage/*' --ignore 'repostore/*' -- bundle exec puma -p 9090"
+  end
+
+  desc 'Run API in test mode'
+  task :test do
+    sh 'RACK_ENV=test bundle exec puma -p 9090'
+  end
 end
 
-desc 'Keep rerunning web app upon changes'
-task :rerun do
-  sh "rerun -c --ignore 'coverage/*' -- bundle exec puma"
+namespace :run do
+  desc 'Run API in dev mode'
+  task :dev do
+    sh 'rerun -c "rackup -p 9090"'
+  end
+
+  desc 'Run API in test mode'
+  task :test do
+    sh 'RACK_ENV=test rackup -p 9090'
+  end
 end
 
 desc 'Generates a 64 by secret for Rack::Session'
