@@ -8,46 +8,60 @@ module TravelRoute
     class RecommendAttractions
       include Dry::Transaction
 
-      step :database_lookup
-      step :google_api_lookup
+      step :validate_input
+      step :search_attractions
+      step :search_nearby
       step :make_recommendations
 
       private
 
-      DB_ERR = 'Cannot access database'
-      API_ERR = 'Cannot access Google API'
-      NOT_FOUND = 'Attraction not found'
-      INT_ERR = 'Internal error'
+      SEARCH_ERR = 'search attractions error'
+      SEARCH_NEARBY_ERR = 'search nearby error'
+      RECOMMENDATION_ERR = 'recommendation error'
 
-      def database_lookup(input)
-        input[:attraction] = Repository::Attractions.find_id(input[:place_id])
+      def validate_input(input)
+        recommendation_req = input[:recommendation_req].call
+        if recommendation_req.success?
+          req = recommendation_req.value!
+          Success(ids: req[:ids])
+        else
+          Failure(recommendation_req.failure)
+        end
+      end
+
+      def search_attractions(input)
+        ids = input[:ids]
+        attractions = ids.map do |id|
+          AddAttraction.new.call(place_id: id).value!.message
+        end
+        input[:attractions] = attractions
         Success(input)
       rescue StandardError
-        Failure(
-          Response::ApiResult.new(status: :internal_error, message: DB_ERR)
-        )
+        Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
       end
 
-      def google_api_lookup(input)
-        return Success(input) if input[:attraction]
-
-        attraction = Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).find_by_id(input[:place_id])
-        return Failure(Response::ApiResult.new(status: :not_found, message: NOT_FOUND)) unless attraction
-
-        Success(input.merge(attraction:))
+      def search_nearby(input)
+        attractions = input[:attractions]
+        nearby_attractions = attractions.map do |attraction|
+          latitude = attraction.location[:latitude]
+          longitude = attraction.location[:longitude]
+          Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).places_nearby(latitude, longitude)
+        end
+        input[:nearby_attractions] = nearby_attractions.flatten
+        Success(input)
       rescue StandardError
-        Failure(Response::ApiResult.new(status: :internal_error, message: API_ERR))
+        Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_NEARBY_ERR))
       end
 
+      # This logic should be in domain object
       def make_recommendations(input)
-        attraction = input[:attraction]
-        latitude = attraction.location[:latitude]
-        longitude = attraction.location[:longitude]
-        attractions = Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).places_nearby(latitude, longitude)
-        attractions_list = Response::AttractionsList.new(attractions)
-        Success(Response::ApiResult.new(status: :ok, message: attractions_list))
+        top_n = 3
+        nearby_attractions = input[:nearby_attractions]
+        top_attractions = nearby_attractions.sort_by(&:rating).reverse[0..top_n]
+        msg = Response::AttractionsList.new(top_attractions)
+        Success(Response::ApiResult.new(status: :ok, message: msg))
       rescue StandardError
-        Failure(Response::ApiResult.new(status: :internal_error, message: INT_ERR))
+        Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
       end
     end
   end
