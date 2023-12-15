@@ -60,18 +60,17 @@ module TravelRoute
 
         routing.on 'recommendations' do
           routing.get do
-            # GET /recommendations/:place_id
-            routing.on String do |place_id|
-              result = Service::RecommendAttractions.new.call(place_id:)
+            # GET /recommendations?ids=
+            recommendation_req = Request::Recommendation.new(routing.params)
+            recommend_result = Service::RecommendAttractions.new.call(recommendation_req:)
 
-              if result.failure?
-                failed = Representer::HttpResponse.new(result.failure)
-                routing.halt failed.http_status_code, failed.to_json
-              end
-              http_response = Representer::HttpResponse.new(result.value!)
-              response.status = http_response.http_status_code
-              Representer::AttractionsList.new(result.value!.message).to_json
+            if recommend_result.failure?
+              failed = Representer::HttpResponse.new(recommend_result.failure)
+              routing.halt failed.http_status_code, failed.to_json
             end
+            http_response = Representer::HttpResponse.new(recommend_result.value!)
+            response.status = http_response.http_status_code
+            Representer::AttractionsList.new(recommend_result.value!.message).to_json
           end
         end
 
