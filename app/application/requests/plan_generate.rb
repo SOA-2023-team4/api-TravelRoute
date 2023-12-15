@@ -16,7 +16,7 @@ module TravelRoute
       end
 
       def call
-        Success(PlanGenerateRequest.new(@params['origin_index'].to_i, unroll(@params['attractions'])))
+        Success(PlanGenerateRequest.new(@params['origin'].to_i, unroll(@params['attractions'])))
       rescue StandardError
         Failure(Response::ApiResult.new(status: :bad_request, message: 'Invalid request params'))
       end
@@ -35,7 +35,7 @@ module TravelRoute
       end
 
       def self.to_request(origin_index, attractions)
-        PlanGenerate.new('origin_index' => origin_index, 'attractions' => roll(attractions))
+        PlanGenerate.new('origin' => origin_index, 'attractions' => roll(attractions))
       end
     end
   end

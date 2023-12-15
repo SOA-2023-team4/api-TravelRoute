@@ -23,14 +23,17 @@ describe 'Service integration testing' do
     it 'HAPPY: should able to generate a plan' do
       nthu = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('清大').first
       TravelRoute::Repository::Attractions.update_or_create(nthu)
-      zoo = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('Hsinchu zoo').first
-      TravelRoute::Repository::Attractions.update_or_create(zoo)
+      bus_station = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('Hsinchu Bus station').first
+      TravelRoute::Repository::Attractions.update_or_create(bus_station)
       taipei_main = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('Taipei Main Station').first
       TravelRoute::Repository::Attractions.update_or_create(taipei_main)
 
-      correct_order = [nthu, zoo, taipei_main]
+      correct_order = [nthu, bus_station, taipei_main]
       shuffle_order = correct_order.shuffle
-      cart = TravelRoute::Request::PlanGenerate.to_request(shuffle_order.index(nthu), shuffle_order.map(&:place_id))
+      cart = TravelRoute::Request::PlanGenerate.to_request(
+        shuffle_order.index(nthu),
+        shuffle_order.map(&:place_id)
+      )
 
       result = TravelRoute::Service::GeneratePlan.new.call(plan_req: cart)
 
