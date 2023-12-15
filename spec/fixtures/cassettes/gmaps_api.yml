@@ -1,18 +1,18 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
     body:
-      encoding: UTF-8
-      string: '{"textQuery":"清大"}'
+      encoding: ASCII-8BIT
+      string: ''
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
       Connection:
       - close
       Host:
@@ -26,12 +26,8 @@ http_interactions:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
       Date:
-      - Fri, 01 Dec 2023 04:21:48 GMT
+      - Fri, 15 Dec 2023 17:20:03 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -46,6 +42,8 @@ http_interactions:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Accept-Ranges:
       - none
+      Vary:
+      - "*,Accept-Encoding"
       Connection:
       - close
       Transfer-Encoding:
@@ -54,773 +52,118 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "places": [
-            {
-              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
-              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
-              "rating": 4.6,
-              "displayName": {
-                "text": "National Tsing Hua University",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:48 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"Hsinchu zoo"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:49 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJl78Wnt01aDQRz1shOsBVUGU",
-              "formattedAddress": "300034, Taiwan, Hsinchu City, East District, 食品路66號300",
-              "rating": 4,
-              "regularOpeningHours": {
-                "openNow": true,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 0,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 0,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 6,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 6,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: Closed",
-                  "Tuesday: 9:00 AM – 5:00 PM",
-                  "Wednesday: 9:00 AM – 5:00 PM",
-                  "Thursday: 9:00 AM – 5:00 PM",
-                  "Friday: 9:00 AM – 5:00 PM",
-                  "Saturday: 9:00 AM – 5:00 PM",
-                  "Sunday: 9:00 AM – 5:00 PM"
-                ]
-              },
-              "displayName": {
-                "text": "Hsinchu Zoo",
-                "languageCode": "en"
-              },
-              "primaryType": "zoo"
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:49 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"Taipei Main Station"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:49 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJneUTn3KpQjQRGGR7w7CKOQg",
-              "formattedAddress": "10041, Taiwan, Taipei City, Zhongzheng District, 忠孝西路1段49號",
-              "rating": 4.2,
-              "displayName": {
-                "text": "Taipei Main Station",
-                "languageCode": "en"
-              },
-              "primaryType": "subway_station"
-            },
-            {
-              "id": "ChIJlWImqHKpQjQREk5-6lec4-w",
-              "formattedAddress": "No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100",
-              "rating": 4.3,
-              "displayName": {
-                "text": "Taipei Main Station",
-                "languageCode": "en"
-              },
-              "primaryType": "subway_station"
-            },
-            {
-              "id": "ChIJCZEzfnKpQjQRy75KOs4xSsM",
-              "formattedAddress": "100, Taiwan, Taipei City, Zhongzheng District, Beiping W Rd, 3號100臺灣",
-              "rating": 4.2,
-              "displayName": {
-                "text": "Taipei",
-                "languageCode": "en"
-              },
-              "primaryType": "train_station"
-            },
-            {
-              "id": "ChIJF-ys1QypQjQRLnCtqzFjfdw",
-              "formattedAddress": "Zhongzheng District, Taipei City, Taiwan 100",
-              "rating": 4.4,
-              "displayName": {
-                "text": "Taipei Main Station (Kaifeng)",
-                "languageCode": "en"
-              },
-              "primaryType": "bus_station"
-            },
-            {
-              "id": "ChIJA5AMdHOpQjQRwgW0Is7O1Gc",
-              "formattedAddress": "Zhongzheng District, Taipei City, Taiwan 100",
-              "rating": 4,
-              "displayName": {
-                "text": "Taipei Main Station (Gongyuan)",
-                "languageCode": "en"
-              },
-              "primaryType": "bus_station"
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:49 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJneUTn3KpQjQRGGR7w7CKOQg"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJneUTn3KpQjQRGGR7w7CKOQg"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:49 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 72430,\n
-        \ \"duration\": \"3428s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 73288,\n  \"duration\": \"3457s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 2,\n  \"status\":
-        {},\n  \"distanceMeters\": 75409,\n  \"duration\": \"3786s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        74519,\n  \"duration\": \"3798s\"\n}\n]"
-  recorded_at: Fri, 01 Dec 2023 04:21:49 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"Nanda Campus"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:50 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
-              "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
-              "rating": 4.4,
-              "displayName": {
-                "text": "National Tsing Hua University Nanda Campus",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:50 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"invaliddestinationId"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:50 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Fri, 01 Dec 2023 04:21:50 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/directions/v2:computeRoutes
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:50 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "routes": [
-            {
-              "distanceMeters": 3855,
-              "duration": "719s",
-              "polyline": {
-                "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@_B|GaAnEi@lBI^?\\YxDd@F\\VvAbCfEbInBlD~@jBfEpHvEzIxEpJ`B`D~B`EhEjIdCtE^l@HGb@Ft@@"
-              }
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:50 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/directions/v2:computeRoutes
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
-      X-Goog-Fieldmask:
-      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 01 Dec 2023 04:21:50 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "error": {
-            "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
+          "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
+          "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
+          "location": {
+            "latitude": 24.8098161,
+            "longitude": 120.9751319
+          },
+          "rating": 4.4,
+          "regularOpeningHours": {
+            "openNow": false,
+            "periods": [
               {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "routes.googleapis.com"
+                "open": {
+                  "day": 0,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 0,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 1,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 1,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 2,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 2,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 3,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 3,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 4,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 4,
+                  "hour": 21,
+                  "minute": 30
+                }
+              },
+              {
+                "open": {
+                  "day": 5,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 5,
+                  "hour": 22,
+                  "minute": 0
+                }
+              },
+              {
+                "open": {
+                  "day": 6,
+                  "hour": 11,
+                  "minute": 0
+                },
+                "close": {
+                  "day": 6,
+                  "hour": 22,
+                  "minute": 0
                 }
               }
+            ],
+            "weekdayDescriptions": [
+              "Monday: 11:00 AM – 9:30 PM",
+              "Tuesday: 11:00 AM – 9:30 PM",
+              "Wednesday: 11:00 AM – 9:30 PM",
+              "Thursday: 11:00 AM – 9:30 PM",
+              "Friday: 11:00 AM – 10:00 PM",
+              "Saturday: 11:00 AM – 10:00 PM",
+              "Sunday: 11:00 AM – 9:30 PM"
             ]
-          }
+          },
+          "displayName": {
+            "text": "Big City",
+            "languageCode": "en"
+          },
+          "primaryType": "shopping_mall"
         }
-  recorded_at: Fri, 01 Dec 2023 04:21:50 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"bigcity"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:51 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
-              "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
-              "rating": 4.4,
-              "regularOpeningHours": {
-                "openNow": true,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 0,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 0,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 22,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 6,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 6,
-                      "hour": 22,
-                      "minute": 0
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: 11:00 AM – 9:30 PM",
-                  "Tuesday: 11:00 AM – 9:30 PM",
-                  "Wednesday: 11:00 AM – 9:30 PM",
-                  "Thursday: 11:00 AM – 9:30 PM",
-                  "Friday: 11:00 AM – 10:00 PM",
-                  "Saturday: 11:00 AM – 10:00 PM",
-                  "Sunday: 11:00 AM – 9:30 PM"
-                ]
-              },
-              "displayName": {
-                "text": "Big City",
-                "languageCode": "en"
-              },
-              "primaryType": "shopping_mall"
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:51 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:03 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchText
@@ -833,7 +176,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
       Connection:
       - close
       Host:
@@ -852,7 +195,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 01 Dec 2023 04:21:51 GMT
+      - Fri, 15 Dec 2023 17:20:03 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -879,6 +222,10 @@ http_interactions:
             {
               "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
               "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7961217,
+                "longitude": 120.9966699
+              },
               "rating": 4.6,
               "displayName": {
                 "text": "National Tsing Hua University",
@@ -889,6 +236,10 @@ http_interactions:
             {
               "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
               "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.794294999999998,
+                "longitude": 120.9653557
+              },
               "rating": 4.4,
               "displayName": {
                 "text": "National Tsing Hua University Nanda Campus",
@@ -897,155 +248,15 @@ http_interactions:
               "primaryType": "university"
             },
             {
-              "id": "ChIJv2HFiAw2aDQRuTwjGA3nEu4",
-              "formattedAddress": "300, Taiwan, Hsinchu City, East District, Section 2, Guangfu Rd, 101號, The Marconix Building, 1樓車道旁",
-              "rating": 4.1,
-              "regularOpeningHours": {
-                "openNow": false,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 8,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 17,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 8,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 17,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 8,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 17,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 8,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 17,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 8,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 17,
-                      "minute": 30
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: 8:30 AM – 12:00 PM, 1:30 – 5:30 PM",
-                  "Tuesday: 8:30 AM – 12:00 PM, 1:30 – 5:30 PM",
-                  "Wednesday: 8:30 AM – 12:00 PM, 1:30 – 5:30 PM",
-                  "Thursday: 8:30 AM – 12:00 PM, 1:30 – 5:30 PM",
-                  "Friday: 8:30 AM – 12:00 PM, 1:30 – 5:30 PM",
-                  "Saturday: Closed",
-                  "Sunday: Closed"
-                ]
-              },
-              "displayName": {
-                "text": "Office of Global Affairs",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            },
-            {
               "id": "ChIJ18j0Ius3aDQRKMPzlKlDqMI",
               "formattedAddress": "300, Taiwan, Hsinchu City, East District, Section 2, Guangfu Rd, 101號清華大學名人堂",
+              "location": {
+                "latitude": 24.7939411,
+                "longitude": 120.99305100000001
+              },
               "rating": 5,
               "regularOpeningHours": {
-                "openNow": true,
+                "openNow": false,
                 "periods": [
                   {
                     "open": {
@@ -1123,1839 +334,6 @@ http_interactions:
                 "languageCode": "en"
               },
               "primaryType": "school"
-            },
-            {
-              "id": "ChIJCwowWdY3aDQRKqwYF_ikTis",
-              "formattedAddress": "300044, Taiwan, Hsinchu City, East District, Section 2, Guangfu Rd, 101號第二综合大樓6樓601室",
-              "rating": 5,
-              "regularOpeningHours": {
-                "openNow": false,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 12,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 13,
-                      "minute": 30
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM",
-                  "Tuesday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM",
-                  "Wednesday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM",
-                  "Thursday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM",
-                  "Friday: 9:00 AM – 12:00 PM, 1:30 – 5:00 PM",
-                  "Saturday: Closed",
-                  "Sunday: Closed"
-                ]
-              },
-              "displayName": {
-                "text": "NTHU Chinese Language Center",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            },
-            {
-              "id": "ChIJ_9Q2NQ02aDQR5Bk79YqkzBI",
-              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
-              "rating": 4.7,
-              "displayName": {
-                "text": "National Tsing Hua University",
-                "languageCode": "en"
-              },
-              "primaryType": "bus_stop"
-            }
-          ]
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:51 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: UTF-8
-      string: '{"textQuery":"清大"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 01 Dec 2023 04:21:53 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "error": {
-            "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
-              {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "places.googleapis.com"
-                }
-              }
-            ]
-          }
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:53 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 01 Dec 2023 04:21:53 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Vary:
-      - "*,Accept-Encoding"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
-          "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
-          "rating": 4.4,
-          "regularOpeningHours": {
-            "openNow": true,
-            "periods": [
-              {
-                "open": {
-                  "day": 0,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 0,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 1,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 1,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 2,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 2,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 3,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 3,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 4,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 4,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 5,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 5,
-                  "hour": 22,
-                  "minute": 0
-                }
-              },
-              {
-                "open": {
-                  "day": 6,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 6,
-                  "hour": 22,
-                  "minute": 0
-                }
-              }
-            ],
-            "weekdayDescriptions": [
-              "Monday: 11:00 AM – 9:30 PM",
-              "Tuesday: 11:00 AM – 9:30 PM",
-              "Wednesday: 11:00 AM – 9:30 PM",
-              "Thursday: 11:00 AM – 9:30 PM",
-              "Friday: 11:00 AM – 10:00 PM",
-              "Saturday: 11:00 AM – 10:00 PM",
-              "Sunday: 11:00 AM – 9:30 PM"
-            ]
-          },
-          "displayName": {
-            "text": "Big City",
-            "languageCode": "en"
-          },
-          "primaryType": "shopping_mall"
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:53 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"notexistentplace"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 04:21:53 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Fri, 01 Dec 2023 04:21:53 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/ChIJB7ZNzXI2aDQREwR22ltdKxE
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Fri, 01 Dec 2023 04:21:55 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Vary:
-      - "*,Accept-Encoding"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
-          "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
-          "rating": 4.6,
-          "displayName": {
-            "text": "National Tsing Hua University",
-            "languageCode": "en"
-          },
-          "primaryType": "university"
-        }
-  recorded_at: Fri, 01 Dec 2023 04:21:55 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJneUTn3KpQjQRGGR7w7CKOQg"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJneUTn3KpQjQRGGR7w7CKOQg"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Fri, 01 Dec 2023 06:37:32 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
-        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        74519,\n  \"duration\": \"3798s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 75409,\n  \"duration\": \"3786s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        73288,\n  \"duration\": \"3457s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 72430,\n  \"duration\": \"3428s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n]"
-  recorded_at: Fri, 01 Dec 2023 06:37:32 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: UTF-8
-      string: '{"textQuery":"清大"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 08:49:55 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
-              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
-              "rating": 4.6,
-              "displayName": {
-                "text": "National Tsing Hua University",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            }
-          ]
-        }
-  recorded_at: Sat, 02 Dec 2023 08:49:55 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"aW52YWxpZGRlc3RpbmF0aW9uSWQ="}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 08:51:25 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Sat, 02 Dec 2023 08:51:24 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"5riF5aSn"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 08:51:25 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Sat, 02 Dec 2023 08:51:24 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"%E6%B8%85%E5%A4%A7"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.displayName,places.id,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 08:52:33 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Sat, 02 Dec 2023 08:52:32 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: UTF-8
-      string: '{"textQuery":"清大"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:32 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
-              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
-              "location": {
-                "latitude": 24.7961217,
-                "longitude": 120.9966699
-              },
-              "rating": 4.6,
-              "displayName": {
-                "text": "National Tsing Hua University",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            }
-          ]
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:32 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"Hsinchu zoo"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:32 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJl78Wnt01aDQRz1shOsBVUGU",
-              "formattedAddress": "300034, Taiwan, Hsinchu City, East District, 食品路66號300",
-              "location": {
-                "latitude": 24.800156100000002,
-                "longitude": 120.97992180000001
-              },
-              "rating": 4,
-              "regularOpeningHours": {
-                "openNow": false,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 0,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 0,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 6,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 6,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: Closed",
-                  "Tuesday: 9:00 AM – 5:00 PM",
-                  "Wednesday: 9:00 AM – 5:00 PM",
-                  "Thursday: 9:00 AM – 5:00 PM",
-                  "Friday: 9:00 AM – 5:00 PM",
-                  "Saturday: 9:00 AM – 5:00 PM",
-                  "Sunday: 9:00 AM – 5:00 PM"
-                ]
-              },
-              "displayName": {
-                "text": "Hsinchu Zoo",
-                "languageCode": "en"
-              },
-              "primaryType": "zoo"
-            }
-          ]
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:32 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"Taipei Main Station"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:32 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJlWImqHKpQjQREk5-6lec4-w",
-              "formattedAddress": "No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100",
-              "location": {
-                "latitude": 25.04882,
-                "longitude": 121.51374999999999
-              },
-              "rating": 4.3,
-              "displayName": {
-                "text": "Taipei Main Station",
-                "languageCode": "en"
-              },
-              "primaryType": "subway_station"
-            },
-            {
-              "id": "ChIJneUTn3KpQjQRGGR7w7CKOQg",
-              "formattedAddress": "10041, Taiwan, Taipei City, Zhongzheng District, 忠孝西路1段49號",
-              "location": {
-                "latitude": 25.04625,
-                "longitude": 121.51753000000001
-              },
-              "rating": 4.2,
-              "displayName": {
-                "text": "Taipei Main Station",
-                "languageCode": "en"
-              },
-              "primaryType": "subway_station"
-            },
-            {
-              "id": "ChIJCZEzfnKpQjQRy75KOs4xSsM",
-              "formattedAddress": "100, Taiwan, Taipei City, Zhongzheng District, Beiping W Rd, 3號100臺灣",
-              "location": {
-                "latitude": 25.048007499999997,
-                "longitude": 121.5170613
-              },
-              "rating": 4.2,
-              "displayName": {
-                "text": "Taipei",
-                "languageCode": "en"
-              },
-              "primaryType": "train_station"
-            },
-            {
-              "id": "ChIJF-ys1QypQjQRLnCtqzFjfdw",
-              "formattedAddress": "Zhongzheng District, Taipei City, Taiwan 100",
-              "location": {
-                "latitude": 25.0460447,
-                "longitude": 121.51389610000001
-              },
-              "rating": 4.4,
-              "displayName": {
-                "text": "Taipei Main Station (Kaifeng)",
-                "languageCode": "en"
-              },
-              "primaryType": "bus_station"
-            },
-            {
-              "id": "ChIJA5AMdHOpQjQRwgW0Is7O1Gc",
-              "formattedAddress": "Zhongzheng District, Taipei City, Taiwan 100",
-              "location": {
-                "latitude": 25.043951,
-                "longitude": 121.516693
-              },
-              "rating": 4,
-              "displayName": {
-                "text": "Taipei Main Station (Gongyuan)",
-                "languageCode": "en"
-              },
-              "primaryType": "bus_station"
-            }
-          ]
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:33 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:33 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
-        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n]"
-  recorded_at: Sat, 02 Dec 2023 11:14:33 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/ChIJQyv318Q1aDQRYz_krC4mdb4
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sat, 02 Dec 2023 11:14:33 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Vary:
-      - "*,Accept-Encoding"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
-          "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
-          "location": {
-            "latitude": 24.8098161,
-            "longitude": 120.9751319
-          },
-          "rating": 4.4,
-          "regularOpeningHours": {
-            "openNow": true,
-            "periods": [
-              {
-                "open": {
-                  "day": 0,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 0,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 1,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 1,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 2,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 2,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 3,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 3,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 4,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 4,
-                  "hour": 21,
-                  "minute": 30
-                }
-              },
-              {
-                "open": {
-                  "day": 5,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 5,
-                  "hour": 22,
-                  "minute": 0
-                }
-              },
-              {
-                "open": {
-                  "day": 6,
-                  "hour": 11,
-                  "minute": 0
-                },
-                "close": {
-                  "day": 6,
-                  "hour": 22,
-                  "minute": 0
-                }
-              }
-            ],
-            "weekdayDescriptions": [
-              "Monday: 11:00 AM – 9:30 PM",
-              "Tuesday: 11:00 AM – 9:30 PM",
-              "Wednesday: 11:00 AM – 9:30 PM",
-              "Thursday: 11:00 AM – 9:30 PM",
-              "Friday: 11:00 AM – 10:00 PM",
-              "Saturday: 11:00 AM – 10:00 PM",
-              "Sunday: 11:00 AM – 9:30 PM"
-            ]
-          },
-          "displayName": {
-            "text": "Big City",
-            "languageCode": "en"
-          },
-          "primaryType": "shopping_mall"
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:33 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"notexistentplace"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:33 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{}\n"
-  recorded_at: Sat, 02 Dec 2023 11:14:33 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: UTF-8
-      string: '{"textQuery":"清大"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - bad_token
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sat, 02 Dec 2023 11:14:34 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "error": {
-            "code": 400,
-            "message": "API key not valid. Please pass a valid API key.",
-            "status": "INVALID_ARGUMENT",
-            "details": [
-              {
-                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-                "reason": "API_KEY_INVALID",
-                "domain": "googleapis.com",
-                "metadata": {
-                  "service": "places.googleapis.com"
-                }
-              }
-            ]
-          }
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:34 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"bigcity"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:34 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJQyv318Q1aDQRYz_krC4mdb4",
-              "formattedAddress": "No. 229號, Zhongyang Rd, East District, Hsinchu City, Taiwan 30041",
-              "location": {
-                "latitude": 24.8098161,
-                "longitude": 120.9751319
-              },
-              "rating": 4.4,
-              "regularOpeningHours": {
-                "openNow": true,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 0,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 0,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 21,
-                      "minute": 30
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 22,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 6,
-                      "hour": 11,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 6,
-                      "hour": 22,
-                      "minute": 0
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: 11:00 AM – 9:30 PM",
-                  "Tuesday: 11:00 AM – 9:30 PM",
-                  "Wednesday: 11:00 AM – 9:30 PM",
-                  "Thursday: 11:00 AM – 9:30 PM",
-                  "Friday: 11:00 AM – 10:00 PM",
-                  "Saturday: 11:00 AM – 10:00 PM",
-                  "Sunday: 11:00 AM – 9:30 PM"
-                ]
-              },
-              "displayName": {
-                "text": "Big City",
-                "languageCode": "en"
-              },
-              "primaryType": "shopping_mall"
-            }
-          ]
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:34 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/ChIJB7ZNzXI2aDQREwR22ltdKxE
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Sat, 02 Dec 2023 11:14:34 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Vary:
-      - "*,Accept-Encoding"
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
-          "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
-          "location": {
-            "latitude": 24.7961217,
-            "longitude": 120.9966699
-          },
-          "rating": 4.6,
-          "displayName": {
-            "text": "National Tsing Hua University",
-            "languageCode": "en"
-          },
-          "primaryType": "university"
-        }
-  recorded_at: Sat, 02 Dec 2023 11:14:34 GMT
-- request:
-    method: post
-    uri: https://places.googleapis.com/v1/places:searchText
-    body:
-      encoding: ASCII-8BIT
-      string: '{"textQuery":"nthu"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Sat, 02 Dec 2023 11:14:35 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "places": [
-            {
-              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
-              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
-              "location": {
-                "latitude": 24.7961217,
-                "longitude": 120.9966699
-              },
-              "rating": 4.6,
-              "displayName": {
-                "text": "National Tsing Hua University",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
-            },
-            {
-              "id": "ChIJmecsSO01aDQRGT_QzrFSwfA",
-              "formattedAddress": "No. 521號, Nanda Rd, East District, Hsinchu City, Taiwan 300",
-              "location": {
-                "latitude": 24.794294999999998,
-                "longitude": 120.9653557
-              },
-              "rating": 4.4,
-              "displayName": {
-                "text": "National Tsing Hua University Nanda Campus",
-                "languageCode": "en"
-              },
-              "primaryType": "university"
             },
             {
               "id": "ChIJv2HFiAw2aDQRuTwjGA3nEu4",
@@ -3106,94 +484,6 @@ http_interactions:
               "primaryType": "university"
             },
             {
-              "id": "ChIJ18j0Ius3aDQRKMPzlKlDqMI",
-              "formattedAddress": "300, Taiwan, Hsinchu City, East District, Section 2, Guangfu Rd, 101號清華大學名人堂",
-              "location": {
-                "latitude": 24.7939411,
-                "longitude": 120.99305100000001
-              },
-              "rating": 5,
-              "regularOpeningHours": {
-                "openNow": false,
-                "periods": [
-                  {
-                    "open": {
-                      "day": 1,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 1,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 2,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 2,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 3,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 3,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 4,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 4,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  },
-                  {
-                    "open": {
-                      "day": 5,
-                      "hour": 9,
-                      "minute": 0
-                    },
-                    "close": {
-                      "day": 5,
-                      "hour": 17,
-                      "minute": 0
-                    }
-                  }
-                ],
-                "weekdayDescriptions": [
-                  "Monday: 9:00 AM – 5:00 PM",
-                  "Tuesday: 9:00 AM – 5:00 PM",
-                  "Wednesday: 9:00 AM – 5:00 PM",
-                  "Thursday: 9:00 AM – 5:00 PM",
-                  "Friday: 9:00 AM – 5:00 PM",
-                  "Saturday: Closed",
-                  "Sunday: Closed"
-                ]
-              },
-              "displayName": {
-                "text": "NTHU Alumni Service Center",
-                "languageCode": "en"
-              },
-              "primaryType": "school"
-            },
-            {
               "id": "ChIJCwowWdY3aDQRKqwYF_ikTis",
               "formattedAddress": "300044, Taiwan, Hsinchu City, East District, Section 2, Guangfu Rd, 101號第二综合大樓6樓601室",
               "location": {
@@ -3342,6 +632,93 @@ http_interactions:
               "primaryType": "university"
             },
             {
+              "id": "ChIJJZFbDAk2aDQRM4fJiseDrWc",
+              "formattedAddress": "300, Taiwan, Hsinchu City, East District, Section 2, Guangfu Road, 101號號",
+              "location": {
+                "latitude": 24.7910811,
+                "longitude": 120.99097450000001
+              },
+              "rating": 4.5,
+              "regularOpeningHours": {
+                "openNow": false,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 8,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 18,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 8:00 AM – 6:00 PM",
+                  "Tuesday: 8:00 AM – 6:00 PM",
+                  "Wednesday: 8:00 AM – 6:00 PM",
+                  "Thursday: 8:00 AM – 6:00 PM",
+                  "Friday: 8:00 AM – 6:00 PM",
+                  "Saturday: Closed",
+                  "Sunday: Closed"
+                ]
+              },
+              "displayName": {
+                "text": "Dept. of Engineering and System Science, NTHU",
+                "languageCode": "en"
+              }
+            },
+            {
               "id": "ChIJ_9Q2NQ02aDQR5Bk79YqkzBI",
               "formattedAddress": "East District, Hsinchu City, Taiwan 300",
               "location": {
@@ -3357,7 +734,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Sat, 02 Dec 2023 11:14:35 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:03 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchText
@@ -3389,7 +766,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Sat, 02 Dec 2023 11:14:35 GMT
+      - Fri, 15 Dec 2023 17:20:04 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -3411,7 +788,581 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "{}\n"
-  recorded_at: Sat, 02 Dec 2023 11:14:35 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:04 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:04 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7961217,
+                "longitude": 120.9966699
+              },
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            }
+          ]
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:04 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"notexistentplace"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:05 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{}\n"
+  recorded_at: Fri, 15 Dec 2023 17:20:04 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"nthu"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - bad_token
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 15 Dec 2023 17:20:05 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "places.googleapis.com"
+                }
+              }
+            ]
+          }
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:04 GMT
+- request:
+    method: get
+    uri: https://places.googleapis.com/v1/places/ChIJB7ZNzXI2aDQREwR22ltdKxE
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 15 Dec 2023 17:20:05 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - "*,Accept-Encoding"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+          "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+          "location": {
+            "latitude": 24.7961217,
+            "longitude": 120.9966699
+          },
+          "rating": 4.6,
+          "displayName": {
+            "text": "National Tsing Hua University",
+            "languageCode": "en"
+          },
+          "primaryType": "university"
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:05 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Hsinchu zoo"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:06 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJl78Wnt01aDQRz1shOsBVUGU",
+              "formattedAddress": "300034, Taiwan, Hsinchu City, East District, 食品路66號300",
+              "location": {
+                "latitude": 24.800156100000002,
+                "longitude": 120.97992180000001
+              },
+              "rating": 4,
+              "regularOpeningHours": {
+                "openNow": false,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 9,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 17,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: Closed",
+                  "Tuesday: 9:00 AM – 5:00 PM",
+                  "Wednesday: 9:00 AM – 5:00 PM",
+                  "Thursday: 9:00 AM – 5:00 PM",
+                  "Friday: 9:00 AM – 5:00 PM",
+                  "Saturday: 9:00 AM – 5:00 PM",
+                  "Sunday: 9:00 AM – 5:00 PM"
+                ]
+              },
+              "displayName": {
+                "text": "Hsinchu Zoo",
+                "languageCode": "en"
+              },
+              "primaryType": "zoo"
+            }
+          ]
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:05 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Taipei Main Station"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:06 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJcYy0Y3KpQjQRXiW_s2lGln8",
+              "formattedAddress": "100, Taiwan, 台北市中正區黎明里",
+              "location": {
+                "latitude": 25.0474428,
+                "longitude": 121.5170955
+              },
+              "rating": 3.9,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              },
+              "primaryType": "transit_station"
+            },
+            {
+              "id": "ChIJlWImqHKpQjQREk5-6lec4-w",
+              "formattedAddress": "No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100",
+              "location": {
+                "latitude": 25.04882,
+                "longitude": 121.51374999999999
+              },
+              "rating": 4.3,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              },
+              "primaryType": "subway_station"
+            }
+          ]
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:06 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:06 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
+        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 72886,\n  \"duration\": \"3549s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        77546,\n  \"duration\": \"3988s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 74975,\n  \"duration\": \"3919s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75424,\n  \"duration\": \"3660s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:20:06 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchText
@@ -3443,7 +1394,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Sat, 02 Dec 2023 11:14:36 GMT
+      - Fri, 15 Dec 2023 17:20:06 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -3483,24 +1434,24 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Sat, 02 Dec 2023 11:14:36 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:06 GMT
 - request:
     method: post
-    uri: https://places.googleapis.com/v1/places:searchText
+    uri: https://routes.googleapis.com/directions/v2:computeRoutes
     body:
       encoding: ASCII-8BIT
-      string: '{"textQuery":"nthu"}'
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - bad_token
       X-Goog-Fieldmask:
-      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
       Connection:
       - close
       Host:
-      - places.googleapis.com
+      - routes.googleapis.com
       User-Agent:
       - http.rb/5.1.1
   response:
@@ -3515,7 +1466,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 02 Dec 2023 13:55:17 GMT
+      - Fri, 15 Dec 2023 17:20:06 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -3548,118 +1499,26 @@ http_interactions:
                 "reason": "API_KEY_INVALID",
                 "domain": "googleapis.com",
                 "metadata": {
-                  "service": "places.googleapis.com"
+                  "service": "routes.googleapis.com"
                 }
               }
             ]
           }
         }
-  recorded_at: Sat, 02 Dec 2023 13:55:13 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Content-Type:
-      - text/html
-      Date:
-      - Wed, 06 Dec 2023 18:18:18 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '0'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Wed, 06 Dec 2023 18:18:18 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Content-Type:
-      - text/html
-      Date:
-      - Wed, 06 Dec 2023 18:41:25 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '0'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Wed, 06 Dec 2023 18:41:25 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:06 GMT
 - request:
     method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    uri: https://routes.googleapis.com/directions/v2:computeRoutes
     body:
       encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+      string: '{"origin":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"},"destination":{"placeId":"ChIJmecsSO01aDQRGT_QzrFSwfA"},"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
     headers:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
       - "<GMAP_TOKEN>"
       X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
+      - routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline
       Connection:
       - close
       Host:
@@ -3678,7 +1537,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Thu, 07 Dec 2023 07:59:15 GMT
+      - Fri, 15 Dec 2023 17:20:07 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -3699,511 +1558,19 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\":
-        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
-        0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 07:59:15 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/#%3CTravelRoute::Entity::Attraction:0x00007f82db7664d8%3E
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Content-Type:
-      - text/html
-      Date:
-      - Thu, 07 Dec 2023 08:18:21 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '0'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Thu, 07 Dec 2023 08:18:21 GMT
-- request:
-    method: get
-    uri: https://places.googleapis.com/v1/places/#%3CTravelRoute::Entity::Attraction:0x00007f818bc34588%3E
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - id,displayName,formattedAddress,rating,regularOpeningHours,primaryType,location
-      Connection:
-      - close
-      Host:
-      - places.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Content-Type:
-      - text/html
-      Date:
-      - Thu, 07 Dec 2023 08:19:33 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Content-Length:
-      - '0'
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Connection:
-      - close
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Thu, 07 Dec 2023 08:19:33 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Thu, 07 Dec 2023 08:23:23 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
-        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 08:23:23 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Thu, 07 Dec 2023 08:23:31 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
-        0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n
-        \ \"duration\": \"3882s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
-        {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\":
-        0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\":
-        {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        75319,\n  \"duration\": \"3810s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 08:23:31 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"destinations":[{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Thu, 07 Dec 2023 09:01:34 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
-        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 09:01:34 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Thu, 07 Dec 2023 09:03:08 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
-        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n
-        \ \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        74585,\n  \"duration\": \"3882s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 09:03:08 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"destinations":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Thu, 07 Dec 2023 09:04:00 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
-        2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n  \"duration\": \"417s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
-        75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
-        0,\n  \"status\": {},\n  \"distanceMeters\": 74585,\n  \"duration\": \"3882s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 09:04:00 GMT
-- request:
-    method: post
-    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
-    body:
-      encoding: ASCII-8BIT
-      string: '{"origins":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Goog-Api-Key:
-      - "<GMAP_TOKEN>"
-      X-Goog-Fieldmask:
-      - originIndex,destinationIndex,duration,distanceMeters,status
-      Connection:
-      - close
-      Host:
-      - routes.googleapis.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Vary:
-      - Origin,Accept-Encoding
-      - Referer
-      - X-Origin
-      Date:
-      - Thu, 07 Dec 2023 09:05:49 GMT
-      Server:
-      - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
-      X-Xss-Protection:
-      - '0'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
-      Alt-Svc:
-      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Accept-Ranges:
-      - none
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\":
-        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
-        2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
-        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
-        2,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
-        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\":
-        {},\n  \"distanceMeters\": 72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
-        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
-        1,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n
-        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
-        74585,\n  \"duration\": \"3882s\"\n}\n]"
-  recorded_at: Thu, 07 Dec 2023 09:05:49 GMT
+      string: |
+        {
+          "routes": [
+            {
+              "distanceMeters": 3900,
+              "duration": "710s",
+              "polyline": {
+                "encodedPolyline": "y~ivCgdoaVA@cBoAMMeCvDcHbMc@`AuDxQkBdI{AhGg@pB_CjLMPaB~GMr@\\FtGjBVNp@`B@TtCxGrBvDtAvCjBlDfIpO^l@xLvUJVR~@RpBf@nQBh@Ap@Cx@Oz@Qn@_@n@eAjAeA|@b@Ft@@"
+              }
+            }
+          ]
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:06 GMT
 - request:
     method: get
     uri: https://places.googleapis.com/v1/places/ChIJlWImqHKpQjQREk5-6lec4-w
@@ -4231,7 +1598,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 Dec 2023 09:12:41 GMT
+      - Fri, 15 Dec 2023 17:20:07 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -4269,7 +1636,7 @@ http_interactions:
           },
           "primaryType": "subway_station"
         }
-  recorded_at: Thu, 07 Dec 2023 09:12:41 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:07 GMT
 - request:
     method: get
     uri: https://places.googleapis.com/v1/places/ChIJl78Wnt01aDQRz1shOsBVUGU
@@ -4297,7 +1664,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 Dec 2023 09:12:42 GMT
+      - Fri, 15 Dec 2023 17:20:07 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -4421,5 +1788,925 @@ http_interactions:
           },
           "primaryType": "zoo"
         }
-  recorded_at: Thu, 07 Dec 2023 09:12:42 GMT
+  recorded_at: Fri, 15 Dec 2023 17:20:07 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJl78Wnt01aDQRz1shOsBVUGU"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:07 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 72496,\n
+        \ \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 2229,\n  \"duration\": \"441s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 2283,\n
+        \ \"duration\": \"417s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 75319,\n  \"duration\": \"3810s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        74585,\n  \"duration\": \"3882s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:20:07 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Hsinchu Bus station"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:08 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJ-WDhMug1aDQRwb1S9rWDjgg",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8009338,
+                "longitude": 120.9725517
+              },
+              "rating": 4,
+              "displayName": {
+                "text": "Hsinchu Bus Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJo8BENOo1aDQRINiDMd4Bzz0",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.800455,
+                "longitude": 120.96922300000001
+              },
+              "rating": 5,
+              "displayName": {
+                "text": "Hsinchu Down Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJgarIesI1aDQRfxg_TIqugww",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8027803,
+                "longitude": 120.97265569999998
+              },
+              "rating": 4.3,
+              "displayName": {
+                "text": "Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJXb1Bqtk1aDQRBl34nxZd1sQ",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.807498,
+                "longitude": 120.98451199999998
+              },
+              "rating": 5,
+              "displayName": {
+                "text": "North Hsinchu Rear Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJV9wgaNE1aDQRnKGWmTe37eQ",
+              "formattedAddress": "North District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8156192,
+                "longitude": 120.98045680000001
+              },
+              "rating": 4.1,
+              "displayName": {
+                "text": "Tai Da Hsinchu Branch",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJNZrNiuk1aDQRPLFkjm7fJyE",
+              "formattedAddress": "No. 471號, Section 2, Zhonghua Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.801259899999998,
+                "longitude": 120.97055399999998
+              },
+              "rating": 1.7,
+              "displayName": {
+                "text": "HsinChu Transportation",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJbQ5jses1aDQRT25H-R61rco",
+              "formattedAddress": "300No. 6號, Lane 1, Dongnan St, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.801097199999997,
+                "longitude": 120.97235819999999
+              },
+              "rating": 3.2,
+              "regularOpeningHours": {
+                "openNow": false,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 6,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 6,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 5:30 AM – 12:30 AM",
+                  "Tuesday: 5:30 AM – 12:30 AM",
+                  "Wednesday: 5:30 AM – 12:30 AM",
+                  "Thursday: 5:30 AM – 12:30 AM",
+                  "Friday: 5:30 AM – 12:30 AM",
+                  "Saturday: 6:00 AM – 12:30 AM",
+                  "Sunday: 6:00 AM – 12:30 AM"
+                ]
+              },
+              "displayName": {
+                "text": "Xinzhuzhuanyun Station",
+                "languageCode": "en"
+              },
+              "primaryType": "park_and_ride"
+            },
+            {
+              "id": "ChIJ0ZqrEMI1aDQRRJAXNHPyYnQ",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.803452999999998,
+                "longitude": 120.97115999999998
+              },
+              "rating": 3,
+              "displayName": {
+                "text": "Hsinchu Station (Zhongzheng Rd.)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJk9b-1Ww2aDQRpBRWHxkjNgw",
+              "formattedAddress": "300No. 11之6號, Lane 35, Jinchengyi Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7953466,
+                "longitude": 121.0019042
+              },
+              "rating": 3.8,
+              "displayName": {
+                "text": "Ho-Hsin Bus Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJt_GWBn42aDQRya0wwoEGyb0",
+              "formattedAddress": "302, Taiwan, Hsinchu County, Zhubei City, Zhonghua Road, 11號300新竹市東區中華路1段78巷18弄",
+              "location": {
+                "latitude": 24.8184221,
+                "longitude": 120.99357900000001
+              },
+              "rating": 3.7,
+              "regularOpeningHours": {
+                "openNow": false,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 5:30 AM – 10:00 PM",
+                  "Tuesday: 5:30 AM – 10:00 PM",
+                  "Wednesday: 5:30 AM – 10:00 PM",
+                  "Thursday: 5:30 AM – 10:00 PM",
+                  "Friday: 5:30 AM – 10:00 PM",
+                  "Saturday: 5:30 AM – 10:00 PM",
+                  "Sunday: 5:30 AM – 10:00 PM"
+                ]
+              },
+              "displayName": {
+                "text": "Miaoli Bus Hsinchu Station",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJm6a45Ok1aDQRdMzp3LZAH4g",
+              "formattedAddress": "No. 1號, Zhongzheng Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.802040899999998,
+                "longitude": 120.97120389999999
+              },
+              "rating": 3.2,
+              "displayName": {
+                "text": "Miaoli Bus Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJae98IsI1aDQR4MuQCvBIIwQ",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.803730299999998,
+                "longitude": 120.97104320000001
+              },
+              "rating": 4,
+              "displayName": {
+                "text": "Hsinchu Station (Zhongzheng Rd.)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJtVThdsI1aDQRr38wc1EjXuA",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8024076,
+                "longitude": 120.97241609999999
+              },
+              "rating": 3.5,
+              "displayName": {
+                "text": "Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJV2SHXBk2aDQRCxst3InFo48",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.779687,
+                "longitude": 121.00539300000001
+              },
+              "rating": 2.7,
+              "displayName": {
+                "text": "UBUS Hsinchu Science Park Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJJbe_BD43aDQR-cNXxhj8lDs",
+              "formattedAddress": "No. 232號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7953168,
+                "longitude": 120.9985581
+              },
+              "rating": 3.4,
+              "displayName": {
+                "text": "Hsinchu Bus Qinghua daxue Station",
+                "languageCode": "en"
+              },
+              "primaryType": "travel_agency"
+            },
+            {
+              "id": "ChIJgdx_bMI1aDQRUqH3QRAttiM",
+              "formattedAddress": "No. 16之1號, Minzu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8035045,
+                "longitude": 120.972405
+              },
+              "rating": 2.6,
+              "displayName": {
+                "text": "HsinChu Transportation",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJcZS36Kk3aDQRUH1UctWAeuc",
+              "formattedAddress": "Zhubei City, Hsinchu County, Taiwan 302",
+              "location": {
+                "latitude": 24.80714,
+                "longitude": 121.04047999999999
+              },
+              "rating": 4.2,
+              "displayName": {
+                "text": "Taiwan High Speed Rail Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJOwzwqcI1aDQR97-9j-lVMhQ",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.801458,
+                "longitude": 120.97576099999999
+              },
+              "rating": 3,
+              "displayName": {
+                "text": "Rear Station (Gongyuan Rd. Intersection)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJl9KebMI1aDQRj9e3PheIiUk",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.803259999999998,
+                "longitude": 120.97198999999999
+              },
+              "rating": 3.5,
+              "displayName": {
+                "text": "Train Station (City Bus)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            }
+          ]
+        }
+  recorded_at: Fri, 15 Dec 2023 17:20:08 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:20:17 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n  \"duration\": \"481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"distanceMeters\": 75424,\n  \"duration\": \"3660s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        72886,\n  \"duration\": \"3549s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 3178,\n  \"duration\": \"588s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 79949,\n  \"duration\": \"4114s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75549,\n  \"duration\": \"3959s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:20:16 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:22:52 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 3178,\n
+        \ \"duration\": \"588s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n  \"duration\": \"481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"distanceMeters\": 75424,\n  \"duration\": \"3660s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        79949,\n  \"duration\": \"4114s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 75549,\n  \"duration\": \"3959s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        72886,\n  \"duration\": \"3549s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:22:52 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:24:14 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n
+        \ \"duration\": \"481s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 3178,\n  \"duration\": \"588s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        72886,\n  \"duration\": \"3549s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 75424,\n  \"duration\": \"3660s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"distanceMeters\": 79949,\n  \"duration\": \"4114s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        75549,\n  \"duration\": \"3959s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:24:13 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}}],"destinations":[{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:24:31 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 79949,\n  \"duration\": \"4114s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        75549,\n  \"duration\": \"3959s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n
+        \ \"duration\": \"481s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\": 72886,\n
+        \ \"duration\": \"3549s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 3178,\n  \"duration\": \"588s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        75424,\n  \"duration\": \"3660s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:24:31 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}}],"destinations":[{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Fri, 15 Dec 2023 17:24:50 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 75424,\n  \"duration\": \"3660s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n  \"duration\": \"481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        3178,\n  \"duration\": \"588s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\":
+        1,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\": 72886,\n
+        \ \"duration\": \"3549s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 75549,\n  \"duration\": \"3959s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        79949,\n  \"duration\": \"4114s\"\n}\n]"
+  recorded_at: Fri, 15 Dec 2023 17:24:50 GMT
 recorded_with: VCR 6.2.0
