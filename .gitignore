@@ -1,4 +1,5 @@
 _snippets/
+_cache/
 .bundle/
 .vscode/
 config/secrets.yml

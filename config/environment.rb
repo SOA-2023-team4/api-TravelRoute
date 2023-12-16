@@ -5,6 +5,8 @@ require 'logger'
 require 'rack/session'
 require 'roda'
 require 'sequel'
+require 'rack/cache'
+require 'redis-rack-cache'
 
 module TravelRoute
   # Configuration for the App
@@ -19,7 +21,24 @@ module TravelRoute
     Figaro.load
     def self.config = Figaro.env
 
-    use Rack::Session::Cookie, secret: config.SESSION_SECRET
+    configure :development, :production do
+      plugin :common_logger, $stderr
+    end
+
+    # Setup Cacheing mechanism
+    configure :development do
+      use Rack::Cache,
+          verbose: true,
+          metastore: 'file:_cache/rack/meta',
+          entitystore: 'file:_cache/rack/body'
+    end
+
+    configure :production do
+      use Rack::Cache,
+          verbose: true,
+          metastore: "#{config.REDIS_URL}/0/metastore",
+          entitystore: "#{config.REDIS_URL}/0/entitystore"
+    end
 
     configure :development, :test do
       require 'pry'

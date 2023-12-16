@@ -7,7 +7,10 @@ module TravelRoute
   # Web App
   class App < Roda
     plugin :halt
+    plugin :caching
     plugin :all_verbs
+
+    CACHE_DURATION = 300 # seconds
 
     route do |routing|
       response['Content-Type'] = 'application/json'
@@ -26,6 +29,8 @@ module TravelRoute
 
       routing.on 'api/v1' do
         routing.on 'attractions' do
+          response.cache_control public: true, max_age: CACHE_DURATION
+
           # GET /attractions/:place_id
           routing.on String do |place_id|
             add_result = Service::AddAttraction.new.call(place_id:)
@@ -77,6 +82,8 @@ module TravelRoute
         routing.on 'plans' do
           # GET /plans?origin=&attractions=
           routing.get do
+            response.cache_control public: true, max_age: CACHE_DURATION
+
             plan_req = Request::PlanGenerate.new(routing.params)
             result = Service::GeneratePlan.new.call(plan_req:)
             if result.failure?
