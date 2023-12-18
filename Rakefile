@@ -7,17 +7,20 @@ task :default do
   puts `rake -T`
 end
 
-desc 'Run the unit and integration tests'
 desc 'Run unit and integration tests'
 Rake::TestTask.new(:spec) do |t|
   t.pattern = 'spec/tests/**/*_spec.rb'
   t.warning = false
-  t.verbose = true
 end
 
-desc 'Keep rerunning tests upon changes'
+desc 'Keep rerunning unit/integration tests upon changes'
 task :respec do
   sh "rerun -c 'rake spec' --ignore 'coverage/*'"
+end
+
+desc 'Run the webserver and application and restart if code changes'
+task :rerun do
+  sh "rerun -c --ignore 'coverage/*' -- bundle exec puma"
 end
 
 desc 'Run web app in default (dev) mode'
@@ -26,7 +29,7 @@ task run: ['run:dev']
 namespace :run do
   desc 'Run API in dev mode'
   task :dev do
-    sh "rerun -c --ignore 'coverage/*' --ignore 'repostore/*' -- bundle exec puma -p 9090"
+    sh "rerun -c --ignore 'coverage/*' -- bundle exec puma -p 9090"
   end
 
   desc 'Run API in test mode'
@@ -45,14 +48,6 @@ namespace :run do
   task :test do
     sh 'RACK_ENV=test rackup -p 9090'
   end
-end
-
-desc 'Generates a 64 by secret for Rack::Session'
-task :new_session_secret do
-  require 'base64'
-  require 'securerandom'
-  secret = SecureRandom.random_bytes(64).then { Base64.urlsafe_encode64(_1) }
-  puts "SESSION_SECRET: #{secret}"
 end
 
 namespace :db do
@@ -79,6 +74,7 @@ namespace :db do
     end
 
     require_app('infrastructure')
+    require_relative 'spec/helpers/database_helper'
     DatabaseHelper.wipe_database
   end
 
@@ -89,9 +85,58 @@ namespace :db do
       return
     end
 
-    FileUtils.rm(TravelRoute::App.config.DB_FILENAME)
-    puts "Deleted #{TravelRoute::App.config.DB_FILENAME}"
+    FileUtils.rm(app.config.DB_FILENAME)
+    puts "Deleted #{app.config.DB_FILENAME}"
   end
+end
+
+namespace :cache do
+  task :config do
+    require_relative 'config/environment' # load config info
+    require_relative 'app/infrastructure/cache/redis_cache'
+    @api = TravelRoute::App
+  end
+
+  desc 'Directory listing of local dev cache'
+  namespace :list do
+    task :dev do
+      puts 'Lists development cache'
+      list = `ls _cache/rack/meta`
+      puts 'No local cache found' if list.empty?
+      puts list
+    end
+
+    desc 'Lists production cache'
+    task :production => :config do
+      puts 'Finding production cache'
+      keys = TravelRoute::Cache::Client.new(@api.config).keys
+      puts 'No keys found' if keys.none?
+      keys.each { |key| puts "Key: #{key}" }
+    end
+  end
+
+  namespace :wipe do
+    desc 'Delete development cache'
+    task :dev do
+      puts 'Deleting development cache'
+      sh 'rm -rf _cache/*'
+    end
+
+    desc 'Delete production cache'
+    task :production => :config do
+      print 'Are you sure you wish to wipe the production cache? (y/n) '
+      if $stdin.gets.chomp.downcase == 'y'
+        puts 'Deleting production cache'
+        wiped = TravelRoute::Cache::Client.new(@api.config).wipe
+        wiped.each { |key| puts "Wiped: #{key}" }
+      end
+    end
+  end
+end
+
+desc 'Run application console'
+task :console do
+  sh 'pry -r ./load_all'
 end
 
 namespace :vcr do
@@ -101,11 +146,6 @@ namespace :vcr do
       puts(ok ? 'Cassettes deleted' : 'No cassettes found')
     end
   end
-end
-
-desc 'Run application console'
-task :console do
-  sh 'pry -r ./load_all'
 end
 
 namespace :quality do
@@ -121,7 +161,7 @@ namespace :quality do
 
   desc 'code smell detector'
   task :reek do
-    sh 'reek'
+    sh "reek #{only_app}"
   end
 
   desc 'complexiy analysis'

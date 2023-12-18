@@ -6,6 +6,7 @@ ruby File.read('.ruby-version').strip
 # CONFIGURATION
 gem 'figaro', '~> 1.2'
 gem 'pry'
+gem 'rack-test' # for testing and can also be used to diagnose in production
 gem 'rake', '~> 13.0'
 
 # PRESENTATION LAYER
@@ -16,13 +17,17 @@ gem 'roar', '~> 1.1'
 # Web application related
 gem 'puma', '~> 6.0'
 gem 'rack-session', '~> 0.3'
-gem 'rack-test'
 gem 'roda', '~> 3.0'
 
 # Controllers and services
 gem 'dry-monads', '~> 1.4'
 gem 'dry-transaction', '~> 0.13'
 gem 'dry-validation', '~> 1.7'
+
+# Caching
+gem 'rack-cache', '~> 1.13'
+gem 'redis', '~> 4.8'
+gem 'redis-rack-cache', '~> 2.2'
 
 # DOMAIN LAYER
 # Validation
