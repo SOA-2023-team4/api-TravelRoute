@@ -15,12 +15,12 @@ end
 
 desc 'Keep rerunning unit/integration tests upon changes'
 task :respec do
-  sh "rerun -c 'rake spec' --ignore 'coverage/*' --ignore 'repostore/*'"
+  sh "rerun -c 'rake spec' --ignore 'coverage/*'"
 end
 
 desc 'Run the webserver and application and restart if code changes'
 task :rerun do
-  sh "rerun -c --ignore 'coverage/*' --ignore 'repostore/*' -- bundle exec puma"
+  sh "rerun -c --ignore 'coverage/*' -- bundle exec puma"
 end
 
 desc 'Run web app in default (dev) mode'
@@ -29,7 +29,7 @@ task run: ['run:dev']
 namespace :run do
   desc 'Run API in dev mode'
   task :dev do
-    sh "rerun -c --ignore 'coverage/*' --ignore 'repostore/*' -- bundle exec puma -p 9090"
+    sh "rerun -c --ignore 'coverage/*' -- bundle exec puma -p 9090"
   end
 
   desc 'Run API in test mode'
@@ -87,30 +87,6 @@ namespace :db do
 
     FileUtils.rm(app.config.DB_FILENAME)
     puts "Deleted #{app.config.DB_FILENAME}"
-  end
-end
-
-namespace :repos do
-  task :config do
-    require_relative 'config/environment' # load config info
-    def app = TravelRoute::App
-  end
-
-  desc 'Create director for repo store'
-  task :create => :config do
-    puts `mkdir #{app.config.REPOSTORE_PATH}`
-  end
-
-  desc 'Delete cloned repos in repo store'
-  task :wipe => :config do
-    sh "rm -rf #{app.config.REPOSTORE_PATH}/*/" do |ok, _|
-      puts(ok ? 'Cloned repos deleted' : 'Could not delete cloned repos')
-    end
-  end
-
-  desc 'List cloned repos in repo store'
-  task :list => :config do
-    puts `ls #{app.config.REPOSTORE_PATH}`
   end
 end
 
