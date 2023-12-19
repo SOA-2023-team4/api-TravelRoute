@@ -14,7 +14,7 @@ module TravelRoute
         data = @gateway.route_data(origin.place_id, destination.place_id)
         DataMapper.new(data, origin, destination).build_entity
       rescue NoMethodError
-        raise GoogleMaps::Response::BadRequest
+        raise Http::Response::BadRequest
       end
 
       # extract entity specific data

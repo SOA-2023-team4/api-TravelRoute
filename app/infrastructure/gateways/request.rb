@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TravelRoute
-  module GoogleMaps
+  module Http
     # Contains logic about http request
     class Request
       def self.get(url, headers)
