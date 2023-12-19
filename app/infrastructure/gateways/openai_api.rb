@@ -27,6 +27,13 @@ module TravelRoute
         Http::Request.post(OPENAI_ENDPOINT, headers, body(prompt)).parse
       end
 
+      def get_recommendation(place, no_of_recommendations)
+        prompt = <<-PROMPT
+        Recommend #{no_of_recommendations} places to go to in #{place} in JSON format
+        PROMPT
+        Http::Request.post(OPENAI_ENDPOINT, headers, body(prompt)).parse
+      end
+
       private
 
       def headers
