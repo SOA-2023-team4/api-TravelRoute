@@ -11,7 +11,7 @@ module TravelRoute
     class Api
       OPENAI_ENDPOINT = 'https://api.openai.com/v1/chat/completions'
       SYSTEM_ROLE_CONTENT = <<-PROMPT
-      'You are a traveling expert, who knows the best places to visit all around the world and the best time to visit them. You are here to help people plan their trips.'
+      'You are a traveling expert. You are here to help people plan their trips.'
       PROMPT
 
       def initialize(api_key)
