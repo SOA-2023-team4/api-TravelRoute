@@ -39,7 +39,6 @@ module TravelRoute
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
       end
 
-      # This logic should be in domain object
       def make_recommendations(input)
         attractions = input[:attractions]
         tourguide = TravelRoute::Mapper::TourguideMapper
