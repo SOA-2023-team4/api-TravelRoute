@@ -31,6 +31,14 @@ module TravelRoute
           longitude: location[:longitude]
         }
       end
+
+      def country
+        address.split(',').last.strip
+      end
+
+      def city
+        address.split(',')[-2].strip
+      end
     end
   end
 end
