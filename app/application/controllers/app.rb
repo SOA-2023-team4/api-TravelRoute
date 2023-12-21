@@ -10,7 +10,7 @@ module TravelRoute
     plugin :caching
     plugin :all_verbs
 
-    CACHE_DURATION = 0 # seconds
+    CACHE_DURATION = 300 # seconds
 
     route do |routing|
       response['Content-Type'] = 'application/json'
