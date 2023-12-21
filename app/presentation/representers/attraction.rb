@@ -19,6 +19,16 @@ module TravelRoute
       property :opening_hours
       property :rating
       property :location
+
+      link :self do
+        "#{App.config.API_HOST}/recommendations?ids=#{place_id}"
+      end
+
+      private
+
+      def place_id
+        represented.place_id
+      end
     end
   end
 end
