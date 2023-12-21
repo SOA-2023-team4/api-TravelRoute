@@ -22,7 +22,7 @@ module TravelRoute
         recommendation_req = input[:recommendation_req].call
         if recommendation_req.success?
           req = recommendation_req.value!
-          Success(ids: req[:ids])
+          Success(ids: req[:ids], exclude: req[:exclude])
         else
           Failure(recommendation_req.failure)
         end
@@ -31,9 +31,13 @@ module TravelRoute
       def search_attractions(input)
         ids = input[:ids]
         attractions = ids.map do |id|
-          AddAttraction.new.call(place_id: id).value!.message
-        end
+          Concurrent::Promise.execute { AddAttraction.new.call(place_id: id).value!.message }
+        end.map(&:value)
+        # attractions = ids.map do |id|
+        #   AddAttraction.new.call(place_id: id).value!.message
+        # end
         input[:attractions] = attractions
+        input[:exclude] ||= attractions.map(&:name)
         Success(input)
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
@@ -41,9 +45,10 @@ module TravelRoute
 
       def make_recommendations(input)
         attractions = input[:attractions]
+        exclude = input[:exclude]
         tourguide = TravelRoute::Mapper::TourguideMapper
           .new(App.config.OPENAI_API_KEY, App.config.GMAP_TOKEN)
-          .to_entity(attractions)
+          .to_entity(attractions, exclude)
         msg = Response::AttractionsList.new(tourguide.recommend_attractions)
         Success(Response::ApiResult.new(status: :ok, message: msg))
       rescue StandardError
