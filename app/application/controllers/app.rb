@@ -10,10 +10,12 @@ module TravelRoute
     plugin :caching
     plugin :all_verbs
 
-    CACHE_DURATION = 300 # seconds
+    CACHE_DURATION = 0 # seconds
 
     route do |routing|
       response['Content-Type'] = 'application/json'
+      response['Access-Control-Allow-Origin'] = '*'
+      response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
 
       # GET /
       routing.root do
@@ -65,7 +67,9 @@ module TravelRoute
 
         routing.on 'recommendations' do
           routing.get do
-            # GET /recommendations?ids=
+            # GET /recommendations?ids=<place_id>&exclude=<place_name>
+            response.cache_control public: true, max_age: CACHE_DURATION
+
             recommendation_req = Request::Recommendation.new(routing.params)
             recommend_result = Service::RecommendAttractions.new.call(recommendation_req:)
 

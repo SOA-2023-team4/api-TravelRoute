@@ -14,8 +14,9 @@ module TravelRoute
       end
 
       def call
-        ids = @params['ids'].split(',')
-        Success(ids:)
+        ids = CGI.unescape(@params['ids']).split(',')
+        exclude = @params.keys.include?('exclude') ? CGI.unescape(@params['exclude']).split(',') : nil
+        Success(ids:, exclude:)
       rescue StandardError
         Failure(
           Response::ApiResult.new(
