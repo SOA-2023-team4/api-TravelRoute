@@ -31,7 +31,7 @@ module TravelRoute
         exclude ||= [place.name]
         city = place.city
         prompt = <<-PROMPT
-        Recommend #{no_of_recommendations} places to visit for traveling to in #{city}(only in the city) in JSON format {"places": [{"name": <place_name>}]}. I've already went to #{exclude.join(',')}.
+        Recommend #{no_of_recommendations} places to visit for traveling to in #{city}(only in the city) in JSON format {"places": ["name": <place_name}, "description": <to-do>]}. I've already went to #{exclude.join(',')}.
         PROMPT
         Http::Request.post(OPENAI_ENDPOINT, headers, body(prompt)).parse
       end

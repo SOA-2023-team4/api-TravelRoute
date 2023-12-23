@@ -33,24 +33,28 @@ module TravelRoute
         end
 
         def build_entity
-          temp = attractions
+          # temp = attractions
           Entity::AttractionWeb.new(
             hub: @attraction,
-            nodes: temp
+            nodes: attractions
           )
         end
 
         def attractions
-          place_names.map do |place_name|
-            Concurrent::Promise.execute { AttractionMapper.new(@gmap_token).find(place_name).first }
+          places.map do |place|
+            Concurrent::Promise.execute do
+              attraction = AttractionMapper.new(@gmap_token).find(place['name']).first
+              attraction.description = place['description']
+              attraction
+            end
           end.map(&:value)
           # place_names.map do |place_name|
           #   AttractionMapper.new(@gmap_token).find(place_name).first
           # end
         end
 
-        def place_names
-          JSON.parse(@data['choices'][0]['message']['content'])['places'].map { |place| place['name'] }
+        def places
+          JSON.parse(@data['choices'][0]['message']['content'])['places']
         end
       end
     end
