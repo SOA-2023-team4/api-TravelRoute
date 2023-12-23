@@ -10,6 +10,7 @@ module TravelRoute
 
       step :validate_input
       step :search_attractions
+      step :request_recommendation_worker
       step :make_recommendations
 
       private
@@ -17,6 +18,7 @@ module TravelRoute
       SEARCH_ERR = 'search attractions error'
       SEARCH_NEARBY_ERR = 'search nearby error'
       RECOMMENDATION_ERR = 'recommendation error'
+      PROCESSING_MSG = 'Processing the summary request'
 
       def validate_input(input)
         recommendation_req = input[:recommendation_req].call
@@ -43,7 +45,18 @@ module TravelRoute
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
       end
 
-      def make_recommendations(input)
+      def request_recommendation_worker(input)
+        Messaging::Queue
+          .new(App.config.RECOMMEND_QUEUE_URL, App.config)
+          .send(Representer::AttrationList.new(input[:attractions]).to_json)
+
+        Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
+      rescue StandardError => error
+        log_error(error)
+        Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
+      end
+
+      def notify_request_accepted(input)
         attractions = input[:attractions]
         exclude = input[:exclude]
         tourguide = TravelRoute::Mapper::TourguideMapper
