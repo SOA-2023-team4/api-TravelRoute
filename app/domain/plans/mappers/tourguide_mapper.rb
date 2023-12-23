@@ -11,14 +11,16 @@ module TravelRoute
         @gateway = @gateway_class.new(@key)
       end
 
-      def to_entity(attractions)
+      def to_entity(attractions, exclude = nil)
+        exclude ||= attractions.map(&:name)
         Entity::TourGuide.new(
-          attractions: attractions.map { |attraction| recommend_attraction(attraction) }
+          attractions: attractions.map { |attraction| recommend_attraction(attraction, exclude) }
         )
       end
 
-      def recommend_attraction(attraction)
-        data = @gateway.get_recommendation(attraction.city, 3)
+      def recommend_attraction(attraction, exclude = nil)
+        exclude ||= [attraction.name]
+        data = @gateway.get_recommendation(attraction, 3, exclude)
         AttractionWebDataMapper.new(attraction, data, @gmap_token).build_entity
       end
 
@@ -31,21 +33,28 @@ module TravelRoute
         end
 
         def build_entity
-          temp = attractions
+          # temp = attractions
           Entity::AttractionWeb.new(
             hub: @attraction,
-            nodes: temp
+            nodes: attractions
           )
         end
 
         def attractions
-          place_names.map do |place_name|
-            AttractionMapper.new(@gmap_token).find(place_name).first
-          end
+          places.map do |place|
+            Concurrent::Promise.execute do
+              attraction = AttractionMapper.new(@gmap_token).find(place['name']).first
+              attraction.description = place['description']
+              attraction
+            end
+          end.map(&:value)
+          # place_names.map do |place_name|
+          #   AttractionMapper.new(@gmap_token).find(place_name).first
+          # end
         end
 
-        def place_names
-          JSON.parse(@data['choices'][0]['message']['content'])['places'].map { |place| place['name'] }
+        def places
+          JSON.parse(@data['choices'][0]['message']['content'])['places']
         end
       end
     end

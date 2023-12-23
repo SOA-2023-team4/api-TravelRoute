@@ -2776,4 +2776,874 @@ http_interactions:
         \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
         75549,\n  \"duration\": \"3959s\"\n}\n]"
   recorded_at: Tue, 19 Dec 2023 05:46:02 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}}],"destinations":[{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJcYy0Y3KpQjQRXiW_s2lGln8"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 21 Dec 2023 03:00:16 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 0,\n  \"destinationIndex\": 0,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n  \"duration\": \"481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 3178,\n  \"duration\": \"588s\"\n}\n,\r\n{\n  \"originIndex\":
+        2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"distanceMeters\":
+        79949,\n  \"duration\": \"4114s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 75424,\n  \"duration\": \"3660s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        72886,\n  \"duration\": \"3549s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 75549,\n  \"duration\": \"3959s\"\n}\n]"
+  recorded_at: Thu, 21 Dec 2023 03:00:15 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: UTF-8
+      string: '{"textQuery":"清大"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Sat, 23 Dec 2023 08:39:50 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJB7ZNzXI2aDQREwR22ltdKxE",
+              "formattedAddress": "No. 101號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7961217,
+                "longitude": 120.9966699
+              },
+              "rating": 4.6,
+              "displayName": {
+                "text": "National Tsing Hua University",
+                "languageCode": "en"
+              },
+              "primaryType": "university"
+            }
+          ]
+        }
+  recorded_at: Sat, 23 Dec 2023 08:39:48 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Hsinchu Bus station"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Sat, 23 Dec 2023 08:39:50 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJ-WDhMug1aDQRwb1S9rWDjgg",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8009338,
+                "longitude": 120.9725517
+              },
+              "rating": 4,
+              "displayName": {
+                "text": "Hsinchu Bus Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJgarIesI1aDQRfxg_TIqugww",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8027803,
+                "longitude": 120.97265569999998
+              },
+              "rating": 4.3,
+              "displayName": {
+                "text": "Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJo8BENOo1aDQRINiDMd4Bzz0",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.800455,
+                "longitude": 120.96922300000001
+              },
+              "rating": 5,
+              "displayName": {
+                "text": "Hsinchu Down Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJbQ5jses1aDQRT25H-R61rco",
+              "formattedAddress": "300No. 6號, Lane 1, Dongnan St, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.801097199999997,
+                "longitude": 120.97235819999999
+              },
+              "rating": 3.2,
+              "regularOpeningHours": {
+                "openNow": true,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 6,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 6,
+                      "minute": 0
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 0,
+                      "minute": 30
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 5:30 AM – 12:30 AM",
+                  "Tuesday: 5:30 AM – 12:30 AM",
+                  "Wednesday: 5:30 AM – 12:30 AM",
+                  "Thursday: 5:30 AM – 12:30 AM",
+                  "Friday: 5:30 AM – 12:30 AM",
+                  "Saturday: 6:00 AM – 12:30 AM",
+                  "Sunday: 6:00 AM – 12:30 AM"
+                ]
+              },
+              "displayName": {
+                "text": "Xinzhuzhuanyun Station",
+                "languageCode": "en"
+              },
+              "primaryType": "park_and_ride"
+            },
+            {
+              "id": "ChIJXb1Bqtk1aDQRBl34nxZd1sQ",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.807498,
+                "longitude": 120.98451199999998
+              },
+              "rating": 5,
+              "displayName": {
+                "text": "North Hsinchu Rear Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJV9wgaNE1aDQRnKGWmTe37eQ",
+              "formattedAddress": "North District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8156192,
+                "longitude": 120.98045680000001
+              },
+              "rating": 4.1,
+              "displayName": {
+                "text": "Tai Da Hsinchu Branch",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJX6QXEMI1aDQRiUSdnHtn-HU",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8032306,
+                "longitude": 120.97123730000001
+              },
+              "rating": 3.8,
+              "displayName": {
+                "text": "Hsinchu Station (Zhongzheng Rd.)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJNZrNiuk1aDQRPLFkjm7fJyE",
+              "formattedAddress": "No. 471號, Section 2, Zhonghua Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.801259899999998,
+                "longitude": 120.97055399999998
+              },
+              "rating": 1.7,
+              "displayName": {
+                "text": "HsinChu Transportation",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJk9b-1Ww2aDQRpBRWHxkjNgw",
+              "formattedAddress": "300No. 11之6號, Lane 35, Jinchengyi Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7953466,
+                "longitude": 121.0019042
+              },
+              "rating": 3.8,
+              "displayName": {
+                "text": "Ho-Hsin Bus Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJ-7APGcI1aDQRouya2mYViYE",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.803563999999998,
+                "longitude": 120.970886
+              },
+              "rating": 1,
+              "displayName": {
+                "text": "Hsinchu Station (Zhongzheng Rd.)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJJbe_BD43aDQR-cNXxhj8lDs",
+              "formattedAddress": "No. 232號, Section 2, Guangfu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.7953168,
+                "longitude": 120.9985581
+              },
+              "rating": 3.4,
+              "displayName": {
+                "text": "Hsinchu Bus Qinghua daxue Station",
+                "languageCode": "en"
+              },
+              "primaryType": "travel_agency"
+            },
+            {
+              "id": "ChIJt_GWBn42aDQRya0wwoEGyb0",
+              "formattedAddress": "302, Taiwan, Hsinchu County, Zhubei City, Zhonghua Road, 11號300新竹市東區中華路1段78巷18弄",
+              "location": {
+                "latitude": 24.8184221,
+                "longitude": 120.99357900000001
+              },
+              "rating": 3.7,
+              "regularOpeningHours": {
+                "openNow": true,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 0,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 1,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 1,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 2,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 2,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 3,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 3,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 4,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 4,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 5,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 5,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  },
+                  {
+                    "open": {
+                      "day": 6,
+                      "hour": 5,
+                      "minute": 30
+                    },
+                    "close": {
+                      "day": 6,
+                      "hour": 22,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: 5:30 AM – 10:00 PM",
+                  "Tuesday: 5:30 AM – 10:00 PM",
+                  "Wednesday: 5:30 AM – 10:00 PM",
+                  "Thursday: 5:30 AM – 10:00 PM",
+                  "Friday: 5:30 AM – 10:00 PM",
+                  "Saturday: 5:30 AM – 10:00 PM",
+                  "Sunday: 5:30 AM – 10:00 PM"
+                ]
+              },
+              "displayName": {
+                "text": "Miaoli Bus Hsinchu Station",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJm6a45Ok1aDQRdMzp3LZAH4g",
+              "formattedAddress": "No. 1號, Zhongzheng Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.802040899999998,
+                "longitude": 120.97120389999999
+              },
+              "rating": 3.2,
+              "displayName": {
+                "text": "Miaoli Bus Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJFXvGCcI1aDQRB2r_kyg8290",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.802858,
+                "longitude": 120.97115300000002
+              },
+              "rating": 2.7,
+              "displayName": {
+                "text": "Miaoli Motor Transportation Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJV2SHXBk2aDQRCxst3InFo48",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.779687,
+                "longitude": 121.00539300000001
+              },
+              "rating": 2.7,
+              "displayName": {
+                "text": "UBUS Hsinchu Science Park Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJgdx_bMI1aDQRUqH3QRAttiM",
+              "formattedAddress": "No. 16之1號, Minzu Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.8035045,
+                "longitude": 120.972405
+              },
+              "rating": 2.6,
+              "displayName": {
+                "text": "HsinChu Transportation",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJcZS36Kk3aDQRUH1UctWAeuc",
+              "formattedAddress": "Zhubei City, Hsinchu County, Taiwan 302",
+              "location": {
+                "latitude": 24.80714,
+                "longitude": 121.04047999999999
+              },
+              "rating": 4.2,
+              "displayName": {
+                "text": "Taiwan High Speed Rail Hsinchu Station",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            },
+            {
+              "id": "ChIJGU3LKCE3aDQRFdsXzplPOKM",
+              "formattedAddress": "No. 11之6號, Lane 35, Jinchengyi Rd, East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.795795299999998,
+                "longitude": 121.00184920000001
+              },
+              "rating": 3.9,
+              "regularOpeningHours": {
+                "openNow": true,
+                "periods": [
+                  {
+                    "open": {
+                      "day": 0,
+                      "hour": 0,
+                      "minute": 0
+                    }
+                  }
+                ],
+                "weekdayDescriptions": [
+                  "Monday: Open 24 hours",
+                  "Tuesday: Open 24 hours",
+                  "Wednesday: Open 24 hours",
+                  "Thursday: Open 24 hours",
+                  "Friday: Open 24 hours",
+                  "Saturday: Open 24 hours",
+                  "Sunday: Open 24 hours"
+                ]
+              },
+              "displayName": {
+                "text": "Hexin Bus Hsinchu Station",
+                "languageCode": "en"
+              }
+            },
+            {
+              "id": "ChIJl9KebMI1aDQRj9e3PheIiUk",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.803259999999998,
+                "longitude": 120.97198999999999
+              },
+              "rating": 3.5,
+              "displayName": {
+                "text": "Train Station (City Bus)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_stop"
+            },
+            {
+              "id": "ChIJOwzwqcI1aDQR97-9j-lVMhQ",
+              "formattedAddress": "East District, Hsinchu City, Taiwan 300",
+              "location": {
+                "latitude": 24.801458,
+                "longitude": 120.97576099999999
+              },
+              "rating": 3,
+              "displayName": {
+                "text": "Rear Station (Gongyuan Rd. Intersection)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            }
+          ]
+        }
+  recorded_at: Sat, 23 Dec 2023 08:39:49 GMT
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchText
+    body:
+      encoding: ASCII-8BIT
+      string: '{"textQuery":"Taipei Main Station"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - places.id,places.displayName,places.formattedAddress,places.rating,places.regularOpeningHours,places.primaryType,places.location
+      Connection:
+      - close
+      Host:
+      - places.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Sat, 23 Dec 2023 08:39:50 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "places": [
+            {
+              "id": "ChIJlWImqHKpQjQREk5-6lec4-w",
+              "formattedAddress": "No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei City, Taiwan 100",
+              "location": {
+                "latitude": 25.04882,
+                "longitude": 121.51374999999999
+              },
+              "rating": 4.3,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              },
+              "primaryType": "subway_station"
+            },
+            {
+              "id": "ChIJneUTn3KpQjQRGGR7w7CKOQg",
+              "formattedAddress": "10041, Taiwan, Taipei City, Zhongzheng District, 忠孝西路1段49號",
+              "location": {
+                "latitude": 25.04625,
+                "longitude": 121.51753000000001
+              },
+              "rating": 4.2,
+              "displayName": {
+                "text": "Taipei Main Station",
+                "languageCode": "en"
+              },
+              "primaryType": "subway_station"
+            },
+            {
+              "id": "ChIJCZEzfnKpQjQRy75KOs4xSsM",
+              "formattedAddress": "100, Taiwan, Taipei City, Zhongzheng District, Beiping W Rd, 3號100臺灣",
+              "location": {
+                "latitude": 25.048007499999997,
+                "longitude": 121.5170613
+              },
+              "rating": 4.2,
+              "displayName": {
+                "text": "Taipei",
+                "languageCode": "en"
+              },
+              "primaryType": "train_station"
+            },
+            {
+              "id": "ChIJF-ys1QypQjQRLnCtqzFjfdw",
+              "formattedAddress": "Zhongzheng District, Taipei City, Taiwan 100",
+              "location": {
+                "latitude": 25.0460447,
+                "longitude": 121.51389610000001
+              },
+              "rating": 4.4,
+              "displayName": {
+                "text": "Taipei Main Station (Kaifeng)",
+                "languageCode": "en"
+              },
+              "primaryType": "bus_station"
+            }
+          ]
+        }
+  recorded_at: Sat, 23 Dec 2023 08:39:49 GMT
+- request:
+    method: post
+    uri: https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix
+    body:
+      encoding: ASCII-8BIT
+      string: '{"origins":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"destinations":[{"waypoint":{"placeId":"ChIJlWImqHKpQjQREk5-6lec4-w"}},{"waypoint":{"placeId":"ChIJ-WDhMug1aDQRwb1S9rWDjgg"}},{"waypoint":{"placeId":"ChIJB7ZNzXI2aDQREwR22ltdKxE"}}],"routingPreference":"TRAFFIC_UNAWARE","travelMode":"DRIVE"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - "<GMAP_TOKEN>"
+      X-Goog-Fieldmask:
+      - originIndex,destinationIndex,duration,distanceMeters,status
+      Connection:
+      - close
+      Host:
+      - routes.googleapis.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin,Accept-Encoding
+      - Referer
+      - X-Origin
+      Date:
+      - Sat, 23 Dec 2023 08:39:51 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Accept-Ranges:
+      - none
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "[{\n  \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\":
+        {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        2,\n  \"status\": {},\n  \"distanceMeters\": 2803,\n  \"duration\": \"481s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 1,\n  \"destinationIndex\": 1,\n  \"status\": {},\n  \"duration\":
+        \"0s\"\n}\n,\r\n{\n  \"originIndex\": 2,\n  \"destinationIndex\": 1,\n  \"status\":
+        {},\n  \"distanceMeters\": 3178,\n  \"duration\": \"588s\"\n}\n,\r\n{\n  \"originIndex\":
+        0,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"duration\": \"0s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 2,\n  \"destinationIndex\": 0,\n  \"status\": {},\n  \"distanceMeters\":
+        72496,\n  \"duration\": \"3512s\"\n}\n,\r\n{\n  \"originIndex\": 0,\n  \"destinationIndex\":
+        1,\n  \"status\": {},\n  \"distanceMeters\": 77722,\n  \"duration\": \"3935s\"\n}\n,\r\n{\n
+        \ \"originIndex\": 0,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"distanceMeters\":
+        73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
+        0,\n  \"status\": {},\n  \"distanceMeters\": 75159,\n  \"duration\": \"3923s\"\n}\n]"
+  recorded_at: Sat, 23 Dec 2023 08:39:49 GMT
 recorded_with: VCR 6.2.0
