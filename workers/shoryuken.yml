@@ -1,2 +1,2 @@
 queues:
-  - https://sqs.ap-southeast-2.amazonaws.com/087912640149/travelroute-recommendation-development
+  - https://sqs.us-east-1.amazonaws.com/087912640149/recommendation-prod

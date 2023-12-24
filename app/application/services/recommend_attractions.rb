@@ -11,7 +11,6 @@ module TravelRoute
       step :validate_input
       step :search_attractions
       step :request_recommendation_worker
-      step :make_recommendations
 
       private
 
@@ -46,24 +45,10 @@ module TravelRoute
       end
 
       def request_recommendation_worker(input)
-        Messaging::Queue
-          .new(App.config.RECOMMEND_QUEUE_URL, App.config)
-          .send(Representer::AttrationList.new(input[:attractions]).to_json)
-
-        Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
-      rescue StandardError => error
-        log_error(error)
-        Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
-      end
-
-      def notify_request_accepted(input)
         attractions = input[:attractions]
-        exclude = input[:exclude]
-        tourguide = TravelRoute::Mapper::TourguideMapper
-          .new(App.config.OPENAI_API_KEY, App.config.GMAP_TOKEN)
-          .to_entity(attractions, exclude)
-        msg = Response::AttractionsList.new(tourguide.recommend_attractions)
-        Success(Response::ApiResult.new(status: :ok, message: msg))
+        json = Representer::AttractionsList.new(Response::AttractionsList.new(attractions:)).to_json
+        Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)
+        Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
       end
