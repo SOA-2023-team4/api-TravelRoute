@@ -14,11 +14,22 @@ module TravelRoute
 
       property :place_id
       property :name
+      property :description
       property :address
       property :type
       property :opening_hours
       property :rating
       property :location
+
+      link :self do
+        "#{App.config.API_HOST}/recommendations?ids=#{place_id}"
+      end
+
+      private
+
+      def place_id
+        represented.place_id
+      end
     end
   end
 end

@@ -10,20 +10,20 @@ module TravelRoute
 
       step :validate_input
       step :search_attractions
-      step :search_nearby
-      step :make_recommendations
+      step :request_recommendation_worker
 
       private
 
       SEARCH_ERR = 'search attractions error'
       SEARCH_NEARBY_ERR = 'search nearby error'
       RECOMMENDATION_ERR = 'recommendation error'
+      PROCESSING_MSG = 'Processing the summary request'
 
       def validate_input(input)
         recommendation_req = input[:recommendation_req].call
         if recommendation_req.success?
           req = recommendation_req.value!
-          Success(ids: req[:ids])
+          Success(ids: req[:ids], exclude: req[:exclude])
         else
           Failure(recommendation_req.failure)
         end
@@ -32,34 +32,23 @@ module TravelRoute
       def search_attractions(input)
         ids = input[:ids]
         attractions = ids.map do |id|
-          AddAttraction.new.call(place_id: id).value!.message
-        end
+          Concurrent::Promise.execute { AddAttraction.new.call(place_id: id).value!.message }
+        end.map(&:value)
+        # attractions = ids.map do |id|
+        #   AddAttraction.new.call(place_id: id).value!.message
+        # end
         input[:attractions] = attractions
+        input[:exclude] ||= attractions.map(&:name)
         Success(input)
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
       end
 
-      def search_nearby(input)
+      def request_recommendation_worker(input)
         attractions = input[:attractions]
-        nearby_attractions = attractions.map do |attraction|
-          latitude = attraction.location[:latitude]
-          longitude = attraction.location[:longitude]
-          Mapper::AttractionMapper.new(App.config.GMAP_TOKEN).places_nearby(latitude, longitude)
-        end
-        input[:nearby_attractions] = nearby_attractions.flatten
-        Success(input)
-      rescue StandardError
-        Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_NEARBY_ERR))
-      end
-
-      # This logic should be in domain object
-      def make_recommendations(input)
-        top_n = 3
-        nearby_attractions = input[:nearby_attractions]
-        top_attractions = nearby_attractions.sort_by(&:rating).reverse[0..top_n]
-        msg = Response::AttractionsList.new(top_attractions)
-        Success(Response::ApiResult.new(status: :ok, message: msg))
+        json = Representer::AttractionsList.new(Response::AttractionsList.new(attractions:)).to_json
+        Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)
+        Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
       end

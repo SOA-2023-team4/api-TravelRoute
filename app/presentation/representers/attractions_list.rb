@@ -10,7 +10,7 @@ module TravelRoute
       include Roar::JSON
 
       collection :attractions, extend: Representer::Attraction,
-                               class: Struct
+                               class: OpenStruct
     end
   end
 end

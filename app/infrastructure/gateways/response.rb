@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TravelRoute
-  module GoogleMaps
+  module Http
     # Decorates HTTP responses with sucess/error
     class Response < SimpleDelegator
       Unauthorized = Class.new(StandardError)
