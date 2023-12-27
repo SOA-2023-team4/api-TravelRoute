@@ -18,6 +18,8 @@ module TravelRoute
         )
       end
 
+      private
+
       def recommend_attraction(attraction, exclude = nil)
         exclude ||= [attraction.name]
         data = @gateway.get_recommendation(attraction, 3, exclude)

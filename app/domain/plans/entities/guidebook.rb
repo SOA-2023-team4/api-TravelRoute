@@ -4,29 +4,17 @@ require_relative '../values/distance'
 
 module TravelRoute
   module Entity
-    # aggregate to lookup for place info and routes info
-    class Guidebook
-      attr_reader :attractions
-
-      def initialize(attractions, matrix)
-        @attractions = attractions
-        @attraction_to_index = {}
-        @attractions.each_with_index do |attraction, ind|
-          @attraction_to_index[attraction] = ind
-        end
-        @matrix = matrix
+    # Value object for indexing operations on attractions
+    class AttractionIndex
+      def initialize(attractions)
+        @index = attractions.each_with_index.to_h
       end
 
-      def distance_matrix
-        @matrix.map do |row|
-          row.map(&:distance_meters)
-        end
-      end
+      def has?(attraction) = @index.key?(attraction)
 
       def index_of(attraction)
-        raise "#{attraction} not in guidebook" unless @attraction_to_index.key?(attraction)
-
-        @attraction_to_index[attraction]
+        raise "#{attraction} not in guidebook" unless has?(attraction)
+        @index[attraction]
       end
 
       def indexes_of(attractions)
@@ -36,7 +24,29 @@ module TravelRoute
       def attraction_of(index)
         raise 'index out of range' if index >= @attractions.count || index.negative?
 
-        @attractions[index]
+        @index[index]
+      end
+    end
+
+    # Entity to lookup for place info and routes info
+    class Guidebook
+      attr_reader :attractions
+
+      def initialize(attractions, matrix)
+        @attractions = attractions
+        @matrix = matrix
+
+        # @attraction_index = {}
+        # @attractions.each_with_index do |attraction, ind|
+        #   @attraction_index[attraction] = ind
+        # end
+        @index = AttractionIndex.new(attractions)
+      end
+
+      def distance_matrix
+        @matrix.map do |row|
+          row.map(&:distance_meters)
+        end
       end
 
       def route(from_attraction, to_attraction)
@@ -45,17 +55,17 @@ module TravelRoute
         @matrix[from_index][to_index]
       end
 
-      def has?(attraction)
-        @attraction_to_index.key?(attraction)
-      end
+      # def has?(attraction)
+      #   @attraction_index.key?(attraction)
+      # end
 
       def all?(attractions)
-        attractions.all? { |attraction| has?(attraction) }
+        attractions.all? { |attraction| @index.has?(attraction) }
       end
 
       # Returns the nearest attraction in attractions originating from origin
       def nearest(origin, attractions)
-        raise 'origin not in guidebook' unless has?(origin)
+        raise 'origin not in guidebook' unless @index.has?(origin)
         raise 'one or more attraction(s) not in guidebook' unless all?(attractions)
 
         attractions.min_by do |attraction|
