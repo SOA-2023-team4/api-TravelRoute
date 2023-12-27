@@ -41,13 +41,13 @@ module TravelRoute
           headers = create_headers(fields)
           body = { 'textQuery' => search_text }
           url = place_endpoint(':searchText')
-          Request.post(url, headers, body).parse
+          Http::Request.post(url, headers, body).parse
         end
 
         def place_detail_data(place_id)
           headers = create_headers(FIELDS)
           url = place_endpoint("/#{place_id}")
-          Request.get(url, headers).parse
+          Http::Request.get(url, headers).parse
         end
 
         def places_nearby_body(latitude, longitude, type)
@@ -70,7 +70,7 @@ module TravelRoute
           fields = FIELDS.map { |field| "places.#{field}" }
           headers = create_headers(fields)
           body = places_nearby_body(latitude, longitude, type)
-          Request.post(url, headers, body).parse
+          Http::Request.post(url, headers, body).parse
         end
       end
     end

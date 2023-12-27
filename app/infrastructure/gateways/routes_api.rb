@@ -38,14 +38,14 @@ module TravelRoute
             routingPreference: DEFAULT_ROUTING_OPTION,
             travelMode: DEFAULT_TRAVEL_MODE
           }
-          Request.post(ROUTE_PATH, headers, body).parse
+          Http::Request.post(ROUTE_PATH, headers, body).parse
         end
 
         def route_matrix_data(places)
           fields = %w[originIndex destinationIndex duration distanceMeters status]
           headers = create_headers(fields)
           body = RouteMatrix.new(places).create_route_matrix_body
-          Request.post(ROUTE_MATRIX_PATH, headers, body).parse
+          Http::Request.post(ROUTE_MATRIX_PATH, headers, body).parse
         end
 
         # Prepare route matrix request body
