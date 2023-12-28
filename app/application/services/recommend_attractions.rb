@@ -34,9 +34,6 @@ module TravelRoute
         attractions = ids.map do |id|
           Concurrent::Promise.execute { AddAttraction.new.call(place_id: id).value!.message }
         end.map(&:value)
-        # attractions = ids.map do |id|
-        #   AddAttraction.new.call(place_id: id).value!.message
-        # end
         input[:attractions] = attractions
         input[:exclude] ||= attractions.map(&:name)
         Success(input)

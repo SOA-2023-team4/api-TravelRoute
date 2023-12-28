@@ -43,7 +43,7 @@ module TravelRoute
 
       def create_plan(input)
         origin = input[:origin]
-        plan = Entity::Plan.new(input[:guidebook]).generate_plan(origin)
+        plan = Entity::Plan.new(input[:guidebook], origin)
 
         Success(Response::ApiResult.new(status: :ok, message: plan))
       rescue StandardError
