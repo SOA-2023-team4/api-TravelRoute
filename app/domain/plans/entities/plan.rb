@@ -4,16 +4,17 @@ module TravelRoute
   module Entity
     # dedicated to make plans using the information provided by the guidebook
     class Plan
-      ReturnObject = Struct.new(:attractions, :routes)
-
-      def initialize(guidebook)
+      def initialize(guidebook, origin)
         @guidebook = guidebook
+        @origin = origin
       end
 
-      def generate_plan(origin)
-        visit_order = VisitOrder.new(@guidebook).visited_from(origin)
-        routes_for_attractions = @guidebook.routes_in_order(visit_order)
-        ReturnObject.new(attractions: visit_order, routes: routes_for_attractions)
+      def attractions
+        @attractions ||= VisitOrder.new(@guidebook).visited_from(@origin)
+      end
+
+      def routes
+        @routes ||= @guidebook.routes_in_order(attractions)
       end
 
       # sort the visit order by the nearest neighbor algorithm

@@ -11,6 +11,12 @@ module TravelRoute
         long2 = to_attraction.location[:longitude]
         Math.sqrt(((lat1 - lat2)**2) + ((long1 - long2)**2))
       end
+
+      def normalize(nums)
+        mean = nums.sum / nums.size
+        std = Math.sqrt(nums.map { |num| (num - mean)**2 }.sum / nums.size)
+        nums.map { |num| (num - mean) / std }
+      end
     end
   end
 end

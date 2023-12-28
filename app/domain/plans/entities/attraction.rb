@@ -3,7 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
-require_relative '../values/distance'
+require_relative '../values/address'
 
 module TravelRoute
   module Entity
@@ -44,11 +44,11 @@ module TravelRoute
       end
 
       def country
-        address.split(',').last.strip
+        Value::Address.new(address).country
       end
 
       def city
-        address.split(',')[-2].strip
+        Value::Address.new(address).city
       end
     end
   end

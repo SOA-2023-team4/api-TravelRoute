@@ -23,11 +23,11 @@ module TravelRoute
       end
 
       def journey_time
-        TravelRoute::Value::Duration.new(duration).estimate_time.join
+        Value::Duration.new(duration).estimate_time.join
       end
 
       def distance
-        TravelRoute::Value::Distance.new(distance_meters).estimate_distance.join
+        Value::Distance.new(distance_meters).estimate_distance.join
       end
     end
   end
