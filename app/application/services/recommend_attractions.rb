@@ -42,12 +42,44 @@ module TravelRoute
       end
 
       def request_recommendation_worker(input)
-        attractions = input[:attractions]
-        json = Representer::AttractionsList.new(Response::AttractionsList.new(attractions:)).to_json
-        Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)
-        Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
+        request = RecommendationRequestHelper.new(input)
+        reccommendation = request.find_result
+        return Success(Response::ApiResult.new(status: :ok, message: reccommendation)) if reccommendation
+
+        request.send_to_queue
+        Failure(Response::ApiResult.new(
+                  status: :processing,
+                  message: { host: App.config.API_HOST, request_id: request.request_id, msg: PROCESSING_MSG }
+                ))
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
+      end
+
+      # helper class
+      class RecommendationRequestHelper
+        def initialize(input)
+          @input = input
+        end
+
+        def attractions
+          @input[:attractions]
+        end
+
+        def request_id
+          attractions.map(&:place_id).sort.join
+        end
+
+        def find_result
+          result = Cache::Client.new(App.config).get(request_id)
+          Representer::AttractionsList.new(Response::AttractionsList.new).from_json(result) unless result.nil?
+        end
+
+        def send_to_queue
+          json = Response::ReccommendationRequest.new(attractions:, id: request_id)
+            .then { Representer::ReccommendationRequest.new(_1) }
+            .then(&:to_json)
+          Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)
+        end
       end
     end
   end
