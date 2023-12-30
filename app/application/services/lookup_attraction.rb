@@ -8,15 +8,14 @@ module TravelRoute
     class LookUpAttraction
       include Dry::Monads::Result::Mixin
 
+      DB_ERR_MSG = 'Having trouble accessing the database'
+      NOT_FOUND_MSG = 'Could not find that attraction_id on Google Api'
+
       def call(input)
-        if (attraction = attraction_in_database(input))
-          input[:local_attraction] = attraction
-        else
-          input[:remote_attraction] = attraction_from_api(input)
-        end
+        input[:attraction] = attraction_in_database(input) || attraction_from_api(input)
         Success(input)
-      rescue StandardError => e
-        Failure(Response::ApiResult.new(status: :not_found, message: e.to_s))
+      rescue StandardError => err
+        Failure(Response::ApiResult.new(status: :not_found, message: err.to_s))
       end
 
       # Support methods for steps
@@ -29,6 +28,8 @@ module TravelRoute
 
       def attraction_in_database(input)
         Repository::Attractions.find_id(input[:place_id])
+      rescue StandardError
+        raise DB_ERR_MSG
       end
     end
   end

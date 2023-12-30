@@ -15,7 +15,8 @@ module TravelRoute
       end
 
       def call
-        Success(unescape(@params['search']))
+        # Success(unescape(@params['search']))
+        Success(unescape)
       rescue StandardError
         Failure(
           Response::ApiResult.new(
@@ -25,8 +26,8 @@ module TravelRoute
         )
       end
 
-      def unescape(param)
-        CGI.unescape(param)
+      def unescape
+        CGI.unescape(@params['search'])
       end
 
       # for use in tests

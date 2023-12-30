@@ -30,12 +30,9 @@ module TravelRoute
       end
 
       def search_attractions(input)
-        ids = input[:ids]
-        attractions = ids.map do |id|
+        input[:attractions] = input[:ids].map do |id|
           Concurrent::Promise.execute { AddAttraction.new.call(place_id: id).value!.message }
         end.map(&:value)
-        input[:attractions] = attractions
-        input[:exclude] ||= attractions.map(&:name)
         Success(input)
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
@@ -43,7 +40,7 @@ module TravelRoute
 
       def request_recommendation_worker(input)
         request = RecommendationRequestHelper.new(input)
-        reccommendation = request.find_result
+        reccommendation = request.result
         return Success(Response::ApiResult.new(status: :ok, message: reccommendation)) if reccommendation
 
         request.send_to_queue
@@ -65,17 +62,21 @@ module TravelRoute
           @input[:attractions]
         end
 
+        def exclude
+          @input[:exclude] ||= attractions.map(&:name)
+        end
+
         def request_id
           attractions.map(&:place_id).sort.join
         end
 
-        def find_result
+        def result
           result = Cache::Client.new(App.config).get(request_id)
-          Representer::AttractionsList.new(Response::AttractionsList.new).from_json(result) unless result.nil?
+          Representer::AttractionsList.new(Response::AttractionsList.new).from_json(result) if result
         end
 
         def send_to_queue
-          json = Response::ReccommendationRequest.new(attractions:, id: request_id)
+          json = Response::ReccommendationRequest.new(attractions:, exclude:, id: request_id)
             .then { Representer::ReccommendationRequest.new(_1) }
             .then(&:to_json)
           Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)

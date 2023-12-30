@@ -8,29 +8,24 @@ module TravelRoute
     class AddAttraction
       include Dry::Transaction
 
-      step :find_attraction
+      # step :find_attraction
       step :store_attraction
 
       private
 
-      DB_ERR_MSG = 'Having trouble accessing the database'
-      NOT_FOUND_MSG = 'Could not find that attraction_id on Google Api'
-
       # Expects input[:place_id]
       def find_attraction(input)
-        Service::LookUpAttraction.new.call(input)
+        result = LookUpAttraction.new.call(input)
+        return Failure(result.failure) if result.failure?
+
+        Success(result.value!)
       end
 
       def store_attraction(input)
-        attraction =
-          if (new_attraction = input[:remote_attraction])
-            Repository::Attractions.create(new_attraction)
-          else
-            input[:local_attraction]
-          end
+        attraction = Repository::Attractions.update_or_create(input[:attraction])
         Success(Response::ApiResult.new(status: :ok, message: attraction))
-      rescue StandardError => e
-        App.logger.error("ERROR: #{e.inspect}")
+      rescue StandardError => err
+        App.logger.error("ERROR: #{err.inspect}")
         Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR_MSG))
       end
     end
