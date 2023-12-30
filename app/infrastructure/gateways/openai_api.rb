@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'http'
+require 'openai'
 
 require_relative 'request'
 require_relative 'response'
@@ -20,39 +21,58 @@ module TravelRoute
 
       def get_time_to_stay(places)
         prompt = <<-PROMPT
-        Give me a time to stay at each place, in hours. Return in JSON format.
+        Suggest a time to stay at each place, in hours and what to do.
+        Answer in JSON format {"places": ["name": <place_name>, "time": <time_to_spend>, "description": <to_do>]}.
         Places: #{places.join(', ')}
         PROMPT
 
         Http::Request.post(OPENAI_ENDPOINT, headers, body(prompt)).parse
       end
 
-      def get_recommendation(place, no_of_recommendations = 3, exclude = nil)
-        exclude ||= [place.name]
-        city = place.city
-        prompt = <<-PROMPT
-        Recommend #{no_of_recommendations} places to visit for traveling to in #{city}(only in the city) in JSON format {"places": ["name": <place_name}, "description": <to-do>]}. I've already went to #{exclude.join(',')}.
+      def get_recommendation(prompt)
+        OpenAiStreamRequest.new(@key, prompt:).call { |block| yield block if block_given? }
+      end
+
+      # class for openai request
+      class OpenAiStreamRequest
+        SYSTEM_ROLE_CONTENT = <<-PROMPT
+        'You are a traveling expert. You are here to help people plan their trips.'
         PROMPT
-        Http::Request.post(OPENAI_ENDPOINT, headers, body(prompt)).parse
-      end
 
-      private
+        def initialize(key, prompt:)
+          @key = key
+          @prompt = prompt
+          @client = OpenAI::Client.new(access_token: @key)
+        end
 
-      def headers
-        {
-          'Content-Type'  => 'application/json',
-          'Authorization' => "Bearer #{@key}"
-        }
-      end
+        def call
+          stream = []
+          @client.chat(
+            parameters: make_prompt.merge(stream: stream_proc(stream) { |block| yield block if block_given? })
+          )
+          stream.join
+        end
 
-      def body(prompt)
-        {
-          'model'    => 'gpt-3.5-turbo',
-          'messages' => [
-            { 'role' => 'system', 'content' => SYSTEM_ROLE_CONTENT },
-            { 'role' => 'user', 'content'   => prompt }
-          ]
-        }
+        private
+
+        def make_prompt
+          {
+            model: 'gpt-3.5-turbo-1106',
+            messages: [
+              { role: 'system', content: SYSTEM_ROLE_CONTENT },
+              { role: 'user', content: @prompt }
+            ],
+            response_format: { type: 'json_object' }
+          }
+        end
+
+        def stream_proc(stream = [], &block)
+          proc do |chunk, _bytesize|
+            new_content = chunk.dig('choices', 0, 'delta', 'content')
+            stream << new_content unless new_content.nil?
+            block.call(stream) if block_given?
+          end
+        end
       end
     end
   end
