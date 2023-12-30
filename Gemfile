@@ -46,9 +46,9 @@ gem 'sequel', '~> 5.0'
 
 # Asynchronicity
 gem 'aws-sdk-sqs', '~> 1.48'
-gem 'rexml', '~> 3.2'
 gem 'concurrent-ruby', '~> 1.1'
 gem 'faye', '~> 1.4'
+gem 'rexml', '~> 3.2'
 gem 'shoryuken', '~> 5.3'
 
 group :development, :test do
