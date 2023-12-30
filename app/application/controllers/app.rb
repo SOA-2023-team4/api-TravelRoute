@@ -66,9 +66,9 @@ module TravelRoute
         end
 
         routing.on 'recommendations' do
+          # GET /recommendations?ids=<place_id>&exclude=<place_name>
           routing.get do
-            # GET /recommendations?ids=<place_id>&exclude=<place_name>
-            response.cache_control public: true, max_age: CACHE_DURATION
+            # response.cache_control public: true, max_age: CACHE_DURATION
 
             recommendation_req = Request::Recommendation.new(routing.params)
             recommend_result = Service::RecommendAttractions.new.call(recommendation_req:)
