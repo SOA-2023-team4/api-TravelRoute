@@ -22,7 +22,7 @@ module TravelRoute
       property :location
 
       link :self do
-        "#{App.config.API_HOST}/recommendations?ids=#{place_id}"
+        "#{App.config.API_HOST}/api/v1/recommendations?ids=#{place_id}"
       end
 
       private
