@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../lib/openai_prompt'
-
 module TravelRoute
   module Mapper
     # Data Mapper: Google Maps Attraction -> Attraction entity
     class TourguideMapper
-      include Mixins::PromptHandler
-
       def initialize(config, gateway_class = OpenAi::Api)
         @key = config.OPENAI_API_KEY
         @gmap_token = config.GMAP_TOKEN
@@ -27,7 +23,7 @@ module TravelRoute
       private
 
       def recommend_attraction(attraction, exclude = nil)
-        prompt = OpenAiPrompt.new([attraction], 3, exclude).reccommendation_prompt
+        prompt = Value::OpenAiPrompt.new([attraction], 3, exclude).reccommendation_prompt
         data = @gateway.get_recommendation(prompt) { |block| yield block if block_given? }
         AttractionWebDataMapper.new(attraction, data, @gmap_token).build_entity
       end
