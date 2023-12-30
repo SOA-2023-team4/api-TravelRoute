@@ -14,15 +14,13 @@ module TravelRoute
       private
 
       # Expects input[:place_id]
-      def find_attraction(input)
-        result = LookUpAttraction.new.call(input)
-        return Failure(result.failure) if result.failure?
-
-        Success(result.value!)
-      end
+      # def find_attraction(input)
+      #   Service::LookUpAttraction.new.call(input)
+      # end
 
       def store_attraction(input)
-        attraction = Repository::Attractions.update_or_create(input[:attraction])
+        req = Service::LookUpAttraction.new.call(input)
+        attraction = Repository::Attractions.update_or_create(req.value![:attraction])
         Success(Response::ApiResult.new(status: :ok, message: attraction))
       rescue StandardError => err
         App.logger.error("ERROR: #{err.inspect}")

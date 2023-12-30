@@ -38,6 +38,7 @@ module TravelRoute
       end
 
       def store_attractions(input)
+        attractions = input[:attractions]
         input[:attractions].each do |attraction|
           Repository::Attractions.find_or_create(attraction)
         end
