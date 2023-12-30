@@ -1,2 +1,2 @@
 queues:
-  - https://sqs.us-east-1.amazonaws.com/087912640149/recommendation-prod
+  - https://sqs.us-east-1.amazonaws.com/525155212477/recommendation-prod
