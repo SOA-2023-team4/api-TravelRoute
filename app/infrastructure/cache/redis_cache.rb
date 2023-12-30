@@ -15,7 +15,7 @@ module TravelRoute
       end
 
       def wipe
-        keys.each { |key| @redis.del(key) }
+        keys.each { |key| del(key) }
       end
 
       def set(key, value)
@@ -24,6 +24,10 @@ module TravelRoute
 
       def get(key)
         @redis.get(key)
+      end
+
+      def del(key)
+        @redis.del(key)
       end
     end
   end
