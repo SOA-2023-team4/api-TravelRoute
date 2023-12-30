@@ -8,27 +8,30 @@ module TravelRoute
       'You are a traveling expert. You are here to help people plan their trips.'
       PROMPT
 
-      def initialize(attractions, num, exclude = nil)
-        @attractions = attractions
-        @num = num
-        @exclude = exclude
+      attr_reader :user_prompt, :system_prompt
+
+      def initialize(user_prompt)
+        @user_prompt = user_prompt
+        @system_prompt = SYSTEM_PROPT
       end
 
-      def reccommendation_prompt
-        city = @attractions.first.city
-        @exclude ||= @attractions.map(&:name)
-        <<-PROMPT
-        Recommend #{@num} places to visit for traveling in #{city}.Excluding #{@exclude.join(',')}.
+      def self.reccommendation_prompt(attractions, num = 3, exclude = nil)
+        city = attractions.first.city
+        exclude ||= attractions.map(&:name)
+        prompt = <<-PROMPT
+        Recommend #{num} places to visit for traveling in #{city}.Excluding #{exclude.join(',')}.
         Answer in JSON format {"places": ["name": <place_name}, "description": <to_do>]}.
         PROMPT
+        new(prompt)
       end
 
-      def time_to_stay_prompt
-        <<-PROMPT
+      def self.time_to_stay_prompt
+        prompt = <<-PROMPT
         Suggest a time to stay at each place, in hours and what to do.
         Answer in JSON format {"places": ["name": <place_name>, "time": <time_to_spend>, "description": <to_do>]}.
         Places: #{@attractions.map(&:name).join(', ')}
         PROMPT
+        new(prompt)
       end
     end
   end

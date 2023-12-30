@@ -11,9 +11,6 @@ module TravelRoute
     # Api calling the openai api
     class Api
       OPENAI_ENDPOINT = 'https://api.openai.com/v1/chat/completions'
-      SYSTEM_ROLE_CONTENT = <<-PROMPT
-      'You are a traveling expert. You are here to help people plan their trips.'
-      PROMPT
 
       def initialize(api_key)
         @key = api_key
@@ -35,10 +32,6 @@ module TravelRoute
 
       # class for openai request
       class OpenAiStreamRequest
-        SYSTEM_ROLE_CONTENT = <<-PROMPT
-        'You are a traveling expert. You are here to help people plan their trips.'
-        PROMPT
-
         def initialize(key, prompt:)
           @key = key
           @prompt = prompt
@@ -59,8 +52,8 @@ module TravelRoute
           {
             model: 'gpt-3.5-turbo-1106',
             messages: [
-              { role: 'system', content: SYSTEM_ROLE_CONTENT },
-              { role: 'user', content: @prompt }
+              { role: 'system', content: @prompt.system_prompt },
+              { role: 'user', content: @prompt.user_prompt }
             ],
             response_format: { type: 'json_object' }
           }

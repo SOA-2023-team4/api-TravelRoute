@@ -23,7 +23,7 @@ module TravelRoute
       private
 
       def recommend_attraction(attraction, exclude = nil)
-        prompt = Value::OpenAiPrompt.new([attraction], 3, exclude).reccommendation_prompt
+        prompt = Value::OpenAiPrompt.reccommendation_prompt([attraction], 3, exclude)
         data = @gateway.get_recommendation(prompt) { |block| yield block if block_given? }
         AttractionWebDataMapper.new(attraction, data, @gmap_token).build_entity
       end
