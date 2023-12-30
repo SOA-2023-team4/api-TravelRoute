@@ -2,6 +2,6 @@
 
 module TravelRoute
   module Response
-    ReccommendationRequest = Struct.new :attractions, :id
+    ReccommendationRequest = Struct.new :attractions, :exclude, :id
   end
 end

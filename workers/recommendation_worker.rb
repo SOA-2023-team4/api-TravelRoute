@@ -35,7 +35,7 @@ module Background
       attractions = reconstruct_attraction(job.attractions)
 
       job.report(ReccommendationMonitor.init_percent)
-      recommend(attractions, job.id) do |stream|
+      recommend(attractions, job.exclude, job.id) do |stream|
         job.report_when_changed { ReccommendationMonitor.count(stream) }
       end
       job.report(ReccommendationMonitor.fininsed_percent)
@@ -46,10 +46,11 @@ module Background
 
     private
 
-    def recommend(attractions, key, &operation)
-      tourguide = TravelRoute::Mapper::TourguideMapper.new(RecommendationWorker.config).to_entity(attractions) do |stream|
-        operation.call(stream)
-      end
+    def recommend(attractions, exclude, key, &operation)
+      tourguide = TravelRoute::Mapper::TourguideMapper.new(RecommendationWorker.config)
+        .to_entity(attractions, exclude) do |stream|
+          operation.call(stream)
+        end
 
       json = TravelRoute::Representer::AttractionsList.new(
         TravelRoute::Response::AttractionsList.new(attractions: tourguide.recommend_attractions)

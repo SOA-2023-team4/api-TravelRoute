@@ -5,11 +5,12 @@ require_relative 'progress_publisher'
 module Background
   # Worker to report job status
   class JobReporter
-    attr_reader :attractions, :id
+    attr_reader :attractions, :id, :exclude
 
     def initialize(config, request)
       req = TravelRoute::Representer::ReccommendationRequest.new(OpenStruct.new).from_json(request)
       @attractions = req.attractions
+      @exclude = req.exclude
       @id = req.id
       @publisher = ProgressPublisher.new(config, @id)
       @prev_msg = ''
