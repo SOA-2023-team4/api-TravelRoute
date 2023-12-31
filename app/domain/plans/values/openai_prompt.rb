@@ -15,21 +15,21 @@ module TravelRoute
         @system_prompt = SYSTEM_PROPT
       end
 
-      def self.reccommendation_prompt(attractions, num = 3, exclude = nil)
-        city = attractions.first.city
-        exclude ||= attractions.map(&:name)
+      def self.reccommendation_prompt(attraction, num = 3, exclude = nil)
+        city = attraction.city
+        exclude ||= attraction.name
         prompt = <<-PROMPT
-        Recommend #{num} places to visit for traveling in #{city}.Excluding #{exclude.join(',')}.
+        Recommend #{num} attractions to visit for traveling in #{city}.Excluding #{exclude.join(',')}.
         Answer in JSON format {"places": ["name": <place_name}, "description": <to_do>]}.
         PROMPT
         new(prompt)
       end
 
-      def self.time_to_stay_prompt
+      def self.time_to_stay_prompt(attraction)
         prompt = <<-PROMPT
         Suggest a time to stay at each place, in hours and what to do.
-        Answer in JSON format {"places": ["name": <place_name>, "time": <time_to_spend>, "description": <to_do>]}.
-        Places: #{@attractions.map(&:name).join(', ')}
+        Answer in JSON format {"name": <place_name>, "stay_time": <time_to_spend_int>, "description": <to_do>}.
+        Places: #{attraction.name}
         PROMPT
         new(prompt)
       end
