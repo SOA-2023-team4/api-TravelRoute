@@ -5,18 +5,23 @@ require 'dry-struct'
 
 require_relative 'attraction'
 require_relative '../lib/attraction_distance'
+require_relative '../lib/score'
 
 module TravelRoute
   module Entity
     # Data structure for route information
-    class TourGuide < Dry::Struct
-      include Dry.Types
+    class TourGuide
       include Mixins::AttractionDistance
-
-      attribute :attractions, Strict::Array.of(AttractionWeb)
+      include Mixins::Score
 
       DISTANCE_WEIGHT = 0.4
       RATING_WEIGHT = 0.6
+
+      def initialize(attraction_web)
+        @attraction_web_list = Value::AttractionList.new(attraction_web[:attractions])
+      end
+
+      def attractions = @attraction_web_list.attractions
 
       def recommend_attractions(top_n = 3)
         target_attractions = high_rating_attractions
@@ -24,23 +29,19 @@ module TravelRoute
         target_attractions.zip(scores).sort_by { |_, score| score }.reverse[0..(top_n - 1)].map(&:first)
       end
 
-      def calculate_scores(target_attractions)
-        distances = normalize(attraction_distance_to_hubs(target_attractions))
-        ratings = normalize(target_attractions.map(&:rating))
-        distances.zip(ratings).map { |d, r| (d * DISTANCE_WEIGHT) + (r * RATING_WEIGHT) }
-      end
+      private
 
-      def normalize(nums)
-        mean = nums.sum / nums.size
-        std = Math.sqrt(nums.map { |num| (num - mean)**2 }.sum / nums.size)
-        nums.map { |num| (num - mean) / std }
+      def calculate_scores(target_attractions)
+        distances = Normalizer.new(attraction_distance_to_hubs(target_attractions)).normalize
+        ratings = Normalizer.new(target_attractions.map(&:rating)).normalize
+        distances.zip(ratings).map { |dis, rat| (dis * DISTANCE_WEIGHT) + (rat * RATING_WEIGHT) }
       end
 
       def attraction_distance_to_hubs(target_attractions)
         hubs = attractions.map(&:hub)
-        target_attractions.map do |a|
+        target_attractions.map do |point|
           hubs.map do |hub|
-            calculate_distance(a, hub)
+            Connection.new(point, hub).distance
           end.min
         end
       end

@@ -21,14 +21,6 @@ module TravelRoute
           @key = api_key
         end
 
-        def create_headers(fields)
-          {
-            'Content-Type': 'application/json',
-            'X-Goog-Api-Key': @key,
-            'X-Goog-FieldMask': fields.join(',')
-          }
-        end
-
         def route_data(origin, destination)
           fields = %w[routes.duration routes.distanceMeters routes.polyline.encodedPolyline]
           headers = create_headers(fields)
@@ -46,6 +38,16 @@ module TravelRoute
           headers = create_headers(fields)
           body = RouteMatrix.new(places).create_route_matrix_body
           Http::Request.post(ROUTE_MATRIX_PATH, headers, body).parse
+        end
+
+        private
+
+        def create_headers(fields)
+          {
+            'Content-Type': 'application/json',
+            'X-Goog-Api-Key': @key,
+            'X-Goog-FieldMask': fields.join(',')
+          }
         end
 
         # Prepare route matrix request body

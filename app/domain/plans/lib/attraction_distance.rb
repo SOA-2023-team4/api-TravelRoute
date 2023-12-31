@@ -2,14 +2,33 @@
 
 module TravelRoute
   module Mixins
-    # Calculate distance between two attractions
     module AttractionDistance
-      def calculate_distance(from_attraction, to_attraction)
-        lat1 = from_attraction.location[:latitude]
-        long1 = from_attraction.location[:longitude]
-        lat2 = to_attraction.location[:latitude]
-        long2 = to_attraction.location[:longitude]
-        Math.sqrt(((lat1 - lat2)**2) + ((long1 - long2)**2))
+      # Calculate distance between two attractions
+      class Connection
+        def initialize(from, to)
+          @from = from
+          @to = to
+        end
+
+        def from_lat
+          @from.location[:latitude]
+        end
+
+        def from_long
+          @from.location[:longitude]
+        end
+
+        def to_lat
+          @to.location[:latitude]
+        end
+
+        def to_long
+          @to.location[:longitude]
+        end
+
+        def distance
+          Math.sqrt(((from_lat - to_lat)**2) + ((from_long - to_long)**2))
+        end
       end
     end
   end

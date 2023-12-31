@@ -30,27 +30,57 @@ module TravelRoute
       end
 
       def search_attractions(input)
-        ids = input[:ids]
-        attractions = ids.map do |id|
+        input[:attractions] = input[:ids].map do |id|
           Concurrent::Promise.execute { AddAttraction.new.call(place_id: id).value!.message }
         end.map(&:value)
-        # attractions = ids.map do |id|
-        #   AddAttraction.new.call(place_id: id).value!.message
-        # end
-        input[:attractions] = attractions
-        input[:exclude] ||= attractions.map(&:name)
         Success(input)
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))
       end
 
       def request_recommendation_worker(input)
-        attractions = input[:attractions]
-        json = Representer::AttractionsList.new(Response::AttractionsList.new(attractions:)).to_json
-        Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)
-        Failure(Response::ApiResult.new(status: :processing, message: PROCESSING_MSG))
+        request = RecommendationRequestHelper.new(input)
+        reccommendation = request.result
+        return Success(Response::ApiResult.new(status: :ok, message: reccommendation)) if reccommendation
+
+        request.send_to_queue
+        Failure(Response::ApiResult.new(
+                  status: :processing,
+                  message: { host: App.config.API_HOST, request_id: request.request_id, msg: PROCESSING_MSG }
+                ))
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: RECOMMENDATION_ERR))
+      end
+
+      # helper class
+      class RecommendationRequestHelper
+        def initialize(input)
+          @input = input
+        end
+
+        def attractions
+          @input[:attractions]
+        end
+
+        def exclude
+          @input[:exclude] ||= attractions.map(&:name)
+        end
+
+        def request_id
+          attractions.map(&:place_id).sort.join
+        end
+
+        def result
+          result = Cache::Client.new(App.config).get(request_id)
+          Representer::AttractionsList.new(Response::AttractionsList.new).from_json(result) if result
+        end
+
+        def send_to_queue
+          json = Response::ReccommendationRequest.new(attractions:, exclude:, id: request_id)
+            .then { Representer::ReccommendationRequest.new(_1) }
+            .then(&:to_json)
+          Messaging::Queue.new(App.config.RECOMMENDATION_QUEUE_URL, App.config).send(json)
+        end
       end
     end
   end

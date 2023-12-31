@@ -31,8 +31,6 @@ module TravelRoute
 
       routing.on 'api/v1' do
         routing.on 'attractions' do
-          response.cache_control public: true, max_age: CACHE_DURATION
-
           # GET /attractions/:place_id
           routing.on String do |place_id|
             add_result = Service::AddAttraction.new.call(place_id:)
@@ -50,6 +48,8 @@ module TravelRoute
           routing.is do
             # GET /attractions?search=
             routing.get do
+              response.cache_control public: true, max_age: CACHE_DURATION
+
               search_req = Request::AttractionSearch.new(routing.params)
               search_result = Service::SearchAttractions.new.call(search_req:)
 
@@ -66,9 +66,9 @@ module TravelRoute
         end
 
         routing.on 'recommendations' do
+          # GET /recommendations?ids=<place_id>&exclude=<place_name>
           routing.get do
-            # GET /recommendations?ids=<place_id>&exclude=<place_name>
-            response.cache_control public: true, max_age: CACHE_DURATION
+            # response.cache_control public: true, max_age: CACHE_DURATION
 
             recommendation_req = Request::Recommendation.new(routing.params)
             recommend_result = Service::RecommendAttractions.new.call(recommendation_req:)

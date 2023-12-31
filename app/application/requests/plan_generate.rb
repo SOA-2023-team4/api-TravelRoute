@@ -16,17 +16,17 @@ module TravelRoute
       end
 
       def call
-        Success(PlanGenerateRequest.new(@params['origin'].to_i, unroll(@params['attractions'])))
+        Success(PlanGenerateRequest.new(@params['origin'].to_i, unroll))
       rescue StandardError
         Failure(Response::ApiResult.new(status: :bad_request, message: 'Invalid request params'))
       end
 
-      def unroll(attractions)
-        unescape(attractions).split(',')
+      def unroll
+        unescape.split(',')
       end
 
-      def unescape(param)
-        CGI.unescape(param)
+      def unescape
+        CGI.unescape(@params['attractions'])
       end
 
       # for use in tests
