@@ -1,2 +1,3 @@
 queues:
-  - https://sqs.us-east-1.amazonaws.com/525155212477/recommendation-prod
+  - [https://sqs.us-east-1.amazonaws.com/525155212477/recommendation-prod, 1]
+  - [https://sqs.us-east-1.amazonaws.com/525155212477/staytime-prod, 1]
