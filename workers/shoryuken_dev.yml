@@ -1,2 +1,4 @@
+concurrency: 25
 queues:
-  - https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-recommendation-development
+  - [https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-recommendation-development, 1]
+  - [https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development, 1]

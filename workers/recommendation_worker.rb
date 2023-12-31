@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../require_app'
-require_relative 'job_reporter'
+require_relative 'reccommendation_reporter'
 require_relative 'reccommendation_monitor'
 require_app
 
@@ -31,7 +31,7 @@ module Background
 
     # currently I can't think of a better way to do this
     def perform(_sqs_msg, request)
-      job = JobReporter.new(self.class.config, request)
+      job = ReccommendationReporter.new(self.class.config, request)
       attractions = reconstruct_attraction(job.attractions)
 
       job.report(ReccommendationMonitor.init_percent)
