@@ -10,6 +10,7 @@ module TravelRoute
 
       # step :find_attraction
       step :store_attraction
+      step :request_time_to_stay
 
       private
 
@@ -21,10 +22,22 @@ module TravelRoute
       def store_attraction(input)
         req = Service::LookUpAttraction.new.call(input)
         attraction = Repository::Attractions.update_or_create(req.value![:attraction])
-        Success(Response::ApiResult.new(status: :ok, message: attraction))
+        Success(attraction:)
       rescue StandardError => err
         App.logger.error("ERROR: #{err.inspect}")
         Failure(Response::ApiResult.new(status: :internal_error, message: DB_ERR_MSG))
+      end
+
+      def request_time_to_stay(input)
+        attraction = input[:attraction]
+        return Success(Response::ApiResult.new(status: :ok, message: attraction)) if attraction.filled?
+
+        json = Response::StayTimeRequest.new(attraction:, id: attraction.place_id)
+          .then { Representer::StayTimeRequest.new(_1) }
+          .then(&:to_json)
+        Messaging::Queue.new(App.config.STAYTIME_QUEUE_URL, App.config).send(json)
+
+        Success(Response::ApiResult.new(status: :processing, message: attraction))
       end
     end
   end
