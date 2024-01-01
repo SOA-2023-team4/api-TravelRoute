@@ -14,8 +14,6 @@ module TravelRoute
                    class: :'TravelRoute::Database::RouteOrm',
                    key: :destination_id
 
-      attr_accessor :description
-
       plugin :timestamps, update_on_create: true
 
       def self.find_or_create(place_info)
@@ -27,13 +25,22 @@ module TravelRoute
         super
       end
 
+      def location
+        { latitude:, longitude: }
+      end
+
+      def location=(location)
+        self.latitude = location[:latitude]
+        self.longitude = location[:longitude]
+      end
+
       def opening_hours
         super.is_a?(String) ? JSON.parse(super, symbolize_names: true) : super
       end
 
       def to_hash
         super[:opening_hours] = opening_hours
-        super[:location] = { latitude:, longitude: }
+        super[:location] = location
         super.delete(:latitude)
         super.delete(:longitude)
         super

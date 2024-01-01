@@ -3646,4 +3646,2452 @@ http_interactions:
         73197,\n  \"duration\": \"3481s\"\n}\n,\r\n{\n  \"originIndex\": 1,\n  \"destinationIndex\":
         0,\n  \"status\": {},\n  \"distanceMeters\": 75159,\n  \"duration\": \"3923s\"\n}\n]"
   recorded_at: Sat, 23 Dec 2023 08:39:49 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo-1106","messages":[{"role":"system","content":"      ''You
+        are a traveling expert. You are here to help people plan their trips.''\n"},{"role":"user","content":"        Suggest
+        a time to stay at each place, in hours and what to do.\n        Answer in
+        JSON format {\"name\": <place_name>, \"time\": <time_to_spend_int>, \"description\":
+        <to_do>}.\n        Places: Hsinchu Bus Station\n"}],"response_format":{"type":"json_object"},"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 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
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 429
+      message: Too Many Requests
+    headers:
+      Date:
+      - Sat, 30 Dec 2023 17:06:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '498'
+      Connection:
+      - keep-alive
+      Vary:
+      - Origin
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Limit-Tokens-Usage-Based:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '194'
+      X-Ratelimit-Remaining-Tokens:
+      - '39706'
+      X-Ratelimit-Remaining-Tokens-Usage-Based:
+      - '39706'
+      X-Ratelimit-Reset-Requests:
+      - 36m49.676s
+      X-Ratelimit-Reset-Tokens:
+      - 440ms
+      X-Ratelimit-Reset-Tokens-Usage-Based:
+      - 440ms
+      X-Request-Id:
+      - d1922d7cd3c999c1c2234a45148d4c12
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=gMI1TGuw1o7mi3oW4BngsM3DWPCAIyRj3pCGtzjQKfs-1703955979-1-ASVoRXzx/SPXM9JT0PDldh9xWuUuAjA4TK9F24V/SBZdvDWGkYQPCOcIiAKz7Sq/tJ4DtvCg6aKlnNW3fi3mdxw=;
+        path=/; expires=Sat, 30-Dec-23 17:36:19 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=BH3cs9uv2lHnXL6gjSRwH8Kz1rFoNU.hFBdKDypcgpY-1703955979736-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 83dbdf680bff4a94-TPE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        {
+            "error": {
+                "message": "Rate limit reached for gpt-3.5-turbo-1106 in organization org-CIp7FyL0AqxNtRpFeI5zlyLd on requests per min (RPM): Limit 3, Used 3, Requested 1. Please try again in 20s. Visit https://platform.openai.com/account/rate-limits to learn more. You can increase your rate limit by adding a payment method to your account at https://platform.openai.com/account/billing.",
+                "type": "requests",
+                "param": null,
+                "code": "rate_limit_exceeded"
+            }
+        }
+  recorded_at: Sat, 30 Dec 2023 17:06:19 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo-1106","messages":[{"role":"system","content":"      ''You
+        are a traveling expert. You are here to help people plan their trips.''\n"},{"role":"user","content":"        Suggest
+        a time to stay at each place, in hours and what to do.\n        Answer in
+        JSON format {\"name\": <place_name>, \"time\": <time_to_spend_int>, \"description\":
+        <to_do>}.\n        Places: Taipei Main Station\n"}],"response_format":{"type":"json_object"},"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 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
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 30 Dec 2023 17:06:19 GMT
+      Content-Type:
+      - text/event-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - gpt-3.5-turbo-1106
+      Openai-Organization:
+      - user-kpetnx8v8jrgmaae7uva4y76
+      Openai-Processing-Ms:
+      - '110'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Limit-Tokens-Usage-Based:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '195'
+      X-Ratelimit-Remaining-Tokens:
+      - '39814'
+      X-Ratelimit-Remaining-Tokens-Usage-Based:
+      - '39814'
+      X-Ratelimit-Reset-Requests:
+      - 29m37.653s
+      X-Ratelimit-Reset-Tokens:
+      - 278ms
+      X-Ratelimit-Reset-Tokens-Usage-Based:
+      - 278ms
+      X-Request-Id:
+      - 758af385b8b8f128704d54b08beba87a
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=E5b14_YEoHdjfd6rS2mj_AhSNHmjhzVX8h2nIiYFkkg-1703955979-1-AXPznss/5ZPKSUQPXMXIc3M2qxVoGqxLou0WWz5LLCvHJ4XYPnbEX0qViEzp5M3L0pti6Bb8BLcCAK4qFK313sM=;
+        path=/; expires=Sat, 30-Dec-23 17:36:19 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=dzq7FEJ5t0BGbwxZBKLrzG.pYcmXapOHjQXdZyoUC1c-1703955979897-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 83dbdf680a8b074c-TPE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"{\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"name"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"Tai"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"pei"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Main"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Station"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\",\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"time"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"2"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":",\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"description"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"Explore"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" bustling"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" transportation"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" hub"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" admire"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" modern"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" architecture"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" shop"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" at"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" underground"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" mall"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" and"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" enjoy"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" a"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" variety"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" of"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" dining"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" options"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":".\"\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"}"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t80ZyO2716lTJ8udPUut0C362","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+        data: [DONE]
+
+  recorded_at: Sat, 30 Dec 2023 17:06:20 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo-1106","messages":[{"role":"system","content":"      ''You
+        are a traveling expert. You are here to help people plan their trips.''\n"},{"role":"user","content":"        Suggest
+        a time to stay at each place, in hours and what to do.\n        Answer in
+        JSON format {\"name\": <place_name>, \"time\": <time_to_spend_int>, \"description\":
+        <to_do>}.\n        Places: National Tsing Hua University\n"}],"response_format":{"type":"json_object"},"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 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
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 30 Dec 2023 17:06:19 GMT
+      Content-Type:
+      - text/event-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - gpt-3.5-turbo-1106
+      Openai-Organization:
+      - user-kpetnx8v8jrgmaae7uva4y76
+      Openai-Processing-Ms:
+      - '111'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Limit-Tokens-Usage-Based:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '196'
+      X-Ratelimit-Remaining-Tokens:
+      - '39905'
+      X-Ratelimit-Remaining-Tokens-Usage-Based:
+      - '39905'
+      X-Ratelimit-Reset-Requests:
+      - 22m25.654s
+      X-Ratelimit-Reset-Tokens:
+      - 142ms
+      X-Ratelimit-Reset-Tokens-Usage-Based:
+      - 142ms
+      X-Request-Id:
+      - 8a2d1bac63d4957bf497dfffb83aeb09
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=vLT_cBpdz6WPTWNOlhAzBNNKOmYn2_LvhYEPTh385MQ-1703955979-1-AeqJtRL8JVNNUWrIiu3L9tY2SX+ppceRsyqu4YSfsYuGpnUn0eurZRoaQ/lElDBP9BxGw65jaTa6+2ZDjjqLU+I=;
+        path=/; expires=Sat, 30-Dec-23 17:36:19 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=OQu9bf344d__cVnrBfV0HIQncjizzlDKrN4iM1S4Fps-1703955979894-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 83dbdf680fd14a52-TPE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"{\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"name"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"National"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Ts"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"ing"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" H"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"ua"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" University"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\",\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"time"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":",\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"description"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"Explore"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" beautiful"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" campus"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" visit"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" iconic"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" L"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"uce"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Memorial"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Chapel"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" and"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" take"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" a"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" leisure"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"ly"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" walk"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" around"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" picturesque"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" gardens"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" and"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" ponds"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":".\"\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"}"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX4t4Upzp2jqabLOwpCwCvaMn0VS","object":"chat.completion.chunk","created":1703955979,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+        data: [DONE]
+
+  recorded_at: Sat, 30 Dec 2023 17:06:20 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo-1106","messages":[{"role":"system","content":"      ''You
+        are a traveling expert. You are here to help people plan their trips.''\n"},{"role":"user","content":"        Suggest
+        a time to stay at each place, in hours and what to do.\n        Answer in
+        JSON format {\"name\": <place_name>, \"time\": <time_to_spend_int>, \"description\":
+        <to_do>}.\n        Places: Hsinchu Zoo\n"}],"response_format":{"type":"json_object"},"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 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
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 30 Dec 2023 17:06:32 GMT
+      Content-Type:
+      - text/event-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - gpt-3.5-turbo-1106
+      Openai-Organization:
+      - user-kpetnx8v8jrgmaae7uva4y76
+      Openai-Processing-Ms:
+      - '130'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Limit-Tokens-Usage-Based:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '193'
+      X-Ratelimit-Remaining-Tokens:
+      - '39910'
+      X-Ratelimit-Remaining-Tokens-Usage-Based:
+      - '39910'
+      X-Ratelimit-Reset-Requests:
+      - 43m48.759s
+      X-Ratelimit-Reset-Tokens:
+      - 135ms
+      X-Ratelimit-Reset-Tokens-Usage-Based:
+      - 135ms
+      X-Request-Id:
+      - 5af8766e0ae4354fff444d73b4084fba
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ePWUIF0SdXfZVAoFkSYwommdH24rM7d7pr4ZgkUBBYA-1703955992-1-ARteUWYrHfZB0xTcvpusJTv+BdfBY4IqyiyvIc/U1W/sf3pBMylGaCberCaVXfe5OOa+7qtUGIITejvnTNZ2pD8=;
+        path=/; expires=Sat, 30-Dec-23 17:36:32 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=xk1EEDHQcU6nTX4R0b9QTmiUnceGmKk8bJX9jqQ84.U-1703955992805-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 83dbdfb8bb236a9c-TPE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"{\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"name"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"H"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"sin"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"chu"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Zoo"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\",\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"time"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":",\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"description"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"\":"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" \""},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"Explore"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" diverse"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" range"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" of"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" animal"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" species"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" at"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" H"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"sin"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"chu"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Zoo"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":","},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" including"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" rare"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" and"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" exotic"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" animals"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"."},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Don"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"'t"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" miss"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" opportunity"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" to"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" see"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" animal"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" shows"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" and"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" interact"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" with"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" friendly"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" zoo"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"keepers"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"."},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" Plan"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" for"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" about"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" "},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"3"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" hours"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" to"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" fully"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" enjoy"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" the"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" zoo"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" and"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" its"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":" activities"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":".\"\n"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{"content":"}"},"logprobs":null,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-8bX56bHdRI4L4Jlof6GmDwbGXCXsa","object":"chat.completion.chunk","created":1703955992,"model":"gpt-3.5-turbo-1106","system_fingerprint":"fp_772e8125bb","choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+        data: [DONE]
+
+  recorded_at: Sat, 30 Dec 2023 17:06:33 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092941Z
+      X-Amz-Content-Sha256:
+      - 9b0a7c46b4de3d6283fffac14ec0971f2f0ded3464d87a102c6f7c7feffec13a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=5ef07f6ccb96803bec3a42d039d618c7145ca97bb68871a173dc2d6d64a6cb11
+      Content-Length:
+      - '545'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 48cd1954-38eb-5937-ac5d-475f0e2d1276
+      Date:
+      - Sun, 31 Dec 2023 09:29:42 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"e7b7d162f0d2454d44b6db9d243417ce","MessageId":"e6b25a85-a3aa-4677-b091-83a1de2b7615"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:41 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092941Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=e7d948e4d382bf222860e47dc634abf71734fdebf8ea9ea89d025661886cb5d0
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - b8078f62-b30d-59ab-b7da-d16985cb10af
+      Date:
+      - Sun, 31 Dec 2023 09:29:42 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"ed960603-70a7-478b-97bc-8f3599c1ca6b"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:41 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092941Z
+      X-Amz-Content-Sha256:
+      - be3bc91b614836a46360f009f600ee4efc4ababac68e56d4f0dd7e9e11d87fee
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=3c7f38902c540ca1a6a3ed84c75e80cb51d0c8270d23c7df0969efc18672d6f2
+      Content-Length:
+      - '537'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - a60decc2-e8a8-5ee6-8b91-b2c9de6e6985
+      Date:
+      - Sun, 31 Dec 2023 09:29:42 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"416b2c06c5093d6b3cb0a1c81e098a2c","MessageId":"c73c75b1-22c3-4836-9d4a-4df90826b8bd"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:41 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"openNow\":false,\"periods\":[{\"open\":{\"day\":0,\"hour\":9,\"minute\":0},\"close\":{\"day\":0,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":2,\"hour\":9,\"minute\":0},\"close\":{\"day\":2,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":3,\"hour\":9,\"minute\":0},\"close\":{\"day\":3,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":4,\"hour\":9,\"minute\":0},\"close\":{\"day\":4,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":5,\"hour\":9,\"minute\":0},\"close\":{\"day\":5,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":6,\"hour\":9,\"minute\":0},\"close\":{\"day\":6,\"hour\":17,\"minute\":0}}],\"weekdayDescriptions\":[\"Monday:
+        Closed\",\"Tuesday: 9:00 AM – 5:00 PM\",\"Wednesday: 9:00 AM – 5:00 PM\",\"Thursday:
+        9:00 AM – 5:00 PM\",\"Friday: 9:00 AM – 5:00 PM\",\"Saturday: 9:00 AM – 5:00 PM\",\"Sunday:
+        9:00 AM – 5:00 PM\"]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092942Z
+      X-Amz-Content-Sha256:
+      - 2ac0ca1d598263fa31c3ebf0ca183b68b81358778c147ef24dc6e1bd8823898c
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=202f21ee7347ffef61196a04ad2c68eca82fa2b54aca0a432600e4560808a40d
+      Content-Length:
+      - '1471'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - acf58cbe-7d1c-54b3-b412-d2b54bdb5ff2
+      Date:
+      - Sun, 31 Dec 2023 09:29:43 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"68014cdbd67a07951db1bf2f11c301ac","MessageId":"ab4ea19e-b1a2-43b8-a052-1d4bd2a6454e"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:42 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092942Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=c0970758934f5d2f68c1333226977076b458030ee9aec5d333937419aca7d40f
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8ce52f5d-0ce2-5b08-8cad-71563a25a20c
+      Date:
+      - Sun, 31 Dec 2023 09:29:43 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"77611e28-bcb3-47a4-9d7c-f36d947a9e77"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:42 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092942Z
+      X-Amz-Content-Sha256:
+      - 187db659547ec6dcae582604a33230191228073958dca52bcdf46d9d6b8b1013
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=e4394db39044943c8279b08156da11515bba7470082dbcda8e07e77a526d89a6
+      Content-Length:
+      - '577'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - ab5227eb-a121-5149-909b-79e097e6e62a
+      Date:
+      - Sun, 31 Dec 2023 09:29:43 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"1432a22496b6e2617a1b8c58f154796d","MessageId":"8d85d091-cb6b-4a3a-8f6d-255d1b885846"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:42 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092943Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=9e97596ecd54834b48c7f10b60dfa25efbd79f430655e226ccc8156004c56c47
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c17d1acd-74db-58a1-88c4-44c64213c3e0
+      Date:
+      - Sun, 31 Dec 2023 09:29:44 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"4f0fb859-d236-4133-9312-4b258582d2b3"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:43 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092954Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=a883a76fe3cd558d6e9690280e863f86350d3b72ce5475046ba8d1791e36442c
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 93007f9b-be47-5e93-8b62-219088948f67
+      Date:
+      - Sun, 31 Dec 2023 09:29:55 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"98e96a9d-f689-4b7c-8cde-0c6316684229"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:54 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"openNow\":false,\"periods\":[{\"open\":{\"day\":0,\"hour\":9,\"minute\":0},\"close\":{\"day\":0,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":2,\"hour\":9,\"minute\":0},\"close\":{\"day\":2,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":3,\"hour\":9,\"minute\":0},\"close\":{\"day\":3,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":4,\"hour\":9,\"minute\":0},\"close\":{\"day\":4,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":5,\"hour\":9,\"minute\":0},\"close\":{\"day\":5,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":6,\"hour\":9,\"minute\":0},\"close\":{\"day\":6,\"hour\":17,\"minute\":0}}],\"weekdayDescriptions\":[\"Monday:
+        Closed\",\"Tuesday: 9:00 AM – 5:00 PM\",\"Wednesday: 9:00 AM – 5:00 PM\",\"Thursday:
+        9:00 AM – 5:00 PM\",\"Friday: 9:00 AM – 5:00 PM\",\"Saturday: 9:00 AM – 5:00 PM\",\"Sunday:
+        9:00 AM – 5:00 PM\"]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092954Z
+      X-Amz-Content-Sha256:
+      - 2ac0ca1d598263fa31c3ebf0ca183b68b81358778c147ef24dc6e1bd8823898c
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=c5cf03a0ba162abe9d4bc1096b1f24b1a70f6e2235f3ff6774f903cda3a6e835
+      Content-Length:
+      - '1471'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 01ab2bb8-d282-5e7a-afc0-75b3e45121a9
+      Date:
+      - Sun, 31 Dec 2023 09:29:55 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"68014cdbd67a07951db1bf2f11c301ac","MessageId":"82c74215-2d85-4b79-99fb-a842df894e1b"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:54 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092954Z
+      X-Amz-Content-Sha256:
+      - 187db659547ec6dcae582604a33230191228073958dca52bcdf46d9d6b8b1013
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=cfec6ca08117338f22f25c0efb3ba3ab3f9bccf225c6274cf4a7600c01a3314c
+      Content-Length:
+      - '577'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 1b7af1d7-6212-5ac4-9f24-afdc54c1cc70
+      Date:
+      - Sun, 31 Dec 2023 09:29:55 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"1432a22496b6e2617a1b8c58f154796d","MessageId":"2f99e82f-279b-4d13-ac3c-39d42ac92f78"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:54 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092955Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=1aeaafd494ca780c24c199331dc6ebff219290701c3d9c5e26c8da877f1791ee
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 0cdef1df-14e2-534f-a214-afd4223602bb
+      Date:
+      - Sun, 31 Dec 2023 09:29:56 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"dc5142f0-7d5e-4b57-bce1-472031447a25"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:55 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092955Z
+      X-Amz-Content-Sha256:
+      - 9b0a7c46b4de3d6283fffac14ec0971f2f0ded3464d87a102c6f7c7feffec13a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=776f94c7b6623b347b4a77510cb10a9bce098a19c4d64a274645309bc77808b7
+      Content-Length:
+      - '545'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 877873c5-2148-52a6-a439-2dce179c1412
+      Date:
+      - Sun, 31 Dec 2023 09:29:56 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"e7b7d162f0d2454d44b6db9d243417ce","MessageId":"eba26841-8a91-4e80-b0b9-520782c8cdbb"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:55 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092955Z
+      X-Amz-Content-Sha256:
+      - be3bc91b614836a46360f009f600ee4efc4ababac68e56d4f0dd7e9e11d87fee
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=40688a7ce4b0c5e38a7c5a76598b74ca98d250ab5e5972ce8c338eefe7fb61b3
+      Content-Length:
+      - '537'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 32581476-9abf-5514-ac9b-4a7dac6b1ac7
+      Date:
+      - Sun, 31 Dec 2023 09:29:56 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"416b2c06c5093d6b3cb0a1c81e098a2c","MessageId":"f4e061ca-d100-4c1a-8b1e-0bc5f8cf31ed"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:55 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T092956Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=823e806d1d2a37ead0c13360a778d079642a71c52a55ec2ca8827ec9080beb55
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c17813fb-eae7-5c20-8db9-4df0dc325dd4
+      Date:
+      - Sun, 31 Dec 2023 09:29:57 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"bb30d7d9-7ce0-4643-a0c4-d5e273e9db28"}'
+  recorded_at: Sun, 31 Dec 2023 09:29:56 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T093021Z
+      X-Amz-Content-Sha256:
+      - be3bc91b614836a46360f009f600ee4efc4ababac68e56d4f0dd7e9e11d87fee
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=db16b10f48712100d29085b24fdf0b86e73ec975602ed4fceeed588242fc60ec
+      Content-Length:
+      - '537'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8b5f7f91-9c75-5679-9eda-219aaa9a098e
+      Date:
+      - Sun, 31 Dec 2023 09:30:23 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"416b2c06c5093d6b3cb0a1c81e098a2c","MessageId":"07e0b3fc-591b-40e5-82a7-be8521a6f824"}'
+  recorded_at: Sun, 31 Dec 2023 09:30:21 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T093021Z
+      X-Amz-Content-Sha256:
+      - 9b0a7c46b4de3d6283fffac14ec0971f2f0ded3464d87a102c6f7c7feffec13a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=38812e1d1df4be06d4006d7138425946f0385fb12dffad289231d47e4930874c
+      Content-Length:
+      - '545'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - da515429-d40e-54d9-8729-0a22e2e1868f
+      Date:
+      - Sun, 31 Dec 2023 09:30:23 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"e7b7d162f0d2454d44b6db9d243417ce","MessageId":"5a8ef5a3-b499-4415-8c58-6cd4f3ecc715"}'
+  recorded_at: Sun, 31 Dec 2023 09:30:21 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T093021Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=ae951f638eabca4285a95b99fc6af2045d3580a42497480c79b761e2e5574a53
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 9fb3f9db-3af3-5435-986f-a7d00c1cb7a5
+      Date:
+      - Sun, 31 Dec 2023 09:30:23 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"2f9be4b9-9681-474e-8153-6dee4b59d1b6"}'
+  recorded_at: Sun, 31 Dec 2023 09:30:21 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T093023Z
+      X-Amz-Content-Sha256:
+      - 61be77ed0feef6cab6f867c63402dcf943e526e158702b95a032dbe618104535
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=6f2075be2b0e1bbdac8ae0a3da80598965572e4bccc484660ffa1a87c79feecf
+      Content-Length:
+      - '584'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 3bedb86d-2c86-5507-be6b-e6661a768af0
+      Date:
+      - Sun, 31 Dec 2023 09:30:24 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"cee830ac-88c5-429e-9659-0296924aba63"}'
+  recorded_at: Sun, 31 Dec 2023 09:30:23 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"openNow\":false,\"periods\":[{\"open\":{\"day\":0,\"hour\":9,\"minute\":0},\"close\":{\"day\":0,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":2,\"hour\":9,\"minute\":0},\"close\":{\"day\":2,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":3,\"hour\":9,\"minute\":0},\"close\":{\"day\":3,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":4,\"hour\":9,\"minute\":0},\"close\":{\"day\":4,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":5,\"hour\":9,\"minute\":0},\"close\":{\"day\":5,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":6,\"hour\":9,\"minute\":0},\"close\":{\"day\":6,\"hour\":17,\"minute\":0}}],\"weekdayDescriptions\":[\"Monday:
+        Closed\",\"Tuesday: 9:00 AM – 5:00 PM\",\"Wednesday: 9:00 AM – 5:00 PM\",\"Thursday:
+        9:00 AM – 5:00 PM\",\"Friday: 9:00 AM – 5:00 PM\",\"Saturday: 9:00 AM – 5:00 PM\",\"Sunday:
+        9:00 AM – 5:00 PM\"]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T093023Z
+      X-Amz-Content-Sha256:
+      - 2ac0ca1d598263fa31c3ebf0ca183b68b81358778c147ef24dc6e1bd8823898c
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=3c2cbf81837657c288791e5cb4e9cd94f1410a0fb8614853975fcb8f447ae276
+      Content-Length:
+      - '1471'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - '021619b5-ece4-5afb-a698-47beda15b96b'
+      Date:
+      - Sun, 31 Dec 2023 09:30:25 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"68014cdbd67a07951db1bf2f11c301ac","MessageId":"3c4e8f9b-b60f-4cfb-b307-6f5406961cb4"}'
+  recorded_at: Sun, 31 Dec 2023 09:30:23 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-addattraction-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T093023Z
+      X-Amz-Content-Sha256:
+      - 187db659547ec6dcae582604a33230191228073958dca52bcdf46d9d6b8b1013
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=21cceac5e7167fa30aad7931e4988c0399b3bfac99f2e2053871388b65cad4ab
+      Content-Length:
+      - '577'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 6f32d31f-ab7a-59d9-b28f-8d149d8b762e
+      Date:
+      - Sun, 31 Dec 2023 09:30:25 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"1432a22496b6e2617a1b8c58f154796d","MessageId":"c4f07ca6-7da5-44d6-bd98-48876eb55ce2"}'
+  recorded_at: Sun, 31 Dec 2023 09:30:23 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094314Z
+      X-Amz-Content-Sha256:
+      - 1f522ec82c27dd722f8e2b4d4e6cb753069f5ba17afdae4da07219c66c01fe0e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=03d6c94551d81ac9f00974c7a046a948025829611fd2ee1dc569b74ab5f7cf3b
+      Content-Length:
+      - '579'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 4a4a7370-fc36-5499-ac07-2d7bc5c59b2a
+      Date:
+      - Sun, 31 Dec 2023 09:43:15 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"47572a48-a8d9-4090-9a13-6f53e28f52bf"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:14 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094314Z
+      X-Amz-Content-Sha256:
+      - 0e84e8e2858c4140fda4459e4563a294d1185f03f79237e3e1922880bc147ab1
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=97550bc630689be067134e112085c53ef043fa7340cdd18a139af013783aba79
+      Content-Length:
+      - '540'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - d6d4ed23-89c4-5a20-84f3-b328b03700f5
+      Date:
+      - Sun, 31 Dec 2023 09:43:15 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"e7b7d162f0d2454d44b6db9d243417ce","MessageId":"8d04ddb7-cded-4a1d-b580-85e368be8817"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:14 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094314Z
+      X-Amz-Content-Sha256:
+      - c257682857cecc84c3974c7a83b264f714f742598dec89264e89fc1186784c3b
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=3b6900989ba7e0df7530c8e72fbfd373633260e8df61036a9f1c592b70edd988
+      Content-Length:
+      - '532'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - ab61a17b-e822-5d66-a8cf-ff70d1d149f2
+      Date:
+      - Sun, 31 Dec 2023 09:43:15 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"416b2c06c5093d6b3cb0a1c81e098a2c","MessageId":"ce3c9e14-7676-47df-9216-7ed9ce86715d"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:14 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094315Z
+      X-Amz-Content-Sha256:
+      - 1f522ec82c27dd722f8e2b4d4e6cb753069f5ba17afdae4da07219c66c01fe0e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=3fbaa194472fc48879dd181199e7266ea32715698c36895ed9190ed5eba2e091
+      Content-Length:
+      - '579'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8f56145d-8f60-52f2-b752-4a56b695ed41
+      Date:
+      - Sun, 31 Dec 2023 09:43:17 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"7736e9a6-59e2-4ff3-bac9-356c27cb79c9"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:15 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"openNow\":false,\"periods\":[{\"open\":{\"day\":0,\"hour\":9,\"minute\":0},\"close\":{\"day\":0,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":2,\"hour\":9,\"minute\":0},\"close\":{\"day\":2,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":3,\"hour\":9,\"minute\":0},\"close\":{\"day\":3,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":4,\"hour\":9,\"minute\":0},\"close\":{\"day\":4,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":5,\"hour\":9,\"minute\":0},\"close\":{\"day\":5,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":6,\"hour\":9,\"minute\":0},\"close\":{\"day\":6,\"hour\":17,\"minute\":0}}],\"weekdayDescriptions\":[\"Monday:
+        Closed\",\"Tuesday: 9:00 AM – 5:00 PM\",\"Wednesday: 9:00 AM – 5:00 PM\",\"Thursday:
+        9:00 AM – 5:00 PM\",\"Friday: 9:00 AM – 5:00 PM\",\"Saturday: 9:00 AM – 5:00 PM\",\"Sunday:
+        9:00 AM – 5:00 PM\"]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094315Z
+      X-Amz-Content-Sha256:
+      - 6c9702547c7e7e185a9714f98e0277b5a108786cdeb0f581ad6f94f0966e62c1
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=f65913bb44f22660d66b7fae6ceebb67f45a81cd8f6fb550e24ca9c055731a94
+      Content-Length:
+      - '1466'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 5cd4c546-833c-5455-9616-9b4dbac9ae80
+      Date:
+      - Sun, 31 Dec 2023 09:43:17 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"68014cdbd67a07951db1bf2f11c301ac","MessageId":"b54308b6-20fe-44e8-8585-1b9926664410"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:15 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094315Z
+      X-Amz-Content-Sha256:
+      - ea00ebcaa3cc825ba36a734bfba0bfadd654115af5c2246deab58a721463155c
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=f61ed62e4c54ee8f34fbd2c668ab1c9355b30ce7dc5cb49086a50e9197e4b6a6
+      Content-Length:
+      - '572'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8649c9d1-ed47-57b5-b06b-97dad4b2d321
+      Date:
+      - Sun, 31 Dec 2023 09:43:17 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"1432a22496b6e2617a1b8c58f154796d","MessageId":"0384baca-5659-4ee6-801b-6420d9536933"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:15 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T094318Z
+      X-Amz-Content-Sha256:
+      - 1f522ec82c27dd722f8e2b4d4e6cb753069f5ba17afdae4da07219c66c01fe0e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=91713723e2f2873b16f2920d6c767474a422526cb15117b293bb78c34c5082b1
+      Content-Length:
+      - '579'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - d4780fa4-67aa-50ae-a9d4-51af5e5d3f1d
+      Date:
+      - Sun, 31 Dec 2023 09:43:19 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"c23fae42-89d3-4b7d-bd9d-a36bbb513c8b"}'
+  recorded_at: Sun, 31 Dec 2023 09:43:18 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095246Z
+      X-Amz-Content-Sha256:
+      - 1f522ec82c27dd722f8e2b4d4e6cb753069f5ba17afdae4da07219c66c01fe0e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=ec9816b4b6b4e620cc5273d6db97b036782c46646c5e1cfc0d167d56806ab00a
+      Content-Length:
+      - '579'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - f323225e-5a7a-5316-b378-7c55664a9cc3
+      Date:
+      - Sun, 31 Dec 2023 09:52:48 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"d6383fbe-e82a-4616-899c-7eadeaeb992d"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:47 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095250Z
+      X-Amz-Content-Sha256:
+      - ea00ebcaa3cc825ba36a734bfba0bfadd654115af5c2246deab58a721463155c
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=97d2c30145f83a1a0e2f1cf2cc24bfd631d3324c42895096e55c1ae3fe23872c
+      Content-Length:
+      - '572'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c998816b-d1bb-5a66-af81-df60ed8fc5b3
+      Date:
+      - Sun, 31 Dec 2023 09:52:52 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"1432a22496b6e2617a1b8c58f154796d","MessageId":"718185d2-602b-4bc1-b71e-be49f0ffeda1"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:51 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"openNow\":false,\"periods\":[{\"open\":{\"day\":0,\"hour\":9,\"minute\":0},\"close\":{\"day\":0,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":2,\"hour\":9,\"minute\":0},\"close\":{\"day\":2,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":3,\"hour\":9,\"minute\":0},\"close\":{\"day\":3,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":4,\"hour\":9,\"minute\":0},\"close\":{\"day\":4,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":5,\"hour\":9,\"minute\":0},\"close\":{\"day\":5,\"hour\":17,\"minute\":0}},{\"open\":{\"day\":6,\"hour\":9,\"minute\":0},\"close\":{\"day\":6,\"hour\":17,\"minute\":0}}],\"weekdayDescriptions\":[\"Monday:
+        Closed\",\"Tuesday: 9:00 AM – 5:00 PM\",\"Wednesday: 9:00 AM – 5:00 PM\",\"Thursday:
+        9:00 AM – 5:00 PM\",\"Friday: 9:00 AM – 5:00 PM\",\"Saturday: 9:00 AM – 5:00 PM\",\"Sunday:
+        9:00 AM – 5:00 PM\"]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095251Z
+      X-Amz-Content-Sha256:
+      - 6c9702547c7e7e185a9714f98e0277b5a108786cdeb0f581ad6f94f0966e62c1
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=1af72ed0bd0942058f79e05d45b9988653120258244f5cb1a549dc90a9ea25c0
+      Content-Length:
+      - '1466'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - f44024c5-e04b-5370-8dd6-7acedc7f5ca5
+      Date:
+      - Sun, 31 Dec 2023 09:52:52 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"68014cdbd67a07951db1bf2f11c301ac","MessageId":"792b0383-04bc-4dd0-9f18-549d66f28a9e"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:51 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095250Z
+      X-Amz-Content-Sha256:
+      - 1f522ec82c27dd722f8e2b4d4e6cb753069f5ba17afdae4da07219c66c01fe0e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=928f31263fa48c2af712bb163d5c7fd4dfca65d5c12df8a344f401d1530d66b1
+      Content-Length:
+      - '579'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - fe5f42c6-a7f3-5d80-9cf9-1ccd9bc7e62f
+      Date:
+      - Sun, 31 Dec 2023 09:52:52 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"c08c249c-aac8-4c8a-93ab-d6eec883b339"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:51 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095252Z
+      X-Amz-Content-Sha256:
+      - 1f522ec82c27dd722f8e2b4d4e6cb753069f5ba17afdae4da07219c66c01fe0e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=85635c775fd0a14247c9ae7a6f84ba13b552be74b745d72901393806b521dcb2
+      Content-Length:
+      - '579'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 53794494-adf3-5f5c-be4d-1a9f91c6e089
+      Date:
+      - Sun, 31 Dec 2023 09:52:53 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"5d4a05307ab7363054bc4f2c13b4b43a","MessageId":"3549f97a-280d-46a8-801e-4be46b0d7aa9"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:52 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095252Z
+      X-Amz-Content-Sha256:
+      - c257682857cecc84c3974c7a83b264f714f742598dec89264e89fc1186784c3b
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=ef37ef435706687b359d45276893ba0b4d95cfa5d48037ef14ae3ba87756723b
+      Content-Length:
+      - '532'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 4cd3a1dc-f87b-58d4-a766-ffd7c44e437b
+      Date:
+      - Sun, 31 Dec 2023 09:52:53 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"416b2c06c5093d6b3cb0a1c81e098a2c","MessageId":"9ccad160-ae68-4728-8168-9ba225090a17"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:52 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20231231T095252Z
+      X-Amz-Content-Sha256:
+      - 0e84e8e2858c4140fda4459e4563a294d1185f03f79237e3e1922880bc147ab1
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20231231/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=2a400675ee99715ba2320a29016b9115fe7abcecd591be1111acb377fc625e55
+      Content-Length:
+      - '540'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - a7563b27-15e9-5f87-88a4-652c29df7957
+      Date:
+      - Sun, 31 Dec 2023 09:52:54 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"e7b7d162f0d2454d44b6db9d243417ce","MessageId":"ab042f72-f6db-4718-993c-72b0a3f4f5c5"}'
+  recorded_at: Sun, 31 Dec 2023 09:52:52 GMT
 recorded_with: VCR 6.2.0

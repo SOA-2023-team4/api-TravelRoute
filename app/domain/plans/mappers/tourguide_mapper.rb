@@ -23,7 +23,7 @@ module TravelRoute
       private
 
       def recommend_attraction(attraction, exclude = nil)
-        prompt = Value::OpenAiPrompt.reccommendation_prompt([attraction], 3, exclude)
+        prompt = attraction.reccommendation_prompt(3, exclude)
         data = @gateway.get_recommendation(prompt) { |block| yield block if block_given? }
         AttractionWebDataMapper.new(attraction, data, @gmap_token).build_entity
       end
@@ -47,14 +47,12 @@ module TravelRoute
           places.map do |place|
             Concurrent::Promise.execute do
               attraction = AttractionMapper.new(@gmap_token).find(place[:name]).first
-              attraction.description = place[:description]
-              attraction
+              Entity::Attraction.new(**attraction.to_attr_hash.merge(description: place[:description]))
             end
           end.map(&:value)
         end
 
         def places
-          # JSON.parse(@data['choices'][0]['message']['content'])['places']
           JSON.parse(@data, symbolize_names: true)[:places]
         end
       end

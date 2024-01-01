@@ -48,7 +48,7 @@ describe 'Acceptance testing' do
     it 'HAPPY: should be able to get attraction by place_id' do
       place_id = 'ChIJB7ZNzXI2aDQREwR22ltdKxE'
       get "/api/v1/attractions/#{place_id}"
-      _(last_response.status).must_equal 200
+      _(last_response.status).must_equal 202
 
       body = JSON.parse(last_response.body)
       expected = PLACE_DETAIL_RESULT['nthu']
