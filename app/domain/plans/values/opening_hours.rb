@@ -3,6 +3,7 @@
 require 'dry-types'
 require 'dry-struct'
 
+require_relative 'time'
 require_relative 'opening_hour'
 
 module TravelRoute
