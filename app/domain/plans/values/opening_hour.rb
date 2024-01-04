@@ -10,10 +10,10 @@ module TravelRoute
       include Dry.Types
       attribute :day_start, Time
       attribute :day_end, Time
-    end
 
-    def to_attr_hash
-      { day_start: day_start.to_attr_hash, day_end: day_end.to_attr_hash }
+      def to_attr_hash
+        { day_start: day_start.to_attr_hash, day_end: day_end.to_attr_hash }
+      end
     end
   end
 end

@@ -12,7 +12,7 @@ module TravelRoute
       def call(input)
         attractions = input[:place_ids].map do |place_id|
           AddAttraction.new.call(place_id:).value!.message
-        end.map(&:value)
+        end
 
         Success(attractions)
       rescue StandardError

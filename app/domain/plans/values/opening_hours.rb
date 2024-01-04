@@ -12,6 +12,7 @@ module TravelRoute
     class OpeningHours < Dry::Struct
       include Dry.Types
 
+      # Needs to check if there are 7 days of opening hours
       attribute :opening_hours, Strict::Array.of(OpeningHour)
 
       def on(day)
@@ -21,9 +22,12 @@ module TravelRoute
       end
 
       def to_attr_hash
-        (0..6).to_a.to_h do |i|
-          [i, { day_start: opening_hours[i].day_start.to_attr_hash, day_end: opening_hours[i].day_end.to_attr_hash }]
-        end
+        # (0..6).to_a.to_h do |i|
+        #   [i, { day_start: opening_hours[i].day_start.to_attr_hash, day_end: opening_hours[i].day_end.to_attr_hash }]
+        # end
+        opening_hours
+          .map.with_index { |h, i| [i, { day_start: h.day_start.to_attr_hash, day_end: h.day_end.to_attr_hash }] }
+          .to_h
       end
     end
   end

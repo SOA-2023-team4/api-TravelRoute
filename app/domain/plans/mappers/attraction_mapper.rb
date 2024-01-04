@@ -101,12 +101,13 @@ module TravelRoute
             )
           )
           return default_hours unless @data
+
           @data['periods'].map do |entry|
             Value::OpeningHour.new(
               day_start: Value::Time.new(hour: entry['open']['hour'], minute: entry['open']['minute']),
               day_end: Value::Time.new(hour: entry['close']['hour'], minute: entry['close']['minute'])
             )
-          end
+          end.then { |list| Value::OpeningHours.new(opening_hours: list) }
         end
       end
     end

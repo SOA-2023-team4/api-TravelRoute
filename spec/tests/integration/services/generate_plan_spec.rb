@@ -41,8 +41,8 @@ describe 'Service integration testing' do
       result.value!.message.attractions.each_with_index do |attraction, index|
         _(attraction.place_id).must_equal correct_order[index].place_id
         _(attraction.name).must_equal correct_order[index].name
-        _(attraction.longitude).must_equal correct_order[index].longitude
-        _(attraction.latitude).must_equal correct_order[index].latitude
+        _(attraction.location.longitude).must_equal correct_order[index].location.longitude
+        _(attraction.location.latitude).must_equal correct_order[index].location.latitude
         _(attraction.type).must_equal correct_order[index].type
       end
     end
