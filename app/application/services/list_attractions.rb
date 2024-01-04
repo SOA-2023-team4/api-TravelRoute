@@ -11,7 +11,7 @@ module TravelRoute
       # Expects input[:place_ids]
       def call(input)
         attractions = input[:place_ids].map do |place_id|
-          Concurrent::Promise.execute { AddAttraction.new.call(place_id:).value!.message }
+          AddAttraction.new.call(place_id:).value!.message
         end.map(&:value)
 
         Success(attractions)

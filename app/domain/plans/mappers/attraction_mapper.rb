@@ -72,7 +72,7 @@ module TravelRoute
         end
 
         def opening_hours
-          JSON.parse(JSON[@data['regularOpeningHours']], symbolize_names: true)
+          OpeningHoursDataMapper.new(@data['regularOpeningHours']).build_entity
         end
 
         def type
@@ -80,7 +80,33 @@ module TravelRoute
         end
 
         def location
-          JSON.parse(JSON[@data['location']], symbolize_names: true)
+          @data['location'].transform_keys(&:to_sym)
+        end
+      end
+
+      # class for mapping opening hours
+      class OpeningHoursDataMapper
+        def initialize(data)
+          @data = data
+        end
+
+        def build_entity
+          default_hours = Value::OpeningHours.new(
+            opening_hours: Array.new(
+              7,
+              Value::OpeningHour.new(
+                day_start: Value::Time.new(hour: 0, minute: 0),
+                day_end: Value::Time.new(hour: 23, minute: 59)
+              )
+            )
+          )
+          return default_hours unless @data
+          @data['periods'].map do |entry|
+            Value::OpeningHour.new(
+              day_start: Value::Time.new(hour: entry['open']['hour'], minute: entry['open']['minute']),
+              day_end: Value::Time.new(hour: entry['close']['hour'], minute: entry['close']['minute'])
+            )
+          end
         end
       end
     end

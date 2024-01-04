@@ -31,7 +31,7 @@ module TravelRoute
 
       def search_attractions(input)
         input[:attractions] = input[:ids].map do |id|
-          Concurrent::Promise.execute { AddAttraction.new.call(place_id: id).value!.message }
+          AddAttraction.new.call(place_id: id).value!.message
         end.map(&:value)
         Success(input)
       rescue StandardError
