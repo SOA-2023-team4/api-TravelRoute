@@ -12,5 +12,9 @@ module TravelRoute
       attribute :latitude, Coercible::Float
       attribute :longitude, Coercible::Float
     end
+
+    def to_attr_hash
+      { latitude:, longitude: }
+    end
   end
 end

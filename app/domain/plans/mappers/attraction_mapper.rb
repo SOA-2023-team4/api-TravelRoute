@@ -82,27 +82,30 @@ module TravelRoute
         def location
           @data['location'].transform_keys(&:to_sym)
         end
+      end
 
-        # class for mapping opening hours
-        class OpeningHoursDataMapper
-          def initialize(data)
-            @data = data
-          end
+      # class for mapping opening hours
+      class OpeningHoursDataMapper
+        def initialize(data)
+          @data = data
+        end
 
-          def build_entity
-            default_opening_hours = Value::OpeningHours.new(
-              opening_hours: Array.new(7) { 
-                Value::OpeningHour.new(start: Value::Time.new(hour: 0, minute: 0), end: Value::Time.new(hour: 23, minute: 59)) 
-              }
-            )
-            return default_opening_hours unless @data
-
-            @data['periods'].map do |entry|
-              Entity::OpeningHour.new(
-                start: Value::Time.new(hour: entry['open']['hour'], minute: entry['open']['minute']),
-                end: Value::Time.new(hour: entry['close']['hour'], minute: entry['close']['minute'])
+        def build_entity
+          default_hours = Value::OpeningHours.new(
+            opening_hours: Array.new(
+              7,
+              Value::OpeningHour.new(
+                day_start: Value::Time.new(hour: 0, minute: 0),
+                day_end: Value::Time.new(hour: 23, minute: 59)
               )
-            end
+            )
+          )
+          return default_hours unless @data
+          @data['periods'].map do |entry|
+            Value::OpeningHour.new(
+              day_start: Value::Time.new(hour: entry['open']['hour'], minute: entry['open']['minute']),
+              day_end: Value::Time.new(hour: entry['close']['hour'], minute: entry['close']['minute'])
+            )
           end
         end
       end

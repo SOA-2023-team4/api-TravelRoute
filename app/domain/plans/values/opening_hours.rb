@@ -17,12 +17,12 @@ module TravelRoute
       def on(day)
         raise ArgumentError, "Day #{day} is out of range" if day >= opening_hours.size || day.negative?
 
-        @opening_hours[day]
+        opening_hours[day]
       end
 
       def to_attr_hash
-        @opening_hours.map.with_index do |opening_hour, day|
-          { day:, start: opening_hour.start.to_attr_hash, end: opening_hour.end.to_attr_hash }
+        (0..6).to_a.to_h do |i|
+          [i, { day_start: opening_hours[i].day_start.to_attr_hash, day_end: opening_hours[i].day_end.to_attr_hash }]
         end
       end
     end

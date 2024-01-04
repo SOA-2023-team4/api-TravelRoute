@@ -13,15 +13,15 @@ module TravelRoute
       attribute :minute, Strict::Integer
 
       def to_minutes
-        (@hour * 60) + @minute
+        (hour * 60) + minute
       end
 
       def to_s
-        "#{@hour}:#{@minute}"
+        "#{hour}:#{minute}"
       end
 
       def to_attr_hash
-        { hour: @hour, minute: @minute }
+        { hour:, minute: }
       end
 
       def -(other)
@@ -39,7 +39,7 @@ module TravelRoute
       end
 
       def ==(other)
-        @hour == other.hour && @minute == other.minute
+        hour == other.hour && minute == other.minute
       end
     end
   end
