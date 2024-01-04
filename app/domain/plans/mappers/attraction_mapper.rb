@@ -72,7 +72,6 @@ module TravelRoute
         end
 
         def opening_hours
-          @data['regularOpeningHours']
           OpeningHoursDataMapper.new(@data['regularOpeningHours']).build_entity
         end
 

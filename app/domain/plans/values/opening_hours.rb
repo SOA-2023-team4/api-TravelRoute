@@ -19,6 +19,12 @@ module TravelRoute
 
         @opening_hours[day]
       end
+
+      def to_attr_hash
+        @opening_hours.map.with_index do |opening_hour, day|
+          { day:, start: opening_hour.start.to_attr_hash, end: opening_hour.end.to_attr_hash }
+        end
+      end
     end
   end
 end

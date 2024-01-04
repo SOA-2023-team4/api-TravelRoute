@@ -19,18 +19,19 @@ module TravelRoute
       attribute? :description,    Strict::String.optional
       attribute? :type,           Strict::String.optional
       attribute? :stay_time,      Strict::Integer.optional
-      attribute? :opening_hours,  Hash.optional # Value::OpeningHours.optional
+      attribute? :opening_hours,  Value::OpeningHours.optional
       attribute :rating,          Coercible::Float.optional
       attribute :location,        Value::Location
 
       def to_attr_hash # rubocop:disable Metrics/MethodLength
+        binding.irb
         {
           place_id:,
           name:,
           description:,
           address:,
           type:,
-          opening_hours:,
+          opening_hours: opening_hours.to_attr_hash,
           stay_time:,
           rating:,
           location:

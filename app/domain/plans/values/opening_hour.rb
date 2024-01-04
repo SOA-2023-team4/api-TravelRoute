@@ -11,5 +11,9 @@ module TravelRoute
       attribute :start, Time
       attribute :end, Time
     end
+
+    def to_attr_hash
+      { start: @start.to_attr_hash, end: @end.to_attr_hash }
+    end
   end
 end

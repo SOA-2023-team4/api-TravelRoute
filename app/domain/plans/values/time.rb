@@ -20,6 +20,10 @@ module TravelRoute
         "#{@hour}:#{@minute}"
       end
 
+      def to_attr_hash
+        { hour: @hour, minute: @minute }
+      end
+
       def -(other)
         minutes = to_minutes - other.to_minutes
         Time.new(minutes / 60, minutes % 60)
