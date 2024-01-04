@@ -40,8 +40,7 @@ module TravelRoute
 
       def request_recommendation_worker(input)
         request = RecommendationRequestHelper.new(input)
-        reccommendation = request.result
-        return Success(Response::ApiResult.new(status: :ok, message: reccommendation)) if reccommendation
+        return Success(Response::ApiResult.new(status: :ok, message: request.result)) if request.found?
 
         request.send_to_queue
         Failure(Response::ApiResult.new(
@@ -68,6 +67,11 @@ module TravelRoute
 
         def request_id
           attractions.map(&:place_id).sort.join
+        end
+
+        def found?
+          reccommended = Cache::Client.new(App.config).get(request_id)
+          reccommended && !reccommended.empty?
         end
 
         def result
