@@ -4,41 +4,58 @@ module TravelRoute
   module Entity
     # dedicated to make plans using the information provided by the guidebook
     class Plan
-      def initialize(guidebook, origin)
-        @guidebook = guidebook
-        @origin = origin
+      # day_durations: list of 2-value_list, each value_list is a tuple of start and end time
+      def initialize(distance_calculator, day_durations, date_start, date_end)
+        @distance_calculator = distance_calculator
+        @day_durations = day_durations
+        @date_start = Value::Date.new(date_start)
+        @date_end = Value::Date.new(date_end)
+
+        raise Exception('days of duration and dates must match') if (@date_end - @date_start) + 1 != day_durations.size
+
+        @day_plans = day_durations
+          .map.with_index { |dur, d| Entity::DayPlan.new(dur[0], dur[1], d, self) }
+        @days = @day_durations.size
       end
 
-      def attractions
-        @attractions ||= VisitOrder.new(@guidebook).visited_from(@origin)
+      def opening_hours(attraction)
+        start_index = @date_start.day_of_week_index
+        opening_hours = []
+        range(start_index, start_index + @days).each do |i|
+          opening_hour = attraction.week_opening_hour_on(i % WeekOpeningHours.DAYS_IN_WEEK)
+          opening_hours.append([opening_hour.start, opening_hour.end])
+        end
+        OpeningHours(opening_hours)
       end
 
-      def routes
-        @routes ||= @guidebook.routes_in_order(attractions)
+      def get(day)
+        raise Exception('Day out of range') if day >= @days
+
+        @day_plans[day]
       end
 
-      # sort the visit order by the nearest neighbor algorithm
-      class VisitOrder
-        def initialize(guidebook)
-          @guidebook = guidebook
-          @visited_order = []
-          @unvisited = @guidebook.attractions
-        end
+      def can_fit_in(day, attraction)
+        raise Exception('Day out of range') if day >= @days
 
-        def visited_from(origin)
-          @visited_order.append(origin)
-          @unvisited.delete(origin)
-          next_candidate(@visited_order.last, @unvisited) while @unvisited.count.positive?
-          @visited_order
-        end
+        @day_plans[day].can_append_attraction(attraction)
+      end
 
-        private
+      def can_append_attraction(day, attraction)
+        raise Exception('Day out of range') if day >= @days
 
-        def next_candidate(origin, attractions)
-          next_attraction = @guidebook.nearest(origin, attractions)
-          @visited_order.append(next_attraction)
-          @unvisited.delete(next_attraction)
-        end
+        @day_plans[day].can_append_attraction(attraction)
+      end
+
+      def append_attraction(day, attraction)
+        raise Exception('Day out of range') if day >= @days
+
+        @day_plans[day].append_attraction(attraction)
+      end
+
+      def pop_attraction(day)
+        raise Exception('Day out of range') if day >= @days
+
+        @day_plans[day].pop_attraction
       end
     end
   end

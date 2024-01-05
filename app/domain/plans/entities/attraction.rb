@@ -18,7 +18,7 @@ module TravelRoute
       attribute :address,         Strict::String
       attribute? :description,    Strict::String.optional
       attribute? :type,           Strict::String.optional
-      attribute? :stay_time,      Strict::Integer.optional
+      attribute  :stay_time,      Value::Time
       attribute :opening_hours,   Value::OpeningHours
       attribute :rating,          Coercible::Float.optional
       attribute :location,        Value::Location
