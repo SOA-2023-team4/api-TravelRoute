@@ -37,6 +37,10 @@ module TravelRoute
         }
       end
 
+      def week_opening_hour_on(day)
+        opening_hours.on(day)
+      end
+
       def country
         Value::Address.new(address).country
       end

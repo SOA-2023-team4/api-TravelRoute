@@ -8,6 +8,7 @@ module TravelRoute
     # class for time in a current day or duration
     class Time < Dry::Struct
       include Dry.Types
+      include Comparable
 
       attribute :hour, Strict::Integer
       attribute :minute, Strict::Integer
@@ -26,16 +27,16 @@ module TravelRoute
 
       def -(other)
         minutes = to_minutes - other.to_minutes
-        Time.new(minutes / 60, minutes % 60)
+        Time.new(hour: minutes / 60, minute: minutes % 60)
       end
 
       def +(other)
         minutes = to_minutes + other.to_minutes
-        Time.new(minutes / 60, minutes % 60)
+        Time.new(hour: minutes / 60, minute: minutes % 60)
       end
 
-      def >(other)
-        to_minutes > other.to_minutes
+      def <=>(other)
+        to_minutes <=> other.to_minutes
       end
 
       def ==(other)

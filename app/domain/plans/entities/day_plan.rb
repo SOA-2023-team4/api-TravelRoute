@@ -4,6 +4,8 @@ module TravelRoute
   module Entity
     # child of Plan object
     class DayPlan
+      attr_reader :visit_durations, :day_start, :day_end
+
       def initialize(day_start, day_end, day, parent_plan)
         @day_start = day_start
         @day_end = day_end
@@ -18,8 +20,8 @@ module TravelRoute
       end
 
       def _start_time(attraction)
-        day_start = @visit_durations.empty? ? @start : @visit_durations[-1].end
-        max(day_start, _opening_hours(attraction).on(@day).start)
+        day_start = @visit_durations.empty? ? @day_start : @visit_durations[-1].end
+        [day_start, _opening_hours(attraction).on(@day).day_start].max
       end
 
       def can_append_attraction(attraction)
@@ -28,14 +30,14 @@ module TravelRoute
           start_time += @distance_calculator.calculate(@visit_durations[-1].attraction, attraction)
         end
         # day related constraints
-        pass_bed_time = start_time + attraction.stay_time > @end
+        pass_bed_time = start_time + attraction.stay_time > @day_end
 
         # attraction related constraints
-        not_enough_time = start_time + attraction.stay_time > _opening_hours(attraction).on(@day).end
+        not_enough_time = start_time + attraction.stay_time > _opening_hours(attraction).on(@day).day_end
 
-        return False if pass_bed_time || not_enough_time
+        return false if pass_bed_time || not_enough_time
 
-        True
+        true
       end
 
       def append_attraction(attraction)
@@ -43,12 +45,16 @@ module TravelRoute
         unless @visit_durations.empty?
           start_time += @distance_calculator.calculate(@visit_durations[-1].attraction, attraction)
         end
-        visit_duration = VisitDuration(start_time, attraction)
+        visit_duration = VisitDuration.new(start_time, attraction)
         @visit_durations.append(visit_duration)
       end
 
       def pop_attraction
         @visit_durations.pop
+      end
+
+      def to_list
+        @visit_durations.map { |vd| [vd.attraction.place_id, vd.start, vd.end] }
       end
     end
   end

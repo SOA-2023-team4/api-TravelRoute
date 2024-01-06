@@ -14,15 +14,7 @@ module TravelRoute
       # Needs to check if there are 7 days of opening hours
       attribute :opening_hours, Strict::Array.of(OpeningHour)
 
-      NotOpen = OpeningHour.new(day_start: Time.new(25, 0), day_end: Time.new(-1, 0))
-
-      # [[Time(8, 0), Time(16, 0)], [Time(8, 0), Time(16, 0)]...]
-      def self.list_to_opening_hours(list)
-        OpeningHours.new(opening_hours:
-          list.map do |day|
-            OpeningHour.new(day_start: day[0], day_end: day[1])
-          end)
-      end
+      DAYS_IN_WEEK = 7
 
       def on(day)
         raise ArgumentError, "Day #{day} is out of range" if day >= opening_hours.size || day.negative?

@@ -2,58 +2,311 @@
 
 require_relative '../../helpers/spec_helper'
 
-# describe 'Unit test for planning' do
-#   it 'verify 2-day plan with constraints' do
-        # a0 = TravelRoute::Entity::Attraction.new(
-    #   place_id: 'p0',
-    #   name: 'p0',
-    #   stay_time: Time.new(4, 0),
-    #   # opening_hours: TravelRoute::Value::OpeningHours.new(
-    #   #   opening_hours: [
-    #   #     TravelRoute::Value::OpeningHour.new(day_start: Time.new(10, 0), day_end: Time.new(14, 0))
-    #   #   ]),
-    #   location: TravelRoute::Value::Location.new(lat: 0, lng: 0))
-    # binding.irb
+describe 'Unit test for planning' do
+  it 'verify 1-day plan with constraints' do
+    a0 = TravelRoute::Entity::Attraction.new(
+      place_id: '0',
+      name: 'p0',
+      address: 'addr0',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 3, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 11, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+    a1 = TravelRoute::Entity::Attraction.new(
+      place_id: '1',
+      name: 'p1',
+      address: 'addr1',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 2, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 11, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 13, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+    a2 = TravelRoute::Entity::Attraction.new(
+      place_id: '2',
+      name: 'p2',
+      address: 'addr2',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 2, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 14, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+    attractions = [a0, a1, a2]
+    a_count = attractions.size
+    distance_calculator = TravelRoute::Entity::DistanceCalculator.new(attractions, Array.new(a_count, Array.new(a_count, TravelRoute::Value::Time.new(hour: 0, minute: 0))))
+    day_durations = [[TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]]
+    generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
+      .generate_plans(attractions, day_durations, '2023/12/24', '2023/12/24')
 
-    # a1 = TravelRoute::Value::Attraction.new(
-    #   place_id: 'p1',
-    #   name: 'p1',
-    #   stay_time: Time.new(3, 0),
-    #   opening_hours: TravelRoute::Value::OpeningHours.new(
-    #     opening_hours: [
-    #       TravelRoute::Value::OpeningHour.new(day_start: Time.new(13, 0), day_end: Time.new(16, 0)),
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen
-    #     ]),
-    #   location: TravelRoute::Value::Location.new(lat: 0, lng: 0))
-    # a2 = TravelRoute::Value::Attraction.new(
-    #   place_id: 'p2',
-    #   name: 'p2',
-    #   stay_time: Time.new(3, 0),
-    #   opening_hours: TravelRoute::Value::OpeningHours.new(
-    #     opening_hours: [
-    #       TravelRoute::Value::OpeningHour.new(day_start: Time.new(13, 0), day_end: Time.new(16, 0)),
-    #       TravelRoute::Value::OpeningHour.new(day_start: Time.new(8, 0), day_end: Time.new(16, 0)),
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen,
-    #       TravelRoute::Value::OpeningHours.NotOpen
-    #     ]),
-    #   location: TravelRoute::Value::Location.new(lat: 0, lng: 0)
-    # )
-    # attractions = [a0, a1, a2]
-    # binding.irb
-    # a_count = attractions.size
-    # distance_calculator = DistanceCalculator(attractions, Array.new(a_count, Array.new(a_count, Time(0, 0))))
-    # day_durations = [[Time(8, 0), Time(16, 0)], [Time(8, 0), Time(16, 0)]]
-    # generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
-    #   .generate_plans(attractions, day_durations, '2023/12/24', '2023/12/25')
+    plan0 = [
+      [
+        ['0', TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value:: Time.new(hour: 11, minute: 0)],
+        ['1', TravelRoute::Value::Time.new(hour: 11, minute: 0), TravelRoute::Value::Time.new(hour: 13, minute: 0)],
+        ['2', TravelRoute::Value::Time.new(hour: 14, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
+      ]
+    ]
+    _(generated_plans[0].to_list).must_equal(plan0)
+  end
+  it 'verify 2-day plan with constraints' do
+    a0 = TravelRoute::Entity::Attraction.new(
+      place_id: '0',
+      name: 'p0',
+      address: 'addr0',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 4, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 10, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 14, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
 
-    # puts generated_plans
-#   end
-# end
+    a1 = TravelRoute::Entity::Attraction.new(
+      place_id: '1',
+      name: 'p1',
+      address: 'addr1',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 3, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 13, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+
+    a2 = TravelRoute::Entity::Attraction.new(
+      place_id: '2',
+      name: 'p2',
+      address: 'addr2',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 3, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+    attractions = [a0, a1, a2]
+    a_count = attractions.size
+    distance_calculator = TravelRoute::Entity::DistanceCalculator.new(attractions, Array.new(a_count, Array.new(a_count, TravelRoute::Value::Time.new(hour: 0, minute: 0))))
+    day_durations = [
+      [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)],
+      [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
+    ]
+    generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
+      .generate_plans(attractions, day_durations, '2023/12/24', '2023/12/25')
+
+    plan0 = [
+      [
+        ['2', TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value:: Time.new(hour: 11, minute: 0)],
+        ['1', TravelRoute::Value::Time.new(hour: 13, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
+      ],
+      [['0', TravelRoute::Value::Time.new(hour: 10, minute: 0), TravelRoute::Value::Time.new(hour: 14, minute: 0)]]
+    ]
+    _(generated_plans[0].to_list).must_equal(plan0)
+  end
+  it 'verify 3-day plan across weeks' do
+    a0 = TravelRoute::Entity::Attraction.new(
+      place_id: '0',
+      name: 'p0',
+      address: 'addr0',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 3, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 11, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 14, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 11, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 14, minute: 0)
+          )
+        ]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+
+    a1 = TravelRoute::Entity::Attraction.new(
+      place_id: '1',
+      name: 'p1',
+      address: 'addr1',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 3, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 13, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+
+    a2 = TravelRoute::Entity::Attraction.new(
+      place_id: '2',
+      name: 'p2',
+      address: 'addr2',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 2, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
+          )
+        ]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+    a3 = TravelRoute::Entity::Attraction.new(
+      place_id: '3',
+      name: 'p3',
+      address: 'addr3',
+      rating: 4.5,
+      stay_time: TravelRoute::Value::Time.new(hour: 6, minute: 0),
+      opening_hours: TravelRoute::Value::OpeningHours.new(
+        opening_hours: [
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour.new(
+            day_start: TravelRoute::Value::Time.new(hour: 9, minute: 0),
+            day_end: TravelRoute::Value::Time.new(hour: 15, minute: 0)
+          ),
+          TravelRoute::Value::OpeningHour.NOT_OPEN]
+      ),
+      location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
+    )
+    attractions = [a0, a1, a2, a3]
+    a_count = attractions.size
+    distance_calculator = TravelRoute::Entity::DistanceCalculator.new(attractions, Array.new(a_count, Array.new(a_count, TravelRoute::Value::Time.new(hour: 0, minute: 0))))
+    day_durations = [
+      [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)],
+      [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)],
+      [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
+    ]
+    generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
+      .generate_plans(attractions, day_durations, '2023/12/29', '2023/12/31')
+
+    plan0 = [
+      [['3', TravelRoute::Value::Time.new(hour: 9, minute: 0), TravelRoute::Value::Time.new(hour: 15, minute: 0)]],
+      [
+        ['0', TravelRoute::Value::Time.new(hour: 11, minute: 0), TravelRoute::Value::Time.new(hour: 14, minute: 0)],
+        ['2', TravelRoute::Value::Time.new(hour: 14, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
+      ],
+      [['1', TravelRoute::Value::Time.new(hour: 13, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]]
+    ]
+    plan1 = [
+      [['3', TravelRoute::Value::Time.new(hour: 9, minute: 0), TravelRoute::Value::Time.new(hour: 15, minute: 0)]],
+      [['0', TravelRoute::Value::Time.new(hour: 11, minute: 0), TravelRoute::Value::Time.new(hour: 14, minute: 0)]],
+      [
+        ['2', TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 10, minute: 0)],
+        ['1', TravelRoute::Value::Time.new(hour: 13, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
+      ]
+    ]
+    plan2 = [
+      [['3', TravelRoute::Value::Time.new(hour: 9, minute: 0), TravelRoute::Value::Time.new(hour: 15, minute: 0)]],
+      [
+        ['2', TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 10, minute: 0)],
+        ['0', TravelRoute::Value::Time.new(hour: 11, minute: 0), TravelRoute::Value::Time.new(hour: 14, minute: 0)]
+      ],
+      [['1', TravelRoute::Value::Time.new(hour: 13, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]]
+    ]
+
+    _(generated_plans[0].to_list).must_equal(plan0)
+    _(generated_plans[1].to_list).must_equal(plan1)
+    _(generated_plans[2].to_list).must_equal(plan2)
+  end
+end
