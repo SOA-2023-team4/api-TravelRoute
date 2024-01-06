@@ -90,24 +90,34 @@ module TravelRoute
           @data = data
         end
 
-        def build_entity
-          default_hours = Value::OpeningHours.new(
+        def self.default_entity
+          Value::OpeningHours.new(
             opening_hours: Array.new(
               7,
               Value::OpeningHour.new(
-                day_start: Value::Time.new(hour: 0, minute: 0),
-                day_end: Value::Time.new(hour: 23, minute: 59)
+                day_start: Value::Time.new(hour: 7, minute: 0),
+                day_end: Value::Time.new(hour: 23, minute: 0)
               )
             )
           )
-          return default_hours unless @data
+        end
 
+        def build_entity
+          return OpeningHoursDataMapper.default_entity unless @data
+
+          opening_hours = Array.new(7, Value::OpeningHour.NOT_OPEN)
           @data['periods'].map do |entry|
-            Value::OpeningHour.new(
+            open_day = entry['open']['day']
+            close_day = entry['close']['day']
+            raise Exception, 'Open day not same as close day' unless open_day == close_day
+
+            opening_hour = Value::OpeningHour.new(
               day_start: Value::Time.new(hour: entry['open']['hour'], minute: entry['open']['minute']),
               day_end: Value::Time.new(hour: entry['close']['hour'], minute: entry['close']['minute'])
             )
-          end.then { |list| Value::OpeningHours.new(opening_hours: list) }
+            opening_hours[open_day] = opening_hour
+          end
+          Value::OpeningHours.new(opening_hours:)
         end
       end
     end

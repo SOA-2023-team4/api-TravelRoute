@@ -4,10 +4,15 @@ module TravelRoute
   module Entity
     # dedicated to make plans using the information provided by the guidebook
     class DistanceCalculator
+      attr_reader :attractions, :matrix
+
       # Need to do validation
       def initialize(attractions, matrix)
-        @attractions = attractions # List[Attraction]
-        @matrix = matrix # List[List[Time]]
+        @attractions = attractions
+        @matrix = matrix
+        return unless @matrix.size != @attractions.size || @matrix.empty? || @matrix[0].size != @attractions.size
+
+        raise StandardError, 'Matrix size does not match'
       end
 
       def calculate(from_attraction, to_attraction)

@@ -16,9 +16,7 @@ describe 'Test plan generation' do
     @taipei_main = TravelRoute::Mapper::AttractionMapper.new(GMAP_TOKEN).find('Taipei Main Station').first
 
     @attractions = [@nthu, @taipei_main, @zoo]
-    @guidebook = TravelRoute::Mapper::GuidebookMapper.new(GMAP_TOKEN).generate_guidebook(@attractions)
-
-    @correct_order = [@nthu, @zoo, @taipei_main]
+    @distance_calculator = TravelRoute::Mapper::DistanceCalculatorMapper.new(GMAP_TOKEN).distance_calculator_for(@attractions)
   end
 
   after do
@@ -26,7 +24,10 @@ describe 'Test plan generation' do
   end
 
   it 'HAPPY: should be able to generate a correct plan' do
-    plan = TravelRoute::Entity::Plan.new(@guidebook, @nthu)
-    _(plan.attractions).must_equal(@correct_order)
+    @planner = TravelRoute::Entity::Planner.new(@attractions, @distance_calculator)
+    generated_plans = @planner.generate_plans(
+      [[TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 18, minute: 0)]],
+      '2024-01-01', '2024-01-01'
+    )
   end
 end

@@ -13,6 +13,16 @@ module TravelRoute
       attribute :hour, Strict::Integer
       attribute :minute, Strict::Integer
 
+      def self.from_str(time_str)
+        value, unit = time_str.match(/(\d+)(\w+)/).captures
+        raise StandardException, 'unit is not seconds' if unit != 's'
+
+        total_minutes = (value.to_f / 60).ceil
+        hour = total_minutes / 60
+        minute = total_minutes % 60
+        Time.new(hour:, minute:)
+      end
+
       def to_minutes
         (hour * 60) + minute
       end

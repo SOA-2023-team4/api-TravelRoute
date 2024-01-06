@@ -71,8 +71,8 @@ describe 'Unit test for planning' do
     a_count = attractions.size
     distance_calculator = TravelRoute::Entity::DistanceCalculator.new(attractions, Array.new(a_count, Array.new(a_count, TravelRoute::Value::Time.new(hour: 0, minute: 0))))
     day_durations = [[TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]]
-    generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
-      .generate_plans(attractions, day_durations, '2023/12/24', '2023/12/24')
+    generated_plans = TravelRoute::Entity::Planner.new(attractions, distance_calculator)
+      .generate_plans(day_durations, '2023/12/24', '2023/12/24')
 
     plan0 = [
       [
@@ -159,8 +159,8 @@ describe 'Unit test for planning' do
       [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)],
       [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
     ]
-    generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
-      .generate_plans(attractions, day_durations, '2023/12/24', '2023/12/25')
+    generated_plans = TravelRoute::Entity::Planner.new(attractions, distance_calculator)
+      .generate_plans(day_durations, '2023/12/24', '2023/12/25')
 
     plan0 = [
       [
@@ -277,8 +277,8 @@ describe 'Unit test for planning' do
       [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)],
       [TravelRoute::Value::Time.new(hour: 8, minute: 0), TravelRoute::Value::Time.new(hour: 16, minute: 0)]
     ]
-    generated_plans = TravelRoute::Entity::Planner.new(distance_calculator)
-      .generate_plans(attractions, day_durations, '2023/12/29', '2023/12/31')
+    generated_plans = TravelRoute::Entity::Planner.new(attractions, distance_calculator)
+      .generate_plans(day_durations, '2023/12/29', '2023/12/31')
 
     plan0 = [
       [['3', TravelRoute::Value::Time.new(hour: 9, minute: 0), TravelRoute::Value::Time.new(hour: 15, minute: 0)]],

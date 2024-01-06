@@ -59,6 +59,9 @@ describe 'Acceptance testing' do
   #   end
   # end
 
+  # ChIJlWImqHKpQjQREk5-6lec4-w Taipei Main Station
+  # ChIJl78Wnt01aDQRz1shOsBVUGU Hsinchu Zoo
+  # ChIJB7ZNzXI2aDQREwR22ltdKxE National Tsing Hua University
   describe 'Plan route' do
     it 'HAPPY: should be able to generate a plan' do
       attractions_list = %w[ChIJlWImqHKpQjQREk5-6lec4-w ChIJl78Wnt01aDQRz1shOsBVUGU ChIJB7ZNzXI2aDQREwR22ltdKxE]

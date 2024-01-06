@@ -29,6 +29,15 @@ module TravelRoute
         { latitude:, longitude: }
       end
 
+      def stay_time
+        { hour:, minute: }
+      end
+
+      def stay_time=(time)
+        self.hour = time[:hour]
+        self.minute = time[:minute]
+      end
+
       def location=(location)
         self.latitude = location[:latitude]
         self.longitude = location[:longitude]
@@ -41,6 +50,8 @@ module TravelRoute
       def to_hash
         super[:opening_hours] = opening_hours
         super[:location] = location
+        super[:stay_time] = stay_time
+
         super.delete(:latitude)
         super.delete(:longitude)
         super

@@ -18,7 +18,7 @@ module TravelRoute
       attribute :address,         Strict::String
       attribute? :description,    Strict::String.optional
       attribute? :type,           Strict::String.optional
-      attribute  :stay_time,      Value::Time
+      attribute :stay_time,       Value::Time.default(Value::Time.new(hour: 0, minute: 20))
       attribute :opening_hours,   Value::OpeningHours
       attribute :rating,          Coercible::Float.optional
       attribute :location,        Value::Location
@@ -31,7 +31,7 @@ module TravelRoute
           address:,
           type:,
           opening_hours: opening_hours.to_attr_hash,
-          stay_time:,
+          stay_time: stay_time.to_attr_hash,
           rating:,
           location: location.to_attr_hash
         }
