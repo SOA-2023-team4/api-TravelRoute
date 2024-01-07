@@ -37,6 +37,20 @@ module TravelRoute
         }
       end
 
+      def to_rebuild_hash # rubocop:disable Metrics/MethodLength
+        {
+          place_id:,
+          name:,
+          description:,
+          address:,
+          type:,
+          opening_hours:,
+          stay_time:,
+          rating:,
+          location:
+        }
+      end
+
       def week_opening_hour_on(day)
         opening_hours.on(day)
       end

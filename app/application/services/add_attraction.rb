@@ -8,6 +8,8 @@ module TravelRoute
     class AddAttraction
       include Dry::Transaction
 
+      DB_ERR_MSG = 'Having trouble accessing the database'
+
       # step :find_attraction
       step :store_attraction
       step :request_time_to_stay

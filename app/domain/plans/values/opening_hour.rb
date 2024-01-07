@@ -11,9 +11,7 @@ module TravelRoute
       attribute :day_start, Time
       attribute :day_end, Time
 
-      def self.NOT_OPEN
-        OpeningHour.new(day_start: Time.new(hour: 25, minute: 0), day_end: Time.new(hour: -1, minute: 0))
-      end
+      NOT_OPEN = OpeningHour.new(day_start: Time.new(hour: 25, minute: 0), day_end: Time.new(hour: -1, minute: 0))
 
       def to_attr_hash
         { day_start: day_start.to_attr_hash, day_end: day_end.to_attr_hash }

@@ -19,7 +19,7 @@ module TravelRoute
         plan_req = input[:plan_req].call
         if plan_req.success?
           req = plan_req.value!
-          Success(origin_index: req.origin_index, place_ids: req.place_ids)
+          Success(request: req)
         else
           Failure(plan_req.failure)
         end
@@ -27,9 +27,10 @@ module TravelRoute
 
       # Expects input[:origin_index], input[:place_ids]
       def make_entity(input)
-        attractions = ListAttractions.new.call(place_ids: input[:place_ids]).value!
-        origin = attractions[input[:origin_index]]
-        Success(origin:, attractions:)
+        req = input[:request]
+        attractions = ListAttractions.new.call(place_ids: req[:place_ids]).value!
+        origin = attractions[req[:origin_index]]
+        Success(req.merge(origin:, attractions:))
       end
 
       def generate_distance_calculator(input)
@@ -37,7 +38,7 @@ module TravelRoute
         distance_calculator = Mapper::DistanceCalculatorMapper.new(App.config.GMAP_TOKEN)
           .distance_calculator_for(attractions)
         input[:distance_calculator] = distance_calculator
-        Success(input)
+        Success(input.merge(distance_calculator:))
       rescue StandardError
         Failure('Could not generate distance calculator')
       end
@@ -52,8 +53,8 @@ module TravelRoute
           [Value::Time.new(hour: 8, minute: 0), Value::Time.new(hour: 16, minute: 0)], 
           [Value::Time.new(hour: 8, minute: 0), Value::Time.new(hour: 16, minute: 0)]
         ]
-        start_date_str = '2023-01-10'
-        end_date_str = '2023-01-11'
+        start_date_str = input[:start_date]
+        end_date_str = input[:end_date]
         plan = planner.generate_plan(day_durations, start_date_str, end_date_str)
         Success(Response::ApiResult.new(status: :ok, message: plan))
       rescue StandardError

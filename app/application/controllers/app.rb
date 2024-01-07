@@ -84,7 +84,7 @@ module TravelRoute
         end
 
         routing.on 'plans' do
-          # GET /plans?origin=&attractions=
+          # GET /plans?origin=&attractions=&start_date=&end_date=
           routing.get do
             response.cache_control public: true, max_age: CACHE_DURATION
 
@@ -96,7 +96,6 @@ module TravelRoute
             end
             http_response = Representer::HttpResponse.new(result.value!)
             response.status = http_response.http_status_code
-            binding.pry
             Representer::Plan.new(result.value!.message).to_json
           end
         end
