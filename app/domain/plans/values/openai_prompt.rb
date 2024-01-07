@@ -28,7 +28,7 @@ module TravelRoute
       def self.time_to_stay_prompt(attraction)
         prompt = <<-PROMPT
         Suggest a time to stay at each place, in hours and what to do.
-        Answer in JSON format {"name": <place_name>, "stay_time": <time_to_spend_int>, "description": <to_do>}.
+        Answer in JSON format {"name": <place_name>, "stay_time": { hour: <int>, minute: <int> }, "description": <to_do>}.
         Places: #{attraction.name}
         PROMPT
         new(prompt)

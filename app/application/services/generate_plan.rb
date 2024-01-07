@@ -11,6 +11,7 @@ module TravelRoute
       step :validate_input
       step :make_entity
       step :generate_distance_calculator
+      step :init_planner
       step :create_plan
 
       private
@@ -19,7 +20,7 @@ module TravelRoute
         plan_req = input[:plan_req].call
         if plan_req.success?
           req = plan_req.value!
-          Success(origin_index: req.origin_index, place_ids: req.place_ids)
+          Success(request: req)
         else
           Failure(plan_req.failure)
         end
@@ -27,9 +28,10 @@ module TravelRoute
 
       # Expects input[:origin_index], input[:place_ids]
       def make_entity(input)
-        attractions = ListAttractions.new.call(place_ids: input[:place_ids]).value!
-        origin = attractions[input[:origin_index]]
-        Success(origin:, attractions:)
+        req = input[:request]
+        attractions = ListAttractions.new.call(place_ids: req[:place_ids]).value!
+        origin = attractions[req[:origin_index]]
+        Success(req.merge(origin:, attractions:))
       end
 
       def generate_distance_calculator(input)
@@ -37,7 +39,7 @@ module TravelRoute
         distance_calculator = Mapper::DistanceCalculatorMapper.new(App.config.GMAP_TOKEN)
           .distance_calculator_for(attractions)
         input[:distance_calculator] = distance_calculator
-        Success(input)
+        Success(input.merge(distance_calculator:))
       rescue StandardError
         Failure('Could not generate distance calculator')
       end
@@ -45,16 +47,20 @@ module TravelRoute
       # need start_date_str, end_date_str, day_durations
       # day_durations specifies the time the day starts and ends
       # all the visit of attractions must be within the day_duration_time
-      def create_plan(input)
-        origin = input[:origin]
+
+      def init_planner(input)
+        # origin = input[:origin]
         planner = Entity::Planner.new(input[:attractions], input[:distance_calculator])
-        day_durations = [
-          [Value::Time.new(hour: 8, minute: 0), Value::Time.new(hour: 16, minute: 0)], 
-          [Value::Time.new(hour: 8, minute: 0), Value::Time.new(hour: 16, minute: 0)]
-        ]
-        start_date_str = '2023-01-10'
-        end_date_str = '2023-01-11'
-        plan = planner.generate_plan(day_durations, start_date_str, end_date_str)
+        Success(input.merge(planner:))
+      rescue StandardError
+        Failure('Could not initialize planner')
+      end
+
+      def create_plan(input)
+        day_durations = input[:day_durations]
+        start_date_str = input[:start_date]
+        end_date_str = input[:end_date]
+        plan = input[:planner].generate_plan(day_durations, start_date_str, end_date_str)
         Success(Response::ApiResult.new(status: :ok, message: plan))
       rescue StandardError
         Failure('Could not create plan')

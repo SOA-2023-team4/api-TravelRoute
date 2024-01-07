@@ -10,8 +10,7 @@ module TravelRoute
     class Plan < Roar::Decorator
       include Roar::JSON
 
-      collection :attractions, extend: Representer::Attraction, class: Struct
-      property :routes
+      collection :day_plans, extend: Representer::DayPlan, class: OpenStruct
     end
   end
 end

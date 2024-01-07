@@ -16,12 +16,12 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 11, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -37,12 +37,12 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 11, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 13, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -58,12 +58,12 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 14, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -92,16 +92,16 @@ describe 'Unit test for planning' do
       stay_time: TravelRoute::Value::Time.new(hour: 4, minute: 0),
       opening_hours: TravelRoute::Value::OpeningHours.new(
         opening_hours: [
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
           TravelRoute::Value::OpeningHour.new(
             day_start: TravelRoute::Value::Time.new(hour: 10, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 14, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -118,12 +118,12 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 13, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -144,11 +144,11 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -180,11 +180,11 @@ describe 'Unit test for planning' do
       stay_time: TravelRoute::Value::Time.new(hour: 3, minute: 0),
       opening_hours: TravelRoute::Value::OpeningHours.new(
         opening_hours: [
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
           TravelRoute::Value::OpeningHour.new(
             day_start: TravelRoute::Value::Time.new(hour: 11, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 14, minute: 0)
@@ -210,12 +210,12 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 13, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -232,10 +232,10 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
           TravelRoute::Value::OpeningHour.new(
             day_start: TravelRoute::Value::Time.new(hour: 8, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 16, minute: 0)
@@ -256,16 +256,16 @@ describe 'Unit test for planning' do
       stay_time: TravelRoute::Value::Time.new(hour: 6, minute: 0),
       opening_hours: TravelRoute::Value::OpeningHours.new(
         opening_hours: [
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
-          TravelRoute::Value::OpeningHour.NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
+          TravelRoute::Value::OpeningHour::NOT_OPEN,
           TravelRoute::Value::OpeningHour.new(
             day_start: TravelRoute::Value::Time.new(hour: 9, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 15, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour.NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )

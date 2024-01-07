@@ -60,15 +60,26 @@ module Background
 
     def reconstruct_attraction(struct)
       struct.map do |attr|
-        attr = symbolize_keys(attr)
+        attr = reformat(attr.to_h)
         TravelRoute::Entity::Attraction.new(**attr)
       end
     end
 
-    def symbolize_keys(hash)
-      hash.to_h.transform_keys(&:to_sym).transform_values do |v|
-        v.is_a?(Hash) ? v.transform_keys(&:to_sym) : v
-      end
+    def reformat(hash)
+      hash.merge({
+                   opening_hours: rebuild_opening_hours(hash),
+                   location: rebuild_location(hash)
+                 })
+    end
+
+    def rebuild_location(hash)
+      TravelRoute::Value::Location.new(**hash[:location].to_h)
+    end
+
+    def rebuild_opening_hours(hash)
+      hash[:opening_hours].to_h[:opening_hours]
+        .map { |v| TravelRoute::Value::OpeningHour.new(day_start: v[:day_start].to_h, day_end: v[:day_end].to_h) }
+        .then { TravelRoute::Value::OpeningHours.new(opening_hours: _1) }
     end
   end
 end

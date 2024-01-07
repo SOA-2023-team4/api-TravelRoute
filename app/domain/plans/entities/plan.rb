@@ -18,8 +18,12 @@ module TravelRoute
         end
 
         @day_plans = day_durations
-          .map.with_index { |dur, d| Entity::DayPlan.new(dur[0], dur[1], d, self) }
+          .map.with_index { |dur, d| Entity::DayPlan.new(dur[0], dur[1], d, date_list[d], self) }
         @days = @day_durations.size
+      end
+
+      def date_list
+        @date_list ||= (Date.parse(@date_start.date_string)..Date.parse(@date_end.date_string)).to_a.map(&:to_s)
       end
 
       def opening_hours(attraction)

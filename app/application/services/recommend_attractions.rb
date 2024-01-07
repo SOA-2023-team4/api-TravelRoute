@@ -32,7 +32,7 @@ module TravelRoute
       def search_attractions(input)
         input[:attractions] = input[:ids].map do |id|
           AddAttraction.new.call(place_id: id).value!.message
-        end.map(&:value)
+        end.map
         Success(input)
       rescue StandardError
         Failure(Response::ApiResult.new(status: :internal_error, message: SEARCH_ERR))

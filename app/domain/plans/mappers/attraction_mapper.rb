@@ -105,19 +105,38 @@ module TravelRoute
         def build_entity
           return OpeningHoursDataMapper.default_entity unless @data
 
-          opening_hours = Array.new(7, Value::OpeningHour.NOT_OPEN)
+          Value::OpeningHours.new(opening_hours:)
+        end
+
+        private
+
+        def opening_hours(list = Array.new(7, Value::OpeningHour::NOT_OPEN))
           @data['periods'].map do |entry|
             open_day = entry['open']['day']
-            close_day = entry['close']['day']
-            raise Exception, 'Open day not same as close day' unless open_day == close_day
+            # close_day = entry['close']['day']
+            # raise Exception, 'Open day not same as close day' unless open_day == close_day
 
             opening_hour = Value::OpeningHour.new(
-              day_start: Value::Time.new(hour: entry['open']['hour'], minute: entry['open']['minute']),
-              day_end: Value::Time.new(hour: entry['close']['hour'], minute: entry['close']['minute'])
+              day_start: day_start(entry),
+              day_end: day_end(entry)
             )
-            opening_hours[open_day] = opening_hour
+            list[open_day] = opening_hour
           end
-          Value::OpeningHours.new(opening_hours:)
+        end
+
+        def day_start(entry)
+          open = entry['open']
+          return Value::Time.new(hour: 7, minute: 0) unless open
+
+          Value::Time.new(hour: open['hour'], minute: open['minute'])
+        end
+
+        def day_end(entry)
+          close = entry['close']
+
+          return Value::Time.new(hour: 23, minute: 0) unless close
+
+          Value::Time.new(hour: close['hour'], minute: close['minute'])
         end
       end
     end
