@@ -11,6 +11,7 @@ module TravelRoute
       step :validate_input
       step :make_entity
       step :generate_distance_calculator
+      step :init_planner
       step :create_plan
 
       private
@@ -46,16 +47,20 @@ module TravelRoute
       # need start_date_str, end_date_str, day_durations
       # day_durations specifies the time the day starts and ends
       # all the visit of attractions must be within the day_duration_time
-      def create_plan(input)
-        origin = input[:origin]
+
+      def init_planner(input)
+        # origin = input[:origin]
         planner = Entity::Planner.new(input[:attractions], input[:distance_calculator])
-        day_durations = [
-          [Value::Time.new(hour: 8, minute: 0), Value::Time.new(hour: 16, minute: 0)], 
-          [Value::Time.new(hour: 8, minute: 0), Value::Time.new(hour: 16, minute: 0)]
-        ]
+        Success(input.merge(planner:))
+      rescue StandardError
+        Failure('Could not initialize planner')
+      end
+
+      def create_plan(input)
+        day_durations = input[:day_durations]
         start_date_str = input[:start_date]
         end_date_str = input[:end_date]
-        plan = planner.generate_plan(day_durations, start_date_str, end_date_str)
+        plan = input[:planner].generate_plan(day_durations, start_date_str, end_date_str)
         Success(Response::ApiResult.new(status: :ok, message: plan))
       rescue StandardError
         Failure('Could not create plan')

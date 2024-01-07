@@ -18,10 +18,38 @@ module TravelRoute
                   origin_index: @params['origin'].to_i,
                   place_ids: unroll,
                   start_date: @params['start_date'],
-                  end_date: @params['end_date']
+                  end_date: @params['end_date'],
+                  day_durations:
                 })
       rescue StandardError
         Failure(Response::ApiResult.new(status: :bad_request, message: 'Invalid request params'))
+      end
+
+      def day_durations
+        Array.new(days, [
+                    Value::Time.new(hour: start_time.hour, minute: start_time.min),
+                    Value::Time.new(hour: end_time.hour, minute: end_time.min)
+                  ])
+      end
+
+      def days
+        (start_date..end_date).to_a.count
+      end
+
+      def start_date
+        Date.parse(@params['start_date'])
+      end
+
+      def end_date
+        Date.parse(@params['end_date'])
+      end
+
+      def start_time
+        Time.parse(@params['start_time'])
+      end
+
+      def end_time
+        Time.parse(@params['end_time'])
       end
 
       def unroll
@@ -43,7 +71,7 @@ module TravelRoute
           'attractions' => roll(attractions),
           'start_date'  => start_date,
           'end_date'    => end_date
-          )
+        )
       end
     end
   end
