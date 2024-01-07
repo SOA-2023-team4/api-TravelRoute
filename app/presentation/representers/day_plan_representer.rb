@@ -12,6 +12,7 @@ module TravelRoute
 
       property :day_start
       property :day_end
+      property :date
       collection :visit_durations, extend: Representer::VisitDuration, class: OpenStruct
     end
   end

@@ -4,12 +4,13 @@ module TravelRoute
   module Entity
     # child of Plan object
     class DayPlan
-      attr_reader :visit_durations, :day_start, :day_end
+      attr_reader :visit_durations, :day_start, :day_end, :date
 
-      def initialize(day_start, day_end, day, parent_plan)
+      def initialize(day_start, day_end, day, date, parent_plan)
         @day_start = day_start
         @day_end = day_end
         @day = day
+        @date = date
         @plan = parent_plan
         @distance_calculator = @plan.distance_calculator
         @visit_durations = []
