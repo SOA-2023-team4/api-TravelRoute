@@ -15,7 +15,6 @@ module TravelRoute
 
       def call
         Success({
-                  origin_index: @params['origin'].to_i,
                   place_ids: unroll,
                   start_date: @params['start_date'],
                   end_date: @params['end_date'],
@@ -65,9 +64,8 @@ module TravelRoute
         CGI.escape(attractions.join(','))
       end
 
-      def self.to_request(origin_index, attractions, start_date, end_date, start_time, end_time)
+      def self.to_request(attractions, start_date, end_date, start_time, end_time)
         PlanGenerate.new(
-          'origin'      => origin_index,
           'attractions' => roll(attractions),
           'start_date'  => start_date,
           'end_date'    => end_date,

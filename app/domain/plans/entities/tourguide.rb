@@ -47,7 +47,7 @@ module TravelRoute
       end
 
       def high_rating_attractions(threshold = 4.0)
-        unique_attractions.select { |attraction| attraction.rating >= threshold }
+        unique_attractions.select { |attraction| attraction.rating&.>= threshold }
       end
 
       def unique_attractions

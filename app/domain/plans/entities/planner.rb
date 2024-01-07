@@ -25,26 +25,22 @@ module TravelRoute
       end
 
       def backtrack(current_plan, day, attraction_count, days, result, visited)
-        if attraction_count == @attractions.size
-          result.append(Marshal.load(Marshal.dump(current_plan)))
-          return
-        end
-
+        return result.append(Marshal.load(Marshal.dump(current_plan))) if attraction_count == @attractions.size
         return if day >= days
-        
+
         @attractions.each do |attraction|
           next if visited.contains(attraction)
-          if current_plan.can_append_attraction(day, attraction)
-            current_plan.append_attraction(day, attraction)
-            visited.add(attraction)
+          next unless current_plan.can_append_attraction(day, attraction)
 
-            backtrack(current_plan, day, attraction_count+1, days, result, visited)
+          current_plan.append_attraction(day, attraction)
+          visited.add(attraction)
 
-            current_plan.pop_attraction(day)
-            visited.delete(attraction)
-          end
+          backtrack(current_plan, day, attraction_count + 1, days, result, visited)
+
+          current_plan.pop_attraction(day)
+          visited.delete(attraction)
         end
-        backtrack(current_plan, day+1, attraction_count, days, result, visited)
+        backtrack(current_plan, day + 1, attraction_count, days, result, visited)
       end
     end
   end

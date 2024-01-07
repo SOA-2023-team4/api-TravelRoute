@@ -31,7 +31,6 @@ describe 'Service integration testing' do
       correct_order = [nthu, bus_station, taipei_main]
       shuffle_order = correct_order.shuffle
       cart = TravelRoute::Request::PlanGenerate.to_request(
-        shuffle_order.index(nthu),
         shuffle_order.map(&:place_id),
         '2023-01-10',
         '2023-01-10',
