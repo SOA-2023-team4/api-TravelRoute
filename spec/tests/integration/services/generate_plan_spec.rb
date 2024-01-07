@@ -34,12 +34,16 @@ describe 'Service integration testing' do
         shuffle_order.index(nthu),
         shuffle_order.map(&:place_id),
         '2023-01-10',
-        '2023-01-11'
+        '2023-01-10',
+        '09:00',
+        '18:00'
       )
 
       result = TravelRoute::Service::GeneratePlan.new.call(plan_req: cart)
 
       _(result.success?).must_equal true
+      plan = result.value!.message
+      _(plan.day_plans.count).must_equal 1
       # result.value!.message.attractions.each_with_index do |attraction, index|
       #   _(attraction.place_id).must_equal correct_order[index].place_id
       #   _(attraction.name).must_equal correct_order[index].name

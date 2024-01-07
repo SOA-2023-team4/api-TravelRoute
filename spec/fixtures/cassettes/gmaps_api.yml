@@ -14155,4 +14155,1366 @@ http_interactions:
         \ \"originIndex\": 2,\n  \"destinationIndex\": 2,\n  \"status\": {},\n  \"duration\":
         \"0s\"\n}\n]"
   recorded_at: Sat, 06 Jan 2024 20:45:05 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103638Z
+      X-Amz-Content-Sha256:
+      - b7b3c47cdc0e12b657a59fea1d8d0c9145dd4874abad280397e509d6b6d7997a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=aa849158893aef2bdc225477e8364c8fa14ce76cab283b75eeb34d115a7b65b6
+      Content-Length:
+      - '1147'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 0567146a-2dbe-5400-8957-4a7ead494cd5
+      Date:
+      - Sun, 07 Jan 2024 10:36:39 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"630b4a9d10acf10d1148a46654255d10","MessageId":"ce95b2a8-c8d6-4576-b8f7-93682b440be4"}'
+  recorded_at: Sun, 07 Jan 2024 10:36:38 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103638Z
+      X-Amz-Content-Sha256:
+      - 2745f8543dbc754981c4524f99a04a4914ef132fc1fb951a6ff5b0961608990a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=0cdd92d76c6fb054982a8f32b4f7291ae6e89edd9faeec50b936785a5c6d0401
+      Content-Length:
+      - '1139'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c019d862-5bb8-5072-863c-8676db4fe8a7
+      Date:
+      - Sun, 07 Jan 2024 10:36:39 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"2e5a4d542a52eeb10c7803cbdf00f202","MessageId":"6c481cf2-5b4e-4417-9597-a8c20953b8be"}'
+  recorded_at: Sun, 07 Jan 2024 10:36:38 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103638Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=59d62ff40ade87a5567da0e7e2989f2df1c6cfae627bffdb1c21fa2e73561397
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c8d3f063-e4a0-5523-a318-ae7764576df6
+      Date:
+      - Sun, 07 Jan 2024 10:36:39 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"bd1084e1-a749-469d-839b-117201789ae6"}'
+  recorded_at: Sun, 07 Jan 2024 10:36:38 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103749Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=acd342fc23699849865db918c7571bd03b30ea2ebcc18772969cb20a36957f14
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - fd49ee68-e776-52e7-9935-b07c6648697e
+      Date:
+      - Sun, 07 Jan 2024 10:37:50 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"a4f1e4da-d97b-49ba-9a15-71b060c9198d"}'
+  recorded_at: Sun, 07 Jan 2024 10:37:49 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103749Z
+      X-Amz-Content-Sha256:
+      - b7b3c47cdc0e12b657a59fea1d8d0c9145dd4874abad280397e509d6b6d7997a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=7fe4bf8371d11d4aacc1af4f9043944fe88fd17fe167c52f7ccb2171c9f1a9c4
+      Content-Length:
+      - '1147'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - ae588bac-3042-5070-9e76-d5b8b17c1be9
+      Date:
+      - Sun, 07 Jan 2024 10:37:50 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"630b4a9d10acf10d1148a46654255d10","MessageId":"01459e9c-72c6-4afc-b06f-6a44f89290be"}'
+  recorded_at: Sun, 07 Jan 2024 10:37:49 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103749Z
+      X-Amz-Content-Sha256:
+      - 2745f8543dbc754981c4524f99a04a4914ef132fc1fb951a6ff5b0961608990a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=17cb6ecd8c89db1940a7fb52ea56a89cf70f04440a4d168283fa99e7ff152a69
+      Content-Length:
+      - '1139'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 43050b40-7cc7-5f4d-b1c2-5554fdf914d4
+      Date:
+      - Sun, 07 Jan 2024 10:37:50 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"2e5a4d542a52eeb10c7803cbdf00f202","MessageId":"054f3847-765d-4001-9c0b-dc75d059984b"}'
+  recorded_at: Sun, 07 Jan 2024 10:37:49 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103932Z
+      X-Amz-Content-Sha256:
+      - b7b3c47cdc0e12b657a59fea1d8d0c9145dd4874abad280397e509d6b6d7997a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=6b8a8c439522ff29475ccabd7a8583b0ceafe7b3821594bf7e1cd59b6a476959
+      Content-Length:
+      - '1147'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8e6b9e4e-6848-571f-8a13-c05ae9ed5e30
+      Date:
+      - Sun, 07 Jan 2024 10:39:33 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"630b4a9d10acf10d1148a46654255d10","MessageId":"538609ea-23c1-4f30-b144-4feafc43f3e4"}'
+  recorded_at: Sun, 07 Jan 2024 10:39:32 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103932Z
+      X-Amz-Content-Sha256:
+      - 2745f8543dbc754981c4524f99a04a4914ef132fc1fb951a6ff5b0961608990a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=b223da38f3596df9490bb7c57393ecab39bd4feb5cc9b94ff1c28a755c3a8077
+      Content-Length:
+      - '1139'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 839616d1-20a9-59bc-bd67-48c5a10c3093
+      Date:
+      - Sun, 07 Jan 2024 10:39:33 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"2e5a4d542a52eeb10c7803cbdf00f202","MessageId":"4d9e5ef9-6d77-401d-8481-3e574279c5c1"}'
+  recorded_at: Sun, 07 Jan 2024 10:39:32 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103932Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=9d93fd33958a8a78e52b3b4b053781ee8be5ca066d795e49c85e4180e2fc501f
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - e72ebac0-1fbb-542e-b547-e4d49e1e4d01
+      Date:
+      - Sun, 07 Jan 2024 10:39:33 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"e505a778-8c86-4087-886d-d12b482a726c"}'
+  recorded_at: Sun, 07 Jan 2024 10:39:32 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103958Z
+      X-Amz-Content-Sha256:
+      - af29f1ed44275b40d26f9f4960619a8397d876d6ce86a34e41b4d310e7f5b812
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=ad32f981d5efb5e34c8a3e0c37ad89cfc2486f11e4572ebc55784d9d382335a5
+      Content-Length:
+      - '1179'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 3e7d2516-abae-52f4-9760-7b022a1138fa
+      Date:
+      - Sun, 07 Jan 2024 10:39:59 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"b60b3a4e30f602e88d92c719ddc48282","MessageId":"78f3e96c-5845-40a6-9460-aae085dda9c6"}'
+  recorded_at: Sun, 07 Jan 2024 10:39:58 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103958Z
+      X-Amz-Content-Sha256:
+      - 8547f3e983f488802c4fa0fedac6fc1c096d2da344390ccbe5d0f36d3ec5ad1e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=77569d0a732ec759d520daafdf2bbbcda77365b036292e7c14795b95671adb2a
+      Content-Length:
+      - '1083'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 4ba13eca-a469-5946-9e1e-60de25d6e348
+      Date:
+      - Sun, 07 Jan 2024 10:39:59 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"cfc2409ce2a02a69e6b93bec050d1a3a","MessageId":"e67fbc23-b939-4d65-8077-f38e9852d485"}'
+  recorded_at: Sun, 07 Jan 2024 10:39:58 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T103958Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=b5a25ae19e031ab40906630f912d4094417fd2c1a096f47fc80bed13441f22bc
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c8cf4fdf-de95-5916-ab6e-11cb5f2ae318
+      Date:
+      - Sun, 07 Jan 2024 10:39:59 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"1c9bd8a7-3c7d-4493-9098-511875a0fb3d"}'
+  recorded_at: Sun, 07 Jan 2024 10:39:58 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104001Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=b31c87d7660cefd8e32bf635088806b73ad60a1654ea275f56582b82af9292cc
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 24bbd3ab-cc70-514d-932b-8dbf4db22b43
+      Date:
+      - Sun, 07 Jan 2024 10:40:02 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"41c22db3-8e26-46c6-9537-4442a549b840"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:01 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104001Z
+      X-Amz-Content-Sha256:
+      - 2745f8543dbc754981c4524f99a04a4914ef132fc1fb951a6ff5b0961608990a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=f07348aaf957dacd896c3b6f5d77ddc22cf68c41049236113dffd54866f7e0e9
+      Content-Length:
+      - '1139'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 242a0b0f-1f5a-5850-91c9-551b9e98525e
+      Date:
+      - Sun, 07 Jan 2024 10:40:02 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"2e5a4d542a52eeb10c7803cbdf00f202","MessageId":"0fec1bea-a2a0-4979-9e50-c5f9fe90a873"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:01 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104001Z
+      X-Amz-Content-Sha256:
+      - b7b3c47cdc0e12b657a59fea1d8d0c9145dd4874abad280397e509d6b6d7997a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=a6a2bf5dce51998e5028315a96ec55c2f91e15253739ebdfa68f89e6aa43351f
+      Content-Length:
+      - '1147'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 1d0f1a6f-ca40-5c42-92b4-447b4b82264c
+      Date:
+      - Sun, 07 Jan 2024 10:40:02 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"630b4a9d10acf10d1148a46654255d10","MessageId":"86303c4f-4ad2-4e5d-9f2d-01884c45a62e"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:01 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104021Z
+      X-Amz-Content-Sha256:
+      - 2745f8543dbc754981c4524f99a04a4914ef132fc1fb951a6ff5b0961608990a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=6f2ce826377b879eaab9b42b7bf90541b57749b4b18c78bb56c0745dce58848c
+      Content-Length:
+      - '1139'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - ef323bf1-3802-5e34-b6ed-65e5b9d486c5
+      Date:
+      - Sun, 07 Jan 2024 10:40:22 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"2e5a4d542a52eeb10c7803cbdf00f202","MessageId":"ed00cd54-4ff4-489c-a8b4-cf6ee7c79134"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:21 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104021Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=c65238c909ca568265dcc7d417ecd6e6c7ebcd6f76f7849b6bc94cf80a876403
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 2d764530-b144-5283-820d-1b243092ba72
+      Date:
+      - Sun, 07 Jan 2024 10:40:22 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"379a2522-c0db-4b52-af11-4aac26092bc1"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:21 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104021Z
+      X-Amz-Content-Sha256:
+      - b7b3c47cdc0e12b657a59fea1d8d0c9145dd4874abad280397e509d6b6d7997a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=6777dfd345fbef2cbd2344aa0127186b2b6dfdf5f62fc9d9464042e18350e937
+      Content-Length:
+      - '1147'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - ab7f9d2c-c623-50bc-9101-c33847f5e84d
+      Date:
+      - Sun, 07 Jan 2024 10:40:22 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"630b4a9d10acf10d1148a46654255d10","MessageId":"fbc43396-9fa4-41f9-bffb-022373303602"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:21 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104023Z
+      X-Amz-Content-Sha256:
+      - af29f1ed44275b40d26f9f4960619a8397d876d6ce86a34e41b4d310e7f5b812
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=01e808ce361562878e9690842832683f807ec73e191c2262ed44dc98e7e70ca6
+      Content-Length:
+      - '1179'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - be73be9d-e075-5b3a-ac99-e08961ade3cb
+      Date:
+      - Sun, 07 Jan 2024 10:40:24 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"b60b3a4e30f602e88d92c719ddc48282","MessageId":"d0f0968c-af94-4387-99c6-4c044b8fc1ab"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:23 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104023Z
+      X-Amz-Content-Sha256:
+      - 8547f3e983f488802c4fa0fedac6fc1c096d2da344390ccbe5d0f36d3ec5ad1e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=17e3283996b83083391b1dc2202f4ceb45a0c237e667e3fb3255cd3f45a9ccc5
+      Content-Length:
+      - '1083'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 579c8ee6-43ad-5473-a278-d0f2c2755c82
+      Date:
+      - Sun, 07 Jan 2024 10:40:24 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"cfc2409ce2a02a69e6b93bec050d1a3a","MessageId":"821b5fb3-4a27-4436-8405-e1bbf2193ac7"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:23 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104023Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=dbc408cd41ed336eeccaba502a974e9a2c7fe8aef9fba937c3e6b5d818aeb6e7
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - '00274813-9754-5c61-920c-1607168c8490'
+      Date:
+      - Sun, 07 Jan 2024 10:40:24 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"d61fa6e9-00c5-4962-aa23-06c8e7d9c717"}'
+  recorded_at: Sun, 07 Jan 2024 10:40:23 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104209Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=cd1f5f23f146d5dc545b47791abc3af6b4345d05defc7dee983572a7a2985e2f
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 6b738145-0a90-5ffe-bbb2-df5188d2d11d
+      Date:
+      - Sun, 07 Jan 2024 10:42:10 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"1805c50e-a75a-464a-a94e-c1982db4075b"}'
+  recorded_at: Sun, 07 Jan 2024 10:42:09 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\",\"name\":\"Hsinchu
+        Bus Station\",\"address\":\"East District, Hsinchu City, Taiwan 300\",\"type\":\"bus_stop\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.8009338,\"longitude\":120.9725517},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}]},\"id\":\"ChIJ-WDhMug1aDQRwb1S9rWDjgg\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104209Z
+      X-Amz-Content-Sha256:
+      - 2745f8543dbc754981c4524f99a04a4914ef132fc1fb951a6ff5b0961608990a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=aec7cac6d41a7d63092b536e2494bac0283956cdd3de9965c94a9d4c89f2c26c
+      Content-Length:
+      - '1139'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8df7c090-c519-5c74-9438-9e84475b6297
+      Date:
+      - Sun, 07 Jan 2024 10:42:10 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"2e5a4d542a52eeb10c7803cbdf00f202","MessageId":"065df2fd-00d0-4f8b-ab05-db4d9a19eacf"}'
+  recorded_at: Sun, 07 Jan 2024 10:42:09 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\",\"name\":\"Taipei
+        Main Station\",\"address\":\"100, Taiwan, 台北市中正區黎明里\",\"type\":\"transit_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":3.9,\"location\":{\"latitude\":25.0474428,\"longitude\":121.5170955},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}]},\"id\":\"ChIJcYy0Y3KpQjQRXiW_s2lGln8\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104209Z
+      X-Amz-Content-Sha256:
+      - b7b3c47cdc0e12b657a59fea1d8d0c9145dd4874abad280397e509d6b6d7997a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=13741e7520ee2f4a1c171914af2931cf7faa3fbf202b9bb1ec5dc6ad8702b597
+      Content-Length:
+      - '1147'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 624efc56-b68b-577d-91a3-a24234c9799e
+      Date:
+      - Sun, 07 Jan 2024 10:42:10 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"630b4a9d10acf10d1148a46654255d10","MessageId":"46a9d9e1-25af-423a-8a32-17e92473ae1b"}'
+  recorded_at: Sun, 07 Jan 2024 10:42:09 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\",\"name\":\"Taipei
+        Main Station\",\"address\":\"No. 8號, Zhengzhou Rd, Zhongzheng District, Taipei
+        City, Taiwan 100\",\"type\":\"subway_station\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.3,\"location\":{\"latitude\":25.04882,\"longitude\":121.51374999999999},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJlWImqHKpQjQREk5-6lec4-w\"}]},\"id\":\"ChIJlWImqHKpQjQREk5-6lec4-w\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104213Z
+      X-Amz-Content-Sha256:
+      - af29f1ed44275b40d26f9f4960619a8397d876d6ce86a34e41b4d310e7f5b812
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=80fd1114cfc086d0fc4d9816448f7b3456e79498b990e57d0870a46043a25355
+      Content-Length:
+      - '1179'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 2131b0f2-ec83-5dd9-bbe6-eee66ec5333a
+      Date:
+      - Sun, 07 Jan 2024 10:42:14 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"b60b3a4e30f602e88d92c719ddc48282","MessageId":"7cc3ad5d-21a3-424f-98d9-b31633505f64"}'
+  recorded_at: Sun, 07 Jan 2024 10:42:13 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\",\"name\":\"Hsinchu
+        Zoo\",\"address\":\"300034, Taiwan, Hsinchu City, East District, 食品路66號300\",\"type\":\"zoo\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}},{\"day_start\":{\"hour\":9,\"minute\":0},\"day_end\":{\"hour\":17,\"minute\":0}}]},\"rating\":4.0,\"location\":{\"latitude\":24.800156100000002,\"longitude\":120.97992180000001},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJl78Wnt01aDQRz1shOsBVUGU\"}]},\"id\":\"ChIJl78Wnt01aDQRz1shOsBVUGU\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104213Z
+      X-Amz-Content-Sha256:
+      - 8547f3e983f488802c4fa0fedac6fc1c096d2da344390ccbe5d0f36d3ec5ad1e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=0854a8c0702acdd93e4102d3a40147df2db5ef440fb9729725c6f34060158cea
+      Content-Length:
+      - '1083'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 5d3592bb-441a-5b3f-8d4b-ccafc65c55dc
+      Date:
+      - Sun, 07 Jan 2024 10:42:14 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"cfc2409ce2a02a69e6b93bec050d1a3a","MessageId":"407fa4f1-16a8-4ab3-9b25-9b7373519f74"}'
+  recorded_at: Sun, 07 Jan 2024 10:42:13 GMT
+- request:
+    method: post
+    uri: https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development
+    body:
+      encoding: UTF-8
+      string: '{"MessageBody":"{\"attraction\":{\"place_id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\",\"name\":\"National
+        Tsing Hua University\",\"address\":\"No. 101號, Section 2, Guangfu Rd, East
+        District, Hsinchu City, Taiwan 300\",\"type\":\"university\",\"opening_hours\":{\"opening_hours\":[{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}},{\"day_start\":{\"hour\":7,\"minute\":0},\"day_end\":{\"hour\":23,\"minute\":0}}]},\"rating\":4.6,\"location\":{\"latitude\":24.7961217,\"longitude\":120.9966699},\"links\":[{\"rel\":\"self\",\"href\":\"http://localhost:9090/api/v1/recommendations?ids=ChIJB7ZNzXI2aDQREwR22ltdKxE\"}]},\"id\":\"ChIJB7ZNzXI2aDQREwR22ltdKxE\"}","QueueUrl":"https://sqs.ap-northeast-1.amazonaws.com/525155212477/travelroute-staytime-development"}'
+    headers:
+      Accept-Encoding:
+      - ''
+      Content-Type:
+      - application/x-amz-json-1.0
+      X-Amz-Target:
+      - AmazonSQS.SendMessage
+      User-Agent:
+      - aws-sdk-ruby3/3.190.1 ua/2.0 api/sqs#1.69.0 os/linux md/x86_64 lang/ruby#3.2.2
+        md/3.2.2 cfg/retry-mode#legacy ft/resource
+      Host:
+      - sqs.ap-northeast-1.amazonaws.com
+      X-Amz-Date:
+      - 20240107T104214Z
+      X-Amz-Content-Sha256:
+      - 1fce1114737be9969aa8cb39a24faf8ba2d4989fc1ec9bc47d496e4d2d0ecb69
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAXURNQTS6RX3Z5Q72/20240107/ap-northeast-1/sqs/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target,
+        Signature=70401f3815494bc6949235fd0f1194beb09cb7325178a967d5621067639ee128
+      Content-Length:
+      - '1186'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - afb72fcc-ede4-5da5-81be-71d86fa37346
+      Date:
+      - Sun, 07 Jan 2024 10:42:15 GMT
+      Content-Type:
+      - application/x-amz-json-1.0
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"MD5OfMessageBody":"8bc2e3a4c42d7a54dd63d636e888fb49","MessageId":"b7937c31-916f-4593-82e9-919069bddd7c"}'
+  recorded_at: Sun, 07 Jan 2024 10:42:14 GMT
 recorded_with: VCR 6.2.0
