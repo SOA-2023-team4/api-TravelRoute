@@ -45,9 +45,15 @@ describe 'Integration Tests of Google Maps API and Database' do
         name: 'Big City (updated)',
         address: '(new) Big City, Big Country',
         rating: 100.0,
-        opening_hours: { 'a' => 1 },
+        opening_hours: TravelRoute::Value::OpeningHours.new(opening_hours: Array.new(
+                                                              7,
+                                                              TravelRoute::Value::OpeningHour.new(
+                                                                day_start: TravelRoute::Value::Time.new(hour: 0, minute: 0),
+                                                                day_end: TravelRoute::Value::Time.new(hour: 23, minute: 59)
+                                                              )
+                                                            )),
         type: 'test',
-        location: { longitude: 0, latitude: 0 }
+        location: TravelRoute::Value::Location.new(latitude: 0.0, longitude: 0.0)
       )
 
       rebuilt = TravelRoute::Repository::Attractions.update_or_create(changed)
@@ -63,7 +69,7 @@ describe 'Integration Tests of Google Maps API and Database' do
       _(rebuilt.name).must_equal(changed.name)
       _(rebuilt.address).must_equal(changed.address)
       _(rebuilt.rating).must_equal(changed.rating)
-      _(rebuilt.opening_hours).must_equal(changed.opening_hours.transform_keys(&:to_sym))
+      _(rebuilt.opening_hours).must_equal(changed.opening_hours)
       _(rebuilt.type).must_equal(changed.type)
     end
   end

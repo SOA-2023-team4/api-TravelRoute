@@ -72,7 +72,7 @@ module TravelRoute
         end
 
         def opening_hours
-          JSON.parse(JSON[@data['regularOpeningHours']], symbolize_names: true)
+          OpeningHoursDataMapper.new(@data['regularOpeningHours']).build_entity
         end
 
         def type
@@ -80,7 +80,63 @@ module TravelRoute
         end
 
         def location
-          JSON.parse(JSON[@data['location']], symbolize_names: true)
+          @data['location'].transform_keys(&:to_sym)
+        end
+      end
+
+      # class for mapping opening hours
+      class OpeningHoursDataMapper
+        def initialize(data)
+          @data = data
+        end
+
+        def self.default_entity
+          Value::OpeningHours.new(
+            opening_hours: Array.new(
+              7,
+              Value::OpeningHour.new(
+                day_start: Value::Time.new(hour: 7, minute: 0),
+                day_end: Value::Time.new(hour: 23, minute: 0)
+              )
+            )
+          )
+        end
+
+        def build_entity
+          return OpeningHoursDataMapper.default_entity unless @data
+
+          Value::OpeningHours.new(opening_hours:)
+        end
+
+        private
+
+        def opening_hours(list = Array.new(7, Value::OpeningHour::NOT_OPEN))
+          @data['periods'].map do |entry|
+            open_day = entry['open']['day']
+            # close_day = entry['close']['day']
+            # raise Exception, 'Open day not same as close day' unless open_day == close_day
+
+            opening_hour = Value::OpeningHour.new(
+              day_start: day_start(entry),
+              day_end: day_end(entry)
+            )
+            list[open_day] = opening_hour
+          end
+        end
+
+        def day_start(entry)
+          open = entry['open']
+          return Value::Time.new(hour: 7, minute: 0) unless open
+
+          Value::Time.new(hour: open['hour'], minute: open['minute'])
+        end
+
+        def day_end(entry)
+          close = entry['close']
+
+          return Value::Time.new(hour: 23, minute: 0) unless close
+
+          Value::Time.new(hour: close['hour'], minute: close['minute'])
         end
       end
     end

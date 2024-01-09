@@ -4,6 +4,8 @@ require 'dry-types'
 require 'dry-struct'
 
 require_relative '../values/address'
+require_relative '../values/opening_hours'
+require_relative '../values/location'
 
 module TravelRoute
   module Entity
@@ -16,12 +18,26 @@ module TravelRoute
       attribute :address,         Strict::String
       attribute? :description,    Strict::String.optional
       attribute? :type,           Strict::String.optional
-      attribute? :stay_time,      Strict::Integer.optional
-      attribute? :opening_hours,  Strict::Hash.optional
+      attribute :stay_time,       Value::Time.default(Value::Time.new(hour: 0, minute: 20))
+      attribute :opening_hours,   Value::OpeningHours
       attribute :rating,          Coercible::Float.optional
-      attribute :location,        Hash.optional
+      attribute :location,        Value::Location
 
       def to_attr_hash # rubocop:disable Metrics/MethodLength
+        {
+          place_id:,
+          name:,
+          description:,
+          address:,
+          type:,
+          opening_hours: opening_hours.to_attr_hash,
+          stay_time: stay_time.to_attr_hash,
+          rating:,
+          location: location.to_attr_hash
+        }
+      end
+
+      def to_rebuild_hash # rubocop:disable Metrics/MethodLength
         {
           place_id:,
           name:,
@@ -35,12 +51,8 @@ module TravelRoute
         }
       end
 
-      def latitude
-        location[:latitude]
-      end
-
-      def longitude
-        location[:longitude]
+      def week_opening_hour_on(day)
+        opening_hours.on(day)
       end
 
       def country

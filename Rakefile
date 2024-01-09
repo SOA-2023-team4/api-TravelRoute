@@ -29,7 +29,8 @@ task run: ['run:dev']
 namespace :run do
   desc 'Run API in dev mode'
   task :dev do
-    sh "rerun -c --ignore 'coverage/*' -- bundle exec puma -p 9090"
+    # sh "rerun -c --ignore 'coverage/*' -- bundle exec puma -p 9090"
+    sh "bundle exec puma -p 9090"
   end
 
   desc 'Run API in test mode'

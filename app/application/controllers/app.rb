@@ -84,7 +84,7 @@ module TravelRoute
         end
 
         routing.on 'plans' do
-          # GET /plans?origin=&attractions=
+          # GET /plans?&attractions=&start_date=&end_date=
           routing.get do
             response.cache_control public: true, max_age: CACHE_DURATION
 

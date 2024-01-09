@@ -45,11 +45,9 @@ module TravelRoute
 
         def attractions
           places.map do |place|
-            Concurrent::Promise.execute do
-              attraction = AttractionMapper.new(@gmap_token).find(place[:name]).first
-              Entity::Attraction.new(**attraction.to_attr_hash.merge(description: place[:description]))
-            end
-          end.map(&:value)
+            attraction = AttractionMapper.new(@gmap_token).find(place[:name]).first
+            Entity::Attraction.new(**attraction.to_rebuild_hash.merge(description: place[:description]))
+          end
         end
 
         def places

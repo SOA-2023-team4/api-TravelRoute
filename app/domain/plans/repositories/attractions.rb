@@ -60,8 +60,19 @@ module TravelRoute
       def self.rebuild_entity(db_record)
         return nil unless db_record
 
-        entry = db_record.to_hash
+        entry = reformat_hash(db_record.to_hash)
         Entity::Attraction.new(entry)
+      end
+
+      # might want to refactor this in the database in the future
+      def self.reformat_hash(db_record_hash)
+        opening_hours = db_record_hash[:opening_hours].values
+          .map { |day| Value::OpeningHour.new(day) }
+          .then { |days| Value::OpeningHours.new(opening_hours: days) }
+
+        location = Value::Location.new(db_record_hash[:location])
+        stay_time = Value::Time.new(db_record_hash[:stay_time])
+        db_record_hash.merge({ opening_hours:, location:, stay_time:})
       end
 
       def self.rebuild_many(db_records)

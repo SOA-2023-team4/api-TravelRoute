@@ -73,7 +73,7 @@ module TravelRoute
               maxResultCount: MAX_RECOMMENDATION_RESULT,
               locationRestriction: {
                 circle: {
-                  center: { latitude: @latitude, longitude: @longitude},
+                  center: { latitude: @latitude, longitude: @longitude },
                   radius: RADIUS
                 }
               }

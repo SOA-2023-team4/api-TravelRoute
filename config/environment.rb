@@ -42,6 +42,8 @@ module TravelRoute
 
     configure :development, :test do
       require 'pry'
+      require 'pry-nav'
+
       ENV['DATABASE_URL'] = "sqlite://#{config.DB_FILENAME}"
     end
 

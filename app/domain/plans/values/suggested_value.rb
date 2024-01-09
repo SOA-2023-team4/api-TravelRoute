@@ -12,7 +12,7 @@ module TravelRoute
       end
 
       def present?
-        !(stay_time.nil? && description.nil?)
+        !description.nil?
       end
     end
   end

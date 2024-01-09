@@ -77,8 +77,9 @@ describe 'Tests Google Maps API library' do
     end
 
     it 'HAPPY: should return correct guidebook' do
-      guidebook = TravelRoute::Mapper::GuidebookMapper.new(GMAP_TOKEN).generate_guidebook(@attractions)
-      _(guidebook.attractions.count).must_equal(guidebook.distance_matrix.count)
+      guidebook = TravelRoute::Mapper::DistanceCalculatorMapper.new(GMAP_TOKEN).distance_calculator_for(@attractions)
+      _(guidebook.attractions.count).must_equal(@attractions.count)
+      _(guidebook.matrix.count).must_equal(@attractions.count)
     end
   end
 end
