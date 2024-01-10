@@ -12,6 +12,9 @@ module TravelRoute
       # TODO: implement min distance
       def generate_plan(day_durations, start_date_str, end_date_str)
         plans = generate_plans(day_durations, start_date_str, end_date_str)
+        return nil if plans.empty?
+
+        plans.sort_by!(&:travel_distance)
         plans[0]
       end
 

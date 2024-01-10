@@ -60,6 +60,14 @@ module TravelRoute
         @day_plans[day].pop_attraction
       end
 
+      def travel_distance
+        distance = Value::Time.new(hour: 0, minute: 0)
+        @day_plans.each do |day_plan|
+          distance += day_plan.travel_distance
+        end
+        distance
+      end
+
       def to_list
         @day_plans.map(&:to_list)
       end

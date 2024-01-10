@@ -16,6 +16,16 @@ module TravelRoute
         @visit_durations = []
       end
 
+      def travel_distance
+        return 0 if @visit_durations.empty?
+
+        distance = Value::Time.new(hour: 0, minute: 0)
+        (0..@visit_durations.size - 2).each do |i|
+          distance += @distance_calculator.calculate(@visit_durations[i].attraction, @visit_durations[i + 1].attraction)
+        end
+        distance
+      end
+
       def _opening_hours(attraction)
         @plan.opening_hours(attraction)
       end
