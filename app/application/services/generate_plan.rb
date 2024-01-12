@@ -30,8 +30,7 @@ module TravelRoute
       def make_entity(input)
         req = input[:request]
         attractions = ListAttractions.new.call(place_ids: req[:place_ids]).value!
-        origin = attractions[req[:origin_index]]
-        Success(req.merge(origin:, attractions:))
+        Success(req.merge(attractions:))
       end
 
       def generate_distance_calculator(input)

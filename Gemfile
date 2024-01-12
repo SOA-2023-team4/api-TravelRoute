@@ -6,6 +6,7 @@ ruby File.read('.ruby-version').strip
 # CONFIGURATION
 gem 'figaro', '~> 1.2'
 gem 'pry'
+gem 'pry-nav'
 gem 'rack-test' # for testing and can also be used to diagnose in production
 gem 'rake', '~> 13.0'
 

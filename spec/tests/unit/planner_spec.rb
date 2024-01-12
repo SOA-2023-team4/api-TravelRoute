@@ -148,7 +148,8 @@ describe 'Unit test for planning' do
           TravelRoute::Value::OpeningHour::NOT_OPEN,
           TravelRoute::Value::OpeningHour::NOT_OPEN,
           TravelRoute::Value::OpeningHour::NOT_OPEN,
-          TravelRoute::Value::OpeningHour::NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN
+        ]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )
@@ -265,7 +266,8 @@ describe 'Unit test for planning' do
             day_start: TravelRoute::Value::Time.new(hour: 9, minute: 0),
             day_end: TravelRoute::Value::Time.new(hour: 15, minute: 0)
           ),
-          TravelRoute::Value::OpeningHour::NOT_OPEN]
+          TravelRoute::Value::OpeningHour::NOT_OPEN
+        ]
       ),
       location: TravelRoute::Value::Location.new(latitude: 0, longitude: 0)
     )

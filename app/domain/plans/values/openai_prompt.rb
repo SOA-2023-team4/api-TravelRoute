@@ -19,7 +19,7 @@ module TravelRoute
         city = attraction.city
         exclude ||= attraction.name
         prompt = <<-PROMPT
-        Recommend #{num} attractions to visit for traveling in #{city}.Excluding #{exclude.join(',')}.
+        Recommend #{num} attractions to visit for traveling in #{city}, Taiwan.Excluding #{exclude.join(',')}.
         Answer in JSON format {"places": ["name": <place_name}, "description": <to_do>]}.
         PROMPT
         new(prompt)
@@ -27,7 +27,7 @@ module TravelRoute
 
       def self.time_to_stay_prompt(attraction)
         prompt = <<-PROMPT
-        Suggest a time to stay at each place, in hours and what to do.
+        Suggest a time to stay at each place, in hours and what to do. do not suggest more than 3 hours.
         Answer in JSON format {"name": <place_name>, "stay_time": { hour: <int>, minute: <int> }, "description": <to_do>}.
         Places: #{attraction.name}
         PROMPT
